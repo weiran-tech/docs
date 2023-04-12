@@ -30,6 +30,21 @@ $ php artisan py-core:inspect > inspect.txt
 
 ## 代码
 
+### 使用 firstOrFail 替代查询
+
+使用 `firstOrFail` 在未查到匹配的数据后会抛出 `ModelNotFoundException` 异常并且此异常可以进行友好提示
+
+参考 : [模型:友好提示](../module/models.md#友好提示)
+
+### 使用 Request 校验
+
+使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现
+
+参考 :
+
+- [Laravel 表单验证](https://learnku.com/docs/laravel/6.x/validation/5144)
+- [(内部)PamRoleRequest](https://codeup.aliyun.com/qyd/poppy/wulicode/blob/4.2/poppy/system/src/Http/Validation/PamRoleRequest.php)
+
 ### 代码编写符合规范
 
 ### 测试用例完善并且通过

@@ -22,7 +22,7 @@ $ mix watch --mix-config=poppy/mgr-page/resources/libs/webpack.mix.js
 在资源变动之后我们需要将打包后的文件反向复制到 `mgr-page` 这个包中, 用到以下命令
 
 ```
-$ php artisan py-mgr-page:mix
+$ php artisan py-mgr:mix
 ```
 
 这样进行包提交即可
