@@ -38,7 +38,7 @@ $ php artisan py-core:inspect > inspect.txt
 
 ### 使用 Request 校验
 
-使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现
+使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中
 
 参考 :
 
