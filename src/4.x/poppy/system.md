@@ -1,5 +1,5 @@
 ---
-outline: deep
+outline : deep
 ---
 
 # 系统
@@ -232,8 +232,17 @@ sso 单点登录的分组, 默认数据为
     'web.unlimited' => ['h5', 'webapp', 'mp']
 ];
 ```
+### enable_email
 
-## 使用 Progress 方式数据表更新
+- Type : `bool`
+- Default : `false`
+
+是否启用邮箱, 默认关闭, 关闭后账号列表不展示邮箱列, 可以通过环境变量 `PY_SYS_ENABLE_EMAIL` 开启
+
+
+## 使用 Progress 方式数据表更新(不推荐)
+
+> 推荐使用命令行方式更新, 速度快, 可以后台执行
 
 ### 访问地址
 
