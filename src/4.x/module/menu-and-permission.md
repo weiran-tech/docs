@@ -38,7 +38,46 @@ title     : 标题
 icon      : 支持的图标
 groups    : 分组(数组)
 injection : 分组的插入目标地 'poppy.mgr-page/backend||setting' 代表放置到 mgr-page/backend setting 那个 key 下模块的后台分组
-match     : 用于路由的第三级别, 页面中内容区域和右侧菜单项目的匹配,不设置可能会导致页面菜单为空
+route     : 支持 route/params?query 的形式, 方便于传参
+target    : 支持菜单点击在页面的不同级别跳转
+route_param: 路由参数, 数组模式, 和 route 搭配使用
+param: 地址 Query 参数, 数组模式, 和 route 搭配使用
+```
+
+**Url模式**
+
+```yaml
+  title : Url 模式
+  children :
+    -
+      title : 绝对地址
+      icon : 'bi bi-link-45deg'
+      url : https://wulicode.com/
+    -
+      title : 相对地址
+      icon : 'bi bi-link'
+      url : /demo/helper/image
+      target: _blank
+```
+
+**路由模式**
+
+```yaml
+-
+  title : 路由模式
+  children :
+    -
+      title : 组合地址(多行)
+      icon : 'bi bi-link'
+      route : demo:web.home.output
+      route_param :
+        - multi-line
+      param:
+        my: name
+    -
+      title : 组合地址(单行)
+      icon : 'bi bi-link'
+      route : demo:web.home.output/single-line?my=name
 ```
 
 ## 权限
