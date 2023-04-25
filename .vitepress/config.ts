@@ -208,7 +208,6 @@ export default defineConfigWithTheme({
     title: 'Poppy Framework',
     description: 'Poppy Framework - 基于 Laravel 的模块化加载框架',
     srcDir: 'src',
-    base: process.env.VITE_VERCEL ? '/' : '/docs/poppy',
     head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
     mpa: false,
     themeConfig: {
