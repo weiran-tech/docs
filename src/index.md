@@ -7,7 +7,7 @@ hero :
   text : "基于 Laravel"
   tagline : 快速, 便捷, 全站式, 接口调用
   image:
-    src: /logo.png
+    src: https://file.wulicode.com/static/images/logo.png
     alt: VitePress
   actions :
     -

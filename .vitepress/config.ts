@@ -206,7 +206,7 @@ export default defineConfigWithTheme({
     head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
     mpa: false,
     themeConfig: {
-        logo: '/logo.png',
+        logo: 'https://file.wulicode.com/static/images/logo.png',
         nav,
         sidebar,
         search: {
