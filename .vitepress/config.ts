@@ -1,9 +1,4 @@
 import { defineConfigWithTheme } from 'vitepress'
-import { fileURLToPath, URL } from 'node:url'
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-import process from "process";
 
 /**
  * Create Simple Link
@@ -206,7 +201,7 @@ const i18n = {
 export default defineConfigWithTheme({
     lang: 'zh-CN',
     title: 'Poppy Framework',
-    description: 'Poppy Framework - 基于 Laravel 的模块化加载框架',
+    description: '基于 Laravel 的模块化加载框架',
     srcDir: 'src',
     head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
     mpa: false,
@@ -214,59 +209,18 @@ export default defineConfigWithTheme({
         logo: '/logo.png',
         nav,
         sidebar,
-        offlineSearch: {
-            locales: {
-                zh: {
-                    translations: {
-                        button: {
-                            buttonText: '搜索文档',
-                            buttonAriaLabel: '搜索文档'
-                        },
-                        modal: {
-                            noResultsText: '无法找到相关结果',
-                            resetButtonTitle: '清除查询条件',
-                            footer: {
-                                selectText: '选择',
-                                navigateText: '切换'
-                            }
-                        }
-                    }
-                }
-            }
+        search: {
+            provider: 'local'
         },
         // Placeholder of the i18n config for @vuejs-translations.
         i18n,
 
         footer: {
-            copyright: `Copyright © 2015-${new Date().getFullYear()} duoli`
+            copyright: `Copyright © 2015-${new Date().getFullYear()} duoli <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备13016276号-9</a>`
         }
     },
 
     vite: {
-        define: {
-            __VUE_OPTIONS_API__: false,
-            __VITE_MEILISEARCH_INDEX__: JSON.stringify('console'),
-            // __VITE_IS_VERCEL__: process.env.VITE_VERCEL ? 'Y' : 'N',
-        },
-        resolve: {
-            alias: {
-                // './VPNavBarSearch.vue': fileURLToPath(
-                //     new URL('./theme/components/Search.vue', import.meta.url)
-                // )
-            }
-        },
-        plugins: [
-            AutoImport({
-                resolvers: [
-                    ElementPlusResolver()
-                ]
-            }),
-            Components({
-                resolvers: [
-                    ElementPlusResolver({ ssr: true })
-                ]
-            }),
-        ],
         server: {
             host: true,
             port: 9428
