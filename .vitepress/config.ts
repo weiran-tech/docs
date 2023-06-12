@@ -167,7 +167,7 @@ export const sidebar = {
                 createLink('System', '/4.x/poppy/system'),
                 createLink('Mgr Page', '/4.x/poppy/mgr-page'),
                 createLink('Aliyun Oss', '/4.x/poppy/aliyun-oss'),
-                createLink('Aliyun Push', '/4,x/poppy/aliyun-push'),
+                createLink('Aliyun Push', '/4.x/poppy/aliyun-push'),
                 createLink('App', '/4.x/poppy/app'),
                 createLink('Sms', '/4.x/poppy/sms'),
             ]
