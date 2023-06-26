@@ -179,6 +179,7 @@ export const sidebar = {
                 createLink('支付宝支付', '/4.x/extension/alipay'),
                 createLink('Ip Store', '/4.x/extension/ip_store'),
                 createLink('Phpstan', '/4.x/extension/phpstan'),
+                createLink('Webhook', '/4.x/extension/webhook'),
             ]
         },
     ],
