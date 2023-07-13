@@ -1,7 +1,3 @@
----
-outline: deep
----
-
 # 服务和钩子
 
 服务的位置: `modules/{module}/configurations/services.yaml`

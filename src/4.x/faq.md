@@ -1,7 +1,3 @@
----
-outline: deep
----
-
 # FAQ
 
 ## Laravel 相关

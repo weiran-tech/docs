@@ -210,6 +210,7 @@ export default defineConfigWithTheme({
         logo: 'https://file.wulicode.com/static/images/logo.png',
         nav,
         sidebar,
+        outline: 'deep',
         search: {
             provider: 'local'
         },

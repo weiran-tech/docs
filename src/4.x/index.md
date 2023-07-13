@@ -1,7 +1,3 @@
----
-outline: deep
----
-
 # Poppy Framework 4.x
 
 > 基于 Laravel 的模块化开发框架

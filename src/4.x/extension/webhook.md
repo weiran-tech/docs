@@ -81,7 +81,7 @@ $feedCardData = [
 ];
 $message = new FeedCard($feedCardData);
 
-//Send through the `send()` method of the `\Poppy\Extension\Webhook\DingTalk` instance object
+// Send through the `send()` method of the `\Poppy\Extension\Webhook\DingTalk` instance object
 $dd->send($message);
 ```
 

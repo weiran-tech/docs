@@ -1,7 +1,3 @@
----
-outline : deep
----
-
 # 框架配置
 
 > 文件位置 `config/poppy.php`, key 为 `framework`

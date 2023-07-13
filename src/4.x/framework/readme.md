@@ -1,7 +1,3 @@
----
-outline : deep
----
-
 # README
 
 > `poppy` 寓意为完美的
