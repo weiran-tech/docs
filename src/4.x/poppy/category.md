@@ -26,7 +26,7 @@
 
 ## 事件
 
-当分类删除的时候会触发一个 `SysCategoryDeleteEvent(SysCategory $item)` 事件, 用于分类的引用拦截
+当分类删除的时候会触发一个 `SysCategoryBeforeDeleteEvent(SysCategory $item)` 事件, 用于分类的引用拦截
 
 ## 引用
 
