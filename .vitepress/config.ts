@@ -168,6 +168,7 @@ export const sidebar = {
                 createLink('Mgr Page', '/4.x/poppy/mgr-page'),
                 createLink('Aliyun Oss', '/4.x/poppy/aliyun-oss'),
                 createLink('Aliyun Push', '/4.x/poppy/aliyun-push'),
+                createLink('Category', '/4.x/poppy/category'),
                 createLink('App', '/4.x/poppy/app'),
                 createLink('Sms', '/4.x/poppy/sms'),
             ]
