@@ -38,12 +38,13 @@
 
 ![](https://file.huowanes.com/doc/20230715/1689385337172.png)
 
+路由访问地址 `route_url('py-category:backend.category.index', null, ['_scope'=>'default', '_hide' => 'scope'])`
+
 **钩子引用**
 
 内置钩子和参数用于引用分类, 该钩子为树形选择类型
 
 ![](https://file.huowanes.com/doc/20230715/1689386986041.png)
-
 
 ```
 name : poppy.category.form_category_select
