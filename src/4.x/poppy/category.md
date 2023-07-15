@@ -42,6 +42,9 @@
 
 内置钩子和参数用于引用分类, 该钩子为树形选择类型
 
+![](https://file.huowanes.com/doc/20230715/1689386986041.png)
+
+
 ```
 name : poppy.category.form_category_select
 params: 
