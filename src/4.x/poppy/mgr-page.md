@@ -1,14 +1,15 @@
 # 后台管理
 
-> 基于 layui 的后台管理工具包, 
+> 基于 layui 的后台管理工具包,
 
-演示地址 : [http://v4.wulicode.com/demo](http://v4.wulicode.com/demo/)
+演示地址 : http://v4.wulicode.com/demo
 
 ## 资源打包
 
 ### 开发监听
 
-在资源开发过程中, 我们使用如下命令进行资源监听, `webpack.mix.js` 本不存在, 需要在 `poppy/mgr-page/resources/libs/` 目录下复制 `webpack.mix.sample.js` 文件并更改名称,
+在资源开发过程中, 我们使用如下命令进行资源监听, `webpack.mix.js` 本不存在, 需要在 `poppy/mgr-page/resources/libs/`
+目录下复制 `webpack.mix.sample.js` 文件并更改名称,
 将文件放置到你所喜欢的的位置均可, 其中的代理域名以本地开发为主
 
 ```
@@ -35,8 +36,8 @@ $ php artisan vendor:publish --force --tag=poppy-mix
 
 ```json
 {
-    "scripts": {
-        "post-update-cmd": [
+    "scripts" : {
+        "post-update-cmd" : [
             "php artisan vendor:publish --force --tag=poppy-mix"
         ]
     }
@@ -505,3 +506,9 @@ function mgr_col(int $width = 0, string $fixed = '', string $append = '')
 ```
 'captcha_login' => (bool) env('PY_MGR_CAPTCHA_LOGIN', false),
 ```
+
+## 组件
+
+### 图片上传
+
+- 文件超出服务器最大上传限制应当显示友好的提示

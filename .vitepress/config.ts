@@ -205,7 +205,25 @@ export default defineConfigWithTheme({
     title: 'Poppy Framework',
     description: '基于 Laravel 的模块化加载框架',
     srcDir: 'src',
-    head: [['meta', { name: 'theme-color', content: '#3c8772' }]],
+    head: [
+        [
+            'script',
+            {
+                "async": "true",
+                'src': 'https://www.googletagmanager.com/gtag/js?id=G-NRV7JE4X54'
+            }
+        ],
+        [
+            'script',
+            {},
+            `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRV7JE4X54');
+          `
+        ]
+    ],
     mpa: false,
     themeConfig: {
         logo: 'https://file.wulicode.com/static/images/logo.png',

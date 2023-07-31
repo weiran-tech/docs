@@ -142,9 +142,9 @@ cross_headers => 'X-APP-VERSION'
 ### upload_image_district
 
 - Type : `array`
-- Default : `['default' => 1920,'avatar' => 300,]`
+- Default : `['default' => 1080,'avatar' => 300,]`
 
-上传图片大小限制, 根据接口上传的 `image_type` 类型对图片进行压缩
+上传图片大小限制, 根据接口上传的 `image_type` 类型对图片进行短边压缩
 
 ```
 'upload_image_district' => [
@@ -159,7 +159,8 @@ cross_headers => 'X-APP-VERSION'
 - Type : `array`
 - Default : `[]`
 
-支持 Laravel 的路由过滤的方式来移除匹配的路由不进行 csrf 验证. 参考 : [CSRF 保护](https://learnku.com/docs/laravel/6.x/csrf/5137)
+支持 Laravel 的路由过滤的方式来移除匹配的路由不进行 csrf 验证.
+参考 : [CSRF 保护](https://learnku.com/docs/laravel/6.x/csrf/5137)
 
 ### uncrypt_cookies
 
@@ -173,7 +174,8 @@ cross_headers => 'X-APP-VERSION'
 - Type : `string`
 - Default : `''`
 
-密码加载器, 这里这里设定密码算法, 为了保护用户数据安全, 特设定此方式来保护密码计算 默认是 `\Poppy\System\Classes\Auth\Password\DefaultPasswordProvider::class`
+密码加载器, 这里这里设定密码算法, 为了保护用户数据安全, 特设定此方式来保护密码计算
+默认是 `\Poppy\System\Classes\Auth\Password\DefaultPasswordProvider::class`
 替换该实现方式需要实现 `\Poppy\System\Classes\Contracts\PasswordContract::class` 约定.
 
 ### user_location
@@ -228,13 +230,13 @@ sso 单点登录的分组, 默认数据为
     'web.unlimited' => ['h5', 'webapp', 'mp']
 ];
 ```
+
 ### enable_email
 
 - Type : `bool`
 - Default : `false`
 
 是否启用邮箱, 默认关闭, 关闭后账号列表不展示邮箱列, 可以通过环境变量 `PY_SYS_ENABLE_EMAIL` 开启
-
 
 ## 使用 Progress 方式数据表更新(不推荐)
 
