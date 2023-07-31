@@ -1,4 +1,4 @@
-import { defineConfigWithTheme } from 'vitepress'
+import {defineConfigWithTheme} from 'vitepress'
 
 /**
  * Create Simple Link
@@ -6,7 +6,7 @@ import { defineConfigWithTheme } from 'vitepress'
  * @param url
  */
 const createLink = (title: string, url: string) => {
-    return { text: title, link: url }
+    return {text: title, link: url}
 }
 
 const nav = [
@@ -29,9 +29,9 @@ const nav = [
         text: '其他',
         activeMatch: `^/(develop)(1\.x)|(2\.x)|(3.x)/`,
         items: [
-            { text: '1.x', link: '1.x/tree' },
-            { text: '2.x', link: '2.x/' },
-            { text: '3.x', link: '3.x/' }
+            {text: '1.x', link: '1.x/tree'},
+            {text: '2.x', link: '2.x/'},
+            {text: '3.x', link: '3.x/'}
         ]
     }
 ]
@@ -165,7 +165,7 @@ export const sidebar = {
             items: [
                 createLink('Core', '/4.x/poppy/core'),
                 createLink('System', '/4.x/poppy/system'),
-                createLink('Mgr Page', '/4.x/poppy/mgr-page'),
+                createLink('Mgr Page', '/4.x/poppy/mgr-page/'),
                 createLink('Aliyun Oss', '/4.x/poppy/aliyun-oss'),
                 createLink('Aliyun Push', '/4.x/poppy/aliyun-push'),
                 createLink('Category', '/4.x/poppy/category'),
@@ -183,6 +183,12 @@ export const sidebar = {
                 createLink('Webhook', '/4.x/extension/webhook'),
             ]
         },
+    ],
+    '/4.x/poppy/mgr-page/': [
+        createLink('⬆️ 4.x', '/4.x/'),
+        createLink('Mgr Page', '/4.x/poppy/mgr-page/'),
+        createLink('动态表格', '/4.x/poppy/mgr-page/grid.md'),
+        createLink('组件', '/4.x/poppy/mgr-page/component.md'),
     ],
     '/develop': [
         {

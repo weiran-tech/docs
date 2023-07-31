@@ -1,5 +1,11 @@
 # Phpstan
 
+::: danger
+
+使用 Jetbrain 的 Inspection 检测替代, 不推荐使用本项目
+
+:::
+
 > since 4.1
 > 为了在项目中增加 phpstan 的静态检测
 
