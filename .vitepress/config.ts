@@ -1,4 +1,4 @@
-import {defineConfigWithTheme} from 'vitepress'
+import { defineConfigWithTheme } from 'vitepress'
 
 /**
  * Create Simple Link
@@ -6,7 +6,7 @@ import {defineConfigWithTheme} from 'vitepress'
  * @param url
  */
 const createLink = (title: string, url: string) => {
-    return {text: title, link: url}
+    return { text: title, link: url }
 }
 
 const nav = [
@@ -29,9 +29,9 @@ const nav = [
         text: '其他',
         activeMatch: `^/(develop)(1\.x)|(2\.x)|(3.x)/`,
         items: [
-            {text: '1.x', link: '1.x/tree'},
-            {text: '2.x', link: '2.x/'},
-            {text: '3.x', link: '3.x/'}
+            { text: '1.x', link: '1.x/tree' },
+            { text: '2.x', link: '2.x/' },
+            { text: '3.x', link: '3.x/' }
         ]
     }
 ]
@@ -237,7 +237,12 @@ export default defineConfigWithTheme({
         sidebar,
         outline: 'deep',
         search: {
-            provider: 'local'
+            provider: 'algolia',
+            options: {
+                appId: 'S0E822B8FP',
+                apiKey: '2bca470e6dcaf21bfbb0fa7554e3c32d',
+                indexName: 'weiran'
+            }
         },
         // Placeholder of the i18n config for @vuejs-translations.
         i18n,
