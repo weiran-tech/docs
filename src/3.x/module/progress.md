@@ -1,4 +1,20 @@
+---
+description: '在每个模块下 progress 文件夹下(没有新建)编写'
+lastUpdated: '2023-12-11 19:40:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '批次更新'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '在每个模块下 progress 文件夹下(没有新建)编写'
+---
 # 批次更新
+
+
 
 ## 访问地址
 
@@ -73,3 +89,4 @@ class OrderHunterResultProgress implements Progress
   }
 }
 ```
+

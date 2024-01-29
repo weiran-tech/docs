@@ -1,12 +1,31 @@
+---
+description: '默认项目中没有 .env 文件复制 .env.example 为 .env配置数据库信息配置域名生成 app key, jwt key执行数据库 migrate系统安装并创建用户安装完成访问 https://poppy-demo.wulicode.com/mgr-page/login登录之后的界面'
+lastUpdated: '2023-12-11 19:41:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '安装'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '默认项目中没有 .env 文件复制 .env.example 为 .env配置数据库信息配置域名生成 app key, jwt key执行数据库 migrate系统安装并创建用户安装完成访问 https://poppy-demo.wulicode.com/mgr-page/login登录之后的界面'
+  - - meta
+    - name: 'og:image'
+      content: 'https://file.wulicode.com/notion/f5/f53a8afd99f025382325d96e3460377c.png?x-oss-process=image/resize,m_mfit,w_400'
+---
 # 安装
+
+
 
 ## 配置项目环境
 
-默认项目中没有 `.env` 文件
+默认项目中没有  `.env`  文件
 
 ### 项目配置文件
 
-复制 `.env.example` 为 `.env`
+复制  `.env.example`  为  `.env`
 
 ```
 $ cp .env.example .env
@@ -68,14 +87,11 @@ $ php artisan py-system:user create_user
 User root_user created
 ```
 
-安装完成访问 `https://poppy-demo.wulicode.com/mgr-page/login`
+安装完成访问  `https://poppy-demo.wulicode.com/mgr-page/login`
 
-
-![](https://file.wulicode.com/note/2021/11-09/09-47-19512.png)
-
+![](https://file.wulicode.com/notion/f5/f53a8afd99f025382325d96e3460377c.png)
 
 登录之后的界面
 
-![](https://file.wulicode.com/note/2021/11-09/09-47-58380.png)
-
+![](https://file.wulicode.com/notion/ad/ad47e08654f004ab4af6a667aefd296d.png)
 

@@ -1,16 +1,32 @@
+---
+description: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：定义 service首先在 services.yaml 中定义如下内容poppy.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 key()/data()方法执行 ServiceFactory 的 par'
+lastUpdated: '2024-01-29 18:26:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '服务和钩子'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：定义 service首先在 services.yaml 中定义如下内容poppy.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 key()/data()方法执行 ServiceFactory 的 par'
+---
 # 服务和钩子
 
-服务的位置: `modules/{module}/configurations/services.yaml`
 
-hook 位置: `modules/{module}/configurations/hooks.yaml`
+
+服务的位置:  `modules/{module}/configurations/services.yaml`
+
+hook 位置:  `modules/{module}/configurations/hooks.yaml`
 
 ## 服务和钩子的概念
 
 我们来解释一下 service：
 
-1.  service 是多个 module 之间扩展的重要方式。
-2.  我们将 service 和 hook 看作是插槽与插头的关系。一个插槽可以插多个插头。
-3.  每个 app 下都会有一个 service.yaml 的文件，来描述本 app 的 service,。
+- service 是多个 module 之间扩展的重要方式。
+- 我们将 service 和 hook 看作是插槽与插头的关系。一个插槽可以插多个插头。
+- 每个 app 下都会有一个 service.yaml 的文件，来描述本 app 的 service,。
 
 ## 使用
 
@@ -27,7 +43,7 @@ poppy.system.api_info:
     description: 系统信息接口调用, 系统信息返回的灵活数据
 ```
 
-`poppy.system.api_info` 分为三个部分
+`poppy.system.api_info`  分为三个部分
 
 ```
 poppy    : 命名空间
@@ -142,7 +158,7 @@ sys_hook('poppy.ad.place_selection', $param)
 
 ### 获取 service
 
-services 方法中调用
+services 方法中调用<br />
 ModulesService 发 initialize 方法中,对每个模块下的 service 的配置进行了 key=\>value 的缓存初始化操作
 
 ```php
@@ -364,3 +380,4 @@ dump((new ServiceFactory)->parse('ad.place_selection', [
   #html: "<select class="layui-input" name="abc"><option selected="selected" value="">请选择广告位</option><option value="4">东城区</option><option value="5">北京市</option><option value="7">轮播图</option></select>"
 }
 ```
+

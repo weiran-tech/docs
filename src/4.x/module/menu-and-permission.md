@@ -1,4 +1,20 @@
+---
+description: '菜单采用 yaml 进行定义, 支持三级菜单, 菜单如下定义, 在添加菜单之后需要运行如下命令更新缓存后生效key 包含 backend(后端), web(前台)这几个部分.Url模式路由模式权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限,'
+lastUpdated: '2024-01-29 19:12:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '权限和菜单'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '菜单采用 yaml 进行定义, 支持三级菜单, 菜单如下定义, 在添加菜单之后需要运行如下命令更新缓存后生效key 包含 backend(后端), web(前台)这几个部分.Url模式路由模式权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限,'
+---
 # 权限和菜单
+
+
 
 ## 菜单
 
@@ -43,7 +59,7 @@ param: 地址 Query 参数, 数组模式, 和 route 搭配使用
 **Url模式**
 
 ```yaml
-  title : Url 模式
+- title : Url 模式
   children :
     -
       title : 绝对地址
@@ -80,7 +96,7 @@ param: 地址 Query 参数, 数组模式, 和 route 搭配使用
 
 ### 定义
 
-权限解释 : `backend:system.global.manage`
+权限解释 :  `backend:system.global.manage`
 
 ```
 backend : 后台
@@ -88,7 +104,7 @@ system  : 模块
 global.manage : 权限操作
 ```
 
-权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 `static::$permission` 权限来进行限定,操作权限用于在操作步骤中进行限定
+权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值  `static::$permission`  权限来进行限定,操作权限用于在操作步骤中进行限定
 
 ```yaml
 -
@@ -125,12 +141,12 @@ $ php artisan py-core:permission init
 
 ### 在控制器中使用权限
 
-在控制器中定义变量 `self::$permission`, 并赋值全局权限, 则可以对控制器进行权限控制
+在控制器中定义变量  `self::$permission` , 并赋值全局权限, 则可以对控制器进行权限控制
 
 其中 :
 
-- `global` 用于对没有设定方法的权限进行全部的权限限定
-- `create` 用于对 `create` 方法进行权限设定
+-  `global`  用于对没有设定方法的权限进行全部的权限限定
+-  `create`  用于对  `create`  方法进行权限设定
 
 ```php
 /**
@@ -149,7 +165,7 @@ class PlaceController extends InitController
 
 **策略中权限的定义**
 
-对于在策略中使用的权限, 建议使用 `$permissionMap` 进行权限的统一定义, 这样既可在使用权限的时候便可以进行权限的校验
+对于在策略中使用的权限, 建议使用  `$permissionMap`  进行权限的统一定义, 这样既可在使用权限的时候便可以进行权限的校验
 
 ```php
 /**
@@ -200,6 +216,9 @@ _编辑_
 
 使用以下命令验证权限在项目中是否有多余的定义, 这个前提是权限必须定义在策略中或者控制器中
 
-```console
+```shell
 $ php artisan py-core:inspect permission
 ```
+
+
+

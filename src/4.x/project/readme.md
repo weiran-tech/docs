@@ -1,14 +1,33 @@
+---
+description: '默认项目中没有 .env 文件复制 .env.example 为 .env配置数据库信息配置域名生成 app key, jwt key执行数据库 migrate系统安装并创建用户安装完成访问 https://poppy-demo.wulicode.com/mgr-page/login登录之后的界面项目的 .env 文件配置, 文件遵循 laravel 配置, 这里只列出框架需要注意的配置项目项目中使用 jwt 进行项目授权, 必须要生成 JWT_SECRET项目中缓存约定支持 redis, 不使用可能会导致部分功能不可用演示模式下不允许修改主'
+lastUpdated: '2023-12-11 19:42:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '说明'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '默认项目中没有 .env 文件复制 .env.example 为 .env配置数据库信息配置域名生成 app key, jwt key执行数据库 migrate系统安装并创建用户安装完成访问 https://poppy-demo.wulicode.com/mgr-page/login登录之后的界面项目的 .env 文件配置, 文件遵循 laravel 配置, 这里只列出框架需要注意的配置项目项目中使用 jwt 进行项目授权, 必须要生成 JWT_SECRET项目中缓存约定支持 redis, 不使用可能会导致部分功能不可用演示模式下不允许修改主'
+  - - meta
+    - name: 'og:image'
+      content: 'https://file.wulicode.com/notion/f5/f53a8afd99f025382325d96e3460377c.png?x-oss-process=image/resize,m_mfit,w_400'
+---
 # 说明
+
+
 
 ## 安装
 
 ### 配置项目环境
 
-默认项目中没有 `.env` 文件
+默认项目中没有  `.env`  文件
 
 ### 项目配置文件
 
-复制 `.env.example` 为 `.env`
+复制  `.env.example`  为  `.env`
 
 ```
 $ cp .env.example .env
@@ -70,13 +89,13 @@ $ php artisan py-system:user create_user
 User root_user created
 ```
 
-安装完成访问 `https://poppy-demo.wulicode.com/mgr-page/login`
+安装完成访问  `https://poppy-demo.wulicode.com/mgr-page/login`
 
-![](https://file.wulicode.com/note/2021/11-09/09-47-19512.png)
+![](https://file.wulicode.com/notion/f5/f53a8afd99f025382325d96e3460377c.png)
 
 登录之后的界面
 
-![](https://file.wulicode.com/note/2021/11-09/09-47-58380.png)
+![](https://file.wulicode.com/notion/ad/ad47e08654f004ab4af6a667aefd296d.png)
 
 ## 项目说明
 
@@ -126,11 +145,11 @@ User root_user created
 
 ## 配置
 
-项目的 `.env` 文件配置, 文件遵循 laravel 配置, 这里只列出框架需要注意的配置项目
+项目的  `.env`  文件配置, 文件遵循 laravel 配置, 这里只列出框架需要注意的配置项目
 
 ### jwt-secret
 
-项目中使用 jwt 进行项目授权, 必须要生成 `JWT_SECRET`
+项目中使用 jwt 进行项目授权, 必须要生成  `JWT_SECRET`
 
 ```
 $ php artisan jwt:secret
@@ -160,3 +179,4 @@ IS_DEMO=true
 # local|本地;test|测试;develop|开发;production|生产
 APP_ENV=local
 ```
+

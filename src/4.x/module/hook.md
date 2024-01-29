@@ -1,16 +1,32 @@
+---
+description: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理定义 service首先在 services.yaml 中定义如下内容poppy.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 ke'
+lastUpdated: '2024-01-29 15:49:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '服务和钩子'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理定义 service首先在 services.yaml 中定义如下内容poppy.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 ke'
+---
 # 服务和钩子
 
-服务的位置: `modules/{module}/configurations/services.yaml`
 
-hook 位置: `modules/{module}/configurations/hooks.yaml`
+
+服务的位置:  `modules/{module}/configurations/services.yaml`
+
+hook 位置:  `modules/{module}/configurations/hooks.yaml`
 
 ## 服务和钩子的概念
 
 我们来解释一下 service：
 
-1.  service 是多个 module 之间扩展的重要方式。
-2.  我们将 service 和 hook 看作是插槽与插头的关系。一个插槽可以插多个插头。
-3.  每个模块下都会有一个 service.yaml 的文件，来描述本模块的可以提供的服务插槽。
+- service 是多个 module 之间扩展的重要方式。
+- 我们将 service 和 hook 看作是插槽与插头的关系。一个插槽可以插多个插头。
+- 每个模块下都会有一个 service.yaml 的文件，来描述本模块的可以提供的服务插槽。
 
 ## 使用
 
@@ -33,7 +49,7 @@ poppy.system.api_info:
     description: 系统信息接口调用, 系统信息返回的灵活数据
 ```
 
-`poppy.system.api_info` 分为三个部分
+`poppy.system.api_info`  分为三个部分
 
 ```
 poppy    : 命名空间
@@ -78,7 +94,6 @@ class ApiInfo
 
 ```php
 sys_hook('poppy.system.api_info');
-
 [
     'api' => 'info'
 ]

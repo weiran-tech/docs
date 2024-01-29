@@ -1,4 +1,20 @@
+---
+description: 'dingtalk robot api SDK for PHP用来快速发送群聊机器人消息, 当前支持钉钉通过钉钉客户端(pc)获取机器人的访问令牌。建议对安全设置进行签名文本和 markdown 类型的消息支持自动填充@信息，例如:'
+lastUpdated: '2024-01-29 19:11:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: 'Poppy webhook'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: 'dingtalk robot api SDK for PHP用来快速发送群聊机器人消息, 当前支持钉钉通过钉钉客户端(pc)获取机器人的访问令牌。建议对安全设置进行签名文本和 markdown 类型的消息支持自动填充@信息，例如:'
+---
 # Poppy webhook
+
+
 
 [dingtalk robot api](https://open.dingtalk.com/document/isvapp/custom-bot-access-send-message) SDK for PHP
 
@@ -13,7 +29,7 @@ ext-json >= *
 
 ## 安装
 
-```shell
+```
 composer require poppy/ext-webhook
 ```
 
@@ -96,10 +112,10 @@ $text->setAtMobiles(['a'=>'150xxxxxxxx']);
 
 ## 支持的消息类型
 
-* text类型
-* link类型
-* markdown类型
-* 整体跳转ActionCard类型
-* 独立跳转ActionCard类型
-* FeedCard类型
+- text类型
+- link类型
+- markdown类型
+- 整体跳转ActionCard类型
+- 独立跳转ActionCard类型
+- FeedCard类型
 

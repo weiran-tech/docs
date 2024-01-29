@@ -1,4 +1,20 @@
+---
+description: ''
+lastUpdated: '2024-01-29 14:46:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '更新日志'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: ''
+---
 # 更新日志
+
+
 
 ## 4.x
 
@@ -22,10 +38,10 @@
 - (framework) 移除框架的文件加载
 - (framework) 移除 Mocker, 采用 seldom 自动化接口测试框架
 - (framework) sami 文档生成工具替换为 doctum
-- (system) 异常处理推荐 `Framework` 的 `Handler`
+- (system) 异常处理推荐  `Framework`  的  `Handler` 
 - (system) 分离 system 的 mgr-page
-- (system) 移除 `ui.yaml` 文件定义
-- (system) 移除 `JwtAuthGuard` 和 `jwt` 包重复
+- (system) 移除  `ui.yaml`  文件定义
+- (system) 移除  `JwtAuthGuard`  和  `jwt`  包重复
 - (core) 接口使用 js eval 来执行, 来源自 apidoc 升级
 - (module) migration 目录和 seeds 目录变更
 - (ext) 加入 phpstan 进行静态代码分析
@@ -35,8 +51,8 @@
 ### 3.2
 
 - php 最低限制 7.4
-- composer 版本 `2.*`
-- (framework) 放开 laravel 6.0 的限制至 `6.*`
+- composer 版本  `2.*` 
+- (framework) 放开 laravel 6.0 的限制至  `6.*` 
 
 ### 3.1
 
@@ -54,11 +70,11 @@
 - (framework) Remove web-helper
 - (framework) Remove PoppyServiceProvider@registerConsoleCommand
 - (framework) 更改为强类型(Strong Type)
-- (framework) remove `Http\Middlewares\CrossPreflight` : 使用 `EnableCrossRequest` 替代
-- (framework) Event `PoppyOptimized` move to `src\Events` folder
+- (framework) remove  `Http\Middlewares\CrossPreflight`  : 使用  `EnableCrossRequest`  替代
+- (framework) Event  `PoppyOptimized`  move to  `src\Events`  folder
 - (framework) 模块支持 composer poppy 文件夹加载, poppy.xxx 为 composer 模块, module.xx 为自定义业务逻辑模块
-- (framework) Resp 内置参数 `_json`, `_location`, `_time`, `_forget`, `_time` 更改为下划线前缀
-- (framework) `Rule::password()` 和 Laravel 框架的 `password` 规则冲突, 新增 `Rule::simplePwd()` 方法来进行基本的密码校验
+- (framework) Resp 内置参数  `_json` ,  `_location` ,  `_time` ,  `_forget` ,  `_time`  更改为下划线前缀
+- (framework)  `Rule::password()`  和 Laravel 框架的  `password`  规则冲突, 新增  `Rule::simplePwd()`  方法来进行基本的密码校验
 - (core) 支持权限分离
 - (core) 分离 rbac -> core
 - (core) 分离 module -> core
@@ -105,7 +121,7 @@
 ## 1.x
 
 - (framework) for laravel 5.5
-- (framework) Remove `cache_name` function
+- (framework) Remove  `cache_name`  function
 - (framework) Remove similar function with laravel
 - (framework) Resp
 - (extension) Move Pinyin Component to Package
@@ -114,3 +130,4 @@
 - (framework) Delete Graphql
 - (framework) Add phplint
 - (framework) Add php-cs-fixer
+

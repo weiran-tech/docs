@@ -1,4 +1,20 @@
+---
+description: 'key 包含 backend(后端), develop(开发), web(前台)这几个部分.'
+lastUpdated: '2024-01-29 15:25:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '菜单'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: 'key 包含 backend(后端), develop(开发), web(前台)这几个部分.'
+---
 # 菜单
+
+
 
 ## 支持的类型
 
@@ -28,3 +44,4 @@ groups    : 分组(数组)
 injection : 分组的插入目标地 'poppy.mgr-page/backend||setting' 代表放置到 mgr-page/backend setting 那个 key 下模块的后台分组
 match     : 用于路由的第三级别, 页面中内容区域和右侧菜单项目的匹配,不设置可能会导致页面菜单为空
 ```
+

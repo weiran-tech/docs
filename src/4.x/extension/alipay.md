@@ -1,4 +1,20 @@
+---
+description: '更新你的依赖包 composer update 或者全新安装 composer install3.23.0'
+lastUpdated: '2024-01-29 19:10:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '支付宝支付'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '更新你的依赖包 composer update 或者全新安装 composer install3.23.0'
+---
 # 支付宝支付
+
+
 
 ## 安装
 
@@ -6,7 +22,7 @@
 composer require poppy/ext-alipay
 ```
 
-更新你的依赖包 `composer update` 或者全新安装 `composer install`
+更新你的依赖包  `composer update`  或者全新安装  `composer install`
 
 ## 使用
 
@@ -35,4 +51,5 @@ return $Aop;
 - 加入单元测试
 - 加入支付宝沙箱证书
 - 加入两个基本使用方法
-- 去除 app('files') 使用
+- 去除 app(‘files’) 使用
+

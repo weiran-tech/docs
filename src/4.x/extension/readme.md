@@ -1,4 +1,20 @@
+---
+description: 'composer.json 文件解释根目录文件生成方式 - 初始化 第一步: 创建 创建: 如果没有 ext-{package}/composer.json 中的时候composer 文件加载生成 autoload 文件清空进行 poppy 优化,重置缓存, 加载当前包至此命名空间可以自动加载成功'
+lastUpdated: '2023-12-12 10:25:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '扩展介绍'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: 'composer.json 文件解释根目录文件生成方式 - 初始化 第一步: 创建 创建: 如果没有 ext-{package}/composer.json 中的时候composer 文件加载生成 autoload 文件清空进行 poppy 优化,重置缓存, 加载当前包至此命名空间可以自动加载成功'
+---
 # 扩展介绍
+
+
 
 ## 如何开发
 
@@ -40,7 +56,7 @@ composer.json 文件解释
 }
 ```
 
-根目录文件生成方式 - 初始化 第一步: 创建 创建: 如果没有 `ext-{package}/composer.json` 中的时候
+根目录文件生成方式 - 初始化 第一步: 创建 创建: 如果没有  `ext-{package}/composer.json`  中的时候
 
 ```
 $ composer init
@@ -61,3 +77,4 @@ $ php artisan poppy:optimize
 ```
 
 至此命名空间可以自动加载成功
+

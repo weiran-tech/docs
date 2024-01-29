@@ -1,14 +1,30 @@
+---
+description: '位置 app/Lemon/Dailian/Action这里的注释在使用 WebStorm 的时候可以自动生成 /** 所有的函数都需要按照这种格式来写这里的返回值必须是 true/false , 如果是需要获取返回数值, 需要定义 getXxx 方法来获取class 的定义AppTrait 封装了权限处理, 错误设置, 用户设置, 用户检测等方法, 需要封装时候进行调用.这里我们以订单发布为例做下简单的说明 详细说明见注释 其中根据业务情况来进行处理, 有的可能不需要这种处理'
+lastUpdated: '2023-12-11 18:57:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: 'Action 业务逻辑封装'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '位置 app/Lemon/Dailian/Action这里的注释在使用 WebStorm 的时候可以自动生成 /** 所有的函数都需要按照这种格式来写这里的返回值必须是 true/false , 如果是需要获取返回数值, 需要定义 getXxx 方法来获取class 的定义AppTrait 封装了权限处理, 错误设置, 用户设置, 用户检测等方法, 需要封装时候进行调用.这里我们以订单发布为例做下简单的说明 详细说明见注释 其中根据业务情况来进行处理, 有的可能不需要这种处理'
+---
 # Action 业务逻辑封装
+
+
 
 ## 位置
 
-位置 `app/Lemon/Dailian/Action`
+位置  `app/Lemon/Dailian/Action`
 
 ## 写法要求
 
 ### 必须写注释
 
-这里的注释在使用 WebStorm 的时候可以自动生成 `/**` 所有的函数都需要按照这种格式来写
+这里的注释在使用 WebStorm 的时候可以自动生成  `/**`  所有的函数都需要按照这种格式来写
 
 ```
 /**
@@ -27,7 +43,7 @@ public function establish($input, $pay_pwd, $order_type, $type = 'plain')
 
 ### 必须返回值
 
-这里的返回值必须是 `true/false` , 如果是需要获取返回数值, 需要定义 `getXxx` 方法来获取
+这里的返回值必须是  `true/false`  , 如果是需要获取返回数值, 需要定义  `getXxx`  方法来获取
 
 ```
 // 使用
@@ -89,7 +105,7 @@ class ActionUpload
 
 ### 需要引入 AppTrait
 
-`AppTrait` 封装了权限处理, 错误设置, 用户设置, 用户检测等方法, 需要封装时候进行调用.
+`AppTrait`  封装了权限处理, 错误设置, 用户设置, 用户检测等方法, 需要封装时候进行调用.
 
 ```
 class ActionUpload
@@ -204,3 +220,4 @@ public function establish($input, $pay_pwd, $order_type, $type = 'plain')
     }
 }
 ```
+

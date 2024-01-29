@@ -1,4 +1,20 @@
+---
+description: '权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限, 则可以对控制器进行权限控制策略中权限的定义页面中对元素权限的判定'
+lastUpdated: '2024-01-29 19:05:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '权限'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限, 则可以对控制器进行权限控制策略中权限的定义页面中对元素权限的判定'
+---
 # 权限
+
+
 
 ## 定义
 
@@ -10,7 +26,7 @@ system  : 模块
 global.manage : 权限操作
 ```
 
-权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 `static::$permission` 权限来进行限定,操作权限用于在操作步骤中进行限定
+权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值  `static::$permission`  权限来进行限定,操作权限用于在操作步骤中进行限定
 
 ```yaml
 - title: 系统
@@ -33,7 +49,7 @@ global.manage : 权限操作
 
 添加权限之后首先要对权限初始化才能够正确使用权限
 
-```
+```shell
 $ php artisan py-core:permission init
 ```
 
@@ -45,7 +61,7 @@ $ php artisan py-core:permission init
 
 ### 控制器
 
-在控制器中定义变量 `self::$permission`, 并赋值全局权限, 则可以对控制器进行权限控制
+在控制器中定义变量  `self::$permission` , 并赋值全局权限, 则可以对控制器进行权限控制
 
 ```php
 /**
@@ -96,9 +112,8 @@ class AdPlacePolicy
 
 **页面中对元素权限的判定**
 
-_创建_
-
-```
+```html
+// 创建
 @can('create', \Ad\Models\AdPlace::class)
     <a href="{{route_url('ad:backend.place.establish')}}"
        class="layui-btn layui-btn-sm J_iframe">
@@ -107,9 +122,8 @@ _创建_
 @endcan
 ```
 
-_编辑_
-
-```
+```html
+// 编辑
 @can('edit', $item)
     <a data-toggle="tooltip" title="编辑"
        href="{{route_url('ad:backend.place.establish', [$item->id])}}">
@@ -117,3 +131,6 @@ _编辑_
     </a>
 @endcan
 ```
+
+
+

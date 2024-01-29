@@ -1,7 +1,22 @@
+---
+description: '项目分为两个部分, 一部分为模块, 另一部分是 Poppy 模块, 为了区分, 所以 slug 的命名分为 module.{module} poppy.{poppy}[v3.1] Poppy Framework 附带一个 bin 命令 poppy, 可以执行 poppy 框架的清理函数, 运行方法创建一个 Poppy 模块并启动它.模块文件树:列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed生成的模型如下支持 Xml,Ini,Yaml开发进行提交前按照这个清单'
+lastUpdated: '2024-01-29 19:03:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: 'README'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '项目分为两个部分, 一部分为模块, 另一部分是 Poppy 模块, 为了区分, 所以 slug 的命名分为 module.{module} poppy.{poppy}[v3.1] Poppy Framework 附带一个 bin 命令 poppy, 可以执行 poppy 框架的清理函数, 运行方法创建一个 Poppy 模块并启动它.模块文件树:列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed生成的模型如下支持 Xml,Ini,Yaml开发进行提交前按照这个清单'
+---
 # README
 
-项目分为两个部分, 一部分为模块, 另一部分是 Poppy 模块, 为了区分, 所以 slug 的命名分为
-`module.{module}` `poppy.{poppy}`
+
+
+项目分为两个部分, 一部分为模块, 另一部分是 Poppy 模块, 为了区分, 所以 slug 的命名分为  `module.{module}`   `poppy.{poppy}`
 
 ## Bin
 
@@ -100,19 +115,39 @@ poppy:migration {slug}        创建一个指定模块的数据库迁移文件
 
 生成器工具
 
-```php
-php artisan poppy:command {slug} {name}           # 生成命令文件
+```shell
+# 生成命令文件
+$ php artisan poppy:command {slug} {name}        
+
+# 生成控制器文件   
 php artisan poppy:controller {slug} {api/web/backend} {name}
-                                                  # 生成控制器文件
-php artisan poppy:middleware {slug} {name}        # 生成中间件文件
-php artisan poppy:model {slug} {name}             # 生成数据库模型文件
-php artisan poppy:policy {slug} {name}            # 生成 policy 策略文件
-php artisan poppy:provider {slug} {name}          # 生成服务提供者
-php artisan poppy:request {slug} {name}           # 生成 request 文件
-php artisan poppy:test {slug} {name}              # 生成测试文件
-php artisan poppy:make {slug}                     # 生成模块
-php artisan poppy:listener {slug} {name}          # 事件监听器(详细见下方)
-php artisan poppy:event {slug} {name}             # 生成事件文件
+
+# 生成中间件文件
+php artisan poppy:middleware {slug} {name} 
+
+# 生成数据库模型文件       
+php artisan poppy:model {slug} {name}
+
+# 生成 policy 策略文件            
+php artisan poppy:policy {slug} {name}     
+
+# 生成服务提供者       
+php artisan poppy:provider {slug} {name}  
+
+# 生成 request 文件        
+php artisan poppy:request {slug} {name} 
+
+# 生成测试文件         
+php artisan poppy:test {slug} {name}
+
+# 生成模块              
+php artisan poppy:make {slug}    
+
+# 事件监听器(详细见下方)                 
+php artisan poppy:listener {slug} {name}   
+  
+# 生成事件文件     
+php artisan poppy:event {slug} {name}             
 ```
 
 ### 生成模块监听类文件
@@ -130,7 +165,7 @@ php artisan poppy:event {slug} {name}
 
 ### 数据库 Seeder 和 Seed 命令
 
-```shell
+```
 # 生成种子文件
 $ php artisan poppy:seeder {slug} {name}
 
@@ -140,7 +175,7 @@ $ php artisan poppy:seed {slug}
 
 **创建 seeder 文件**
 
-```php
+```shell
 # 生成模块的主 seeder 文件
 $ php artisan poppy:seeder module.demo DemoDatabaseSeeder
 
@@ -181,7 +216,7 @@ public function run()
 
 执行 seed
 
-```shell
+```
 $ php artisan poppy:seed module.demo
 Seeding: Demo\Database\Seeds\DemoDbDatabaseSeeder
 Database seeding completed successfully.
@@ -189,11 +224,11 @@ Database seeding completed successfully.
 
 ### 数据库 Factory 生成
 
-```shell
+```
 $ php artisan poppy:factory {slug} {name}
 ```
 
-```shell
+```
 # 指定当前模块下的模型
 $ php artisan poppy:factory module.demo DemoDbFactory --model="DemoDb"
 
@@ -281,14 +316,14 @@ UtilHelper
 开发进行提交前按照这个清单进行下检测
 
 **PHP-CS-Fixer**
-[PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) is a tool to automatically fix PHP Coding Standards issues, We use it for Code
-Specification.
+
+[PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) is a tool to automatically fix PHP Coding Standards issues, We use it for Code Specification.
 
 **测试用例完善并且通过**
 
 **注释完善并且通过**
 
-注释使用 `poppy/core` 模块来检测[开发必备]
+注释使用  `poppy/core`  模块来检测[开发必备]
 
 ```
 $ php artisan py-core:inspect class
@@ -298,13 +333,13 @@ $ php artisan py-core:inspect class
 
 这个指的是 IDE 进行优化导入, 选中文件夹, 然后批量进行格式化 + 优化导入
 
-
 ## 参考 & Docs
 
--   [Yaml](http://nodeca.github.io/js-yaml/)
--   [EloquentFilter](https://github.com/Tucker-Eric/EloquentFilter)
--   [Sami](https://github.com/FriendsOfPHP/Sami)
--   [Carbon - 时间组件](https://segmentfault.com/a/1190000014239090)
--   [Laravel Html & Form - Html/Form 封装](https://segmentfault.com/a/1190000011580448)
--   [hieu-le/active-Url 状态组件](https://laravel-china.org/topics/2858/extended-recommendation-hieu-leactive-according-to-the-url-generated-corresponding-navigation-active-state)
--   [hashids/hashids - 对 ID 进行 Hash 加密](https://github.com/vinkla/laravel-hashids)
+- [Yaml](http://nodeca.github.io/js-yaml/)
+- [EloquentFilter](https://github.com/Tucker-Eric/EloquentFilter)
+- [Sami](https://github.com/FriendsOfPHP/Sami)
+- [Carbon - 时间组件](https://segmentfault.com/a/1190000014239090)
+- [Laravel Html & Form - Html/Form 封装](https://segmentfault.com/a/1190000011580448)
+- [hieu-le/active-Url 状态组件](https://laravel-china.org/topics/2858/extended-recommendation-hieu-leactive-according-to-the-url-generated-corresponding-navigation-active-state)
+- [hashids/hashids - 对 ID 进行 Hash 加密](https://github.com/vinkla/laravel-hashids)
+

@@ -1,4 +1,20 @@
+---
+description: ''
+lastUpdated: '2023-12-11 18:45:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '文件目录树'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: ''
+---
 # 文件目录树
+
+
 
 > 本文件目录树支持 Laravel 5.1 版本
 
@@ -82,3 +98,4 @@
 ├── tests         # 自动化测试
 └── vendor        # 第三方目录
 ```
+

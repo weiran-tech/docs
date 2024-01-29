@@ -1,8 +1,24 @@
+---
+description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如phplint是一个快速检测 php 语法错误的工具, 此工具无需安装在项目中, 全局安装即可.运行 php artisan poppy:optimize 保障依赖组件均已经安装由于这里是继承的 “laravelcollective/html” 组件, 所以必须先禁用掉原生的自动发现在 composer.json 文件中禁用自动发现在 providers 部分加入生成自动加载类清空缓存的数据然后在 app.php 的 aliases 部分加入右键忽略掉即可, 这个是生成的文件, 不需要进'
+lastUpdated: '2024-01-29 19:07:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '最佳实践'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如phplint是一个快速检测 php 语法错误的工具, 此工具无需安装在项目中, 全局安装即可.运行 php artisan poppy:optimize 保障依赖组件均已经安装由于这里是继承的 “laravelcollective/html” 组件, 所以必须先禁用掉原生的自动发现在 composer.json 文件中禁用自动发现在 providers 部分加入生成自动加载类清空缓存的数据然后在 app.php 的 aliases 部分加入右键忽略掉即可, 这个是生成的文件, 不需要进'
+---
 # 最佳实践
+
+
 
 ## 配置
 
-对于文件目录 & 网址, 我们不建议在右侧添加 `/` 作为后缀, 例如
+对于文件目录 & 网址, 我们不建议在右侧添加  `/`  作为后缀, 例如
 
 ```
 URL_SITE=https://wulicode.com
@@ -10,8 +26,7 @@ URL_SITE=https://wulicode.com
 
 ## phplint
 
-[phplint](https://github.com/overtrue/phplint)是一个快速检测 php 语法错误的工具,
-此工具无需安装在项目中, 全局安装即可.
+[phplint](https://github.com/overtrue/phplint)是一个快速检测 php 语法错误的工具, 此工具无需安装在项目中, 全局安装即可.
 
 ```
 $ composer global require overtrue/phplint -vvv
@@ -21,15 +36,14 @@ $ phplint /path/of/code -c /framework/path/.phplint.yml
 
 ## 项目优化 optimize
 
-运行 `php artisan poppy:optimize` 保障依赖组件均已经安装
+运行  `php artisan poppy:optimize`  保障依赖组件均已经安装
 
 ## composer 配置
 
 ### 开发文件不需要自动加载
 
--   项目中使用 IDE Helper 生成浏览器提示文件,
-    此文件在正式项目下不需要进行加载
--   Clockwork 不需要加载
+- 项目中使用 IDE Helper 生成浏览器提示文件, 此文件在正式项目下不需要进行加载
+- Clockwork 不需要加载
 
 ```
 "extra" : {
@@ -44,8 +58,7 @@ $ phplint /path/of/code -c /framework/path/.phplint.yml
 
 ### 映射 Form , 需要在 composer 中加入数据
 
-由于这里是继承的 "laravelcollective/html" 组件,
-所以必须先禁用掉原生的自动发现
+由于这里是继承的 “laravelcollective/html” 组件, 所以必须先禁用掉原生的自动发现
 
 在 composer.json 文件中禁用自动发现
 
@@ -59,7 +72,7 @@ $ phplint /path/of/code -c /framework/path/.phplint.yml
 },
 ```
 
-在 `providers` 部分加入
+在  `providers`  部分加入
 
 ```
 'providers' => [
@@ -81,7 +94,7 @@ composer dumpautoload
 php artisan poppy:optimize
 ```
 
-然后在 `app.php` 的 `aliases` 部分加入
+然后在  `app.php`  的  `aliases`  部分加入
 
 ```
 'aliases' => [
@@ -93,7 +106,6 @@ php artisan poppy:optimize
 ```
 
 ## 模块配置 (config/module.php)
-
 
 ## IDE 项目配置
 
@@ -110,41 +122,6 @@ public/assets/js/system_cp.js
 public/assets/js/system_vendor.js
 public/assets/easy-web
 ```
-
-### IDE 插件配置
-
-#### 插件 [.ignore](https://plugins.jetbrains.com/plugin/7495--ignore)
-
-可以在编辑器忽略文件显示的组件
-
-[.ignore 示例文件](https://gist.github.com/imvkmark/15198641b214b35916cf54414516caf0)
-
-#### 插件 [Laravel Plugin](https://plugins.jetbrains.com/plugin/7532-laravel-plugin)
-
-**启用 插件**
-
-找到 `Preferences | Languages & Frameworks | PHP | Laravel`, 然后开启 `Enable Plugin for this project`
-
-**配置 view 的映射**
-例如 `system` 模块的映射地址应该是 `modules/system/resources/views`
-
-这样在点击的时候才能够跳转到这个页面
-
-**启用控制器的命名空间检测**
-
-在 `Router Namespace` 中添加相关的命名空间, 多个使用 `,` 分隔.
-
-#### 插件 [php inspection](https://plugins.jetbrains.com/plugin/7622-php-inspections-ea-extended-)
-
-开启之后需要需要在写 PHP 的时候注意项目, [相关的文档点击](https://github.com/kalessil/phpinspectionsea/tree/master/docs)
-
-#### 插件 [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
-
-> 提供字符的便捷操作
-
-#### 插件 [CamelCase](https://plugins.jetbrains.com/plugin/7160-camelcase)
-
-> 提供大小写转换
 
 ## 前端组件文档
 
@@ -169,7 +146,7 @@ number     int      3        本表单允许上传的最大数量
 
 ### 注释完善并且通过
 
-注释使用 `modules/system` 模块来检测
+注释使用  `modules/system`  模块来检测
 
 ```
 $ php artisan system:inspect class > fp.txt
@@ -180,3 +157,4 @@ $ php artisan system:inspect class > fp.txt
 ```
 ide:clean code
 ```
+

@@ -1,15 +1,30 @@
+---
+description: '查看下 ServiceProvider 是否已经加载安装 sentry/sentry-laravel 包新建异常监听这里文件位置放置在 modules/{module}/src/http/foundation 下使用 Handler将错误监听修改为自定义的错误监控类这样便可以注册并收到异常'
+lastUpdated: '2024-01-29 14:54:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: 'FAQ'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '查看下 ServiceProvider 是否已经加载安装 sentry/sentry-laravel 包新建异常监听这里文件位置放置在 modules/{module}/src/http/foundation 下使用 Handler将错误监听修改为自定义的错误监控类这样便可以注册并收到异常'
+---
 # FAQ
+
+
 
 ## Laravel 相关
 
-### Target \[App\Services\UserRepositoryInterface\] is not instantiable
+### Target  **`[App\Services\UserRepositoryInterface]`**  is not instantiable
 
 查看下 ServiceProvider 是否已经加载
 
-
 ### 对接 sentry
 
-**安装 `sentry/sentry-laravel` 包**
+**安装**  **`sentry/sentry-laravel`**  **包**
 
 ```
 composer require sentry/sentry-laravel
@@ -17,11 +32,10 @@ composer require sentry/sentry-laravel
 
 **新建异常监听**
 
-这里文件位置放置在 `modules/{module}/src/http/foundation` 下
-
-_Handler.php_
+这里文件位置放置在  `modules/{module}/src/http/foundation`  下
 
 ```php
+// Handler.php
 <?php
 
 namespace {Module}\Http\Foundation;
@@ -43,16 +57,14 @@ class Handler extends \Poppy\Framework\Http\Exception\Handler
         parent::report($exception);
     }
 }
-
 ```
 
 **使用 Handler**
 
 将错误监听修改为自定义的错误监控类
 
-_storage/bootstrap/app.php_
-
 ```php
+// storage/bootstrap/app.php
 $app->singleton(
 	Illuminate\Contracts\Debug\ExceptionHandler::class,
 	{Module}\Http\Foundation\Handler::class
@@ -60,3 +72,4 @@ $app->singleton(
 ```
 
 这样便可以注册并收到异常
+

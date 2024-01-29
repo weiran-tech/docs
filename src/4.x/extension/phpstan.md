@@ -1,13 +1,22 @@
+---
+description: '~/phpstan.neon 中增加运行'
+lastUpdated: '2023-12-28 15:21:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: 'Phpstan'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '~/phpstan.neon 中增加运行'
+---
 # Phpstan
 
-::: danger
 
-使用 Jetbrain 的 Inspection 检测替代, 不推荐使用本项目
 
-:::
-
-> since 4.1
-> 为了在项目中增加 phpstan 的静态检测
+> since 4.1 为了在项目中增加 phpstan 的静态检测
 
 ## 安装
 
@@ -15,9 +24,18 @@
 composer require poppy/ext-phpstan 4.2.*
 ```
 
-`~/phpstan.neon` 中增加
+`~/phpstan.neon`  中增加
 
 ```
 includes:
     - vendor/poppy/ext-phpstan/extension.neon
 ```
+
+运行
+
+```shell
+$ phpstan analyse -c phpstan.neon
+```
+
+
+

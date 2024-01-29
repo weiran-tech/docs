@@ -1,4 +1,20 @@
+---
+description: '参考资料: [ Laravel 5.1 文档 ] 基础 —— HTTP 路由路由文件夹 : ~/app/Http/Routes/ 路由说明控制器文件位置 : ~/app/Http/Controllers/Front/TestController.php 控制器方法 public function getShow(){}参考资料: - [ Laravel 5.1 文档 ] 数据库 —— 查询构建器 - [ Laravel 5.1 文档 ] Eloquent ORM参考资料 Blade 模板引擎模板位置 : ~/resources/views控制器命名 命名方式采用蛇形'
+lastUpdated: '2024-01-29 15:46:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '入门手册'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '参考资料: [ Laravel 5.1 文档 ] 基础 —— HTTP 路由路由文件夹 : ~/app/Http/Routes/ 路由说明控制器文件位置 : ~/app/Http/Controllers/Front/TestController.php 控制器方法 public function getShow(){}参考资料: - [ Laravel 5.1 文档 ] 数据库 —— 查询构建器 - [ Laravel 5.1 文档 ] Eloquent ORM参考资料 Blade 模板引擎模板位置 : ~/resources/views控制器命名 命名方式采用蛇形'
+---
 # 入门手册
+
+
 
 ## 如何渲染显示内容
 
@@ -6,7 +22,7 @@
 
 参考资料: [[ Laravel 5.1 文档 ] 基础 —— HTTP 路由](http://laravelacademy.org/post/53.html)
 
-路由文件夹 : `~/app/Http/Routes/` 路由说明
+路由文件夹 :  `~/app/Http/Routes/`  路由说明
 
 ```
 front.php    # 前台路由
@@ -14,7 +30,7 @@ desktop.php  # 后台路由
 develop.php  # 开发平台
 ```
 
-- 定义前台路由 `~/app/Http/Routes/front.php`
+- 定义前台路由  `~/app/Http/Routes/front.php` 
 
 ```
 # 使用组定义路由
@@ -35,13 +51,13 @@ Route::group([
 
 ### 定义控制器 @ 方法
 
-控制器文件位置 : `~/app/Http/Controllers/Front/TestController.php` 控制器方法 `public function getShow(){}`
+控制器文件位置 :  `~/app/Http/Controllers/Front/TestController.php`  控制器方法  `public function getShow(){}`
 
 ### 读取模型数据
 
 参考资料: - [[ Laravel 5.1 文档 ] 数据库 —— 查询构建器](http://laravelacademy.org/post/126.html) - [[ Laravel 5.1 文档 ] Eloquent ORM](http://laravelacademy.org/post/138.html)
 
-- 创建模型 模型的位置: `~/app/Models/` 命名规范: 首字母大写的驼峰模式 `GameServer`
+- 创建模型 模型的位置:  `~/app/Models/`  命名规范: 首字母大写的驼峰模式  `GameServer` 
 
 ```
 class GameServer{
@@ -82,9 +98,9 @@ $items = $Db->paginate($this->pageNum);
 
 参考资料 [Blade 模板引擎](http://laravelacademy.org/post/79.html)
 
-模板位置 : `~/resources/views`
+模板位置 :  `~/resources/views`
 
-控制器命名 命名方式采用蛇形方式命名, 和控制器进行匹配, 函数命名遵循类函数命名规范, 文件名称和方法名称有效匹配 PS:, 这个文件完整路径应是 `~`
+控制器命名 命名方式采用蛇形方式命名, 和控制器进行匹配, 函数命名遵循类函数命名规范, 文件名称和方法名称有效匹配 PS:, 这个文件完整路径应是  `~`
 
 ```
 # 命名空间/控制器/方法.blade.php
@@ -115,14 +131,14 @@ return view('front.test.show', [
 ```
 
 - 命名约定
-- 系统内置变量加 `_` 下划线前缀
+- 系统内置变量加  `_`  下划线前缀
 - 命名方式: 小写, 蛇形
 
 ## 辅助功能
 
 ### 路由地址生成
 
-route 函数, 参数是 路由的名称 `route('front_test.show')` : helper 函数(帮助函数) `route('front_test.show', [1,2])` : helper 函数(帮助函数) `route_url('front_test.show', null, ['id'=> 5])` : 框架函数 - 传参 访问地址 : `http://www.domain.com/test/show/5/234`
+route 函数, 参数是 路由的名称  `route('front_test.show')`  : helper 函数(帮助函数)  `route('front_test.show', [1,2])`  : helper 函数(帮助函数)  `route_url('front_test.show', null, ['id'=> 5])`  : 框架函数 - 传参 访问地址 :  `http://www.domain.com/test/show/5/234`
 
 ```
 5   : 文章的ID    ($id)
@@ -152,7 +168,7 @@ public function getShow(Request $request) {
 
 ### 服务器绑定目录
 
-- `~/public` 只有一个 `index.php`
+-  `~/public`  只有一个  `index.php` 
 
 ### 自定义框架功能
 
@@ -272,7 +288,9 @@ api_end('error', $validator->errors())
 return support_end('error', $validator->errors());
 ```
 
-###定义通用的属性 位置: 在 `~/resources/lang/zh/validation.php` 语言文件中
+### 定义通用的属性
+
+位置: 在  `~/resources/lang/zh/validation.php`  语言文件中
 
 ```
 // 这个部分定义每个字段的显示值
@@ -300,3 +318,4 @@ $validator = \Validator::make($request->all(), [
 ```
 
 详细内容参见 [L5 验证](http://laravelacademy.org/post/240.html)
+

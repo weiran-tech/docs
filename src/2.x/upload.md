@@ -1,4 +1,20 @@
+---
+description: ''
+lastUpdated: '2023-12-11 19:00:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '图片上传'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: ''
+---
 # 图片上传
+
+
 
 ## 图片上传请求
 
@@ -24,3 +40,4 @@ url         : 成功返回
 destination : 成功返回
 msg         : 返回正确或者错误的信息
 ```
+

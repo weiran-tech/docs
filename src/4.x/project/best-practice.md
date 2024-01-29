@@ -1,4 +1,20 @@
+---
+description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义:::tip使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示参考 : 模型:友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “lar'
+lastUpdated: '2023-12-11 19:35:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: '最佳实践'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义:::tip使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示参考 : 模型:友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “lar'
+---
 # 最佳实践
+
+
 
 ## 参考阅读
 
@@ -6,7 +22,7 @@
 
 ## 配置
 
-对于文件目录 & 网址, 我们不建议在右侧添加 `/` 作为后缀, 例如
+对于文件目录 & 网址, 我们不建议在右侧添加  `/`  作为后缀, 例如
 
 ```
 URL_SITE=http://v4.wulicode.com
@@ -14,10 +30,10 @@ URL_SITE=http://v4.wulicode.com
 
 ## Inspect
 
-[Inspect](../poppy/core.md#检查代码) 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义
+Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义
 
-```console
-$ php artisan py-core:inspect > inspect.txt 
+```
+$ php artisan py-core:inspect > inspect.txt
 ```
 
 :::tip
@@ -25,14 +41,13 @@ $ php artisan py-core:inspect > inspect.txt
 - [必须] 完成 seo 校验
 - [必须] 完成 validation 校验
 - [必须] 完成 class 加载校验
-- [建议] 完成代码注释
-  :::
+- [建议] 完成代码注释 :::
 
 ## 代码
 
 ### 使用 firstOrFail 替代查询
 
-使用 `firstOrFail` 在未查到匹配的数据后会抛出 `ModelNotFoundException` 异常并且此异常可以进行友好提示
+使用  `firstOrFail`  在未查到匹配的数据后会抛出  `ModelNotFoundException`  异常并且此异常可以进行友好提示
 
 参考 : [模型:友好提示](../module/models.md#友好提示)
 
@@ -53,7 +68,7 @@ $ php artisan py-core:inspect > inspect.txt
 
 ### 加入安全策略
 
-项目根 `composer.json` 中加入安全建议
+项目根  `composer.json`  中加入安全建议
 
 ```
 {
@@ -65,8 +80,7 @@ $ php artisan py-core:inspect > inspect.txt
 
 ### 映射 Form , 需要在 composer 中加入数据
 
-由于这里是继承的 "laravelcollective/html" 组件,
-所以必须先禁用掉原生的自动发现
+由于这里是继承的 “laravelcollective/html” 组件, 所以必须先禁用掉原生的自动发现
 
 在 composer.json 文件中禁用自动发现
 
@@ -80,7 +94,7 @@ $ php artisan py-core:inspect > inspect.txt
 },
 ```
 
-在 `providers` 部分加入
+在  `providers`  部分加入
 
 ```
 'providers' => [
@@ -96,7 +110,7 @@ $ php artisan py-core:inspect > inspect.txt
 composer dumpautoload && php artisan poppy:optimize
 ```
 
-然后在 `app.php` 的 `aliases` 部分加入
+然后在  `app.php`  的  `aliases`  部分加入
 
 ```
 'aliases' => [
@@ -118,3 +132,4 @@ public/assets/
 storage/clockwork/
 storage/phpunit/
 ```
+

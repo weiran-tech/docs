@@ -1,4 +1,20 @@
+---
+description: '图片上传采用 l5-upload-client 组件, 这个组件形成了客户端 + 远程的方式进行上传, 几个参数配置及解释如下 如果本机作为客户端机器来访问, 需要配置'
+lastUpdated: '2023-12-11 18:58:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: 'Env 环境配置'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '图片上传采用 l5-upload-client 组件, 这个组件形成了客户端 + 远程的方式进行上传, 几个参数配置及解释如下 如果本机作为客户端机器来访问, 需要配置'
+---
 # Env 环境配置
+
+
 
 ## 基础环境
 
@@ -114,3 +130,4 @@ UM_ANDROID_MASTER_SECRET=yfejij3y7i6******7prrwnllnhz8
 UM_IOS_APP_KEY=557e776b67******000a89
 UM_IOS_MASTER_SECRET=klsghik55******0hu0fdfkjvev1
 ```
+

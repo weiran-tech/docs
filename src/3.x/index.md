@@ -1,4 +1,20 @@
+---
+description: '系统要求项目为了便于管理, 对代码进行模块化分组分为 框架, 核心, 管理, 组件 四部分构成, 使用 composer 进行模块化安装使用本项目可以快速的完成项目业务逻辑的开发, 其中包含项目是在公司内部的业务逻辑的基础之上剥离出来, 并且应用在公司快速开发的项目中, 内涵丰富的功能，可满足日常 80% 的开发需求项目以快速开发作为目标, 以后端快速分离开发来做性能的优化方向Github Issues'
+lastUpdated: '2024-01-29 15:16:00'
+head: 
+  - - meta
+    - name: 'og:title'
+      content: 'Poppy Framework'
+  - - meta
+    - name: 'og:type'
+      content: 'article'
+  - - meta
+    - name: 'og:description'
+      content: '系统要求项目为了便于管理, 对代码进行模块化分组分为 框架, 核心, 管理, 组件 四部分构成, 使用 composer 进行模块化安装使用本项目可以快速的完成项目业务逻辑的开发, 其中包含项目是在公司内部的业务逻辑的基础之上剥离出来, 并且应用在公司快速开发的项目中, 内涵丰富的功能，可满足日常 80% 的开发需求项目以快速开发作为目标, 以后端快速分离开发来做性能的优化方向Github Issues'
+---
 # Poppy Framework
+
+
 
 > 基于 Laravel 的模块化开发框架
 
@@ -31,14 +47,11 @@
 - 基于 jquery/layui 的后台管理框架
 - 基于 apidoc 的接口请求平台
 
-
 ### 扩展
+
 - aliyun-push (阿里云推送)
-- 
 
 项目为了便于管理, 对代码进行模块化分组分为 框架, 核心, 管理, 组件 四部分构成, 使用 composer 进行模块化安装
-
-##
 
 ## 功能
 
@@ -66,4 +79,5 @@
 ## Thanks To
 
 - [Layui](https://www.layui.com/)
-- [~~Notadd~~](https://xueyuanjun.com/post/7092)
+- [Notadd](https://xueyuanjun.com/post/7092)
+
