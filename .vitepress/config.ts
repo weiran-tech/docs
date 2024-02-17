@@ -210,6 +210,9 @@ export default defineConfig({
     title: 'Poppy Framework',
     description: '基于 Laravel 的模块化加载框架',
     srcDir: 'src',
+    sitemap: {
+        hostname: 'https://weiran.tech'
+    },
     head: [
         [
             'script',
