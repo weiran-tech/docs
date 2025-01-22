@@ -50,7 +50,6 @@ $ php artisan py-core:inspect > inspect.txt
 
 使用  `firstOrFail`  在未查到匹配的数据后会抛出  `ModelNotFoundException`  异常并且此异常可以进行友好提示
 
-参考 : [模型:友好提示](../module/models.md#友好提示)
 
 ### 使用 Request 校验
 
