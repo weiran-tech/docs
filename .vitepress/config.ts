@@ -30,7 +30,9 @@ const nav = [
         items: [
             { text: '1.x', link: '/1.x/tree' },
             { text: '2.x', link: '/2.x/' },
-            { text: '3.x', link: '/3.x/' }
+            { text: '3.x', link: '/3.x/' },
+            { text: '4.x', link: '/4.x/' },
+            { text: '10.x', link: '/10.x/' },
         ]
     }
 ]
@@ -185,6 +187,73 @@ export const sidebar = {
                 createLink('Ip Store', '/4.x/extension/ip-store'),
                 createLink('Phpstan', '/4.x/extension/phpstan'),
                 createLink('Webhook', '/4.x/extension/webhook'),
+            ]
+        },
+    ],
+    '/10.x': [
+        {
+            text: '前言',
+            items: [
+                createLink('版本说明', '/10.x/'),
+                createLink('升级说明', '/10.x/upgrade'),
+                createLink('常见问题', '/10.x/faq'),
+            ]
+        },
+        {
+            text: '项目',
+            items: [
+                createLink('说明', '/10.x/project/readme'),
+                createLink('最佳实践', '/10.x/project/best-practice'),
+            ]
+        },
+        {
+            text: '框架',
+            items: [
+                createLink('介绍', '/10.x/framework/readme'),
+                createLink('配置', '/10.x/framework/config'),
+                createLink('Resp', '/10.x/framework/resp'),
+                createLink('验证', '/10.x/framework/validation'),
+            ]
+        },
+        {
+            text: '模块',
+            items: [
+                createLink('介绍', '/10.x/module/readme'),
+                createLink('菜单和权限', '/10.x/module/menu-and-permission'),
+                createLink('服务和钩子', '/10.x/module/hook'),
+                createLink('模型', '/10.x/module/models'),
+                createLink('策略', '/10.x/module/policy'),
+                createLink('事件', '/10.x/module/event'),
+                createLink('更新', '/10.x/module/progress'),
+            ]
+        },
+        {
+            text: '组件',
+            items: [
+                createLink('Core', '/10.x/component/core'),
+                createLink('System', '/10.x/component/system'),
+                createLink('Aliyun Oss', '/10.x/component/aliyun-oss'),
+                createLink('Aliyun Push', '/10.x/component/aliyun-push'),
+                createLink('Category', '/10.x/component/category'),
+                createLink('App', '/10.x/component/app'),
+                createLink('Sms', '/10.x/component/sms'),
+            ]
+        },
+        {
+            text: '组件:后台',
+            items: [
+                createLink('Mgr Page', '/10.x/component/mgr-page'),
+                createLink('动态表格', '/10.x/component/mgr-page-grid.md'),
+                createLink('组件', '/10.x/component/mgr-page-component.md'),
+            ]
+        },
+        {
+            text: '扩展',
+            items: [
+                createLink('支付宝支付', '/10.x/extension/alipay'),
+                createLink('Ip Store', '/10.x/extension/ip-store'),
+                createLink('Phpstan', '/10.x/extension/phpstan'),
+                createLink('Webhook', '/10.x/extension/webhook'),
             ]
         },
     ],
