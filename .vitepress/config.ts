@@ -11,6 +11,11 @@ const createLink = (title: string, url: string) => {
 
 const nav = [
     {
+        text: '10.x-dev',
+        activeMatch: `^/(10\.x)/`,
+        link: '/10.x/'
+    },
+    {
         text: '4.x',
         activeMatch: `^/(4\.x)/`,
         link: '/4.x/'
@@ -32,7 +37,6 @@ const nav = [
             { text: '2.x', link: '/2.x/' },
             { text: '3.x', link: '/3.x/' },
             { text: '4.x', link: '/4.x/' },
-            { text: '10.x', link: '/10.x/' },
         ]
     }
 ]
