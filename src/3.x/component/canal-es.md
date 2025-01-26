@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '此项目读取 poppy.canal-es  配置详细配置以及说明如下执行index:create命令,即可创建指定名称的索引设置Mappings并创建索引执行import命令即可把指定数据表的数据导入到 Es 中参数说明'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/component/canal-es.html'
 ---
 # CanalEs - 同步导入监听组件
 
