@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '使用 php artisan poppy:model {module} {DbModel} 来生成模型模型文件统一放置在 ~/modules/{module}/src/models/ 文件夹下,这个文件夹中包含 4 中类型的数据配置项目模型:模型文件放置在上述文件夹中的根目录( ~  )下,命名与数据表名称相对应筛选过滤器放置位置 : ~/filters文件命名 : 模型名称+Filter 例如 :(PamAccountFilter)策略放置位置 :~/policies文件命名 :模型名称+Policy 例如 : (PamAccountPolic'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/module/model.html'
 ---
 # 模型
 
