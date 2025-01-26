@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: 'Poppy Framework 文档'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/framework/tree.html'
 ---
 # 文件树
 
