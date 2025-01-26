@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '在每个模块下 progress 文件夹下(没有新建)编写'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/module/progress.html'
 ---
 # 批次更新
 
