@@ -12,6 +12,9 @@ head:
     - name: 'og:description'
       content: 'Grid 是项目的数据展示工具, 各个部件如下所示编写方式支持两种, 一种是单文件的方式, 就是将文件的内容按照约定填写到指定的列表中, 使用起来更加独立, 另外一种就是小的列表写入到单个控制器中使用起来更加灵活列显示的渲染操作 Action 是触发全局动作, 参考 Action 部分有些情况下单模型或者简单模型的查询不会满足要求或者数据量过大导致性能异常, 这里扩展出来一个类 QueryCustom 进行自定义查询以下模型的几个方法说明如下获取的数据即可用于行内编辑获取组件用于导出数据时候批量读取数据用于在读取数据的时候引用查询对象和查询列数据'
   - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/component/mgr-app-grid.html'
+  - - meta
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/38/38e242839636bef17b4522bd4da0b2f8.png?x-oss-process=image/resize,m_mfit,w_400'
 ---

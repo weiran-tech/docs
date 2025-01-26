@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '更新你的依赖包 composer update 或者全新安装 composer install。'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/component/aliyun-oss.html'
 ---
 # Aliyun Oss
 

@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '软件著作权 部分模块内部开发, 然后付费使用 addon 可以支持 数据库[支持 js 扩展]主要负责功能的介绍介绍 Frame/Module/System 模块演示链接目标: 模块化开发'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/framework/plan.html'
 ---
 # 开发计划
 

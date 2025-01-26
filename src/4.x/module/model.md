@@ -1,6 +1,6 @@
 ---
 description: '使用 php artisan poppy:model {module} {DbModel} 来生成模型模型文件统一放置在 ~/modules/{module}/src/Models/ 文件夹下, 这个文件夹中至少包含 2 种类型的数据模型创建的命名空间为配置项目模型:模型文件放置在上述文件夹中的根目录( ~)下,命名与数据表名称相对应策略放置位置 : ~/policies 文件命名 : 模型名称+Policy 例如 : (PamAccountPolicy)资源文件(接口资源):放置位置 : ~/resources 文件命名 : 模型名称 + Resour'
-lastUpdated: '2024-01-29 18:43:00'
+lastUpdated: '2025-01-23 10:22:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '使用 php artisan poppy:model {module} {DbModel} 来生成模型模型文件统一放置在 ~/modules/{module}/src/Models/ 文件夹下, 这个文件夹中至少包含 2 种类型的数据模型创建的命名空间为配置项目模型:模型文件放置在上述文件夹中的根目录( ~)下,命名与数据表名称相对应策略放置位置 : ~/policies 文件命名 : 模型名称+Policy 例如 : (PamAccountPolicy)资源文件(接口资源):放置位置 : ~/resources 文件命名 : 模型名称 + Resour'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/module/model.html'
 ---
 # 模型
 
@@ -257,9 +260,9 @@ name             : 标示符, 只能是 英文
 title            : 标题
 account_id       : 用户ID
 username         : 用户名
-created_at       : datetime 类型 , L5 默认创建时间
-deleted_at       : l5 软删除(项目中不推荐使用, 效率低下)
-updated_at       : l5 更新
+created_at       : datetime 类型 , Laravel 默认创建时间
+deleted_at       : Laravel 软删除(项目中不推荐使用, 效率低下)
+updated_at       : Laravel 更新
 ```
 
 ### 索引命名

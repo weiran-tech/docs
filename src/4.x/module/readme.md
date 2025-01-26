@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '模块是开发的基础组成部分, 各个项目都是有多个不同的模块组合而成, 模块是组件模的子单元使用如下命令来创建模块, 创建的模块如下树状结构在模块创建完成后会在模块的根目录下创建一个 manifest.json 文件, 用来对项目中的模块进行加载这里的 order 是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 排序规则 : 递增模块配置文件 :config/module.php模块配置依据模块命名进行设置模块定义文件一般放置在 {module}/src/Classes 目录下, 文'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/module/readme.html'
 ---
 # 说明
 

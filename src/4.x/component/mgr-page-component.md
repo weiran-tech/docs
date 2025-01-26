@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: ''
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/component/mgr-page-component.html'
 ---
 # MgrPage - 组件
 

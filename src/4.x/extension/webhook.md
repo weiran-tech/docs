@@ -1,18 +1,21 @@
 ---
 description: 'dingtalk robot api SDK for PHP用来快速发送群聊机器人消息, 当前支持钉钉通过钉钉客户端(pc)获取机器人的访问令牌。建议对安全设置进行签名文本和 markdown 类型的消息支持自动填充@信息，例如:'
-lastUpdated: '2024-01-29 19:11:00'
+lastUpdated: '2024-01-29 20:17:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: 'Poppy webhook'
+      content: 'webhook'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
       content: 'dingtalk robot api SDK for PHP用来快速发送群聊机器人消息, 当前支持钉钉通过钉钉客户端(pc)获取机器人的访问令牌。建议对安全设置进行签名文本和 markdown 类型的消息支持自动填充@信息，例如:'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/extension/webhook.html'
 ---
-# Poppy webhook
+# webhook
 
 
 

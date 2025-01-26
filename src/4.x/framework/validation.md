@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '为了更容易识记, 框架的规则使用 Rule::class 进行了封装使用自定义规则需要在 resources/lang/zh/validation.php 中存在规则的验证文字, 否则会存在代码提示验证是否是标准的用户名验证用户输入密码的格式验证用户身份证号验证是否是正确的手机号验证批量数据是否是 url 地址, 当文件进行批量上传时候, 生成的数据类似于 blob://**** 这种类型的数据, 这种数据并非正确的 url 数据'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/framework/validation.html'
 ---
 # 验证规则
 

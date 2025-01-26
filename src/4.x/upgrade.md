@@ -1,6 +1,6 @@
 ---
-description: '4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 git 提交, 以防止大小写问题导致的命名失败情况重命名 module -> modules 文件夹添加 composer 自动加载, 并启用新命名空间 composer dumpautoload移除 modules/dem'
-lastUpdated: '2024-01-29 16:16:00'
+description: '4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 git 提交, 以防止大小写问题导致的命名失败情'
+lastUpdated: '2024-01-29 20:15:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,10 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 git 提交, 以防止大小写问题导致的命名失败情况重命名 module -> modules 文件夹添加 composer 自动加载, 并启用新命名空间 composer dumpautoload移除 modules/dem'
+      content: '4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 git 提交, 以防止大小写问题导致的命名失败情'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/upgrade.html'
 ---
 # 升级说明
 
@@ -19,6 +22,28 @@ head:
 ## 4.1 - 4.2 升级说明
 
 4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式
+
+> 并非所有的都进行记录, 具体的记录见版本 TAG 记录
+
+### Change Log -  **2023年12月12日** 
+
+**poppy/system**  (4.2.85)
+
+- captcha 发送进行类型验证, 手机号 int 类型无法传值
+
+**poppy/ext-ip_store**   (4.2.2)
+
+- 更新最新版纯真库, 支持 poppy.php 进行配置, 默认为 mon17
+
+**poppy/aliyun-oss**  (4.2.5)
+
+- 支持 env 单元测试, 只保留 putObject STS 授权,移除 put*
+
+### Change Log - 2023年06月27日
+
+**poppy/mgr-page**
+
+- update layui 2.8.8‒ bootstrap 5.3‒ remove standlone layer, use layui layer
 
 ## 4.0 - 4.1 升级说明
 
@@ -32,13 +57,13 @@ head:
 
 安装 composer 包  `poppy/code-generator 4.1`
 
-```
+```shell
 $ composer require poppy/code-generator 4.1
 ```
 
 重命名目录
 
-```
+```shell
 $ php artisan py-code-generator:src-rename demo
 ```
 

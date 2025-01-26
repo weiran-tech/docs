@@ -12,6 +12,9 @@ head:
     - name: 'og:description'
       content: '下发的应用 ID 和 密钥原始参数对数据追加 appid 和 timestamp对于下划线开始的参数和部分特殊参数不进行验签特殊的参数有 sign, image, file, appid对于特殊的参数进行清理清理后的参数对于清理后的参数根据一级 key 进行字母排序排序后的结果对数据进行转 kv 操作转换后的结果对 kv 后的数据进行和 secret 的 md5 运算'
   - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/component/app.html'
+  - - meta
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/e7/e71a147e853c8d8c065a97a542efc9c9.png?x-oss-process=image/resize,m_mfit,w_400'
 ---

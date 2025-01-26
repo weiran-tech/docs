@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '单文件列表是基于快速模型的列表展现方式, 支持以下几个部分单文件列表的创建, 单文件列表继承自 Poppy\MgrPage\Classes\Grid\ListBase, 如下在控制器中使用 :列是数据展示的定义, 对于列支持项目我们对于列支持多种快捷方式以下对于列进行简要的说明添加列操作列操作的类型对于列操作都有一些通用的设定项下拉列表用于在页面内生成下拉列表, 并设置当前显示数据的颜色Iframe对于模型的快速搜索条件快捷操作用于列表右上角, 在列表的右上角, 例如新增, 设置等使用场景批量操作在列表左上方, 便于批量操作数据'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/component/mgr-page-grid.html'
 ---
 # MgrPage - 动态表格
 

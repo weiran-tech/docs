@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '事件放置在 modules/{module}/Events 文件夹中, 监听器放在 modules/{module}/Listeners 文件夹中监听器放置位置在 modules/{module}/Listeners/{EventFolder} 这个文件夹下, 文件夹名称和事件的名称相符合. 事件监听器必须为 DoWhatListener, 事件中需要体现监听器的作用,并且必须是 Listener 后缀事件监听放在 {module}/src/ServiceProvider.php 文件中, 如下定义'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/module/event.html'
 ---
 # 事件
 

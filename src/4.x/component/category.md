@@ -12,6 +12,9 @@ head:
     - name: 'og:description'
       content: '提供便捷的分类管理, 分类管理支持分类类型, 项目中默认存在一个 default 类型, 其他的类型自行定义当分类删除的时候会触发一个 SysCategoryBeforeDeleteEvent(SysCategory $item) 事件, 用于分类的引用拦截页面引用当需要新建一个类别的时候直接引入一个地址是最为方便的, 可以传递 _hide=scope 来隐藏分类数据例如 : mgr-page/py-category/category?_scope=default&_hide=scope 展示出来的界面如下路由访问地址 route_url(py-category:'
   - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/component/category.html'
+  - - meta
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/f4/f4a2ea67ba6a494e0b0f276575bf6f03.png?x-oss-process=image/resize,m_mfit,w_400'
 ---

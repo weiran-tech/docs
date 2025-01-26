@@ -29,7 +29,7 @@ export default {
             "link": "/4.x/extension/phpstan"
         },
         {
-            "text": "Poppy webhook",
+            "text": "webhook",
             "link": "/4.x/extension/webhook"
         }
     ],

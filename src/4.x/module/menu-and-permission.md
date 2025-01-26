@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '菜单采用 yaml 进行定义, 支持三级菜单, 菜单如下定义, 在添加菜单之后需要运行如下命令更新缓存后生效key 包含 backend(后端), web(前台)这几个部分.Url模式路由模式权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限,'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/module/menu-and-permission.html'
 ---
 # 权限和菜单
 

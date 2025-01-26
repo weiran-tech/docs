@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '因为此扩展包仅仅为了封装 poppy framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install。'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/component/sms.html'
 ---
 # Sms 扩展包
 

@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '表单支持对数据的创建以及编辑表单继承了 FormWidget简易方式是允许在控制器中编写定义, 从而简化编写 form 的方式对于模型中有些数据可能需要多个数据来支持, 根据字段再去拆分结构, 使用 . 来进行拆分字段, 这里的渲染和标准的 html 有所不同下面对组件进行相应的介绍, 所有使用方式以以上两种方式为主表格组件, 支持行内编辑表格预览组件仅仅用于渲染数据, 当前支持文字, 图片渲染级联选择可用于级联选择, 数据返回以数组为主'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/4.x/component/mgr-app-form.html'
 ---
 # MgrApp Form
 
