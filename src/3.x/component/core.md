@@ -12,6 +12,9 @@ head:
     - name: 'og:description'
       content: '关于 phplintphplint是一个快速检测 php 语法错误的工具, 此工具无需安装在项目中, 全局安装即可.生成配置文件下载 sami首先下载 sami , 放到 storage/sami/sami.phar 这个位置 或者使用命令来下载, 如果不知道命令可以运行 php artisan py-core:doc php 来查看下载文件的命令我们运行命令来生成 php 文档由于 sami 最新版是基于 php7.1 版本的, 所以我们必须以正确版本来运行. 如果版本不正确则无法运行运行完成后会在 public/docs/php 文件夹下生成标准的 html'
   - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/component/core.html'
+  - - meta
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/fe/fe4728c65f25bc69db0c5e7473ce1d63.png?x-oss-process=image/resize,m_mfit,w_400'
 ---
