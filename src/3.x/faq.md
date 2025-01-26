@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '安装 sentry/sentry-laravel 包新建异常监听这里文件位置放置在 modules/misc/src/http/foundation 下在 composer 中注册 psr-4 的类的位置运行命令完成类的注册使用 Handler将错误监听修改为自定义的错误监控类这样便可以注册并收到异常因为框架在注册异常之前需要知晓异常类的位置, 否则出现异常的时候无法进行异常报错'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/faq.html'
 ---
 # 常见问题
 
