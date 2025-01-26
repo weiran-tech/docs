@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: 'key 包含 backend(后端), develop(开发), web(前台)这几个部分.'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/module/menus.html'
 ---
 # 菜单
 
