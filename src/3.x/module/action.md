@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '位置 modules/{module}/src/action这里的注释在使用 PhpStorm/WebStorm 的时候可以自动生成 /** 所有的函数都需要按照这种格式来写这里需要注意的是, 如果是数组, 则需要按照如下的方式进行注释数组注释 这里的注释方式和 Api 接口注释方式一致Code 定义, Code 定义在 Action 文件中, Action 为 6 位的代码 例如错误代码为 100101, 一般对于 app 有独特错误的才会进行返回, 例如这里支付密码不正确, 需要重新设置/找回支付密码, app 拿到这个代码可以进行相应的提示, 而不能够根据返回的错误提'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/module/action.html'
 ---
 # 业务逻辑
 
