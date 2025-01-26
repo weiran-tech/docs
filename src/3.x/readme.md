@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '设置使用 Form Setting 来进行设置, 详细见 Form 部分缓存 Key 命名缓存 Key 放置在模型/Action 的常量中, 命名规范是CK_{Key}Key : 命名的标识缓存命中命名缓存命中包含 Atomic / Funnel 这种, 缓存命中放置在 Redis(0) 仓库中, 命名规范为prefix:redis:{function tag}:{key}function tag : 功能标签, 用来进行文件夹区分 key : 唯一标识符'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/readme.html'
 ---
 # 说明
 
