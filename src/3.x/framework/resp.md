@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: 'Api 以 Json 格式返回: 其中代表的含义如下:下边是示例代码:有服务器错误服务器无错误如果是 web 页面进行使用则调用定义的正确/错误的页面进行显示.如果需要自定义错误码, 错误码需要定义在 Action 中 错误码是 6 位的数字, 其中代表含义如下其中错误的语言描述可以使用 语言包来编写'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/framework/resp.html'
 ---
 # 错误码
 
