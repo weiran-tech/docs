@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '系统后台集成 layui 作为后台 UI 界面, 元素的使用详见 www.layui.com前台页面依赖于 laravel-mix 来进行页面的开发. 下面会对以下的几个部分进行深入解析, 首先,我们先看下如何进行页面的布局和显示 常用文档 : 资源任务编译器 Laravel Mix'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/project/laravel-mix.html'
 ---
 # [WIP] Laravel-Mix
 
