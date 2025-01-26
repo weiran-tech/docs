@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：定义 service首先在 services.yaml 中定义如下内容poppy.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 key()/data()方法执行 ServiceFactory 的 par'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/module/hook.html'
 ---
 # 服务和钩子
 
