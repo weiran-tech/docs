@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限, 则可以对控制器进行权限控制策略中权限的定义页面中对元素权限的判定'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/module/permission.html'
 ---
 # 权限
 
