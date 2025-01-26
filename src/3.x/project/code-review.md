@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '使用 Request, 这里的 Request 代表的是全局变量控制器中不建议使用参数注入, 使用 input 替代即可.同理的还有 Request::get(param)缓存使用 标签 + 命名 的方式来命名, 便于对数据进行分组, 例如 system 模块的 setting 配置项目的缓存应该如下使用.这里 标签  的作用适用于区分模块, 命名 的作用是为了即使不支持缓存标签(例如文件缓存)的驱动下运行, 也能够保证系统可以正常运行.例如:这里的 system 代表 system 模块这里的 system.setting 代表命名如此这般, 模块缓存的清除便可以'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/project/code-review.html'
 ---
 # Code Review
 
