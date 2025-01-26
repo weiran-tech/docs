@@ -1,6 +1,6 @@
 ---
 description: '单元测试采用 phpunit.phar 和项目独立的方式进行安装, 这样需要在项目中进行配置快捷生成使用如下命令便捷创建单元测试文件测试文件加载对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到 composer.json 的 autoload 中, 这里遵循 psr-4 加载规范要求接口文档接口文档写法遵循 apidoc接口要求保证代码格式正确, 对文件夹进行代码格式化 ctrl + alt + l, 在 src 目录下运行 代码中不得存在编辑器提示的错误, 需要开启 Php Inspection在 PHPstorm 中需要 alt'
-lastUpdated: '2024-01-29 14:46:00'
+lastUpdated: '2025-01-24 17:25:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '单元测试采用 phpunit.phar 和项目独立的方式进行安装, 这样需要在项目中进行配置快捷生成使用如下命令便捷创建单元测试文件测试文件加载对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到 composer.json 的 autoload 中, 这里遵循 psr-4 加载规范要求接口文档接口文档写法遵循 apidoc接口要求保证代码格式正确, 对文件夹进行代码格式化 ctrl + alt + l, 在 src 目录下运行 代码中不得存在编辑器提示的错误, 需要开启 Php Inspection在 PHPstorm 中需要 alt'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/develop/spec.html'
 ---
 # 开发规范
 
@@ -86,7 +89,7 @@ $ php artisan poppy:test  {slug} {name}
 
 ### 优化导入
 
-在 PHPstorm 中需要  `alt+enter`  进行  `Import Class`  或者  `Simplify FQN` , 这样便可以是代码看起来更简洁
+在 PHPstorm 中需要  `alt + enter`  进行  `Import Class`  或者  `Simplify FQN` , 这样便可以是代码看起来更简洁
 
 ```php
 // bad
@@ -157,16 +160,16 @@ $ php artisan py-core:inspect class
 
 代码使用 Git 进行代码协同
 
+- [https://www.wulicode.com/development/git/commit-grace-use-husky.html](https://www.wulicode.com/development/git/commit-grace-use-husky.html)
+
 ### Git Flow
 
 git-flow 并不是要替代 Git，它仅仅是非常聪明有效地把标准的 Git 命令用脚本组合了起来。 Release 管理是版本控制处理中的另外一个非常重要的话题, 详细见下边的文档. Git Flow 的详细说明文档
 
-- [git-flow 的工作流程](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow)
-- [Git-Flow 工作规范流程](https://wulicode.com/develop/git-flow-intro.html)
+- [https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow)
+- [https://www.wulicode.com/development/git/git-flow.html](https://www.wulicode.com/development/git/git-flow.html)
 
-### 使用 husky 让代码提交优雅规范
 
-- [使用 husky 让代码提交优雅规范](https://wulicode.com/develop/git-commit-grace-use-husky.html)
 
 
 

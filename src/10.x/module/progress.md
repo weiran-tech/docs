@@ -13,7 +13,7 @@ head:
       content: '此类更新一般用于批次对数据进行修改, 且在用户可以操作的入口, 一般的开发者需要操作的入口可以放置在命令行, 更方便进行数据管理定义 fixHandle 方法, 需要引入 FixTrait 方法在控制器中使用如下方式定义即可'
   - - meta
     - name: 'og:url'
-      content: 'https://www.weiran.tech16449524-d1e0-8156-aa58-d670cecab5b3.html'
+      content: 'https://weiran.tech/10.x/module/progress.html'
 ---
 # 更新
 

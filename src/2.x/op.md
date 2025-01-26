@@ -12,6 +12,9 @@ head:
     - name: 'og:description'
       content: '需要开启的组件 需要开启 mod-rewrite 重写组件主要配置文件 http.conf配置虚拟主机 找到 httpd-vhosts.conf文件并编辑：请求地址: SERVER/sl_deploy/coding 需要设置 token 值, 默认的 token值为 代码目录下 .env 文件中的 APP_KEY 的值1、出现问题之后，请首先查找日志文件/apache/网站2、如果出现文件访问权限问题，请注意安装文件目录权限、apache的访问目录权限等。'
   - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/op.html'
+  - - meta
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/0f/0f19868162589528894d6999d694616e.jpg?x-oss-process=image/resize,m_mfit,w_400'
 ---

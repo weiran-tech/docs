@@ -13,7 +13,7 @@ head:
       content: '~/phpstan.neon 中增加运行'
   - - meta
     - name: 'og:url'
-      content: 'https://www.weiran.tech16449524-d1e0-8189-a9f0-c8c965bd61e4.html'
+      content: 'https://weiran.tech/10.x/extension/phpstan.html'
 ---
 # Phpstan
 

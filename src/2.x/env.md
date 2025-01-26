@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '图片上传采用 l5-upload-client 组件, 这个组件形成了客户端 + 远程的方式进行上传, 几个参数配置及解释如下 如果本机作为客户端机器来访问, 需要配置'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/env.html'
 ---
 # Env 环境配置
 

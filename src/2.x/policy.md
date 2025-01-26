@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '策略分为两个部分, 第一个部分是框架策略, 第二部分是项目策略框架策略LemonFramework 项目中使用 app/Lemon/Repositories/LemonServiceProvider.php 加载项目策略项目策略位置 app/Policies 项目 Service 位置 app/Providers/PolicyServiceProvider.php随着应用逻辑越来越复杂，要处理的权限越来越多，将所有权限定义在AuthServiceProvider显然不是一个明智的做法，因此Laravel引入了策略类，策略类是一些原生的PHP类，和控制器基于资源对路由进行'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/policy.html'
 ---
 # 策略(Policy)
 

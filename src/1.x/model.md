@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '模型文件统一放置在 ~/app/Models/ 文件夹下模型文件使用 首字母大写的驼峰方式例如 约定的数据表的名称是 base_banword, 命名的数据库模型是 BaseBanword模型采用分组模型映射采用 sofa/eloquence 框架, 使用字段的映射参考资料常用函数这里的注释必须放置在类文件中进行定义, 里边的字段值出现的仅仅是新模块使用的, 包含兼容, 但是不包含调用的字段命名.开发中不允许出现状态是 1, 2, 3, 所有的对应项目必须在模型中给予定义, 采用常量的方式进行定义开发中使用常量来替代 enum, 不得使用 enum 来对'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/1.x/model.html'
 ---
 # 模型
 

@@ -13,7 +13,7 @@ head:
       content: '本系统基于角色的权限访问控制（Role-Based Access Control）根据使用分为三种用户类型(默认)对于用户的类型区分我们使用 Header 来进行区分, Header 的名称是 x-type 来进行区分, 区分的层级为参数的类型便是用户的类型, 这里的数据和 guard 起到映射关系, 但无需一致根据使用到的用户的类型我们应当分为这几项Guard : web,backend,develop Type : user, backend, develop每一种用户定义的角色分为三种因为以上这些可以作为通行证, 所以必须是经过认证的才可以写入这个数据表,'
   - - meta
     - name: 'og:url'
-      content: 'https://www.weiran.tech16449524-d1e0-8163-98fe-ddd0d88b4fa6.html'
+      content: 'https://weiran.tech/10.x/component/system.html'
   - - meta
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/40/4013070577936add37881182db8e1e61.png?x-oss-process=image/resize,m_mfit,w_400'

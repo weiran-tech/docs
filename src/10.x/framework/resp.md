@@ -13,7 +13,7 @@ head:
       content: 'Api 以 Json 格式返回: 其中代表的含义如下:下边是示例代码:有服务器错误服务器无错误默认错误码自定义错误码其中错误的语言描述可以使用 语言包来编写编写附加数据如果是 web 页面进行使用则调用定义的正确/错误的页面进行显示.'
   - - meta
     - name: 'og:url'
-      content: 'https://www.weiran.tech16449524-d1e0-81e4-afda-d74d766cda34.html'
+      content: 'https://weiran.tech/10.x/framework/resp.html'
 ---
 # Resp
 

@@ -13,7 +13,7 @@ head:
       content: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理定义 service首先在 services.yaml 中定义如下内容poppy.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 ke'
   - - meta
     - name: 'og:url'
-      content: 'https://www.weiran.tech16449524-d1e0-817e-93b3-e7171e1ca13a.html'
+      content: 'https://weiran.tech/10.x/module/hook.html'
 ---
 # 服务和钩子
 

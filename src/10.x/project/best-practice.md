@@ -1,6 +1,6 @@
 ---
-description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示参考 : 模型:友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcoll'
-lastUpdated: '2025-01-23 00:26:00'
+description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcollective/html” 组'
+lastUpdated: '2025-01-23 00:38:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,10 +10,10 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示参考 : 模型:友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcoll'
+      content: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcollective/html” 组'
   - - meta
     - name: 'og:url'
-      content: 'https://www.weiran.tech16449524-d1e0-815a-bcfa-e03ce62cc4d5.html'
+      content: 'https://weiran.tech/10.x/project/best-practice.html'
 ---
 # 最佳实践
 
@@ -49,7 +49,6 @@ $ php artisan py-core:inspect > inspect.txt
 ### 使用 firstOrFail 替代查询
 
 使用  `firstOrFail`  在未查到匹配的数据后会抛出  `ModelNotFoundException`  异常并且此异常可以进行友好提示
-
 
 ### 使用 Request 校验
 

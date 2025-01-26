@@ -13,7 +13,7 @@ head:
       content: 'dingtalk robot api SDK for PHP用来快速发送群聊机器人消息, 当前支持钉钉通过钉钉客户端(pc)获取机器人的访问令牌。建议对安全设置进行签名文本和 markdown 类型的消息支持自动填充@信息，例如:'
   - - meta
     - name: 'og:url'
-      content: 'https://www.weiran.tech16449524-d1e0-8114-84ad-ed62442b6698.html'
+      content: 'https://weiran.tech/10.x/extension/webhook.html'
 ---
 # webhook
 

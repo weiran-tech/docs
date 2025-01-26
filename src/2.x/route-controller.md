@@ -12,6 +12,9 @@ head:
     - name: 'og:description'
       content: '~/app/Http/routes.phproutes.php 是框架加载路由的入口文件目录 ~/app/Http/Routes/路由命名的基本规则是 前缀 + 控制器蛇形写法 + . + 方法名的蛇形写法 例如：'
   - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/route-controller.html'
+  - - meta
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/d4/d49fcfdd41adfd0e6450cf0533e939f1.png?x-oss-process=image/resize,m_mfit,w_400'
 ---

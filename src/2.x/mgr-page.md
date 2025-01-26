@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '在 ~/app/Models/ 下创建模型类 - 继承Eloquent类，类名和表明相同并且遵循驼峰命名法，按照表名的格式命名 - 需要写表名$table,主键$primaryKey和填充字段数组$fillable(三者都是protected类型)参见字段映射文件在 ~/app/Http/Controllers/ 相应app模块分组(Desktop,Front等) 下创建控制器类在 ~/app/Http/Routes/ 分组对应文件 增加路由定义文件 desktop.php在 ~/app/Lemon/Suit/Acl 相应app模块分组下创建菜单组文件在 ~/app'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/mgr-page.html'
 ---
 # sample - 创建后台访问模块
 

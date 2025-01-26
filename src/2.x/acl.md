@@ -12,6 +12,9 @@ head:
     - name: 'og:description'
       content: '在 .env 文件中添加或者启用开发者访问模式, 否则无法对账号进行管理访问地址:访问 : http://www.lartest.com/dev_home/cp访问总入口放置在: app/Lemon/Suit/Acl/develop.php 结构说明:访问单文件的入口在: app/Lemon/Suit/Acl/Develop 下, 我们看下 dev_api.php文件示例:lm_ 代表 Lemon Framework dev 代表开发'
   - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/acl.html'
+  - - meta
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/89/89f524a44bdae09576b0adf4ec851544.png?x-oss-process=image/resize,m_mfit,w_400'
 ---

@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: ''
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/develop/changelog.html'
 ---
 # 更新日志
 

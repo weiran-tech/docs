@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '这个 rbac 角色控制修改自 entrust. 因为 entrust 的 @can 用法和 laravel 中的 Acl 控制 @can冲突, 故而重新对 entrust 进行修改. 改掉了其中$user->can() 同样改定为 $user->capable()角色控制和acl是两个不同的权限控制, 角色控制是用户能否进行某项操作, acl 是这个用户在某个阶段能否进行某个操作, 这两个一起用来是没有冲突的.在config/app.php 的 providers数组中添加服务提供者让其注册 rbac 类和@permission 等语法支持在 aliases 数组中添加'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/rbac.html'
 ---
 # RBAC 角色控制
 

@@ -12,6 +12,9 @@ head:
     - name: 'og:description'
       content: 'LF 使用 dingo/api 框架作为reset 接口的组织方式, 采用服务器验证的方式来存储数据, 即服务器首次访问的时候会首先访问 /init 接口, 然后从中获取到 access_token 作为账号认证权限来对服务器进行再次请求, 作为访问的授权来进行访问, 访问地址是 : http://api.larxd.com/api例如首次访问将会获取如下示例:再次进行访问的时候将会传入这个值 access_token, 否则将不会返回任何有效数据 ### sign 生成规范获取到上边获取到的 access_token 之后, 每次访问的时候需要用 header 头的方式代入这'
   - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/apidoc.html'
+  - - meta
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/bb/bbf75c3372ea31e3695d9ef10943d10e.png?x-oss-process=image/resize,m_mfit,w_400'
 ---

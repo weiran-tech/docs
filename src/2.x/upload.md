@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: ''
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/upload.html'
 ---
 # 图片上传
 

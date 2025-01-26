@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '参考资料: [ Laravel 5.1 文档 ] 基础 —— HTTP 路由路由文件夹 : ~/app/Http/Routes/ 路由说明控制器文件位置 : ~/app/Http/Controllers/Front/TestController.php 控制器方法 public function getShow(){}参考资料: - [ Laravel 5.1 文档 ] 数据库 —— 查询构建器 - [ Laravel 5.1 文档 ] Eloquent ORM参考资料 Blade 模板引擎模板位置 : ~/resources/views控制器命名 命名方式采用蛇形'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/index.html'
 ---
 # 入门手册
 

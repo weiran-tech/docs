@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: ''
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/1.x/tree.html'
 ---
 # 文件目录树
 

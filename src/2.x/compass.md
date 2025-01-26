@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '使用compass 建立并且管理样式文件title: 标题list : 列表左侧点状列表 * list-greyDot: * list-redDot:bdr:边框bdr-rad-s: bdr-rad-m: bdr-rad-l:alpha: 背景透明度不常用, 写在样式里table: 基础的table样式btn : 基础的按钮样式 button input:buttoninput, textarea(text) 滑过 默认 焦点tip-error tip-success tip-warningicon-s icon-m icon-l icon '
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/compass.html'
 ---
 # compass - LemonCMS
 

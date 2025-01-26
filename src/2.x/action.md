@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '位置 app/Lemon/Dailian/Action这里的注释在使用 WebStorm 的时候可以自动生成 /** 所有的函数都需要按照这种格式来写这里的返回值必须是 true/false , 如果是需要获取返回数值, 需要定义 getXxx 方法来获取class 的定义AppTrait 封装了权限处理, 错误设置, 用户设置, 用户检测等方法, 需要封装时候进行调用.这里我们以订单发布为例做下简单的说明 详细说明见注释 其中根据业务情况来进行处理, 有的可能不需要这种处理'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/2.x/action.html'
 ---
 # Action 业务逻辑封装
 

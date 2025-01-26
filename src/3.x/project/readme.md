@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: 'phpstorm 常用快捷键代码使用 Git 进行代码协同git-flow 并不是要替代 Git，它仅仅是非常聪明有效地把标准的 Git 命令用脚本组合了起来。 Release 管理是版本控制处理中的另外一个非常重要的话题, 详细见下边的文档. Git Flow 的详细说明文档 git-flow 的工作流程分支说明 master 只能用来包括产品代码。你不能直接工作在这个 master 分支上，而是在其他指定的，独立的特性分支中（这方面我们会马上谈到）。不直接提交改动到 master 分支上也是很多工作流程的一个共同的规则。 develop 是你进行任何新的开发的基础分支。当你'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/project/readme.html'
 ---
 # 说明
 

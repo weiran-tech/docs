@@ -13,7 +13,7 @@ head:
       content: '更新你的依赖包 composer update 或者全新安装 composer install。'
   - - meta
     - name: 'og:url'
-      content: 'https://www.weiran.tech16449524-d1e0-8123-98e5-ddc44c4cb986.html'
+      content: 'https://weiran.tech/10.x/component/aliyun-oss.html'
 ---
 # Aliyun Oss
 
