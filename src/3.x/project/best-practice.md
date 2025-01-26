@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如phplint是一个快速检测 php 语法错误的工具, 此工具无需安装在项目中, 全局安装即可.运行 php artisan poppy:optimize 保障依赖组件均已经安装由于这里是继承的 “laravelcollective/html” 组件, 所以必须先禁用掉原生的自动发现在 composer.json 文件中禁用自动发现在 providers 部分加入生成自动加载类清空缓存的数据然后在 app.php 的 aliases 部分加入右键忽略掉即可, 这个是生成的文件, 不需要进'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/project/best-practice.html'
 ---
 # 最佳实践
 
