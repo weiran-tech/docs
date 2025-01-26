@@ -11,6 +11,9 @@ head:
   - - meta
     - name: 'og:description'
       content: 'fields  : 当前返回的所有组合字段 action  : 提交的 URL method  : 提交方法 buttons : 允许的按钮内容name  : 表单提交的字段名称 type  : 表单的类型 value : 提交的值 label : 显示的标题标签内容 placeholder  : 占位符 rules : 提交的规则 help : 帮助文本 options : 选项值, 当是 checkbox/radio/select 等存在多选信息的时候存在此项目display : 显示样式 [inline|单行;stack|多行] check_all : 是否显示多选按钮 [Y'
+  - - meta
+    - name: 'og:url'
+      content: 'https://weiran.tech/3.x/project/mgr-app-spec.html'
 ---
 # 前后端分离项目约定
 
