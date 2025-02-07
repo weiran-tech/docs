@@ -1,54 +1,16 @@
 export default {
     "/wr-1.x/": [
         {
-            "text": "Poppy Framework 10.x",
-            "link": "/wr-1.x/index"
-        },
-        {
-            "text": "Poppy Framework 4.x",
-            "link": "/4.x/index"
-        },
-        {
-            "text": "Poppy Framework",
-            "link": "/3.x/index"
-        },
-        {
-            "text": "升级说明",
-            "link": "/10.x/upgrade"
-        },
-        {
-            "text": "升级说明",
-            "link": "/4.x/upgrade"
-        },
-        {
-            "text": "常见问题",
-            "link": "/3.x/faq"
-        },
-        {
-            "text": "FAQ",
-            "link": "/10.x/faq"
-        },
-        {
-            "text": "FAQ",
-            "link": "/4.x/faq"
-        },
-        {
-            "text": "开发计划",
-            "link": "/3.x/framework/plan"
-        }
-    ],
-    "/10.x/": [
-        {
             "text": "支付宝支付",
-            "link": "/10.x/extension/alipay"
+            "link": "/wr-1.x/extension/alipay"
         },
         {
             "text": "Ip Store",
-            "link": "/10.x/extension/ip-store"
+            "link": "/wr-1.x/extension/ip-store"
         },
         {
             "text": "Phpstan",
-            "link": "/10.x/extension/phpstan"
+            "link": "/wr-1.x/extension/phpstan"
         },
         {
             "text": "webhook",
