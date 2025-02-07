@@ -14,7 +14,7 @@ export default {
         },
         {
             "text": "webhook",
-            "link": "/10.x/extension/webhook"
+            "link": "/wr-1.x/extension/webhook"
         },
         {
             "text": "支付宝支付",
@@ -60,7 +60,7 @@ export default {
         },
         {
             "text": "说明",
-            "link": "/10.x/project/readme"
+            "link": "/wr-1.x/project/readme"
         },
         {
             "text": "最佳实践",
