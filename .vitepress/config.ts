@@ -11,9 +11,9 @@ const createLink = (title: string, url: string) => {
 
 const nav = [
     {
-        text: '10.x-dev',
+        text: 'wr-1.x-dev',
         activeMatch: `^/(10\.x)/`,
-        link: '/10.x/'
+        link: '/wr-1.x/'
     },
     {
         text: '4.x',
@@ -194,70 +194,70 @@ export const sidebar = {
             ]
         },
     ],
-    '/10.x': [
+    '/wr-1.x': [
         {
             text: '前言',
             items: [
-                createLink('版本说明', '/10.x/'),
-                createLink('升级说明', '/10.x/upgrade'),
-                createLink('常见问题', '/10.x/faq'),
+                createLink('版本说明', '/wr-1.x/'),
+                createLink('升级说明', '/wr-1.x/upgrade'),
+                createLink('常见问题', '/wr-1.x/faq'),
             ]
         },
         {
             text: '项目',
             items: [
-                createLink('说明', '/10.x/project/readme'),
-                createLink('最佳实践', '/10.x/project/best-practice'),
+                createLink('说明', '/wr-1.x/project/readme'),
+                createLink('最佳实践', '/wr-1.x/project/best-practice'),
             ]
         },
         {
             text: '框架',
             items: [
-                createLink('介绍', '/10.x/framework/readme'),
-                createLink('配置', '/10.x/framework/config'),
-                createLink('Resp', '/10.x/framework/resp'),
-                createLink('验证', '/10.x/framework/validation'),
+                createLink('介绍', '/wr-1.x/framework/readme'),
+                createLink('配置', '/wr-1.x/framework/config'),
+                createLink('Resp', '/wr-1.x/framework/resp'),
+                createLink('验证', '/wr-1.x/framework/validation'),
             ]
         },
         {
             text: '模块',
             items: [
-                createLink('介绍', '/10.x/module/readme'),
-                createLink('菜单和权限', '/10.x/module/menu-and-permission'),
-                createLink('服务和钩子', '/10.x/module/hook'),
-                createLink('模型', '/10.x/module/models'),
-                createLink('策略', '/10.x/module/policy'),
-                createLink('事件', '/10.x/module/event'),
-                createLink('更新', '/10.x/module/progress'),
+                createLink('介绍', '/wr-1.x/module/readme'),
+                createLink('菜单和权限', '/wr-1.x/module/menu-and-permission'),
+                createLink('服务和钩子', '/wr-1.x/module/hook'),
+                createLink('模型', '/wr-1.x/module/models'),
+                createLink('策略', '/wr-1.x/module/policy'),
+                createLink('事件', '/wr-1.x/module/event'),
+                createLink('更新', '/wr-1.x/module/progress'),
             ]
         },
         {
             text: '组件',
             items: [
-                createLink('Core', '/10.x/component/core'),
-                createLink('System', '/10.x/component/system'),
-                createLink('Aliyun Oss', '/10.x/component/aliyun-oss'),
-                createLink('Aliyun Push', '/10.x/component/aliyun-push'),
-                createLink('Category', '/10.x/component/category'),
-                createLink('App', '/10.x/component/app'),
-                createLink('Sms', '/10.x/component/sms'),
+                createLink('Core', '/wr-1.x/component/core'),
+                createLink('System', '/wr-1.x/component/system'),
+                createLink('Aliyun Oss', '/wr-1.x/component/aliyun-oss'),
+                createLink('Aliyun Push', '/wr-1.x/component/aliyun-push'),
+                createLink('Category', '/wr-1.x/component/category'),
+                createLink('App', '/wr-1.x/component/app'),
+                createLink('Sms', '/wr-1.x/component/sms'),
             ]
         },
         {
             text: '组件:后台',
             items: [
-                createLink('Mgr Page', '/10.x/component/mgr-page'),
-                createLink('动态表格', '/10.x/component/mgr-page-grid.md'),
-                createLink('组件', '/10.x/component/mgr-page-component.md'),
+                createLink('Mgr Page', '/wr-1.x/component/mgr-page'),
+                createLink('动态表格', '/wr-1.x/component/mgr-page-grid.md'),
+                createLink('组件', '/wr-1.x/component/mgr-page-component.md'),
             ]
         },
         {
             text: '扩展',
             items: [
-                createLink('支付宝支付', '/10.x/extension/alipay'),
-                createLink('Ip Store', '/10.x/extension/ip-store'),
-                createLink('Phpstan', '/10.x/extension/phpstan'),
-                createLink('Webhook', '/10.x/extension/webhook'),
+                createLink('支付宝支付', '/wr-1.x/extension/alipay'),
+                createLink('Ip Store', '/wr-1.x/extension/ip-store'),
+                createLink('Phpstan', '/wr-1.x/extension/phpstan'),
+                createLink('Webhook', '/wr-1.x/extension/webhook'),
             ]
         },
     ],
