@@ -56,11 +56,11 @@ export default {
         },
         {
             "text": "说明",
-            "link": "/3.x/project/readme"
+            "link": "/wr-1.x/project/readme"
         },
         {
             "text": "说明",
-            "link": "/wr-1.x/project/readme"
+            "link": "/3.x/project/readme"
         },
         {
             "text": "最佳实践",
