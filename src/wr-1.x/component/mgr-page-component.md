@@ -13,7 +13,7 @@ head:
       content: ''
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/10.x/component/mgr-page-component.html'
+      content: 'https://weiran.tech/wr-1.x/component/mgr-page-component.html'
 ---
 # MgrPage - 组件
 

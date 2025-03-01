@@ -1,37 +1,35 @@
 ---
-description: '模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为 module.{module} 和 poppy.{poppy}Poppy Framework 附带一个 bin 命令 poppy, 可以执行 poppy 框架的清理函数, 用来清理缓存文件建议在 composer.json 的 scrpits 字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理创建一个 Poppy 模块并启动它.列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed'
-lastUpdated: '2025-02-05 11:21:00'
+description: '模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为 module.{module} 和 weiran.{weiran}框架附带一个 bin 命令 weiran, 可以执行框架的清理函数, 用来清理缓存文件建议在 composer.json 的 scrpits 字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理创建一个模块并启动它.列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed生成的模型如下支持 Xml,Ini,Yaml'
+lastUpdated: '2025-02-16 17:14:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: 'README'
+      content: '框架 README'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为 module.{module} 和 poppy.{poppy}Poppy Framework 附带一个 bin 命令 poppy, 可以执行 poppy 框架的清理函数, 用来清理缓存文件建议在 composer.json 的 scrpits 字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理创建一个 Poppy 模块并启动它.列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed'
+      content: '模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为 module.{module} 和 weiran.{weiran}框架附带一个 bin 命令 weiran, 可以执行框架的清理函数, 用来清理缓存文件建议在 composer.json 的 scrpits 字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理创建一个模块并启动它.列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed生成的模型如下支持 Xml,Ini,Yaml'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/10.x/framework/readme.html'
+      content: 'https://weiran.tech/wr-1.x/framework/readme.html'
 ---
-# README
+# 框架 README
 
 
 
-> poppy 寓意为完美的
-
-模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为  `module.{module}`  和  `poppy.{poppy}`
+模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为  `module.{module}`  和  `weiran.{weiran}`
 
 ## Bin
 
-Poppy Framework 附带一个 bin 命令  `poppy` , 可以执行 poppy 框架的清理函数, 用来清理缓存文件
+框架附带一个 bin 命令  `weiran` , 可以执行框架的清理函数, 用来清理缓存文件
 
 - 清理   `storage/framework/*.php`   缓存文件
-- 删除   `storage/app/poppy.json`  模块缓存文件
+- 删除   `storage/app/weiran.json`  模块缓存文件
 
 ```shell
-$ ./vendor/bin/poppy clear
+$ ./vendor/bin/weiran clear
 ```
 
 建议在  `composer.json`  的  `scrpits`  字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理
@@ -39,27 +37,27 @@ $ ./vendor/bin/poppy clear
 ```json
 {
     "scripts": {
-        "poppy": [
-            "./vendor/bin/poppy",
-            "php artisan poppy:optimize",
-            "php artisan py-core:permission init"
+        "weiran": [
+            "./vendor/bin/weiran",
+            "php artisan weiran:optimize",
+            "php artisan weiran:core:permission init"
         ]
     }
 }
 ```
 
 ```shell
-$ composer poppy
+$ composer weiran
 ```
 
 ## 命令行/Console
 
 ### 创建模块
 
-创建一个 Poppy 模块并启动它.
+创建一个模块并启动它.
 
 ```shell
-$ php artisan poppy:make {slug} [-Q|--quick]
+$ php artisan weiran:make {slug} [-Q|--quick]
 ```
 
 ### 列出模块
@@ -67,25 +65,25 @@ $ php artisan poppy:make {slug} [-Q|--quick]
 列出所有的应用模块
 
 ```
-$ php artisan poppy:list
+$ php artisan weiran:list
 
-+------+------------+-------------------+----------------------------------------------------+---------+
-| #    | Name       | Slug              | Description                                        | Status  |
-+------+------------+-------------------+----------------------------------------------------+---------+
-| 1000 | 核心       | poppy.core        | Poppy Core.                                        | Enabled |
-| 9001 | site       | module.site       | This is the description for the poppy site module. | Enabled |
-+------+------------+-------------------+----------------------------------------------------+---------+
++------+----------------------+--------------------+--------------------------------------------+---------+
+| #    | Name                 | Slug               | Description                                | Status  |
++------+----------------------+--------------------+--------------------------------------------+---------+
+| 5    | Weiran Core Module   | weiran.core        | Weiran core module for util tools          | Enabled |
+| 10   | Weiran System Module | weiran.system      | Weiran system module for basic pam         | Enabled |
++------+----------------------+--------------------+--------------------------------------------+---------+
 ```
 
 ### 启用/禁用模块
 
 ```
 # 启用模块
-$ php artisan poppy:enable {slug}
+$ php artisan weiran:enable {slug}
 
 
 # 禁用模块
-$ php artisan poppy:disable {slug}
+$ php artisan weiran:disable {slug}
 ```
 
 ### 优化模块
@@ -93,17 +91,17 @@ $ php artisan poppy:disable {slug}
 模块优化, 清空生成的缓存等操作
 
 ```
-$ php artisan poppy:optimize
+$ php artisan weiran:optimize
 ```
 
 ### 数据表管理
 
 ```
-poppy:migrate {slug}          执行模块的数据库迁移文件
-poppy:migrate:refresh {slug}  重新执行模块数据库迁移文件
-poppy:migrate:reset {slug}    回滚所有执行的数据库迁移
-poppy:migrate:rollback {slug} 回滚执行完的上一个数据库迁移
-poppy:migration {slug}        创建一个指定模块的数据库迁移文件
+weiran:migrate {slug}          执行模块的数据库迁移文件
+weiran:migrate:refresh {slug}  重新执行模块数据库迁移文件
+weiran:migrate:reset {slug}    回滚所有执行的数据库迁移
+weiran:migrate:rollback {slug} 回滚执行完的上一个数据库迁移
+weiran:migration {slug}        创建一个指定模块的数据库迁移文件
 ```
 
 ## 文件生成器
@@ -111,51 +109,51 @@ poppy:migration {slug}        创建一个指定模块的数据库迁移文件
 生成器工具
 
 ```php
-php artisan poppy:command {slug} {name}           # 生成命令文件
-php artisan poppy:controller {slug} {api/web/backend} {name}
+php artisan weiran:command {slug} {name}           # 生成命令文件
+php artisan weiran:controller {slug} {api/web/backend} {name}
                                                   # 生成控制器文件
-php artisan poppy:middleware {slug} {name}        # 生成中间件文件
-php artisan poppy:model {slug} {name}             # 生成数据库模型文件
-php artisan poppy:policy {slug} {name}            # 生成 policy 策略文件
-php artisan poppy:provider {slug} {name}          # 生成服务提供者
-php artisan poppy:request {slug} {name}           # 生成 request 文件
-php artisan poppy:test {slug} {name}              # 生成测试文件
-php artisan poppy:make {slug}                     # 生成模块
-php artisan poppy:listener {slug} {name}          # 事件监听器(详细见下方)
-php artisan poppy:event {slug} {name}             # 生成事件文件
+php artisan weiran:middleware {slug} {name}        # 生成中间件文件
+php artisan weiran:model {slug} {name}             # 生成数据库模型文件
+php artisan weiran:policy {slug} {name}            # 生成 policy 策略文件
+php artisan weiran:provider {slug} {name}          # 生成服务提供者
+php artisan weiran:request {slug} {name}           # 生成 request 文件
+php artisan weiran:test {slug} {name}              # 生成测试文件
+php artisan weiran:make {slug}                     # 生成模块
+php artisan weiran:listener {slug} {name}          # 事件监听器(详细见下方)
+php artisan weiran:event {slug} {name}             # 生成事件文件
 ```
 
 ### 监听文件
 
 ```shell
-$ php artisan poppy:listener {slug} {name}
+$ php artisan weiran:listener {slug} {name}
 --event {event}: 事件名称, 使用 `\` 表明是全局的事件, 否则的话以为这是当前模块的事件
 ```
 
 ### 事件文件
 
 ```shell
-$ php artisan poppy:event {slug} {name}
+$ php artisan weiran:event {slug} {name}
 ```
 
 ### 数据库 Seeder 和 Seed 命令
 
 ```shell
 # 生成种子文件
-$ php artisan poppy:seeder {slug} {name}
+$ php artisan weiran:seeder {slug} {name}
 
 # 执行模块下种子主文件或者传递参数执行指定种子文件
-$ php artisan poppy:seed {slug}
+$ php artisan weiran:seed {slug}
 ```
 
 **创建 seeder 文件**
 
 ```php
 # 生成模块的主 seeder 文件
-$ php artisan poppy:seeder module.demo DemoDatabaseSeeder
+$ php artisan weiran:seeder module.demo DemoDatabaseSeeder
 
 # 生成模块的子 seeder 文件
-$ php artisan poppy:seeder module.demo DemoDbDatabaseSeeder
+$ php artisan weiran:seeder module.demo DemoDbDatabaseSeeder
 ```
 
 注册 Seeder 以及生成 数据
@@ -191,7 +189,7 @@ public function run()
 执行 seed
 
 ```shell
-$ php artisan poppy:seed module.demo
+$ php artisan weiran:seed module.demo
 Seeding: Demo\Database\Seeds\DemoDbDatabaseSeeder
 Database seeding completed successfully.
 ```
@@ -199,18 +197,18 @@ Database seeding completed successfully.
 ### 数据库 Factory 生成
 
 ```
-$ php artisan poppy:factory {slug} {name}
+$ php artisan weiran:factory {slug} {name}
 ```
 
 ```shell
 # 指定当前模块下的模型
-$ php artisan poppy:factory module.demo DemoDbFactory --model="DemoDb"
+$ php artisan weiran:factory module.demo DemoDbFactory --model="DemoDb"
 
 # 指定已存在的模型
-$ php artisan poppy:factory module.demo DemoDbFactory --model="\Demo\Models\DemoDb"
+$ php artisan weiran:factory module.demo DemoDbFactory --model="\Demo\Models\DemoDb"
 
 # 未指定模型
-$ php artisan poppy:factory module.demo DemoDbFactory
+$ php artisan weiran:factory module.demo DemoDbFactory
 ```
 
 生成的模型如下
@@ -234,19 +232,19 @@ $factory->define(DemoDb::class, function (Faker $faker) {
 
 ```
 // Module Maked
-Events\PoppyMake($slug)
+Events\WeiranMake($slug)
 
 // 模块启用
-Events\PoppyEnabled
+Events\WeiranEnabled
 
 // 模块禁用
-Events\PoppyDisabled
+Events\WeiranDisabled
 
 // 模块优化
-Events\PoppyOptimized
+Events\WeiranOptimized
 
 // 计划任务
-Events\PoppySchedule
+Events\WeiranSchedule
 ```
 
 ## Helpers
@@ -273,9 +271,9 @@ UtilHelper
 ## Blade 语法
 
 ```
-@poppy
+@weiran
 // You Can check if module is exist and enabled.
-@endpoppy
+@endweiran
 ```
 
 ## 验证
@@ -290,13 +288,12 @@ UtilHelper
 
 ## 文件树
 
-Poppy Framework 文件树
+框架文件结构树
 
 ```
 ├── README.md
 ├── composer.json
 ├── config
-│   └── poppy.php
 ├── docs                   # 文档
 │   └── build.md
 ├── phpunit.xml            # 单元测试文件
@@ -320,67 +317,20 @@ Poppy Framework 文件树
 │   │   ├── Number.php
 │   │   ├── Resp.php
 │   │   └── Traits
-│   │       ├── AppTrait.php
-│   │       ├── HasAttributesTrait.php
-│   │       ├── KeyParserTrait.php
-│   │       ├── MigrationTrait.php
-│   │       ├── PoppyTrait.php
-│   │       └── ViewTrait.php
 │   ├── Console            # 命令行
-│   │   ├── Commands
-│   │   │   ├── PoppyDisableCommand.php
-│   │   │   ├── PoppyEnableCommand.php
-│   │   │   ├── PoppyListCommand.php
-│   │   │   ├── PoppyMigrateCommand.php
-│   │   │   ├── PoppyMigrateRefreshCommand.php
-│   │   │   ├── PoppyMigrateResetCommand.php
-│   │   │   ├── PoppyMigrateRollbackCommand.php
-│   │   │   ├── PoppyOptimizeCommand.php
-│   │   │   └── PoppySeedCommand.php
+│   │   ├── Commands       # 命令
 │   │   ├── ConsoleServiceProvider.php
 │   │   ├── GeneratorCommand.php
 │   │   ├── GeneratorServiceProvider.php
-│   │   └── Generators
-│   │       ├── MakeCommandCommand.php
-│   │       ├── MakeControllerCommand.php
-│   │       ├── MakeMiddlewareCommand.php
-│   │       ├── MakeMigrationCommand.php
-│   │       ├── MakeModelCommand.php
-│   │       ├── MakePolicyCommand.php
-│   │       ├── MakePoppyCommand.php
-│   │       ├── MakeProviderCommand.php
-│   │       ├── MakeRequestCommand.php
-│   │       ├── MakeSeederCommand.php
-│   │       ├── MakeTestCommand.php
+│   │   └── Generators     # 生成器
 │   │       └── stubs
-│   ├── Database          # 数据库集成器
-│   │   └── Migrations
-│   │       └── Migrator.php
-│   ├── Events            # 提供的事件
-│   │   └── PoppyMake.php
-│   ├── Exceptions        # 异常
-│   │   ├── AjaxException.php
-│   │   ├── ApplicationException.php
-│   │   ├── ArithmeticException.php
-│   │   ├── BaseException.php
-│   │   ├── DoException.php
-│   │   ├── FakerException.php
-│   │   ├── LoadConfigurationException.php
-│   │   ├── ModuleNotFoundException.php
-│   │   ├── ParamException.php
-│   │   ├── PolicyException.php
-│   │   ├── PoppyException.php
-│   │   ├── RbacException.php
-│   │   ├── RuntimeException.php
-│   │   ├── TestException.php
-│   │   └── TransactionException.php
-│   ├── Facade        # 门面
-│   │   ├── IniFacade.php
-│   │   ├── XmlFacade.php
-│   │   ├── YamlFacade.php
-│   ├── Filesystem        # 文件系统
+│   ├── Database           # 数据库集成器
+│   ├── Events             # 提供的事件
+│   ├── Exceptions         # 异常
+│   ├── Facade             # 门面
+│   ├── Filesystem         # 文件系统
 │   │   └── Filesystem.php
-│   ├── Foundation        # Kernal 以及异常处理
+│   ├── Foundation         # Kernal 以及异常处理
 │   │   ├── Application.php
 │   │   ├── Console
 │   │   │   └── Kernel.php
@@ -391,75 +341,39 @@ Poppy Framework 文件树
 │   │   └── Http
 │   │       └── Kernel.php
 │   ├── FrameworkServiceProvider.php
-│   ├── Helper           # 帮助文件
-│   │   ├── ArrayHelper.php
-│   │   ├── CookieHelper.php
-│   │   ├── EnvHelper.php
-│   │   ├── FileHelper.php
-│   │   ├── HtmlHelper.php
-│   │   ├── ImageHelper.php
-│   │   ├── RouterHelper.php
-│   │   ├── SearchHelper.php
-│   │   ├── StrHelper.php
-│   │   ├── TimeHelper.php
-│   │   ├── TreeHelper.php
-│   │   └── UtilHelper.php
-│   ├── Http            # 控制器相关, 中间件, 分页
+│   ├── Helper             # 帮助文件
+│   ├── Http               # 控制器相关, 中间件, 分页
 │   │   ├── Middlewares
 │   │   │   └── EnableCrossRequest.php
 │   │   └── Pagination
 │   │       └── PageInfo.php
 │   │   └── BladeServiceProvider.php
-│   ├── Parse           # 解析器
-│   │   ├── Ini.php
-│   │   ├── ParseServiceProvider.php
-│   │   ├── Xml.php
-│   │   └── Yaml.php
-│   ├── Poppy           # poppy 加载的模块操作
+│   ├── Parse              # 解析器 Ini / Xml / Yaml
+│   ├── Weiran             # 加载的模块操作工具以及事件
 │   │   ├── Abstracts
-│   │   │   └── Repository.php
 │   │   ├── Contracts
-│   │   │   └── Repository.php
 │   │   ├── Events
-│   │   │   └── PoppyOptimized.php
 │   │   ├── FileRepository.php
-│   │   ├── Poppy.php
-│   │   └── PoppyServiceProvider.php
 │   ├── Support            # 支援文件
-│   │   ├── Abstracts
-│   │   │   └── Repository.php
-│   │   ├── PoppyServiceProvider.php
-│   │   └── functions.php
-│   ├── Translation       # 多语言
+│   ├── Translation        # 多语言
 │   │   ├── TranslationServiceProvider.php
 │   │   └── Translator.php
-│   └── Validation        # 验证规则
-│       └── Rule.php
-└── tests                 # 测试文件
+│   └── Validation         # 验证规则
+└── tests                  # 测试文件
 ```
 
 ## 配置
 
-配置定义为框架中对 config 文件的注入, 命名建议如下:
+配置定义为框架中对 config 文件的注入, 命名如下:
 
-- poppy.php
-- module.php
+-  `weiran.php` 
+-  `module.php` 
 
 ```
-# Poppy
-poppy.framework.page_max
+# Weiran
+weiran.framework.page_max
 
 # 模块配置
 module.order.xxx
 ```
-
-## 参考 & Docs
-
-- [Yaml](http://nodeca.github.io/js-yaml/)
-- [EloquentFilter](https://github.com/Tucker-Eric/EloquentFilter)
-- [Doctum](https://github.com/code-lts/doctum)
-- [Carbon](https://github.com/briannesbitt/Carbon)
-- [Laravel Html & Form - Html/Form 封装](https://segmentfault.com/a/1190000011580448)
-- [hieu-le/active-Url 状态组件](https://laravel-china.org/topics/2858/extended-recommendation-hieu-leactive-according-to-the-url-generated-corresponding-navigation-active-state)
-- [hashids/hashids - 对 ID 进行 Hash 加密](https://github.com/vinkla/laravel-hashids)
 

@@ -13,7 +13,7 @@ head:
       content: 'default : 15列表默认的分页条数, 默认 15 条影响继承了Poppy，如果需要修改分页条数可以在控制器给$this->pagesize赋值default: 3000列表默认的最大分页条数，默认3000条影响继承了Poppydefault : []根据执行内容显示不同的视图模板(例成功/失败)接收视图地址 如 module::xx.folder.message可支持多个视图地址default : ‘网站名称’默认的网站名称, 作为默认信息会注入到 view 视图的 $_title中default : ‘网站描述’默认的网站描述信息,'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/10.x/framework/config.html'
+      content: 'https://weiran.tech/wr-1.x/framework/config.html'
 ---
 # 框架配置
 

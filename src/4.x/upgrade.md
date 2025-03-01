@@ -1,6 +1,6 @@
 ---
 description: '4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 git 提交, 以防止大小写问题导致的命名失败情'
-lastUpdated: '2024-01-29 20:15:00'
+lastUpdated: '2025-02-16 11:35:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -23,9 +23,14 @@ head:
 
 4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式
 
+- [x] 严格模式
+- [x] 移除 fontawesome 字体, 使用 bootstrap icons
+- [x] 支持用户密码的复杂配置
+- [x] 支持后台绑定手机号, 支持后台手机号和用户名的切换登录
+
 > 并非所有的都进行记录, 具体的记录见版本 TAG 记录
 
-### Change Log -  **2023年12月12日** 
+###  **2023年12月12日** 
 
 **poppy/system**  (4.2.85)
 
@@ -39,7 +44,7 @@ head:
 
 - 支持 env 单元测试, 只保留 putObject STS 授权,移除 put*
 
-### Change Log - 2023年06月27日
+### 2023年06月27日
 
 **poppy/mgr-page**
 
@@ -128,6 +133,19 @@ $ php artisan py-code-generator:src-rename demo
 对异常处理进行优化性改写, 移除重复  `dontReport`  异常, 对异常的提示进行多语言改写, 对模型提示提供  `poppy_friendly`  方法进行语言转义
 
 ## 3.2 升级到 4.0
+
+此次版本是对框架进行大规模升级
+
+- [x] (framework) 移除框架的文件加载
+- [x] (framework) 移除 Mocker, 采用 seldom 自动化接口测试框架
+- [x] (framework) sami 文档生成工具替换为 doctum
+- [x] (system) 异常处理推荐  `Framework`  的  `Handler` 
+- [x] (system) 分离 system 的 mgr-page
+- [x] (system) 移除  `ui.yaml`  文件定义
+- [x] (system) 移除  `JwtAuthGuard`  和  `jwt`  包重复
+- [x] (core) 接口使用 js eval 来执行, 来源自 apidoc 升级
+- [x] (module) migration 目录和 seeds 目录变更
+- [x] (ext) 加入 phpstan 进行静态代码分析
 
 ### 建议
 

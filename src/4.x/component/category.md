@@ -1,6 +1,6 @@
 ---
 description: '提供便捷的分类管理, 分类管理支持分类类型, 项目中默认存在一个 default 类型, 其他的类型自行定义当分类删除的时候会触发一个 SysCategoryBeforeDeleteEvent(SysCategory $item) 事件, 用于分类的引用拦截页面引用当需要新建一个类别的时候直接引入一个地址是最为方便的, 可以传递 _hide=scope 来隐藏分类数据例如 : mgr-page/py-category/category?_scope=default&_hide=scope 展示出来的界面如下路由访问地址 route_url(py-category:'
-lastUpdated: '2024-01-29 15:12:00'
+lastUpdated: '2025-02-08 10:18:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -16,7 +16,7 @@ head:
       content: 'https://weiran.tech/4.x/component/category.html'
   - - meta
     - name: 'og:image'
-      content: 'https://file.wulicode.com/notion/f4/f4a2ea67ba6a494e0b0f276575bf6f03.png?x-oss-process=image/resize,m_mfit,w_400'
+      content: 'https://file.wulicode.com/notion/b3/b3ad8adc035c541ed32febc9e3c91095.png?x-oss-process=image/resize,m_mfit,w_400'
 ---
 # Category(分类管理)
 
@@ -58,7 +58,7 @@ head:
 
 例如 :  `mgr-page/py-category/category?_scope=default&_hide=scope`  展示出来的界面如下
 
-![](https://file.wulicode.com/notion/f4/f4a2ea67ba6a494e0b0f276575bf6f03.png)
+![](https://file.wulicode.com/notion/b3/b3ad8adc035c541ed32febc9e3c91095.png)
 
 路由访问地址  `route_url('py-category:backend.category.index', null, ['_scope'=>'default', '_hide' => 'scope'])`
 
@@ -66,7 +66,7 @@ head:
 
 内置钩子和参数用于引用分类, 该钩子为树形选择类型
 
-![](https://file.wulicode.com/notion/47/47d972d2af06c28abf94dd7fb86b9b2f.png)
+![](https://file.wulicode.com/notion/29/2937a8a7fcb708d1f78c367090b23def.png)
 
 ```
 name : poppy.category.form_category_select

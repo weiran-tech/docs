@@ -1,10 +1,10 @@
 ---
 description: '版本要求模块作为框架的组成部分, 是重要的项目单元官方维护的, 对常用的数据出具解决方案的工具包coresystemmgr-pagealiyun-push扩展为插件提供功能, 并且不包含数据库部分的服务模块, 能够用于多个不同的的项目项目根据不同的业务逻辑来进行开发的支持业务逻辑的模块Github Issues'
-lastUpdated: '2025-02-05 11:21:00'
+lastUpdated: '2025-02-16 17:14:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: 'Poppy Framework 10.x'
+      content: 'Weiran Framework 1.x'
   - - meta
     - name: 'og:type'
       content: 'article'
@@ -13,9 +13,9 @@ head:
       content: '版本要求模块作为框架的组成部分, 是重要的项目单元官方维护的, 对常用的数据出具解决方案的工具包coresystemmgr-pagealiyun-push扩展为插件提供功能, 并且不包含数据库部分的服务模块, 能够用于多个不同的的项目项目根据不同的业务逻辑来进行开发的支持业务逻辑的模块Github Issues'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/10.x/index.html'
+      content: 'https://weiran.tech/wr-1.x/index.html'
 ---
-# Poppy Framework 10.x
+# Weiran Framework 1.x
 
 
 
@@ -77,11 +77,19 @@ _________________
 
 ## 反馈
 
-[Github Issues](https://github.com/imvkmark/poppy-docs/issues)
+[Github Issues](https://github.com/weiran-tech/weiran/issues)
 
 ## Thanks To
 
 - [Layui](https://layui.gitee.io/v2/)
 - [Laravel](https://laravel.com/)
 - [Bootstrap Icons](https://icons.getbootstrap.com/)
+- [EloquentFilter](https://github.com/Tucker-Eric/EloquentFilter)
+- [Doctum](https://github.com/code-lts/doctum)
+- [Carbon](https://github.com/briannesbitt/Carbon)
+- [Laravel Html & Form - Html/Form 封装](https://segmentfault.com/a/1190000011580448)
+- [hieu-le/active-Url 状态组件](https://laravel-china.org/topics/2858/extended-recommendation-hieu-leactive-according-to-the-url-generated-corresponding-navigation-active-state)
+- [hashids/hashids - 对 ID 进行 Hash 加密](https://github.com/vinkla/laravel-hashids)
+
+
 

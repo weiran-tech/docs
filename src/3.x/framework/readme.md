@@ -1,6 +1,6 @@
 ---
 description: '项目分为两个部分, 一部分为模块, 另一部分是 Poppy 模块, 为了区分, 所以 slug 的命名分为 module.{module} poppy.{poppy}[v3.1] Poppy Framework 附带一个 bin 命令 poppy, 可以执行 poppy 框架的清理函数, 运行方法创建一个 Poppy 模块并启动它.模块文件树:列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed生成的模型如下支持 Xml,Ini,Yaml开发进行提交前按照这个清单'
-lastUpdated: '2024-01-29 19:03:00'
+lastUpdated: '2025-02-16 11:53:00'
 head: 
   - - meta
     - name: 'og:title'

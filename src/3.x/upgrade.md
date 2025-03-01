@@ -13,7 +13,7 @@ head:
       content: ''
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech19c49524-d1e0-80b1-910d-f399ef031daa.html'
+      content: 'https://weiran.tech/3.x/upgrade.html'
 ---
 # 升级说明
 

@@ -1,6 +1,6 @@
 ---
 description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcollective/html” 组'
-lastUpdated: '2025-02-05 11:23:00'
+lastUpdated: '2025-02-16 17:38:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -13,22 +13,21 @@ head:
       content: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcollective/html” 组'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/10.x/project/best-practice.html'
+      content: 'https://weiran.tech/wr-1.x/project/best-practice.html'
+  - - meta
+    - name: 'og:image'
+      content: 'https://file.wulicode.com/notion/50/50030764562f63081044682df44c6c3f.png?x-oss-process=image/resize,m_mfit,w_400'
 ---
 # 最佳实践
 
 
-
-## 参考阅读
-
-- [JetBrains 系 IDE 常用插件](https://juejin.cn/post/7220683059866730557/)
 
 ## 配置
 
 对于文件目录 & 网址, 我们不建议在右侧添加  `/`  作为后缀, 例如
 
 ```
-URL_SITE=http://v4.wulicode.com
+APP_URL=http://v4.wulicode.com
 ```
 
 ## Inspect
@@ -36,13 +35,13 @@ URL_SITE=http://v4.wulicode.com
 Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义
 
 ```
-$ php artisan py-core:inspect > inspect.txt
+$ php artisan weiran:core:inspect > inspect.txt
 ```
 
 - [必须] 完成 seo 校验
 - [必须] 完成 validation 校验
 - [必须] 完成 class 加载校验
-- [建议] 完成代码注释 :::
+- [建议] 完成代码注释
 
 ## 代码
 
@@ -56,8 +55,8 @@ $ php artisan py-core:inspect > inspect.txt
 
 参考 :
 
-- [Laravel 表单验证](https://learnku.com/docs/laravel/6.x/validation/5144)
-- [(内部)PamRoleRequest](https://codeup.aliyun.com/qyd/poppy/wulicode/blob/4.2/poppy/system/src/Http/Validation/PamRoleRequest.php)
+- [https://learnku.com/docs/laravel/10.x/validation/14856](https://learnku.com/docs/laravel/10.x/validation/14856)
+- [weiran-tech/weiran/blob/1.0/weiran/system/src/Http/Validation/PamRoleRequest.php](https://github.com/weiran-tech/weiran/blob/1.0/weiran/system/src/Http/Validation/PamRoleRequest.php)
 
 ### 代码编写符合规范
 
@@ -131,4 +130,33 @@ public/assets/
 storage/clockwork/
 storage/phpunit/
 ```
+
+## 接口
+
+### 接口工具
+
+接口使用 swagger 来生成, 使用命令行  `php artisan weiran:core:doc api`  可以生成接口文档, 并且配置 swagger ui 以及相关客户端可以支持直接调试, 例如这里使用 apifox
+
+![](https://file.wulicode.com/notion/50/50030764562f63081044682df44c6c3f.png)
+
+### 接口命名
+
+类似接口  `/api/web/v1/system/auth/reset_password`  ,我们推荐对接口增加版本号管理
+
+```
+/api/web/v1/system/auth/reset_password
+--------------------------------------
+api            : 统一的类型, 方便服务端进行独立配置 / 转发
+web            : 类型约定, 方便鉴权
+v1             : 版本号
+system         : 模块
+auth           : 控制器
+reset_password : 方法
+```
+
+## 参考
+
+- [JetBrains 系插件和技巧](/development/ide/jetbrains-plugins.md) 
+
+
 

@@ -13,7 +13,7 @@ head:
       content: '查看下 ServiceProvider 是否已经加载安装 sentry/sentry-laravel 包新建异常监听这里文件位置放置在 modules/{module}/src/http/foundation 下使用 Handler将错误监听修改为自定义的错误监控类这样便可以注册并收到异常'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech18549524-d1e0-8075-9f6b-d087304b0d61.html'
+      content: 'https://weiran.tech/develop/faq.html'
 ---
 # FAQ
 

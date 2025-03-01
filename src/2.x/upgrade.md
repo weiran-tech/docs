@@ -1,6 +1,6 @@
 ---
 description: '本次升级 Laravel 框架并支持模块加载'
-lastUpdated: '2025-02-16 11:39:00'
+lastUpdated: '2025-02-27 22:20:00'
 head: 
   - - meta
     - name: 'og:title'

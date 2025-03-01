@@ -1,21 +1,21 @@
 ---
-description: '模块是开发的基础组成部分, 各个项目都是有多个不同的模块组合而成, 模块是组件模的子单元使用如下命令来创建模块, 创建的模块如下树状结构在模块创建完成后会在模块的根目录下创建一个 manifest.json 文件, 用来对项目中的模块进行加载这里的 order 是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 排序规则 : 递增模块配置文件 :config/module.php模块配置依据模块命名进行设置模块定义文件一般放置在 {module}/src/Classes 目录下, 文'
-lastUpdated: '2025-02-05 11:22:00'
+description: '模块是开发的基础组成部分, 各个项目都是有多个不同的模块组合而成, 模块是组件模的子单元使用如下命令来创建模块, 创建的模块如下树状结构在模块创建完成后会在模块的根目录下创建一个 manifest.json 文件, 用来对项目中的模块进行加载这里的 order 是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 默认排序规则 : Asc(递增)模块配置文件 :config/weiran.php模块配置依据模块命名进行设置, 为了软件配置的简洁, 我们采用扁平化配置模块定义文件一般放置'
+lastUpdated: '2025-02-16 16:58:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: '说明'
+      content: '模块 README'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '模块是开发的基础组成部分, 各个项目都是有多个不同的模块组合而成, 模块是组件模的子单元使用如下命令来创建模块, 创建的模块如下树状结构在模块创建完成后会在模块的根目录下创建一个 manifest.json 文件, 用来对项目中的模块进行加载这里的 order 是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 排序规则 : 递增模块配置文件 :config/module.php模块配置依据模块命名进行设置模块定义文件一般放置在 {module}/src/Classes 目录下, 文'
+      content: '模块是开发的基础组成部分, 各个项目都是有多个不同的模块组合而成, 模块是组件模的子单元使用如下命令来创建模块, 创建的模块如下树状结构在模块创建完成后会在模块的根目录下创建一个 manifest.json 文件, 用来对项目中的模块进行加载这里的 order 是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 默认排序规则 : Asc(递增)模块配置文件 :config/weiran.php模块配置依据模块命名进行设置, 为了软件配置的简洁, 我们采用扁平化配置模块定义文件一般放置'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/10.x/module/readme.html'
+      content: 'https://weiran.tech/wr-1.x/module/readme.html'
 ---
-# 说明
+# 模块 README
 
 
 
@@ -26,7 +26,7 @@ head:
 使用如下命令来创建模块, 创建的模块如下树状结构
 
 ```
-$ php artsian poppy:make {slug} -Q
+$ php artsian weiran:make {slug} -Q
 ```
 
 在模块创建完成后会在模块的根目录下创建一个  `manifest.json`  文件, 用来对项目中的模块进行加载
@@ -41,13 +41,13 @@ $ php artsian poppy:make {slug} -Q
 }
 ```
 
-这里的  `order`  是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 排序规则 : 递增
+这里的  `order`  是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 默认排序规则 :  `Asc(递增)`
 
 ## 配置
 
-模块配置文件 : `config/module.php`
+模块配置文件 : `config/weiran.php`
 
-模块配置依据模块命名进行设置
+模块配置依据模块命名进行设置, 为了软件配置的简洁, 我们采用扁平化配置
 
 ```php
 return [
@@ -89,7 +89,7 @@ return [
 │   ├── Commands         # 命令
 │   ├── Events           # 事件, 事件使用 Event 后缀
 │   ├── Http             # 路由和中间件
-│   │   ├── Request      # 控制器
+│   │   ├── Request      # 控制器 / Validation / Swagger 文件定义
 │   │   ├── Middleware   # 中间件
 │   │   └── Routes       # 路由
 │   ├── Listeners        # 事件 - 监听器
@@ -109,16 +109,16 @@ declare(strict_types = 1);
 
 namespace Demo;
 
-use Poppy\Framework\Support\PoppyServiceProvider;
-use Poppy\System\Events\PassportVerifyEvent;
+use Weiran\Framework\Support\WeiranServiceProvider;
+use Weiran\System\Events\PassportVerifyEvent;
 
-class ServiceProvider extends PoppyServiceProvider
+class ServiceProvider extends WeiranServiceProvider
 {
     /**
      * 定义模块名称
      * 模块使用 module.{module}
      */
-    protected $name = 'poppy.system';
+    protected $name = 'weiran.system';
 
     // 注册事件监听器
     protected $listens = [
@@ -144,7 +144,7 @@ class ServiceProvider extends PoppyServiceProvider
         $this->publishes([
             __DIR__ . '/../resources/config/sami.php'   => storage_path('sami/config.php'),
             __DIR__ . '/../resources/config/module.php' => base_path('config/module.php'),
-        ], 'poppy-module');
+        ], 'weiran');
 
         $path = poppy_path($this->name);
 
