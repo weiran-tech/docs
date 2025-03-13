@@ -156,7 +156,7 @@ reset_password : 方法
 
 ## 参考
 
-- [JetBrains 系插件和技巧](/development/ide/jetbrains-plugins.md) 
+- [JetBrains 系插件和技巧](https://www.wulicode.com/development/ide/jetbrains-plugins.md) 
 
 
 
