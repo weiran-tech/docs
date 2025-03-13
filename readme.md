@@ -1,5 +1,5 @@
 # weiran.tech
 
-## Poppy Framework Document
+## Weiran Framework Document
 
 https://weiran.tech

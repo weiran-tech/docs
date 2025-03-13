@@ -223,6 +223,7 @@ export const sidebar = {
             text: '模块',
             items: [
                 createLink('介绍', '/wr-1.x/module/readme'),
+                createLink('介绍', '/wr-1.x/module/api-spec'),
                 createLink('菜单和权限', '/wr-1.x/module/menu-and-permission'),
                 createLink('服务和钩子', '/wr-1.x/module/hook'),
                 createLink('模型', '/wr-1.x/module/models'),
@@ -280,7 +281,7 @@ const i18n = {
 
 export default defineConfig({
     lang: 'zh-CN',
-    title: 'Poppy Framework',
+    title: 'Weiran Framework',
     description: '基于 Laravel 的模块化加载框架',
     srcDir: 'src',
     sitemap: {

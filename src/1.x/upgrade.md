@@ -13,7 +13,7 @@ head:
       content: '对本地框架包进行包发布封装, 支持 composer'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech19c49524-d1e0-80ef-974d-fae471bdb2fc.html'
+      content: 'https://weiran.tech/1.x/upgrade.html'
 ---
 # 更新说明
 

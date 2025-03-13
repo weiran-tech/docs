@@ -13,7 +13,7 @@ head:
       content: '本次升级 Laravel 框架并支持模块加载'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech19c49524-d1e0-8032-9bef-f356b3702be3.html'
+      content: 'https://weiran.tech/2.x/upgrade.html'
 ---
 # 升级说明
 
