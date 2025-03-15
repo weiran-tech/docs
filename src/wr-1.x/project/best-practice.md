@@ -1,6 +1,6 @@
 ---
 description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcollective/html” 组'
-lastUpdated: '2025-02-16 17:38:00'
+lastUpdated: '2025-03-15 13:44:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -14,9 +14,6 @@ head:
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/project/best-practice.html'
-  - - meta
-    - name: 'og:image'
-      content: 'https://file.wulicode.com/notion/50/50030764562f63081044682df44c6c3f.png?x-oss-process=image/resize,m_mfit,w_400'
 ---
 # 最佳实践
 
@@ -27,7 +24,7 @@ head:
 对于文件目录 & 网址, 我们不建议在右侧添加  `/`  作为后缀, 例如
 
 ```
-APP_URL=http://v4.wulicode.com
+APP_URL=http://weiran-v1.wulicode.com
 ```
 
 ## Inspect
@@ -35,7 +32,7 @@ APP_URL=http://v4.wulicode.com
 Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义
 
 ```
-$ php artisan weiran:core:inspect > inspect.txt
+$ php artisan core:inspect > inspect.txt
 ```
 
 - [必须] 完成 seo 校验
@@ -105,7 +102,7 @@ $ php artisan weiran:core:inspect > inspect.txt
 更新并清空换粗
 
 ```
-composer dumpautoload && php artisan poppy:optimize
+composer dumpautoload && php artisan weiran:optimize
 ```
 
 然后在  `app.php`  的  `aliases`  部分加入
@@ -129,29 +126,6 @@ composer dumpautoload && php artisan poppy:optimize
 public/assets/
 storage/clockwork/
 storage/phpunit/
-```
-
-## 接口
-
-### 接口工具
-
-接口使用 swagger 来生成, 使用命令行  `php artisan weiran:core:doc api`  可以生成接口文档, 并且配置 swagger ui 以及相关客户端可以支持直接调试, 例如这里使用 apifox
-
-![](https://file.wulicode.com/notion/50/50030764562f63081044682df44c6c3f.png)
-
-### 接口命名
-
-类似接口  `/api/web/v1/system/auth/reset_password`  ,我们推荐对接口增加版本号管理
-
-```
-/api/web/v1/system/auth/reset_password
---------------------------------------
-api            : 统一的类型, 方便服务端进行独立配置 / 转发
-web            : 类型约定, 方便鉴权
-v1             : 版本号
-system         : 模块
-auth           : 控制器
-reset_password : 方法
 ```
 
 ## 参考

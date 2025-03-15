@@ -1,6 +1,6 @@
 ---
 description: '模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为 module.{module} 和 weiran.{weiran}框架附带一个 bin 命令 weiran, 可以执行框架的清理函数, 用来清理缓存文件建议在 composer.json 的 scrpits 字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理创建一个模块并启动它.列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed生成的模型如下支持 Xml,Ini,Yaml'
-lastUpdated: '2025-02-16 17:14:00'
+lastUpdated: '2025-03-15 13:28:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -40,14 +40,14 @@ $ ./vendor/bin/weiran clear
         "weiran": [
             "./vendor/bin/weiran",
             "php artisan weiran:optimize",
-            "php artisan weiran:core:permission init"
+            "php artisan core:permission init"
         ]
     }
 }
 ```
 
 ```shell
-$ composer weiran
+$ composer run weiran
 ```
 
 ## 命令行/Console

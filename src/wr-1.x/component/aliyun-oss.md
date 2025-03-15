@@ -1,10 +1,10 @@
 ---
 description: '更新你的依赖包 composer update 或者全新安装 composer install。'
-lastUpdated: '2025-02-05 11:22:00'
+lastUpdated: '2025-03-15 13:35:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: 'Aliyun Oss'
+      content: '[WIP] Aliyun Oss'
   - - meta
     - name: 'og:type'
       content: 'article'
@@ -15,14 +15,14 @@ head:
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/component/aliyun-oss.html'
 ---
-# Aliyun Oss
+# [WIP] Aliyun Oss
 
 
 
 ## 安装
 
 ```
-composer require poppy/aliyun-oss
+composer require weiran/aliyun-oss 1.0.0-dev
 ```
 
 更新你的依赖包  `composer update`  或者全新安装  `composer install` 。

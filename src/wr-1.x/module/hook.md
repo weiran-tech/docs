@@ -1,6 +1,6 @@
 ---
-description: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理定义 service首先在 services.yaml 中定义如下内容poppy.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 ke'
-lastUpdated: '2025-02-05 11:22:00'
+description: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理定义 service首先在 services.yaml 中定义如下内容weiran.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 k'
+lastUpdated: '2025-03-15 13:33:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理定义 service首先在 services.yaml 中定义如下内容poppy.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 ke'
+      content: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理定义 service首先在 services.yaml 中定义如下内容weiran.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 k'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/module/hook.html'
@@ -36,7 +36,7 @@ hook 位置:  `modules/{module}/configurations/hooks.yaml`
 由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理
 
 ```
-$ php artisan poppy:optimize
+$ php artisan weiran:optimize
 ```
 
 ### Array 类型
@@ -46,16 +46,16 @@ $ php artisan poppy:optimize
 首先在 services.yaml 中定义如下内容
 
 ```yaml
-poppy.system.api_info:
+weiran.system.api_info:
     title: 系统接口
     type: array
     description: 系统信息接口调用, 系统信息返回的灵活数据
 ```
 
-`poppy.system.api_info`  分为三个部分
+`weiran.system.api_info`  分为三个部分
 
 ```
-poppy    : 命名空间
+weiran   : 命名空间
 system   : 模块
 api_info : 自定义名称
 ```
@@ -70,9 +70,9 @@ api_info : 自定义名称
 ```
 
 ```yaml
-- name: "poppy.system.api_info"
+- name: "weiran.system.api_info"
   hooks:
-      - '\Poppy\System\Hooks\System\ApiInfo'
+      - '\Weiran\System\Hooks\System\ApiInfo'
 ```
 
 编写实现对应的 key()/data()方法
@@ -96,7 +96,7 @@ class ApiInfo
 执行 ServiceFactory 的 parse 方法
 
 ```php
-sys_hook('poppy.system.api_info');
+sys_hook('weiran.system.api_info');
 [
     'api' => 'info'
 ]
@@ -107,7 +107,7 @@ sys_hook('poppy.system.api_info');
 定义 service, 这个 Service 是单选 首先再 services.yaml 中定义如下内容
 
 ```yaml
-poppy.ad.place_selection:
+weiran.ad.place_selection:
     title: 广告位选择
     type: form
     description: 选择广告位
@@ -116,8 +116,8 @@ poppy.ad.place_selection:
 注册 hook 方法
 
 ```yaml
-- name: "poppy.ad.place_selection"
-  builder: '\Poppy\Ad\Services\Hooks\AdPlaceSelection'
+- name: "weiran.ad.place_selection"
+  builder: '\Weiran\Ad\Services\Hooks\AdPlaceSelection'
 ```
 
 实现 builder 方法
@@ -141,6 +141,6 @@ public function builder($params = [])
 调用执行
 
 ```php
-sys_hook('poppy.ad.place_selection', $param)
+sys_hook('weiran.ad.place_selection', $param)
 ```
 

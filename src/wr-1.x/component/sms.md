@@ -1,33 +1,33 @@
 ---
-description: '因为此扩展包仅仅为了封装 poppy framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install。'
-lastUpdated: '2025-02-05 11:23:00'
+description: '因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install。'
+lastUpdated: '2025-03-15 13:37:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: 'Sms 扩展包'
+      content: '[WIP] Sms 扩展包'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '因为此扩展包仅仅为了封装 poppy framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install。'
+      content: '因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install。'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/component/sms.html'
 ---
-# Sms 扩展包
+# [WIP] Sms 扩展包
 
 
 
 ## 安装
 
 ```
-composer require poppy/sms 4.1.x-dev
+composer require weiran/sms 1.0.0-dev
 ```
 
 ## 安装附加扩展
 
-因为此扩展包仅仅为了封装 poppy framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装
+因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装
 
 **Aliyun**
 

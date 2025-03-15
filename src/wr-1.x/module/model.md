@@ -1,6 +1,6 @@
 ---
-description: '使用 php artisan poppy:model {module} {DbModel} 来生成模型模型文件统一放置在 ~/modules/{module}/src/Models/ 文件夹下, 这个文件夹中至少包含 2 种类型的数据模型创建的命名空间为配置项目模型:模型文件放置在上述文件夹中的根目录( ~)下,命名与数据表名称相对应策略放置位置 : ~/policies 文件命名 : 模型名称+Policy 例如 : (PamAccountPolicy)资源文件(接口资源):放置位置 : ~/resources 文件命名 : 模型名称 + Resour'
-lastUpdated: '2025-02-05 11:22:00'
+description: '使用 php artisan weiran:model {module} {DbModel} 来生成模型模型文件统一放置在 ~/modules/{module}/src/Models/ 文件夹下, 这个文件夹中至少包含 2 种类型的数据模型创建的命名空间为配置项目模型:模型文件放置在上述文件夹中的根目录( ~)下,命名与数据表名称相对应策略放置位置 : ~/policies 文件命名 : 模型名称+Policy 例如 : (PamAccountPolicy)资源文件(接口资源):放置位置 : ~/resources 文件命名 : 模型名称 + Resou'
+lastUpdated: '2025-03-15 13:34:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '使用 php artisan poppy:model {module} {DbModel} 来生成模型模型文件统一放置在 ~/modules/{module}/src/Models/ 文件夹下, 这个文件夹中至少包含 2 种类型的数据模型创建的命名空间为配置项目模型:模型文件放置在上述文件夹中的根目录( ~)下,命名与数据表名称相对应策略放置位置 : ~/policies 文件命名 : 模型名称+Policy 例如 : (PamAccountPolicy)资源文件(接口资源):放置位置 : ~/resources 文件命名 : 模型名称 + Resour'
+      content: '使用 php artisan weiran:model {module} {DbModel} 来生成模型模型文件统一放置在 ~/modules/{module}/src/Models/ 文件夹下, 这个文件夹中至少包含 2 种类型的数据模型创建的命名空间为配置项目模型:模型文件放置在上述文件夹中的根目录( ~)下,命名与数据表名称相对应策略放置位置 : ~/policies 文件命名 : 模型名称+Policy 例如 : (PamAccountPolicy)资源文件(接口资源):放置位置 : ~/resources 文件命名 : 模型名称 + Resou'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/module/model.html'
@@ -23,7 +23,7 @@ head:
 
 ### 创建
 
-使用  `php artisan poppy:model {module} {DbModel}`  来生成模型
+使用  `php artisan weiran:model {module} {DbModel}`  来生成模型
 
 模型文件统一放置在  `~/modules/{module}/src/Models/`  文件夹下, 这个文件夹中至少包含 2 种类型的数据
 
@@ -275,12 +275,12 @@ item            k_item
 account_name    u_account_name
 ```
 
-## Poppy
+## Weiran
 
 ### 如何在框架中快速使用排序查询数据
 
 ```php
-use Poppy\Framework\Helper\SearchHelper;
+use Weiran\Framework\Helper\SearchHelper;
 
 $orderKey = in_array(SearchHelper::key(), [
     'wx_fans',

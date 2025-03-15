@@ -1,6 +1,6 @@
 ---
-description: '在项目中使用 php artisan weiran:core:doc api 生成, 生成文件存放在 public/docs/swagger-ui/weiran.json此文件可以使用 swaggerUI 来进行访问, 位置 : http://example.com/docs/swagger-ui/也可以将这个文件导入到任何支持 swagger 格式的工具中, 例如我这里使用 apifox 来进行管理, 线上开发版预览地址是:  https://weiran-v1.apifox.cn/我们使用 https://zircote.github.io/swagger-php/ 这个规'
-lastUpdated: '2025-03-06 09:52:00'
+description: '在项目中使用 php artisan core:doc api 生成, 生成文件存放在 public/docs/swagger-ui/weiran.json此文件可以使用 swaggerUI 来进行访问, 位置 : http://example.com/docs/swagger-ui/也可以将这个文件导入到任何支持 swagger 格式的工具中, 例如我这里使用 apifox 来进行管理, 线上开发版预览地址是:  https://weiran-v1.apifox.cn/我们使用 https://zircote.github.io/swagger-php/ 这个规范来编写接口文'
+lastUpdated: '2025-03-15 13:35:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '在项目中使用 php artisan weiran:core:doc api 生成, 生成文件存放在 public/docs/swagger-ui/weiran.json此文件可以使用 swaggerUI 来进行访问, 位置 : http://example.com/docs/swagger-ui/也可以将这个文件导入到任何支持 swagger 格式的工具中, 例如我这里使用 apifox 来进行管理, 线上开发版预览地址是:  https://weiran-v1.apifox.cn/我们使用 https://zircote.github.io/swagger-php/ 这个规'
+      content: '在项目中使用 php artisan core:doc api 生成, 生成文件存放在 public/docs/swagger-ui/weiran.json此文件可以使用 swaggerUI 来进行访问, 位置 : http://example.com/docs/swagger-ui/也可以将这个文件导入到任何支持 swagger 格式的工具中, 例如我这里使用 apifox 来进行管理, 线上开发版预览地址是:  https://weiran-v1.apifox.cn/我们使用 https://zircote.github.io/swagger-php/ 这个规范来编写接口文'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/module/api-spec.html'
@@ -23,7 +23,7 @@ head:
 
 ### 生成和使用
 
-在项目中使用  `php artisan weiran:core:doc api`  生成, 生成文件存放在  `public/docs/swagger-ui/weiran.json`
+在项目中使用  `php artisan core:doc api`  生成, 生成文件存放在  `public/docs/swagger-ui/weiran.json`
 
 此文件可以使用 swaggerUI 来进行访问, 位置 : [http://example.com/docs/swagger-ui/](http://example.com/docs/swagger-ui/)
 

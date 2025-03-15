@@ -1,6 +1,6 @@
 ---
 description: '模块是开发的基础组成部分, 各个项目都是有多个不同的模块组合而成, 模块是组件模的子单元使用如下命令来创建模块, 创建的模块如下树状结构在模块创建完成后会在模块的根目录下创建一个 manifest.json 文件, 用来对项目中的模块进行加载这里的 order 是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 默认排序规则 : Asc(递增)模块配置文件 :config/weiran.php模块配置依据模块命名进行设置, 为了软件配置的简洁, 我们采用扁平化配置模块定义文件一般放置'
-lastUpdated: '2025-02-16 16:58:00'
+lastUpdated: '2025-03-15 13:30:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -169,8 +169,8 @@ class ServiceProvider extends WeiranServiceProvider
     // 计划任务
     private function registerSchedule()
     {
-        app('events')->listen('console.schedule', function (Schedule $schedule) {
-            $schedule->command('py-system:user', ['auto_enable'])
+        app('events')->listen(WeiranSchedule::class, function (Schedule $schedule) {
+            $schedule->command('system:user', ['auto_enable'])
                 ->everyFiveMinutes()->appendOutputTo($this->consoleLog());
         });
     }

@@ -1,6 +1,6 @@
 ---
 description: '事件放置在 modules/{module}/Events 文件夹中, 监听器放在 modules/{module}/Listeners 文件夹中监听器放置位置在 modules/{module}/Listeners/{EventFolder} 这个文件夹下, 文件夹名称和事件的名称相符合. 事件监听器必须为 DoWhatListener, 事件中需要体现监听器的作用,并且必须是 Listener 后缀事件监听放在 {module}/src/ServiceProvider.php 文件中, 如下定义'
-lastUpdated: '2025-02-05 11:22:00'
+lastUpdated: '2025-03-15 13:32:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -33,7 +33,7 @@ head:
 
 declare(strict_types = 1);
 
-namespace Poppy\Framework\Events;
+namespace Weiran\Framework\Events;
 
 
 class LocaleChanged
@@ -64,7 +64,7 @@ namespace Order\Listeners\OrderBossIngCancel;
 
 use Order\Events\OrderBossIngCancelEvent;
 use Order\Models\OrderHunter;
-use Poppy\Extension\NetEase\Im\Yunxin;
+use Weiran\Extension\NetEase\Im\Yunxin;
 use System\Classes\Traits\ListenerTrait;
 use User\Models\UserProfile;
 
@@ -107,7 +107,7 @@ protected $listens = [
     ],
 
     // 系统级别采用全命名空间引入
-    \Poppy\Framework\Events\LocaleChanged::class => [
+    \Weiran\Framework\Events\LocaleChanged::class => [
         //...
     ]
 ]

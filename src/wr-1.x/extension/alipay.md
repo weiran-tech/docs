@@ -1,6 +1,6 @@
 ---
 description: '更新你的依赖包 composer update 或者全新安装 composer install3.23.0'
-lastUpdated: '2025-02-05 11:23:00'
+lastUpdated: '2025-03-15 13:41:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -22,7 +22,7 @@ head:
 ## 安装
 
 ```
-composer require poppy/ext-alipay
+composer require weiran/ext-alipay
 ```
 
 更新你的依赖包  `composer update`  或者全新安装  `composer install`

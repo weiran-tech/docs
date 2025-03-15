@@ -1,6 +1,6 @@
 ---
-description: '默认项目中没有 .env 文件复制 .env.example 为 .env配置数据库信息配置域名生成 app key, jwt key执行数据库 migrate系统安装并创建用户安装完成访问 https://poppy-demo.wulicode.com/mgr-page/login登录之后的界面项目的 .env 文件配置, 文件遵循 laravel 配置, 这里只列出框架需要注意的配置项目项目中使用 jwt 进行项目授权, 必须要生成 JWT_SECRET项目中缓存约定支持 redis, 不使用可能会导致部分功能不可用演示模式下不允许修改主'
-lastUpdated: '2025-02-05 11:23:00'
+description: '默认项目中没有 .env 文件复制 .env.example 为 .env配置数据库信息配置域名生成 app key, jwt key执行数据库 migrate系统安装并创建用户安装完成访问 https://weiran-v1.wulicode.com/mgr-page/login登录之后的界面项目的 .env 文件配置, 文件遵循 laravel 配置, 这里只列出框架需要注意的配置项目项目中使用 jwt 进行项目授权, 必须要生成 JWT_SECRET项目中缓存约定支持 redis, 不使用可能会导致部分功能不可用演示模式下不允许修改主账'
+lastUpdated: '2025-03-15 13:43:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '默认项目中没有 .env 文件复制 .env.example 为 .env配置数据库信息配置域名生成 app key, jwt key执行数据库 migrate系统安装并创建用户安装完成访问 https://poppy-demo.wulicode.com/mgr-page/login登录之后的界面项目的 .env 文件配置, 文件遵循 laravel 配置, 这里只列出框架需要注意的配置项目项目中使用 jwt 进行项目授权, 必须要生成 JWT_SECRET项目中缓存约定支持 redis, 不使用可能会导致部分功能不可用演示模式下不允许修改主'
+      content: '默认项目中没有 .env 文件复制 .env.example 为 .env配置数据库信息配置域名生成 app key, jwt key执行数据库 migrate系统安装并创建用户安装完成访问 https://weiran-v1.wulicode.com/mgr-page/login登录之后的界面项目的 .env 文件配置, 文件遵循 laravel 配置, 这里只列出框架需要注意的配置项目项目中使用 jwt 进行项目授权, 必须要生成 JWT_SECRET项目中缓存约定支持 redis, 不使用可能会导致部分功能不可用演示模式下不允许修改主账'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/project/readme.html'
@@ -40,15 +40,15 @@ $ cp .env.example .env
 
 ```
 DB_HOST=127.0.0.1
-DB_DATABASE=poppy_v1
+DB_DATABASE=weiran_v1
 DB_USERNAME=root
-DB_PASSWORD=Poppy123456
+DB_PASSWORD=null
 ```
 
 配置域名
 
 ```
-URL_SITE=https://poppy.domain.com
+URL_SITE=https://weiran.domain.com
 ```
 
 生成 app key, jwt key
@@ -63,14 +63,14 @@ $ php artisan jwt:secret
 执行数据库 migrate
 
 ```
-$ php artisan poppy:migrate
+$ php artisan weiran:migrate
 ```
 
 系统安装并创建用户
 
 ```
-$ php artisan py-system:install
-Start Install Lemon Framework!
+$ php artisan system:install
+Start Install Weiran Framework!
 Init UserRole Ing...
 Init Role success
 Install User Roles Success
@@ -78,7 +78,7 @@ Init Rbac Permission...
 [poppy.core.PermissionCommand] Import permission Success!
 Init Rbac Permission Success
 
-$ php artisan py-system:user create_user
+$ php artisan system:user create_user
 
  Please input username!:
  > root_user
@@ -92,7 +92,7 @@ $ php artisan py-system:user create_user
 User root_user created
 ```
 
-安装完成访问  `https://poppy-demo.wulicode.com/mgr-page/login`
+安装完成访问  `https://weiran-v1.wulicode.com/mgr-page/login`
 
 ![](https://file.wulicode.com/notion/f5/f53a8afd99f025382325d96e3460377c.png)
 

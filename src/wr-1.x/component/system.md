@@ -1,6 +1,6 @@
 ---
-description: '本系统基于角色的权限访问控制（Role-Based Access Control）根据使用分为三种用户类型(默认)对于用户的类型区分我们使用 Header 来进行区分, Header 的名称是 x-type 来进行区分, 区分的层级为参数的类型便是用户的类型, 这里的数据和 guard 起到映射关系, 但无需一致根据使用到的用户的类型我们应当分为这几项Guard : web,backend,develop Type : user, backend, develop每一种用户定义的角色分为三种因为以上这些可以作为通行证, 所以必须是经过认证的才可以写入这个数据表,'
-lastUpdated: '2025-02-05 11:23:00'
+description: '本系统基于角色的权限访问控制（Role-Based Access Control）根据使用分为两种用户类型(默认)对于用户的类型区分我们使用 Header 来进行区分, Header 的名称是 x-type 来进行区分, 区分的层级为参数的类型便是用户的类型, 这里的数据和 guard 起到映射关系, 但无需一致根据使用到的用户的类型我们应当分为这几项Guard : web,backend,develop Type : user, backend, develop每一种用户定义的角色分为三种因为以上这些可以作为通行证, 所以必须是经过认证的才可以写入这个数据表,'
+lastUpdated: '2025-03-15 13:41:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '本系统基于角色的权限访问控制（Role-Based Access Control）根据使用分为三种用户类型(默认)对于用户的类型区分我们使用 Header 来进行区分, Header 的名称是 x-type 来进行区分, 区分的层级为参数的类型便是用户的类型, 这里的数据和 guard 起到映射关系, 但无需一致根据使用到的用户的类型我们应当分为这几项Guard : web,backend,develop Type : user, backend, develop每一种用户定义的角色分为三种因为以上这些可以作为通行证, 所以必须是经过认证的才可以写入这个数据表,'
+      content: '本系统基于角色的权限访问控制（Role-Based Access Control）根据使用分为两种用户类型(默认)对于用户的类型区分我们使用 Header 来进行区分, Header 的名称是 x-type 来进行区分, 区分的层级为参数的类型便是用户的类型, 这里的数据和 guard 起到映射关系, 但无需一致根据使用到的用户的类型我们应当分为这几项Guard : web,backend,develop Type : user, backend, develop每一种用户定义的角色分为三种因为以上这些可以作为通行证, 所以必须是经过认证的才可以写入这个数据表,'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/component/system.html'
@@ -28,10 +28,10 @@ head:
 
 ```
 # 项目初始化
-$ php artisan py-system:install
+$ php artisan system:install
 
 # 用户部分
-$ php artisan py-system:user {slug}
+$ php artisan system:user {slug}
 ```
 
 ## 用户
@@ -40,19 +40,18 @@ $ php artisan py-system:user {slug}
 
 ### 用户类型
 
-根据使用分为三种用户类型(默认)
+根据使用分为两种用户类型(默认)
 
 ```
 user            # 前台用户
-develop         # 开发者用户
 backend         # 后台用户
 ```
 
 对于用户的类型区分我们使用 Header 来进行区分, Header 的名称是  `x-type`  来进行区分, 区分的层级为
 
 ```
-1. 中间件参数 [web, backend, develop, jwt, jwt_backend, jwt_web, jwt_develop]
-2. Header参数 [user/backend/develop]
+1. 中间件参数 [web, backend, jwt, jwt_backend, jwt_web, jwt_develop]
+2. Header参数 [user/backend]
 ```
 
 参数的类型便是用户的类型, 这里的数据和 guard 起到映射关系, 但无需一致
@@ -74,7 +73,6 @@ Guard : web,backend,develop Type : user, backend, develop
 ```
 root     : 后台超级管理员
 user     : 前台普通用户
-develop  : 开发者
 ```
 
 ### 密码加密方式
@@ -119,7 +117,7 @@ md5(sha1($password . $reg_datetime) . $randomKey);
 
 ## 配置
 
-> 本模块的配置是注入到 poppy.php 文件中, 以下的所有配置均可配置 key 是 poppy.system
+> 本模块的配置是注入到 weiran.php 文件中, 以下的所有配置均可配置 key 是  `weiran.system` 
 
 ### captcha_register
 
@@ -127,18 +125,19 @@ md5(sha1($password . $reg_datetime) . $randomKey);
 - Default:  `true` 
 - Since:  `4.2.51` 
 
-是否允许通过手机号 + 验证码进行直接注册并登录, 默认开启, 可以通过 env 变量  `PY_SYS_CAPTCHA_LOGIN`  进行快捷设定
+是否允许通过手机号 + 验证码进行直接注册并登录, 默认开启, 可以通过 env 变量 <br />
+ `WEIRAN_CAPTCHA_REGISTER`  进行快捷设定
 
 ### cross_origin
 
 - Type :  `string|array` 
 - Default :  `` 
 
-接口请求的时候可以对来源进行设定, 防止 web 端跨域访问资源, 这里的来源可以为  `*`  或者数组, 数组为类似于  `http://poppy.wulicode.com`  这种形式, 如果是网址则只能填写一个完整字串, 或者多个网址, 使用数组进行设定
+接口请求的时候可以对来源进行设定, 防止 web 端跨域访问资源, 这里的来源可以为  `*`  或者数组, 数组为类似于  `http://weiran-v1.wulicode.com`  这种形式, 如果是网址则只能填写一个完整字串, 或者多个网址, 使用数组进行设定
 
 ```
 'cross_origin'      => [
-    'http://poppy.wulicode.com'
+    'http://weiran-v1.wulicode.com'
 ],
 ```
 
@@ -209,7 +208,7 @@ cross_headers => 'X-APP-VERSION'
 - Type :  `string` 
 - Default :  `''` 
 
-密码加载器, 这里这里设定密码算法, 为了保护用户数据安全, 特设定此方式来保护密码计算 默认是  `\Poppy\System\Classes\Auth\Password\DefaultPasswordProvider::class`  替换该实现方式需要实现  `\Poppy\System\Classes\Contracts\PasswordContract::class`  约定.
+密码加载器, 这里这里设定密码算法, 为了保护用户数据安全, 特设定此方式来保护密码计算 默认是  `\Weiran\System\Classes\Auth\Password\DefaultPasswordProvider::class`  替换该实现方式需要实现  `\Weiran\System\Classes\Contracts\PasswordContract::class`  约定.
 
 ### user_location
 
@@ -241,14 +240,7 @@ cross_headers => 'X-APP-VERSION'
 
 ### api_sign_provider
 
-接口签名算法, 需要实现  `\Poppy\System\Classes\Contracts\ApiSignContract:class`  约定
-
-### (*)payment_types
-
-- Type :  `array` 
-- Default :  `[]` 
-
-[待定]支付类型
+接口签名算法, 需要实现  `\Weiran\System\Classes\Contracts\ApiSignContract:class`  约定
 
 ### sso_group
 
@@ -269,84 +261,7 @@ sso 单点登录的分组, 默认数据为
 - Type :  `bool` 
 - Default :  `false` 
 
-是否启用邮箱, 默认关闭, 关闭后账号列表不展示邮箱列, 可以通过环境变量  `PY_SYS_ENABLE_EMAIL`  开启
-
-## 使用 Progress 方式数据表更新(不推荐)
-
-> 推荐使用命令行方式更新, 速度快, 可以后台执行
-
-### 访问地址
-
-```
-http://xxx.com/mgr-page/develop
-点击 数据表更新
-参数
-[
-  'method' => '模型名.类名',// 类名多个单词通过 '_' 拼接
-];
-```
-
-### 类的编写
-
-在每个模块下 progress 文件夹下(没有新建)编写
-
-```php
-# 类命名规范 数据表名+改动(自定义)+progress
-class OrderHunterResultProgress implements Progress
-{
-  use FixTrait;
-
-  /**
-   * @return array fix
-   */
-  public function handle(): array
-  {
-    // 初始化 fix
-    $this->fixInit();
-    // 指定每次更新的条数
-    $this->fix['section'] = 100;
-    // 重新清理掉缓存
-    if (!$this->fix['cached']) {
-      $this->fix['cached'] = 1;
-    }
-
-    $Db = OrderHunter::where('first_result', '!=', '');
-
-    if (!$this->fix['total']) {
-      $this->fix['total'] = $Db->count();
-    }
-    if (!$this->fix['max']) {
-      $this->fix['max'] = $Db->max('id');
-    }
-    if (!$this->fix['min']) {
-      $this->fix['min'] = $Db->min('id');
-    }
-
-    // ↑↑↑↑↑↑↑↑↑↑↑   获取参数
-
-    // 剩余数
-    $this->fix['left'] = $Db->whereRaw('id > ?', [$this->fix['start']])
-      ->count('id');
-
-    $this->fix['lastId'] = $this->fix['start'];
-
-    if ($this->fix['left']) {
-      // 业务逻辑
-      $left_items = OrderHunter::whereRaw('id >= ?', [$this->fix['start']])
-        ->where('first_result', '!=', '')
-        ->take($this->fix['section'])
-        ->orderBy('id', 'asc')
-        ->get(['id']);
-      foreach ($left_items as $item) {
-        self::normal($item->id);
-        $this->fix['lastId'] = $item->id + 1;
-      }
-    }
-
-    return $this->fix;
-  }
-}
-```
+是否启用邮箱, 默认关闭, 关闭后账号列表不展示邮箱列, 可以通过环境变量  `WEIRAN_ENABLE_EMAIL`  开启
 
 ## 中间件
 
@@ -393,6 +308,6 @@ class OrderHunterResultProgress implements Progress
 ext-aliyun::push.access_key
 
 # 组件设置
-py-system::permission.prefix
+weiran-system::permission.prefix
 ```
 

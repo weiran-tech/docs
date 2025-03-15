@@ -1,6 +1,6 @@
 ---
 description: '这个版本从 Poppy 4.2 升级到 Weiran 1.0本版本将 Poppy 的命名空间统一更改为 Weiran , Weiran 对应的中文是蔚然, 取自蔚然成林, 寓意茂盛, 希望这个框架的基础上帮助发展的更好, 蒸蒸日上'
-lastUpdated: '2025-02-16 17:29:00'
+lastUpdated: '2025-03-15 13:27:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -46,7 +46,7 @@ head:
 ## TODO
 
 - [ ] 框架支持 CAS, 支持多应用的核心对接, 实现 PHP 的中心化
-- [ ] 接口规范变更, 支持 Swagger 接口模式
+- [x] 接口规范变更, 支持 Swagger 接口模式
 - [ ] 支持自定义的模型查询, 方便 SQL 优化
 - [ ] 导出支持大数据量查询, 直接从数据库中导出数据
 - [ ] 使用 Request 替代 input 进行权限的校验

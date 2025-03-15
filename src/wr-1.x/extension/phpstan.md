@@ -1,6 +1,6 @@
 ---
 description: '~/phpstan.neon 中增加运行'
-lastUpdated: '2025-02-05 11:23:00'
+lastUpdated: '2025-03-15 13:42:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -24,14 +24,14 @@ head:
 ## 安装
 
 ```
-composer require poppy/ext-phpstan 4.2.*
+composer require weiran/ext-phpstan 4.2.*
 ```
 
 `~/phpstan.neon`  中增加
 
 ```
 includes:
-    - vendor/poppy/ext-phpstan/extension.neon
+    - vendor/weiran/ext-phpstan/extension.neon
 ```
 
 运行

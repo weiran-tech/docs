@@ -39,7 +39,7 @@ export default {
             "link": "/4.x/component/mgr-app"
         },
         {
-            "text": "Aliyun Oss",
+            "text": "[WIP] Aliyun Oss",
             "link": "/wr-1.x/component/aliyun-oss"
         },
         {
@@ -47,7 +47,7 @@ export default {
             "link": "/4.x/component/mgr-app-form"
         },
         {
-            "text": "Aliyun 推送",
+            "text": "[WIP]Aliyun 推送",
             "link": "/wr-1.x/component/aliyun-push"
         },
         {
@@ -55,7 +55,7 @@ export default {
             "link": "/4.x/component/mgr-app-grid"
         },
         {
-            "text": "应用管理",
+            "text": "[WIP] 应用管理",
             "link": "/wr-1.x/component/app"
         },
         {
@@ -63,7 +63,7 @@ export default {
             "link": "/4.x/component/mgr-app-table"
         },
         {
-            "text": "Category(分类管理)",
+            "text": "[WIP] Category(分类管理)",
             "link": "/wr-1.x/component/category"
         },
         {
@@ -119,7 +119,7 @@ export default {
             "link": "/4.x/component/core"
         },
         {
-            "text": "Sms 扩展包",
+            "text": "[WIP] Sms 扩展包",
             "link": "/wr-1.x/component/sms"
         },
         {
