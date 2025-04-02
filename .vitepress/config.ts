@@ -237,19 +237,19 @@ export const sidebar = {
             items: [
                 createLink('Core', '/wr-1.x/component/core'),
                 createLink('System', '/wr-1.x/component/system'),
+                createLink('Mgr Page', '/wr-1.x/component/mgr-page'),
                 createLink('Aliyun Oss', '/wr-1.x/component/aliyun-oss'),
-                createLink('Aliyun Push', '/wr-1.x/component/aliyun-push'),
-                createLink('Category', '/wr-1.x/component/category'),
-                createLink('App', '/wr-1.x/component/app'),
                 createLink('Sms', '/wr-1.x/component/sms'),
+
+
             ]
         },
         {
-            text: '组件:后台',
+            text: '组件:WIP',
             items: [
-                createLink('Mgr Page', '/wr-1.x/component/mgr-page'),
-                createLink('动态表格', '/wr-1.x/component/mgr-page-grid.md'),
-                createLink('组件', '/wr-1.x/component/mgr-page-component.md'),
+                createLink('Category', '/wr-1.x/component/category'),
+                createLink('App', '/wr-1.x/component/app'),
+                createLink('Aliyun Push', '/wr-1.x/component/aliyun-push'),
             ]
         },
         {

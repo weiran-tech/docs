@@ -1,6 +1,6 @@
 ---
 description: '这个版本从 Poppy 4.2 升级到 Weiran 1.0本版本将 Poppy 的命名空间统一更改为 Weiran , Weiran 对应的中文是蔚然, 取自蔚然成林, 寓意茂盛, 希望这个框架的基础上帮助发展的更好, 蒸蒸日上'
-lastUpdated: '2025-03-15 13:27:00'
+lastUpdated: '2025-03-15 13:57:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -29,11 +29,11 @@ head:
 
 ## 事件
 
-- 计划任务事件名称  `console.schedule`  更新为  `\Poppy\Framework\Events\PoppySchedule`  
+- 计划任务事件名称  `console.schedule`  更新为  `\Poppy\Framework\Events\WeiranSchedule`  
 
 ```diff
 - app('events')->listen('console.schedule', function (Schedule $schedule) {
-+ app('events')->listen(PoppySchedule::class, function (Schedule $schedule) {
++ app('events')->listen(WeiranSchedule::class, function (Schedule $schedule) {
 	
 	// schedule
 });

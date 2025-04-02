@@ -1,29 +1,29 @@
 ---
-description: '更新你的依赖包 composer update 或者全新安装 composer install。'
-lastUpdated: '2025-03-15 13:35:00'
+description: ''
+lastUpdated: '2025-04-02 12:46:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: '[WIP] Aliyun Oss'
+      content: 'Aliyun Oss / Aliyun 存储'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '更新你的依赖包 composer update 或者全新安装 composer install。'
+      content: ''
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/component/aliyun-oss.html'
 ---
-# [WIP] Aliyun Oss
+# Aliyun Oss / Aliyun 存储
 
 
 
 ## 安装
 
 ```
-composer require weiran/aliyun-oss 1.0.0-dev
+composer require weiran/aliyun-oss 1.0.x-dev
 ```
 
-更新你的依赖包  `composer update`  或者全新安装  `composer install` 。
+
 

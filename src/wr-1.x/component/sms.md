@@ -1,10 +1,10 @@
 ---
 description: '因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install。'
-lastUpdated: '2025-03-15 13:37:00'
+lastUpdated: '2025-04-02 12:47:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: '[WIP] Sms 扩展包'
+      content: 'Sms / 短信'
   - - meta
     - name: 'og:type'
       content: 'article'
@@ -15,14 +15,14 @@ head:
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/component/sms.html'
 ---
-# [WIP] Sms 扩展包
+# Sms / 短信
 
 
 
 ## 安装
 
 ```
-composer require weiran/sms 1.0.0-dev
+composer require weiran/sms 1.0.x-dev
 ```
 
 ## 安装附加扩展
