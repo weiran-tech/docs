@@ -1,6 +1,6 @@
 ---
 description: '后台管理支持密码登录和验证码登录, 默认情况下开启用户名密码登录, 如果有需要可以在 ENV 设置此参数, 用来开启验证码登录在资源开发过程中, 我们使用如下命令进行资源监听, webpack.mix.js 本不存在, 需要在 weiran/mgr-page/resources/libs/目录下复制 webpack.mix.sample.js 文件并更改名称,将文件放置到你所喜欢的的位置均可, 其中的代理域名以本地开发为主在资源变动之后我们需要将打包后的文件反向复制到 mgr-page 这个包中, 用到以下命令这样进行包提交即可MgrPage 管理后台使用的是 js 加'
-lastUpdated: '2025-04-02 17:52:00'
+lastUpdated: '2025-04-02 17:58:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -21,8 +21,6 @@ head:
 # MgrPage / 后台管理
 
 
-
-> 基于 layui 的后台管理工具包, 部分组件存在版权限制, 无法对外开放
 
 ::: info  <img src="https://file.wulicode.com/notion/4c/4c35ed434c46e240a3970ff8eadebe76.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  配置说明 : 需要 packeton 的私有包权限, 并且再 composer 中配置如下代码
 
