@@ -1,6 +1,6 @@
 ---
-description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcollective/html” 组'
-lastUpdated: '2025-04-02 12:52:00'
+description: '对于文件目录和网址, 我们不建议在右侧添加 / 作为后缀, 如下这种配置方便于我们在组合 Url 地址 / 目录的的时候存在统一Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义在浏览器标题栏中生成 SEO 标题用来验证项目的 validation 是否完善, 如果不完善则会出现 validation.mobile 的错误用来规范项目中指定目录的文件命名用来规范项目中指定目录的文件命名使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且'
+lastUpdated: '2025-05-01 13:57:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcollective/html” 组'
+      content: '对于文件目录和网址, 我们不建议在右侧添加 / 作为后缀, 如下这种配置方便于我们在组合 Url 地址 / 目录的的时候存在统一Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义在浏览器标题栏中生成 SEO 标题用来验证项目的 validation 是否完善, 如果不完善则会出现 validation.mobile 的错误用来规范项目中指定目录的文件命名用来规范项目中指定目录的文件命名使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/project/best-practice.html'
@@ -21,15 +21,53 @@ head:
 
 ## 配置
 
-对于文件目录 & 网址, 我们不建议在右侧添加  `/`  作为后缀, 例如
+### Laravel 框架
+
+对于文件目录和网址, 我们不建议在右侧添加  `/`  作为后缀, 如下
 
 ```
 APP_URL=http://weiran-v1.wulicode.com
 ```
 
+这种配置方便于我们在组合 Url 地址 / 目录的的时候存在统一
+
 ## Inspect
 
 Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义
+
+### SEO 优化
+
+在浏览器标题栏中生成 SEO 标题
+
+```shell
+$ php artisan core:inspect seo
+```
+
+### Validation 校验
+
+用来验证项目的 validation 是否完善, 如果不完善则会出现  `validation.mobile`  的错误
+
+```shell
+$ php artisan core:inspect validation
+```
+
+### File 文件名称校验
+
+用来规范项目中指定目录的文件命名
+
+```shell
+$ php artisan core:inspect file
+```
+
+### Util 提示校验
+
+用来规范项目中指定目录的文件命名
+
+```shell
+$ php artisan core:inspect util
+```
+
+使用  `firstOrFail`  在未查到匹配的数据后会抛出  `ModelNotFoundException`  异常并且此异常可以进行友好提示, 这里的定义需要放置在  `user::util.classes.models.tao_bao_center_user`  这个位置
 
 ```
 $ php artisan core:inspect > inspect.txt
@@ -44,7 +82,7 @@ $ php artisan core:inspect > inspect.txt
 
 ### 使用 firstOrFail 替代查询
 
-使用  `firstOrFail`  在未查到匹配的数据后会抛出  `ModelNotFoundException`  异常并且此异常可以进行友好提示
+
 
 ### 使用 Request 校验
 

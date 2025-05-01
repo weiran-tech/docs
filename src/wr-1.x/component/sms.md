@@ -1,6 +1,6 @@
 ---
-description: '因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install。'
-lastUpdated: '2025-04-02 17:58:00'
+description: '因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install短信需要监听事件来进行发送, 需要自行补充到业务侧, 例如 System 模块在发送之后会触发 CaptchaSend 事件, 我们需要监听这个事件并触发自己的发送逻辑在 ServiceProvider 中添加监听使用 SendListener 事件来触发短信的发送'
+lastUpdated: '2025-04-17 17:16:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install。'
+      content: '因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install短信需要监听事件来进行发送, 需要自行补充到业务侧, 例如 System 模块在发送之后会触发 CaptchaSend 事件, 我们需要监听这个事件并触发自己的发送逻辑在 ServiceProvider 中添加监听使用 SendListener 事件来触发短信的发送'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/component/sms.html'
@@ -40,7 +40,7 @@ head:
 composer require weiran/sms 1.0.x-dev
 ```
 
-## 安装附加扩展
+### 安装附加扩展
 
 因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装
 
@@ -53,7 +53,42 @@ composer require weiran/sms 1.0.x-dev
     ...
 ```
 
-## 更新相关包或者重新安装
+更新你的依赖包  `composer update`  或者全新安装  `composer install`
 
-更新你的依赖包  `composer update`  或者全新安装  `composer install` 。
+### 添加监听
+
+短信需要监听事件来进行发送, 需要自行补充到业务侧, 例如 System 模块在发送之后会触发 CaptchaSend 事件, 我们需要监听这个事件并触发自己的发送逻辑
+
+在 ServiceProvider 中添加监听
+
+```php
+class ServiceProvider extends WeiranServiceProvider
+{
+
+    protected array $listens = [
+        CaptchaSendEvent::class     => [
+            SendListener::class
+        ],
+    ];
+}
+```
+
+使用 SendListener 事件来触发短信的发送
+
+```php
+class SendListener
+{
+    public function handle(CaptchaSendEvent $event): void
+    {
+        $Sms = app(SmsContract::class);
+        if (!$Sms->send('captcha', $event->passport, [
+            'code' => $event->captcha
+        ])) {
+            throw new ApplicationException($Sms->getError()->getMessage());
+        }
+    }
+}
+```
+
+
 

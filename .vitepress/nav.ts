@@ -93,6 +93,59 @@ export default {
             "link": "/1.x/tree"
         }
     ],
+    "/wr-1.x/component/": [
+        {
+            "text": "⏫️ 上一级",
+            "link": "/wr-1.x/index"
+        },
+        {
+            "text": "公共组件",
+            "items": [
+                {
+                    "text": "Core / 核心",
+                    "link": "/wr-1.x/component/core"
+                },
+                {
+                    "text": "System / 系统",
+                    "link": "/wr-1.x/component/system"
+                }
+            ]
+        },
+        {
+            "text": "内部组件",
+            "items": [
+                {
+                    "text": "Aliyun Oss / Aliyun 存储",
+                    "link": "/wr-1.x/component/aliyun-oss"
+                },
+                {
+                    "text": "MgrPage / 后台管理",
+                    "link": "/wr-1.x/component/mgr-page"
+                },
+                {
+                    "text": "Sms / 短信",
+                    "link": "/wr-1.x/component/sms"
+                }
+            ]
+        },
+        {
+            "text": "WIP",
+            "items": [
+                {
+                    "text": "[WIP]Aliyun 推送",
+                    "link": "/wr-1.x/component/aliyun-push"
+                },
+                {
+                    "text": "[WIP] 应用管理",
+                    "link": "/wr-1.x/component/app"
+                },
+                {
+                    "text": "[WIP] Category(分类管理)",
+                    "link": "/wr-1.x/component/category"
+                }
+            ]
+        }
+    ],
     "wr-1.x": [
         {
             "text": "前言",
@@ -190,36 +243,8 @@ export default {
             "text": "组件",
             "items": [
                 {
-                    "text": "Core / 核心",
+                    "text": "⏩️ ",
                     "link": "/wr-1.x/component/core"
-                },
-                {
-                    "text": "System / 系统",
-                    "link": "/wr-1.x/component/system"
-                },
-                {
-                    "text": "Aliyun Oss / Aliyun 存储",
-                    "link": "/wr-1.x/component/aliyun-oss"
-                },
-                {
-                    "text": "MgrPage / 后台管理",
-                    "link": "/wr-1.x/component/mgr-page"
-                },
-                {
-                    "text": "Sms / 短信",
-                    "link": "/wr-1.x/component/sms"
-                },
-                {
-                    "text": "[WIP]Aliyun 推送",
-                    "link": "/wr-1.x/component/aliyun-push"
-                },
-                {
-                    "text": "[WIP] 应用管理",
-                    "link": "/wr-1.x/component/app"
-                },
-                {
-                    "text": "[WIP] Category(分类管理)",
-                    "link": "/wr-1.x/component/category"
                 }
             ]
         },
