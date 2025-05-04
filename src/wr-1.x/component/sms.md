@@ -1,6 +1,6 @@
 ---
 description: '因为此扩展包仅仅为了封装 weiran framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install短信需要监听事件来进行发送, 需要自行补充到业务侧, 例如 System 模块在发送之后会触发 CaptchaSend 事件, 我们需要监听这个事件并触发自己的发送逻辑在 ServiceProvider 中添加监听使用 SendListener 事件来触发短信的发送'
-lastUpdated: '2025-04-17 17:16:00'
+lastUpdated: '2025-05-05 00:01:00'
 head: 
   - - meta
     - name: 'og:title'

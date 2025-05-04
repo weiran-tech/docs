@@ -1,6 +1,6 @@
 ---
-description: '对于文件目录和网址, 我们不建议在右侧添加 / 作为后缀, 如下这种配置方便于我们在组合 Url 地址 / 目录的的时候存在统一Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义在浏览器标题栏中生成 SEO 标题用来验证项目的 validation 是否完善, 如果不完善则会出现 validation.mobile 的错误用来规范项目中指定目录的文件命名用来规范项目中指定目录的文件命名使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且'
-lastUpdated: '2025-05-01 13:57:00'
+description: '对于文件目录和网址, 我们不建议在右侧添加 / 作为后缀, 如下这种配置方便于我们在组合 Url 地址 / 目录的的时候存在统一使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :在项目中我们使用 qodana, 来进行静态代码扫描, 在IDE 中操作 Problems → Server Side Analysis → Run LocallyInspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义在浏览器标题栏中生成 SEO '
+lastUpdated: '2025-05-01 16:09:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '对于文件目录和网址, 我们不建议在右侧添加 / 作为后缀, 如下这种配置方便于我们在组合 Url 地址 / 目录的的时候存在统一Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义在浏览器标题栏中生成 SEO 标题用来验证项目的 validation 是否完善, 如果不完善则会出现 validation.mobile 的错误用来规范项目中指定目录的文件命名用来规范项目中指定目录的文件命名使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且'
+      content: '对于文件目录和网址, 我们不建议在右侧添加 / 作为后缀, 如下这种配置方便于我们在组合 Url 地址 / 目录的的时候存在统一使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :在项目中我们使用 qodana, 来进行静态代码扫描, 在IDE 中操作 Problems → Server Side Analysis → Run LocallyInspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义在浏览器标题栏中生成 SEO '
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/project/best-practice.html'
@@ -19,7 +19,7 @@ head:
 
 
 
-## 配置
+## 代码编写
 
 ### Laravel 框架
 
@@ -30,6 +30,19 @@ APP_URL=http://weiran-v1.wulicode.com
 ```
 
 这种配置方便于我们在组合 Url 地址 / 目录的的时候存在统一
+
+### 使用 Request 校验
+
+使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中
+
+参考 :
+
+- [https://learnku.com/docs/laravel/10.x/validation/14856](https://learnku.com/docs/laravel/10.x/validation/14856)
+- [weiran-tech/weiran/blob/1.0/weiran/system/src/Http/Validation/PamRoleRequest.php](https://github.com/weiran-tech/weiran/blob/1.0/weiran/system/src/Http/Validation/PamRoleRequest.php)
+
+### 静态代码扫描
+
+在项目中我们使用 qodana, 来进行静态代码扫描, 在IDE 中操作  `Problems`  →  `Server Side Analysis`  →  `Run Locally`
 
 ## Inspect
 
@@ -67,35 +80,22 @@ $ php artisan core:inspect file
 $ php artisan core:inspect util
 ```
 
-使用  `firstOrFail`  在未查到匹配的数据后会抛出  `ModelNotFoundException`  异常并且此异常可以进行友好提示, 这里的定义需要放置在  `user::util.classes.models.tao_bao_center_user`  这个位置
+使用  `firstOrFail`  在未查到匹配的数据后会抛出  `ModelNotFoundException`  异常并且此异常可以进行友好提示
 
+例如这个提示 :  `user::util.classes.models.tao_bao_center_user`  文件应当放置在
+
+`user/resources/lang/util.php` , 内容是:
+
+```php
+<?php
+return [
+	'classes' => [
+		'models' => [
+			'tao_bao_center_user' => '中心场用户'
+		]
+	]
+]
 ```
-$ php artisan core:inspect > inspect.txt
-```
-
-- [必须] 完成 seo 校验
-- [必须] 完成 validation 校验
-- [必须] 完成 class 加载校验
-- [建议] 完成代码注释
-
-## 代码
-
-### 使用 firstOrFail 替代查询
-
-
-
-### 使用 Request 校验
-
-使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中
-
-参考 :
-
-- [https://learnku.com/docs/laravel/10.x/validation/14856](https://learnku.com/docs/laravel/10.x/validation/14856)
-- [weiran-tech/weiran/blob/1.0/weiran/system/src/Http/Validation/PamRoleRequest.php](https://github.com/weiran-tech/weiran/blob/1.0/weiran/system/src/Http/Validation/PamRoleRequest.php)
-
-### 代码编写符合规范
-
-### 测试用例完善并且通过
 
 ## composer 配置
 
@@ -137,10 +137,10 @@ $ php artisan core:inspect > inspect.txt
 ];
 ```
 
-更新并清空换粗
+更新并清空缓存
 
-```
-composer dumpautoload && php artisan weiran:optimize
+```shell
+$ composer dumpautoload && php artisan weiran:optimize
 ```
 
 然后在  `app.php`  的  `aliases`  部分加入

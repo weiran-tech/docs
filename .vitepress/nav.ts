@@ -1,16 +1,16 @@
 export default {
     "develop": [
         {
-            "text": "FAQ",
-            "link": "/develop/faq"
-        },
-        {
             "text": "扩展开发",
             "link": "/develop/extension"
         },
         {
             "text": "开发规范",
             "link": "/develop/spec"
+        },
+        {
+            "text": "FAQ",
+            "link": "/develop/faq"
         }
     ],
     "2.x": [
@@ -91,59 +91,6 @@ export default {
         {
             "text": "文件目录树",
             "link": "/1.x/tree"
-        }
-    ],
-    "/wr-1.x/component/": [
-        {
-            "text": "⏫️ 上一级",
-            "link": "/wr-1.x/index"
-        },
-        {
-            "text": "公共组件",
-            "items": [
-                {
-                    "text": "Core / 核心",
-                    "link": "/wr-1.x/component/core"
-                },
-                {
-                    "text": "System / 系统",
-                    "link": "/wr-1.x/component/system"
-                }
-            ]
-        },
-        {
-            "text": "内部组件",
-            "items": [
-                {
-                    "text": "Aliyun Oss / Aliyun 存储",
-                    "link": "/wr-1.x/component/aliyun-oss"
-                },
-                {
-                    "text": "MgrPage / 后台管理",
-                    "link": "/wr-1.x/component/mgr-page"
-                },
-                {
-                    "text": "Sms / 短信",
-                    "link": "/wr-1.x/component/sms"
-                }
-            ]
-        },
-        {
-            "text": "WIP",
-            "items": [
-                {
-                    "text": "[WIP]Aliyun 推送",
-                    "link": "/wr-1.x/component/aliyun-push"
-                },
-                {
-                    "text": "[WIP] 应用管理",
-                    "link": "/wr-1.x/component/app"
-                },
-                {
-                    "text": "[WIP] Category(分类管理)",
-                    "link": "/wr-1.x/component/category"
-                }
-            ]
         }
     ],
     "wr-1.x": [
@@ -243,8 +190,51 @@ export default {
             "text": "组件",
             "items": [
                 {
-                    "text": "⏩️ ",
-                    "link": "/wr-1.x/component/core"
+                    "text": "公共组件",
+                    "items": [
+                        {
+                            "text": "Core / 核心",
+                            "link": "/wr-1.x/component/core"
+                        },
+                        {
+                            "text": "System / 系统",
+                            "link": "/wr-1.x/component/system"
+                        }
+                    ]
+                },
+                {
+                    "text": "内部组件",
+                    "items": [
+                        {
+                            "text": "Aliyun Oss / Aliyun 存储",
+                            "link": "/wr-1.x/component/aliyun-oss"
+                        },
+                        {
+                            "text": "Sms / 短信",
+                            "link": "/wr-1.x/component/sms"
+                        },
+                        {
+                            "text": "MgrPage / 后台管理",
+                            "link": "/wr-1.x/component/mgr-page"
+                        }
+                    ]
+                },
+                {
+                    "text": "WIP",
+                    "items": [
+                        {
+                            "text": "[WIP]Aliyun 推送",
+                            "link": "/wr-1.x/component/aliyun-push"
+                        },
+                        {
+                            "text": "[WIP] 应用管理",
+                            "link": "/wr-1.x/component/app"
+                        },
+                        {
+                            "text": "[WIP] Category(分类管理)",
+                            "link": "/wr-1.x/component/category"
+                        }
+                    ]
                 }
             ]
         },

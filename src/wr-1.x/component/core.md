@@ -1,6 +1,6 @@
 ---
 description: 'PHP-CS-FixerPHP-CS-Fixer is a tool to automatically fix PHP Coding Standards issues, We use it for Code Specification.生成配置文件下载 doctum我们运行命令来生成 php 文档运行完成后会在 public/docs/php 文件夹下生成标准的 html 文档, 这样我们就可以进行访问了.如果默认的配置无法满足你的要求可以编辑 resources/doctum/doctum.php 文件来修改需要生成文档的文件夹和目标路径.生成文档如下配置'
-lastUpdated: '2025-04-02 12:45:00'
+lastUpdated: '2025-05-05 00:00:00'
 head: 
   - - meta
     - name: 'og:title'
