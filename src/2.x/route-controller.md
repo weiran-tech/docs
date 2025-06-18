@@ -30,7 +30,7 @@ head:
 
 ### 分组模式
 
-<table>
+<table><tbody>
   <tr>
     <td>文件名</td>
     <td>前缀</td>
@@ -66,7 +66,7 @@ head:
     <td>support_</td>
     <td>公用的支持类函数</td>
   </tr>
-</table>
+</tbody></table>
 
 ## 路由
 

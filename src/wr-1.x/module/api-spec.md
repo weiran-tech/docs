@@ -59,7 +59,7 @@ URL 统一结构 :  `api/{服务类型}/{模块名}/{版本号}/{资源名}/{动
 
 ###  **常用动作** 
 
-<table>
+<table><tbody>
   <tr>
     <td> <strong>含义</strong> </td>
     <td> <strong>关键字</strong> </td>
@@ -104,7 +104,7 @@ URL 统一结构 :  `api/{服务类型}/{模块名}/{版本号}/{资源名}/{动
     <td>发送</td>
     <td>send</td>
   </tr>
-</table>
+</tbody></table>
 
 **接口示例**
 

@@ -1,6 +1,6 @@
 ---
 description: '对于文件目录和网址, 我们不建议在右侧添加 / 作为后缀, 如下这种配置方便于我们在组合 Url 地址 / 目录的的时候存在统一使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :在项目中我们使用 qodana, 来进行静态代码扫描, 在IDE 中操作 Problems → Server Side Analysis → Run LocallyInspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义在浏览器标题栏中生成 SEO '
-lastUpdated: '2025-05-01 16:09:00'
+lastUpdated: '2025-05-09 11:20:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -38,7 +38,7 @@ APP_URL=http://weiran-v1.wulicode.com
 参考 :
 
 - [https://learnku.com/docs/laravel/10.x/validation/14856](https://learnku.com/docs/laravel/10.x/validation/14856)
-- [weiran-tech/weiran/blob/1.0/weiran/system/src/Http/Validation/PamRoleRequest.php](https://github.com/weiran-tech/weiran/blob/1.0/weiran/system/src/Http/Validation/PamRoleRequest.php)
+- [weiran-tech/system/blob/1.0/src/Http/Request/Web/Validation/AuthLoginRequest.php](https://github.com/weiran-tech/system/blob/1.0/src/Http/Request/Web/Validation/AuthLoginRequest.php)
 
 ### 静态代码扫描
 

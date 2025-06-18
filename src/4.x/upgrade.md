@@ -1,6 +1,6 @@
 ---
-description: '4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 git 提交, 以防止大小写问题导致的命名失败情'
-lastUpdated: '2025-02-16 11:35:00'
+description: 'poppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 '
+lastUpdated: '2025-06-02 17:52:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 git 提交, 以防止大小写问题导致的命名失败情'
+      content: 'poppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 '
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/4.x/upgrade.html'
@@ -19,16 +19,13 @@ head:
 
 
 
-## 4.1 - 4.2 升级说明
+## 4.2
 
-4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式
+### 2025年06月02日
 
-- [x] 严格模式
-- [x] 移除 fontawesome 字体, 使用 bootstrap icons
-- [x] 支持用户密码的复杂配置
-- [x] 支持后台绑定手机号, 支持后台手机号和用户名的切换登录
+**poppy/system**  (4.2.102)
 
-> 并非所有的都进行记录, 具体的记录见版本 TAG 记录
+- 修复  `The "" file does not exist or is not readable`   错误, 对上传的图片未进行有效性判定
 
 ###  **2023年12月12日** 
 
@@ -49,6 +46,17 @@ head:
 **poppy/mgr-page**
 
 - update layui 2.8.8‒ bootstrap 5.3‒ remove standlone layer, use layui layer
+
+## 4.1 - 4.2 升级说明
+
+4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式
+
+- [x] 严格模式
+- [x] 移除 fontawesome 字体, 使用 bootstrap icons
+- [x] 支持用户密码的复杂配置
+- [x] 支持后台绑定手机号, 支持后台手机号和用户名的切换登录
+
+> 并非所有的都进行记录, 具体的记录见版本 TAG 记录
 
 ## 4.0 - 4.1 升级说明
 

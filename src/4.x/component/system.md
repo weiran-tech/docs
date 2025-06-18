@@ -88,7 +88,7 @@ md5(sha1($password . $reg_datetime) . $randomKey);
 
 ### 通行证约定
 
-<table>
+<table><tbody>
   <tr>
     <td>id</td>
     <td>int(10)</td>
@@ -109,7 +109,7 @@ md5(sha1($password . $reg_datetime) . $randomKey);
     <td>varchar(50)</td>
     <td>邮箱</td>
   </tr>
-</table>
+</tbody></table>
 
 因为以上这些可以作为通行证, 所以必须是经过认证的才可以写入这个数据表, 否则无法进行写入
 
