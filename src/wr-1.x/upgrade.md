@@ -1,6 +1,6 @@
 ---
 description: '这个版本从 Poppy 4.2 升级到 Weiran 1.0本版本将 Poppy 的命名空间统一更改为 Weiran , Weiran 对应的中文是蔚然, 取自蔚然成林, 寓意茂盛, 希望这个框架的基础上帮助发展的更好, 蒸蒸日上'
-lastUpdated: '2025-06-17 21:56:00'
+lastUpdated: '2025-06-25 17:43:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -23,7 +23,13 @@ head:
 
 ## 1.0
 
-### 1.0.06172152
+### 1.0.06251715
+
+-  `alibabacloud/sts-20150401`  1.1.5 版本存在  `Error: Call to undefined method Darabonba\OpenApi\Utils::getEndpointRules()`  错误, 固定版本解决
+- 重写 aliyun-oss 中的变量读取方式, 支持单元测试变量覆盖
+- 业务层依赖可以更改为  `1.0.*`  来引用
+
+### 1.0.06181915
 
 - 变量提取到运行时
 - 版本根据日期以及发布时间来定义

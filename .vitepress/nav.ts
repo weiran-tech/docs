@@ -93,169 +93,6 @@ export default {
             "link": "/1.x/tree"
         }
     ],
-    "wr-1.x": [
-        {
-            "text": "前言",
-            "items": [
-                {
-                    "text": "Weiran Framework 1.x",
-                    "link": "/wr-1.x/index"
-                },
-                {
-                    "text": "升级说明",
-                    "link": "/wr-1.x/upgrade"
-                },
-                {
-                    "text": "FAQ",
-                    "link": "/wr-1.x/faq"
-                }
-            ]
-        },
-        {
-            "text": "项目",
-            "items": [
-                {
-                    "text": "说明",
-                    "link": "/wr-1.x/project/readme"
-                },
-                {
-                    "text": "最佳实践",
-                    "link": "/wr-1.x/project/best-practice"
-                }
-            ]
-        },
-        {
-            "text": "框架",
-            "items": [
-                {
-                    "text": "框架 README",
-                    "link": "/wr-1.x/framework/readme"
-                },
-                {
-                    "text": "框架配置",
-                    "link": "/wr-1.x/framework/config"
-                },
-                {
-                    "text": "Resp",
-                    "link": "/wr-1.x/framework/resp"
-                },
-                {
-                    "text": "验证规则",
-                    "link": "/wr-1.x/framework/validation"
-                }
-            ]
-        },
-        {
-            "text": "模块",
-            "items": [
-                {
-                    "text": "模块 README",
-                    "link": "/wr-1.x/module/readme"
-                },
-                {
-                    "text": "事件",
-                    "link": "/wr-1.x/module/event"
-                },
-                {
-                    "text": "服务和钩子",
-                    "link": "/wr-1.x/module/hook"
-                },
-                {
-                    "text": "国际化",
-                    "link": "/wr-1.x/module/i18n"
-                },
-                {
-                    "text": "权限和菜单",
-                    "link": "/wr-1.x/module/menu-and-permission"
-                },
-                {
-                    "text": "模型",
-                    "link": "/wr-1.x/module/model"
-                },
-                {
-                    "text": "策略",
-                    "link": "/wr-1.x/module/policy"
-                },
-                {
-                    "text": "更新",
-                    "link": "/wr-1.x/module/progress"
-                },
-                {
-                    "text": "Api 文档规范",
-                    "link": "/wr-1.x/module/api-spec"
-                }
-            ]
-        },
-        {
-            "text": "组件",
-            "items": [
-                {
-                    "text": "公共组件",
-                    "items": [
-                        {
-                            "text": "Core / 核心",
-                            "link": "/wr-1.x/component/core"
-                        },
-                        {
-                            "text": "System / 系统",
-                            "link": "/wr-1.x/component/system"
-                        }
-                    ]
-                },
-                {
-                    "text": "内部组件",
-                    "items": [
-                        {
-                            "text": "Aliyun Oss / Aliyun 存储",
-                            "link": "/wr-1.x/component/aliyun-oss"
-                        },
-                        {
-                            "text": "Sms / 短信",
-                            "link": "/wr-1.x/component/sms"
-                        },
-                        {
-                            "text": "MgrPage / 后台管理",
-                            "link": "/wr-1.x/component/mgr-page"
-                        }
-                    ]
-                },
-                {
-                    "text": "WIP",
-                    "items": [
-                        {
-                            "text": "[WIP]Aliyun 推送",
-                            "link": "/wr-1.x/component/aliyun-push"
-                        },
-                        {
-                            "text": "[WIP] 应用管理",
-                            "link": "/wr-1.x/component/app"
-                        },
-                        {
-                            "text": "[WIP] Category(分类管理)",
-                            "link": "/wr-1.x/component/category"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "text": "扩展",
-            "items": [
-                {
-                    "text": "支付宝支付",
-                    "link": "/wr-1.x/extension/alipay"
-                },
-                {
-                    "text": "Ip Store",
-                    "link": "/wr-1.x/extension/ip-store"
-                },
-                {
-                    "text": "webhook",
-                    "link": "/wr-1.x/extension/webhook"
-                }
-            ]
-        }
-    ],
     "4.x": [
         {
             "text": "前言",
@@ -563,6 +400,169 @@ export default {
                 {
                     "text": "说明",
                     "link": "/3.x/project/readme"
+                }
+            ]
+        }
+    ],
+    "wr-1.x": [
+        {
+            "text": "前言",
+            "items": [
+                {
+                    "text": "Weiran Framework 1.x",
+                    "link": "/wr-1.x/index"
+                },
+                {
+                    "text": "升级说明",
+                    "link": "/wr-1.x/upgrade"
+                },
+                {
+                    "text": "FAQ",
+                    "link": "/wr-1.x/faq"
+                }
+            ]
+        },
+        {
+            "text": "项目",
+            "items": [
+                {
+                    "text": "说明",
+                    "link": "/wr-1.x/project/readme"
+                },
+                {
+                    "text": "最佳实践",
+                    "link": "/wr-1.x/project/best-practice"
+                }
+            ]
+        },
+        {
+            "text": "框架",
+            "items": [
+                {
+                    "text": "框架 README",
+                    "link": "/wr-1.x/framework/readme"
+                },
+                {
+                    "text": "框架配置",
+                    "link": "/wr-1.x/framework/config"
+                },
+                {
+                    "text": "Resp",
+                    "link": "/wr-1.x/framework/resp"
+                },
+                {
+                    "text": "验证规则",
+                    "link": "/wr-1.x/framework/validation"
+                }
+            ]
+        },
+        {
+            "text": "模块",
+            "items": [
+                {
+                    "text": "模块 README",
+                    "link": "/wr-1.x/module/readme"
+                },
+                {
+                    "text": "事件",
+                    "link": "/wr-1.x/module/event"
+                },
+                {
+                    "text": "服务和钩子",
+                    "link": "/wr-1.x/module/hook"
+                },
+                {
+                    "text": "国际化",
+                    "link": "/wr-1.x/module/i18n"
+                },
+                {
+                    "text": "权限和菜单",
+                    "link": "/wr-1.x/module/menu-and-permission"
+                },
+                {
+                    "text": "模型",
+                    "link": "/wr-1.x/module/model"
+                },
+                {
+                    "text": "策略",
+                    "link": "/wr-1.x/module/policy"
+                },
+                {
+                    "text": "更新",
+                    "link": "/wr-1.x/module/progress"
+                },
+                {
+                    "text": "Api 文档规范",
+                    "link": "/wr-1.x/module/api-spec"
+                }
+            ]
+        },
+        {
+            "text": "组件",
+            "items": [
+                {
+                    "text": "公共组件",
+                    "items": [
+                        {
+                            "text": "Core / 核心",
+                            "link": "/wr-1.x/component/core"
+                        },
+                        {
+                            "text": "System / 系统",
+                            "link": "/wr-1.x/component/system"
+                        }
+                    ]
+                },
+                {
+                    "text": "内部组件",
+                    "items": [
+                        {
+                            "text": "Aliyun Oss / Aliyun 存储",
+                            "link": "/wr-1.x/component/aliyun-oss"
+                        },
+                        {
+                            "text": "Sms / 短信",
+                            "link": "/wr-1.x/component/sms"
+                        },
+                        {
+                            "text": "MgrPage / 后台管理",
+                            "link": "/wr-1.x/component/mgr-page"
+                        }
+                    ]
+                },
+                {
+                    "text": "WIP",
+                    "items": [
+                        {
+                            "text": "[WIP]Aliyun 推送",
+                            "link": "/wr-1.x/component/aliyun-push"
+                        },
+                        {
+                            "text": "[WIP] 应用管理",
+                            "link": "/wr-1.x/component/app"
+                        },
+                        {
+                            "text": "[WIP] Category(分类管理)",
+                            "link": "/wr-1.x/component/category"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "text": "扩展",
+            "items": [
+                {
+                    "text": "支付宝支付",
+                    "link": "/wr-1.x/extension/alipay"
+                },
+                {
+                    "text": "Ip Store",
+                    "link": "/wr-1.x/extension/ip-store"
+                },
+                {
+                    "text": "webhook",
+                    "link": "/wr-1.x/extension/webhook"
                 }
             ]
         }

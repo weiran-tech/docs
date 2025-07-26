@@ -1,6 +1,6 @@
 ---
-description: 'poppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 '
-lastUpdated: '2025-06-02 17:52:00'
+description: 'poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipaypoppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 '
+lastUpdated: '2025-06-25 17:43:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: 'poppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试安装 composer 包 poppy/code-generator 4.1重命名目录移除所有的 modules 文件夹, 并进行 '
+      content: 'poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipaypoppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 '
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/4.x/upgrade.html'
@@ -20,6 +20,42 @@ head:
 
 
 ## 4.2
+
+### 4.2.104
+
+-  `alibabacloud/sts-20150401`  1.1.5 版本存在  `Error: Call to undefined method Darabonba\OpenApi\Utils::getEndpointRules()`  错误, 固定版本解决
+- 重写 aliyun-oss 中的变量读取方式, 支持单元测试变量覆盖
+
+### 4.2.103
+
+> 自这个版本起, 所有的项目均采用同样的版本定义
+
+**poppy/sms**
+
+- 变量不在初始化中获取, 减少内存读取
+- 短信发送服务商可以不重启即可更换
+
+**poppy/aliyun-oss**
+
+- 变量移动到使用时候获取
+
+**poppy/aliyun-push**
+
+- 变量移动到使用时候获取
+
+**poppy/mgr-page**
+
+- 变量移动到使用时候获取
+
+**poppy/system**
+
+- 变量移动到使用时候获取
+- 移除 Develop 类
+- 更改密钥为命令行配置, 依赖于环境变量, 不依赖于缓存
+
+**poppy/ext-alipay**
+
+- 移除 ExtensionServiceProvider 加载项
 
 ### 2025年06月02日
 
@@ -325,4 +361,11 @@ public function loginCheck(string $passport, string $password, string $guard_nam
 **可替代**
 
 移除  `\Poppy\MgrPage\Classes\Form\Field\Number`  的  `min`  和  `max`  方法, 使用后端服务规则校验  `Rule::min` ,  `Rule::max`
+
+::: info  <img src="https://file.wulicode.com/notion/47/47c09e2568b8d6a89b378c48929d4075.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  更新记录
+
+
+2025年06月17日
+  - 所有的子项目均采用同样的标签定义
+:::
 
