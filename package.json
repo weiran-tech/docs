@@ -1,7 +1,7 @@
 {
     "type": "module",
     "engines": {
-        "node": ">=14.0.0"
+        "node": ">=18.0.0"
     },
     "scripts": {
         "dev": "vitepress",
@@ -10,6 +10,6 @@
         "preinstall": "npx only-allow pnpm"
     },
     "devDependencies": {
-        "vitepress": "1.6.3"
+        "vitepress": "1.6.4"
     }
 }
