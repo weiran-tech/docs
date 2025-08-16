@@ -209,16 +209,16 @@ export default {
                     "link": "/4.x/component/core"
                 },
                 {
+                    "text": "MgrPage - 后台管理",
+                    "link": "/4.x/component/mgr-page"
+                },
+                {
                     "text": "MgrPage - 组件",
                     "link": "/4.x/component/mgr-page-component"
                 },
                 {
                     "text": "MgrPage - 动态表格",
                     "link": "/4.x/component/mgr-page-grid"
-                },
-                {
-                    "text": "MgrPage - 后台管理",
-                    "link": "/4.x/component/mgr-page"
                 },
                 {
                     "text": "Sms 扩展包",

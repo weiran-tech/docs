@@ -1,6 +1,6 @@
 ---
 description: 'poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipaypoppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 '
-lastUpdated: '2025-06-25 17:43:00'
+lastUpdated: '2025-08-16 16:26:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -20,6 +20,13 @@ head:
 
 
 ## 4.2
+
+### 4.2.112
+
+- 移除  `Apidoc`  , 生成监听以及  `Console`  上报的功能
+- 修复了 Resp 类中  `Session`  **`::`**  `previousUrl()`  的部分方法
+- 移除了  `Clockwork`  和  `Progress`  相关的控制器和视图
+- 框架登录增加变量  `poppy.mgr-page.account_login`  用来隐藏登录入口
 
 ### 4.2.104
 
@@ -57,13 +64,13 @@ head:
 
 - 移除 ExtensionServiceProvider 加载项
 
-### 2025年06月02日
+### 2025-06-02
 
 **poppy/system**  (4.2.102)
 
 - 修复  `The "" file does not exist or is not readable`   错误, 对上传的图片未进行有效性判定
 
-###  **2023年12月12日** 
+###  **2023-12-12** 
 
 **poppy/system**  (4.2.85)
 
