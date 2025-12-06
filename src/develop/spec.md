@@ -1,6 +1,6 @@
 ---
-description: '单元测试采用 phpunit.phar 和项目独立的方式进行安装, 这样需要在项目中进行配置快捷生成使用如下命令便捷创建单元测试文件测试文件加载对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到 composer.json 的 autoload 中, 这里遵循 psr-4 加载规范要求接口文档接口文档写法遵循 apidoc接口要求保证代码格式正确, 对文件夹进行代码格式化 ctrl + alt + l, 在 src 目录下运行 代码中不得存在编辑器提示的错误, 需要开启 Php Inspection在 PHPstorm 中需要 alt'
-lastUpdated: '2025-01-24 17:25:00'
+description: '快捷生成使用如下命令便捷创建单元测试文件测试文件加载对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到 composer.json 的 autoload 中, 这里遵循 psr-4 加载规范要求接口文档接口文档写法遵循 apidoc接口要求保证代码格式正确, 对文件夹进行代码格式化 ctrl + alt + l, 在 src 目录下运行 代码中不得存在编辑器提示的错误, 需要开启 Php Inspection在 PHPstorm 中需要 alt + enter 进行 Import Class 或者 Simplify FQN, 这样便可以是'
+lastUpdated: '2025-09-06 10:47:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '单元测试采用 phpunit.phar 和项目独立的方式进行安装, 这样需要在项目中进行配置快捷生成使用如下命令便捷创建单元测试文件测试文件加载对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到 composer.json 的 autoload 中, 这里遵循 psr-4 加载规范要求接口文档接口文档写法遵循 apidoc接口要求保证代码格式正确, 对文件夹进行代码格式化 ctrl + alt + l, 在 src 目录下运行 代码中不得存在编辑器提示的错误, 需要开启 Php Inspection在 PHPstorm 中需要 alt'
+      content: '快捷生成使用如下命令便捷创建单元测试文件测试文件加载对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到 composer.json 的 autoload 中, 这里遵循 psr-4 加载规范要求接口文档接口文档写法遵循 apidoc接口要求保证代码格式正确, 对文件夹进行代码格式化 ctrl + alt + l, 在 src 目录下运行 代码中不得存在编辑器提示的错误, 需要开启 Php Inspection在 PHPstorm 中需要 alt + enter 进行 Import Class 或者 Simplify FQN, 这样便可以是'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/develop/spec.html'
@@ -20,8 +20,6 @@ head:
 
 
 ## 单元测试
-
-单元测试采用  `phpunit.phar`  和项目独立的方式进行安装, 这样需要在项目中进行配置
 
 **快捷生成**
 
@@ -53,7 +51,7 @@ $ php artisan poppy:test  {slug} {name}
 }
 ```
 
-- 单元测试 : [PHPUnit简介以及如何在项目中使用](https://wulicode.com/php/phpunit-readme-and-run-with-phpstorm.html)
+- 单元测试 : [PHPUnit 简介以及在 PhpStorm 中使用](https://www.wulicode.com/php/ide/phpstorm-run-phpunit.md) 
 
 **要求**
 
@@ -68,8 +66,8 @@ $ php artisan poppy:test  {slug} {name}
 
 接口文档写法遵循 [apidoc](https://apidocjs.com/)
 
-- 接口文档说明: [使用 ApiDoc 编写接口文档](https://wulicode.com/develop/cooperation/apidoc/)
-- 接口文档示例: [ApiDocument@Start](http://v4.poppy-framework.com/docs/web/)
+- 接口文档说明: [使用 ApiDoc 编写接口文档](https://www.wulicode.com/development/tools/apidoc.md) 
+- 接口文档示例: [http://v4.wulicode.com/docs/web/](http://v4.wulicode.com/docs/web/)
 
 **接口要求**
 
@@ -160,14 +158,14 @@ $ php artisan py-core:inspect class
 
 代码使用 Git 进行代码协同
 
-- [https://www.wulicode.com/development/git/commit-grace-use-husky.html](https://www.wulicode.com/development/git/commit-grace-use-husky.html)
+- [使用 husky 让代码提交优雅规范](https://www.wulicode.com/development/git/commit-grace-use-husky.md) 
 
 ### Git Flow
 
 git-flow 并不是要替代 Git，它仅仅是非常聪明有效地把标准的 Git 命令用脚本组合了起来。 Release 管理是版本控制处理中的另外一个非常重要的话题, 详细见下边的文档. Git Flow 的详细说明文档
 
 - [https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow)
-- [https://www.wulicode.com/development/git/git-flow.html](https://www.wulicode.com/development/git/git-flow.html)
+- [一个成功的 Git 分支模型 - GitFlow](https://www.wulicode.com/development/git/git-flow.md) 
 
 
 

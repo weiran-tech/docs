@@ -1,6 +1,6 @@
 ---
-description: 'poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipaypoppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 '
-lastUpdated: '2025-08-16 16:26:00'
+description: '4.2.1144.2.1124.2.1044.2.103poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipay2025-06-02poppy/system (4.2.102)2023-12-12poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)2023-06-27poppy/mgr-page4.1 - 4.2 主要'
+lastUpdated: '2025-08-31 14:41:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: 'poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipaypoppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)poppy/mgr-page4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式本次升级目的是把 modules 加载更改为支持 PSR-4 '
+      content: '4.2.1144.2.1124.2.1044.2.103poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipay2025-06-02poppy/system (4.2.102)2023-12-12poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)2023-06-27poppy/mgr-page4.1 - 4.2 主要'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/4.x/upgrade.html'
@@ -21,72 +21,77 @@ head:
 
 ## 4.2
 
-### 4.2.112
+**4.2.114**
+
+-  `alibabacloud/sts-20150401`  存在使用不当问题, 不再锁定版本
+-  `aliyun-oss`  支持 sts 授权临时目录
+
+**4.2.112**
 
 - 移除  `Apidoc`  , 生成监听以及  `Console`  上报的功能
 - 修复了 Resp 类中  `Session`  **`::`**  `previousUrl()`  的部分方法
 - 移除了  `Clockwork`  和  `Progress`  相关的控制器和视图
 - 框架登录增加变量  `poppy.mgr-page.account_login`  用来隐藏登录入口
 
-### 4.2.104
+**4.2.104**
 
 -  `alibabacloud/sts-20150401`  1.1.5 版本存在  `Error: Call to undefined method Darabonba\OpenApi\Utils::getEndpointRules()`  错误, 固定版本解决
 - 重写 aliyun-oss 中的变量读取方式, 支持单元测试变量覆盖
 
-### 4.2.103
+**4.2.103**
 
 > 自这个版本起, 所有的项目均采用同样的版本定义
 
-**poppy/sms**
+poppy/sms
 
 - 变量不在初始化中获取, 减少内存读取
 - 短信发送服务商可以不重启即可更换
 
-**poppy/aliyun-oss**
+poppy/aliyun-oss
 
 - 变量移动到使用时候获取
 
-**poppy/aliyun-push**
+poppy/aliyun-push
 
 - 变量移动到使用时候获取
 
-**poppy/mgr-page**
+poppy/mgr-page
 
 - 变量移动到使用时候获取
 
-**poppy/system**
+poppy/system
 
 - 变量移动到使用时候获取
 - 移除 Develop 类
 - 更改密钥为命令行配置, 依赖于环境变量, 不依赖于缓存
 
-**poppy/ext-alipay**
+poppy/ext-alipay
 
 - 移除 ExtensionServiceProvider 加载项
 
-### 2025-06-02
+**2025-06-02**
 
-**poppy/system**  (4.2.102)
+poppy/system (4.2.102)
 
 - 修复  `The "" file does not exist or is not readable`   错误, 对上传的图片未进行有效性判定
 
-###  **2023-12-12** 
+**2023-12-12**
 
-**poppy/system**  (4.2.85)
+poppy/system (4.2.85)
 
 - captcha 发送进行类型验证, 手机号 int 类型无法传值
 
-**poppy/ext-ip_store**   (4.2.2)
+poppy/ext-ip_store  (4.2.2)
 
 - 更新最新版纯真库, 支持 poppy.php 进行配置, 默认为 mon17
 
-**poppy/aliyun-oss**  (4.2.5)
+poppy/aliyun-oss (4.2.5)
 
 - 支持 env 单元测试, 只保留 putObject STS 授权,移除 put*
 
-### 2023年06月27日
+**2023-06-27**
 
-**poppy/mgr-page**
+poppy/mgr-page
 
 - update layui 2.8.8‒ bootstrap 5.3‒ remove standlone layer, use layui layer
 

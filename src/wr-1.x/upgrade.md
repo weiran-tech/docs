@@ -1,6 +1,6 @@
 ---
-description: '这个版本从 Poppy 4.2 升级到 Weiran 1.0本版本将 Poppy 的命名空间统一更改为 Weiran , Weiran 对应的中文是蔚然, 取自蔚然成林, 寓意茂盛, 希望这个框架的基础上帮助发展的更好, 蒸蒸日上'
-lastUpdated: '2025-06-25 17:43:00'
+description: '1.0.2025110117011.0.083114511.0.082710141.0.081916311.0.072615291.0.062517151.0.06181915本版本将 Poppy 的命名空间统一更改为 Weiran , Weiran 对应的中文是蔚然, 取自蔚然成林, 寓意茂盛, 希望这个框架的基础上帮助发展的更好, 蒸蒸日上'
+lastUpdated: '2025-11-01 17:18:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '这个版本从 Poppy 4.2 升级到 Weiran 1.0本版本将 Poppy 的命名空间统一更改为 Weiran , Weiran 对应的中文是蔚然, 取自蔚然成林, 寓意茂盛, 希望这个框架的基础上帮助发展的更好, 蒸蒸日上'
+      content: '1.0.2025110117011.0.083114511.0.082710141.0.081916311.0.072615291.0.062517151.0.06181915本版本将 Poppy 的命名空间统一更改为 Weiran , Weiran 对应的中文是蔚然, 取自蔚然成林, 寓意茂盛, 希望这个框架的基础上帮助发展的更好, 蒸蒸日上'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/upgrade.html'
@@ -19,17 +19,38 @@ head:
 
 
 
-这个版本从 Poppy 4.2 升级到 Weiran 1.0
-
 ## 1.0
 
-### 1.0.06251715
+**1.0.202511011701**
+
+- 移除 bootstap 依赖 / Dropdown 支持
+- 修复后台列表的隐藏问题
+
+**1.0.08311451**
+
+-  `aliyun-oss`  接口支持 sts 授权临时目录
+
+**1.0.08271014**
+
+- Sts 升级为 aliyun 的最新包, 写法不一致导致的 Sts 错误
+- Sts 授权支持子目录
+
+**1.0.08191631**
+
+-  `PageInfo`  的分页  `abs`  问题
+- 获取不到上一页为  `null`  的问题
+
+**1.0.07261529**
+
+- 修改自动维护时间为数据库自维护
+
+**1.0.06251715**
 
 -  `alibabacloud/sts-20150401`  1.1.5 版本存在  `Error: Call to undefined method Darabonba\OpenApi\Utils::getEndpointRules()`  错误, 固定版本解决
 - 重写 aliyun-oss 中的变量读取方式, 支持单元测试变量覆盖
 - 业务层依赖可以更改为  `1.0.*`  来引用
 
-### 1.0.06181915
+**1.0.06181915**
 
 - 变量提取到运行时
 - 版本根据日期以及发布时间来定义
@@ -55,11 +76,11 @@ head:
 ## 1.0 
 
 - (framework) 因为不常用, 所以移除 ini 解析器, Xml 解析器
+- (framework) 接口支持 Swagger / OpenApi 3.0 
 
 ## TODO
 
 - [ ] 框架支持 CAS, 支持多应用的核心对接, 实现 PHP 的中心化
-- [x] 接口规范变更, 支持 Swagger 接口模式
 - [ ] 支持自定义的模型查询, 方便 SQL 优化
 - [ ] 导出支持大数据量查询, 直接从数据库中导出数据
 - [ ] 使用 Request 替代 input 进行权限的校验
