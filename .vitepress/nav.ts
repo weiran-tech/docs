@@ -1,16 +1,16 @@
 export default {
     "develop": [
         {
+            "text": "FAQ",
+            "link": "/develop/faq"
+        },
+        {
             "text": "扩展开发",
             "link": "/develop/extension"
         },
         {
             "text": "开发规范",
             "link": "/develop/spec"
-        },
-        {
-            "text": "FAQ",
-            "link": "/develop/faq"
         }
     ],
     "2.x": [
