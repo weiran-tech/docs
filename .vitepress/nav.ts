@@ -151,7 +151,7 @@ export default {
         },
         {
             "text": "Poppy Framework",
-            "link": "/3.x/index"
+            "link": "/3.x/get-started"
         },
         {
             "text": "常见问题",

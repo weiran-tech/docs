@@ -21,7 +21,7 @@ head:
 
 ## 前言
 
-[Poppy Framework](/3.x/index.md)
+[Poppy Framework](/3.x/get-started.md)
 
 [常见问题](/3.x/faq.md)
 
