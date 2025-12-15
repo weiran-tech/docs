@@ -168,7 +168,7 @@ storage/phpunit/
 
 ## 参考
 
-- [JetBrains 系插件和技巧](https://www.wulicode.com/development/ide/jetbrains-plugins.md) 
+- [<img src="https://file.wulicode.com/notion/ee/eed3050655bce80417c1b4d05fe4855a.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  JetBrains 系插件和技巧](https://www.wulicode.com/development/ide/jetbrains-plugins.html) 
 
 
 

@@ -1,6 +1,6 @@
 ---
-description: ''
-lastUpdated: '2024-01-29 14:46:00'
+description: 'poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipaypoppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)本次升级 Laravel 框架并支持模块加载对本地框架包进行包发布封装, 支持 composer'
+lastUpdated: '2025-12-15 19:20:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,7 +10,7 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: ''
+      content: 'poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipaypoppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)本次升级 Laravel 框架并支持模块加载对本地框架包进行包发布封装, 支持 composer'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/develop/changelog.html'
@@ -19,24 +19,95 @@ head:
 
 
 
-## 4.x
+## 4.2
 
-- []支持自定义的模型查询, 方便 SQL 优化
-- []导出支持大数据量查询, 直接从数据库中导出数据
+###  **4.2.114** 
 
-### 4.2
+-  `alibabacloud/sts-20150401`  存在使用不当问题, 不再锁定版本
+-  `aliyun-oss`  支持 sts 授权临时目录
+
+###  **4.2.112** 
+
+- 移除  `Apidoc`  , 生成监听以及  `Console`  上报的功能
+- 修复了 Resp 类中  `Session`  **`::`**  `previousUrl()`  的部分方法
+- 移除了  `Clockwork`  和  `Progress`  相关的控制器和视图
+- 框架登录增加变量  `poppy.mgr-page.account_login`  用来隐藏登录入口
+
+###  **4.2.104** 
+
+-  `alibabacloud/sts-20150401`  1.1.5 版本存在  `Error: Call to undefined method Darabonba\OpenApi\Utils::getEndpointRules()`  错误, 固定版本解决
+- 重写 aliyun-oss 中的变量读取方式, 支持单元测试变量覆盖
+
+###  **4.2.103** 
+
+> 自这个版本起, 所有的项目均采用同样的版本定义
+
+**poppy/sms**
+
+- 变量不在初始化中获取, 减少内存读取
+- 短信发送服务商可以不重启即可更换
+
+**poppy/aliyun-oss**
+
+- 变量移动到使用时候获取
+
+**poppy/aliyun-push**
+
+- 变量移动到使用时候获取
+
+**poppy/mgr-page**
+
+- 变量移动到使用时候获取
+
+**poppy/system**
+
+- 变量移动到使用时候获取
+- 移除 Develop 类
+- 更改密钥为命令行配置, 依赖于环境变量, 不依赖于缓存
+
+**poppy/ext-alipay**
+
+- 移除 ExtensionServiceProvider 加载项
+
+### 4.2.102
+
+**poppy/system (4.2.102)**
+
+- 修复  `The "" file does not exist or is not readable`   错误, 对上传的图片未进行有效性判定
+
+### 4.2.85
+
+**poppy/system (4.2.85)**
+
+- captcha 发送进行类型验证, 手机号 int 类型无法传值
+
+**poppy/ext-ip_store  (4.2.2)**
+
+- 更新最新版纯真库, 支持 poppy.php 进行配置, 默认为 mon17
+
+**poppy/aliyun-oss (4.2.5)**
+
+- 支持 env 单元测试, 只保留 putObject STS 授权,移除 put*
+
+### 4.2.0
 
 - 支持严格模式
 - (mgr-page) 移除 fontawesome 字体, 使用 bootstrap icons
 - (mgr-page) 增加 bootstrap-icons
 - (mgr-page) 支持用户密码的复杂配置
 - (mgr-page) 支持后台绑定手机号, 支持后台手机号和用户名的切换登录
+- 支持自定义的模型查询, 方便 SQL 优化
+- 导出支持大数据量查询, 直接从数据库中导出数据
 
-### 4.1
+## 4.1
+
+### 4.1.0
 
 - (module) 使用 PSR 规范加载模块
 
-### 4.0
+## 4.0
+
+### 4.0.0
 
 - (framework) 移除框架的文件加载
 - (framework) 移除 Mocker, 采用 seldom 自动化接口测试框架
@@ -51,13 +122,13 @@ head:
 
 ## 3.x
 
-### 3.2
+### 3.2.0
 
 - php 最低限制 7.4
 - composer 版本  `2.*` 
 - (framework) 放开 laravel 6.0 的限制至  `6.*` 
 
-### 3.1
+### 3.1.0
 
 - (framework) 支持安装
 - (framework) 去除 Addon 加载
@@ -73,10 +144,10 @@ head:
 - (framework) Remove web-helper
 - (framework) Remove PoppyServiceProvider@registerConsoleCommand
 - (framework) 更改为强类型(Strong Type)
-- (framework) remove  `Http\Middlewares\CrossPreflight`  : 使用  `EnableCrossRequest`  替代
-- (framework) Event  `PoppyOptimized`  move to  `src\Events`  folder
-- (framework) 模块支持 composer poppy 文件夹加载, poppy.xxx 为 composer 模块, module.xx 为自定义业务逻辑模块
-- (framework) Resp 内置参数  `_json` ,  `_location` ,  `_time` ,  `_forget` ,  `_time`  更改为下划线前缀
+- (framework) remove  `Http\\Middlewares\\CrossPreflight`  : 使用  `EnableCrossRequest`  替代
+- (framework) Event  `PoppyOptimized`  move to  `src\\Events`  folder
+- (framework) 模块支持 composer poppy 文件夹加载, [poppy.xxx](http://poppy.xxx/) 为 composer 模块, module.xx 为自定义业务逻辑模块
+- (framework) Resp 内置参数  `_json`  ,  `_location`  ,  `_time`  ,  `_forget`  ,  `_time`  更改为下划线前缀
 - (framework)  `Rule::password()`  和 Laravel 框架的  `password`  规则冲突, 新增  `Rule::simplePwd()`  方法来进行基本的密码校验
 - (core) 支持权限分离
 - (core) 分离 rbac -> core
@@ -117,11 +188,19 @@ head:
 
 ## 2.x
 
+### 2.0.0
+
+本次升级 Laravel 框架并支持模块加载
+
 - (framework) for laravel 6.0
 - (framework) remove agmotto
 - (framework) Support Module Loader
 
 ## 1.x
+
+### 1.0.0
+
+对本地框架包进行包发布封装, 支持 composer
 
 - (framework) for laravel 5.5
 - (framework) Remove  `cache_name`  function
@@ -133,4 +212,6 @@ head:
 - (framework) Delete Graphql
 - (framework) Add phplint
 - (framework) Add php-cs-fixer
+
+
 

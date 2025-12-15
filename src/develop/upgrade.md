@@ -1,6 +1,6 @@
 ---
-description: '4.2.1144.2.1124.2.1044.2.103poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipay2025-06-02poppy/system (4.2.102)2023-12-12poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)2023-06-27poppy/mgr-page4.1 - 4.2 主要'
-lastUpdated: '2025-08-31 14:41:00'
+description: '本次升级将 Poppy 框架从基于 Laravel 6 的版本升级到 Laravel 10，包含了多个重大变更和依赖包升级。环境要求 : Php ≥ 8.2入口文件变更入口文件变更 storage/bootstrap/app.php → bootstrap/app.phpconfig/jwt.phpconfig/image.phpExtension / Alipay 加密方式替换poppy/ext-alipay/src/Aop/AopEncrypt.php 的 mcrypt加密方式已废弃，替换opensslmcrypt_encrypt => openssl_'
+lastUpdated: '2025-12-15 20:01:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -10,99 +10,125 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '4.2.1144.2.1124.2.1044.2.103poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipay2025-06-02poppy/system (4.2.102)2023-12-12poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)2023-06-27poppy/mgr-page4.1 - 4.2 主要'
+      content: '本次升级将 Poppy 框架从基于 Laravel 6 的版本升级到 Laravel 10，包含了多个重大变更和依赖包升级。环境要求 : Php ≥ 8.2入口文件变更入口文件变更 storage/bootstrap/app.php → bootstrap/app.phpconfig/jwt.phpconfig/image.phpExtension / Alipay 加密方式替换poppy/ext-alipay/src/Aop/AopEncrypt.php 的 mcrypt加密方式已废弃，替换opensslmcrypt_encrypt => openssl_'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/4.x/upgrade.html'
+      content: 'https://weiran.tech/develop/upgrade.html'
 ---
 # 升级说明
 
 
 
-## 4.2
+## 4.2 - 10.0 升级说明
 
-**4.2.114**
+本次升级将 Poppy 框架从基于 Laravel 6 的版本升级到 Laravel 10，包含了多个重大变更和依赖包升级。
 
--  `alibabacloud/sts-20150401`  存在使用不当问题, 不再锁定版本
--  `aliyun-oss`  支持 sts 授权临时目录
+环境要求 :  `Php ≥ 8.2`
 
-**4.2.112**
+### 依赖升级
 
-- 移除  `Apidoc`  , 生成监听以及  `Console`  上报的功能
-- 修复了 Resp 类中  `Session`  **`::`**  `previousUrl()`  的部分方法
-- 移除了  `Clockwork`  和  `Progress`  相关的控制器和视图
-- 框架登录增加变量  `poppy.mgr-page.account_login`  用来隐藏登录入口
+```diff
+# Php 版本
+- "php": ">=7.4"
++ "php": ">=8.2"
 
-**4.2.104**
+# Laravel 框架版本
+- "laravel/framework": "6.*"
++ "laravel/framework": "^10.49"
 
--  `alibabacloud/sts-20150401`  1.1.5 版本存在  `Error: Call to undefined method Darabonba\OpenApi\Utils::getEndpointRules()`  错误, 固定版本解决
-- 重写 aliyun-oss 中的变量读取方式, 支持单元测试变量覆盖
+# Symfony 组件升级
+- "symfony/console": "4.*"
+- "symfony/finder": "4.*"
+- "symfony/yaml": "4.*"
++ "symfony/console": "^6.2"
++ "symfony/finder": "^6.2"
++ "symfony/yaml": "^6.2"
 
-**4.2.103**
+# 其他需要更新 / 升级的包
+- "intervention/image":"2.x"
+- "tymon/jwt-auth": "1.0.*" 
+- "predis/predis": "~1.1"
++ "intervention/image":"^3.7"
++ "tymon/jwt-auth": "^2.1"
++ "predis/predis": "2.4"
 
-> 自这个版本起, 所有的项目均采用同样的版本定义
 
-poppy/sms
++ laravelcollective/html: `^6.0`
++ tucker-eric/eloquentfilter: `^3`
++ guzzlehttp/guzzle: `^6.3|^7.3`
++ overtrue/pinyin: `^4.0`
++ sentry/sentry-laravel: `3.*`
+```
 
-- 变量不在初始化中获取, 减少内存读取
-- 短信发送服务商可以不重启即可更换
+### 项目变更
 
-poppy/aliyun-oss
+**入口文件变更**
 
-- 变量移动到使用时候获取
+入口文件变更  `storage/bootstrap/app.php`  →  `bootstrap/app.php`
 
-poppy/aliyun-push
+::: warning  <img src="https://file.wulicode.com/notion/73/73587d3b044dd65bcaa6e2686af6e0fc.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">   **影响范围：** 
 
-- 变量移动到使用时候获取
+  - 项目启动入口文件位置变更
+  - 需要更新所有引用 bootstrap 文件的路径
+:::
 
-poppy/mgr-page
+**config/jwt.php**
 
-- 变量移动到使用时候获取
+```diff
+- 'jwt' => Tymon\\JWTAuth\\Providers\\JWT\\Namshi::class,
++ 'jwt' => Tymon\\JWTAuth\\Providers\\JWT\\Lcobucci::class,
 
-poppy/system
+```
 
-- 变量移动到使用时候获取
-- 移除 Develop 类
-- 更改密钥为命令行配置, 依赖于环境变量, 不依赖于缓存
+::: warning  <img src="https://file.wulicode.com/notion/73/73587d3b044dd65bcaa6e2686af6e0fc.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">   **影响范围：** 
 
-poppy/ext-alipay
+  - JWT 登录用户认证方式变更
+  - 从 Namshi 切换到 Lcobucci 提供者
+  - 可能影响现有 JWT token 的兼容性
+:::
 
-- 移除 ExtensionServiceProvider 加载项
+**config/image.php**
 
-**2025-06-02**
+```diff
+- 'driver' => 'gd',
++ 'driver' => \\Intervention\\Image\\Drivers\\Gd\\Driver::class
 
-poppy/system (4.2.102)
+```
 
-- 修复  `The "" file does not exist or is not readable`   错误, 对上传的图片未进行有效性判定
+::: warning  <img src="https://file.wulicode.com/notion/73/73587d3b044dd65bcaa6e2686af6e0fc.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">   **影响范围：** 
 
-**2023-12-12**
+  - 图像处理驱动配置方式变更
+  - 适配 Intervention/Image 3.x 版本
+  - 所有图像处理功能需要重新测试
+:::
 
-poppy/system (4.2.85)
+### 扩展
 
-- captcha 发送进行类型验证, 手机号 int 类型无法传值
+**Extension / Alipay** 加密方式替换
 
-poppy/ext-ip_store  (4.2.2)
+`poppy/ext-alipay/src/Aop/AopEncrypt.php`  的  `mcrypt` 加密方式已废弃，替换 `openssl`
 
-- 更新最新版纯真库, 支持 poppy.php 进行配置, 默认为 mon17
+`mcrypt_encrypt => openssl_encrypt`
 
-poppy/aliyun-oss (4.2.5)
+### MgrPage
 
-- 支持 env 单元测试, 只保留 putObject STS 授权,移除 put*
+- 移除 MgrPage 中的 dropdown 操作
 
-**2023-06-27**
+## 📝 后续计划
 
-poppy/mgr-page
-
-- update layui 2.8.8‒ bootstrap 5.3‒ remove standlone layer, use layui layer
+- 升级 `laravel mix`  =>  `vite` 
+- 继续优化 PHP 8.2 兼容性
+- 完善单元测试覆盖
+- 更新开发文档
 
 ## 4.1 - 4.2 升级说明
 
 4.1 - 4.2 主要对严格模式进行升级, 所有升级到 4.2 包的用户建议将项目内容升级到严格模式
 
-- [x] 严格模式
-- [x] 移除 fontawesome 字体, 使用 bootstrap icons
-- [x] 支持用户密码的复杂配置
-- [x] 支持后台绑定手机号, 支持后台手机号和用户名的切换登录
+- 严格模式
+- 移除 fontawesome 字体, 使用 bootstrap icons
+- 支持用户密码的复杂配置
+- 支持后台绑定手机号, 支持后台手机号和用户名的切换登录
 
 > 并非所有的都进行记录, 具体的记录见版本 TAG 记录
 
@@ -110,9 +136,9 @@ poppy/mgr-page
 
 本次升级目的是把 modules 加载更改为支持 PSR-4 的加载规范以便于可以运行单元测试和代码覆盖率测试
 
-- [x] 目录命名 / 加载的路由命名
-- [x] 生成模块
-- [x] 数据库生成以及各种的 Make 生成
+- 目录命名 / 加载的路由命名
+- 生成模块
+- 数据库生成以及各种的 Make 生成
 
 ### 包批量改动
 
@@ -192,16 +218,16 @@ $ php artisan py-code-generator:src-rename demo
 
 此次版本是对框架进行大规模升级
 
-- [x] (framework) 移除框架的文件加载
-- [x] (framework) 移除 Mocker, 采用 seldom 自动化接口测试框架
-- [x] (framework) sami 文档生成工具替换为 doctum
-- [x] (system) 异常处理推荐  `Framework`  的  `Handler` 
-- [x] (system) 分离 system 的 mgr-page
-- [x] (system) 移除  `ui.yaml`  文件定义
-- [x] (system) 移除  `JwtAuthGuard`  和  `jwt`  包重复
-- [x] (core) 接口使用 js eval 来执行, 来源自 apidoc 升级
-- [x] (module) migration 目录和 seeds 目录变更
-- [x] (ext) 加入 phpstan 进行静态代码分析
+- (framework) 移除框架的文件加载
+- (framework) 移除 Mocker, 采用 seldom 自动化接口测试框架
+- (framework) sami 文档生成工具替换为 doctum
+- (system) 异常处理推荐  `Framework`  的  `Handler`  
+- (system) 分离 system 的 mgr-page
+- (system) 移除  `ui.yaml`  文件定义
+- (system) 移除  `JwtAuthGuard`  和  `jwt`  包重复
+- (core) 接口使用 js eval 来执行, 来源自 apidoc 升级
+- (module) migration 目录和 seeds 目录变更
+- (ext) 加入 phpstan 进行静态代码分析
 
 ### 建议
 

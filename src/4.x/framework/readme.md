@@ -1,6 +1,6 @@
 ---
 description: '模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为 module.{module} poppy.{poppy}Poppy Framework 附带一个 bin 命令 poppy, 可以执行 poppy 框架的清理函数, 运行方法建议在 composer.json 的 scrpits 字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理创建一个 Poppy 模块并启动它.列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed生成的模型如'
-lastUpdated: '2025-11-14 09:39:00'
+lastUpdated: '2025-12-15 18:41:00'
 head: 
   - - meta
     - name: 'og:title'

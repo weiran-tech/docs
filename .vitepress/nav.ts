@@ -1,110 +1,8 @@
 export default {
-    "develop": [
-        {
-            "text": "FAQ",
-            "link": "/develop/faq"
-        },
-        {
-            "text": "扩展开发",
-            "link": "/develop/extension"
-        },
-        {
-            "text": "开发规范",
-            "link": "/develop/spec"
-        }
-    ],
-    "2.x": [
-        {
-            "text": "入门手册",
-            "link": "/2.x/index"
-        },
-        {
-            "text": "升级说明",
-            "link": "/2.x/upgrade"
-        },
-        {
-            "text": "开发者模式/ACL",
-            "link": "/2.x/acl"
-        },
-        {
-            "text": "Action 业务逻辑封装",
-            "link": "/2.x/action"
-        },
-        {
-            "text": "Api文档 1.0",
-            "link": "/2.x/apidoc"
-        },
-        {
-            "text": "compass - LemonCMS",
-            "link": "/2.x/compass"
-        },
-        {
-            "text": "Env 环境配置",
-            "link": "/2.x/env"
-        },
-        {
-            "text": "多语言",
-            "link": "/2.x/i18n"
-        },
-        {
-            "text": "模型 v2.0",
-            "link": "/2.x/model"
-        },
-        {
-            "text": "策略(Policy)",
-            "link": "/2.x/policy"
-        },
-        {
-            "text": "RBAC 角色控制",
-            "link": "/2.x/rbac"
-        },
-        {
-            "text": "rbac 在项目中的实现",
-            "link": "/2.x/rbac-in-project"
-        },
-        {
-            "text": "路由 / 控制器",
-            "link": "/2.x/route-controller"
-        },
-        {
-            "text": "sample - 创建后台访问模块",
-            "link": "/2.x/mgr-page"
-        },
-        {
-            "text": "服务器环境配置",
-            "link": "/2.x/op"
-        },
-        {
-            "text": "图片上传",
-            "link": "/2.x/upload"
-        }
-    ],
-    "1.x": [
-        {
-            "text": "模型",
-            "link": "/1.x/model"
-        },
-        {
-            "text": "更新说明",
-            "link": "/1.x/upgrade"
-        },
-        {
-            "text": "文件目录树",
-            "link": "/1.x/tree"
-        }
-    ],
-    "4.x": [
+    "/4.x/": [
         {
             "text": "Poppy Framework 4.x",
-            "link": "/4.x/index"
-        },
-        {
-            "text": "升级说明",
-            "link": "/4.x/upgrade"
-        },
-        {
-            "text": "FAQ",
-            "link": "/4.x/faq"
+            "link": "/4.x/get-started"
         },
         {
             "text": "README",
@@ -155,7 +53,7 @@ export default {
             "link": "/4.x/module/readme"
         },
         {
-            "text": "🚷 MgrApp",
+            "text": "MgrApp",
             "link": "/4.x/component/mgr-app"
         },
         {
@@ -181,14 +79,6 @@ export default {
         {
             "text": "MgrPage - 后台管理",
             "link": "/4.x/component/mgr-page"
-        },
-        {
-            "text": "MgrPage - 组件",
-            "link": "/4.x/component/mgr-page-component"
-        },
-        {
-            "text": "MgrPage - 动态表格",
-            "link": "/4.x/component/mgr-page-grid"
         },
         {
             "text": "Sms 扩展包",
@@ -221,9 +111,44 @@ export default {
         {
             "text": "最佳实践",
             "link": "/4.x/project/best-practice"
+        },
+        {
+            "text": "4.x",
+            "link": "/4.x/index"
         }
     ],
-    "3.x": [
+    "/develop/": [
+        {
+            "text": "开发",
+            "items": [
+                {
+                    "text": "升级说明",
+                    "link": "/develop/upgrade"
+                },
+                {
+                    "text": "FAQ",
+                    "link": "/develop/faq"
+                },
+                {
+                    "text": "更新日志",
+                    "link": "/develop/changelog"
+                },
+                {
+                    "text": "开发规范",
+                    "link": "/develop/spec"
+                }
+            ]
+        },
+        {
+            "text": "开发",
+            "link": "/develop/index"
+        }
+    ],
+    "/3.x/": [
+        {
+            "text": "3.x",
+            "link": "/3.x/index"
+        },
         {
             "text": "Poppy Framework",
             "link": "/3.x/index"
@@ -235,10 +160,6 @@ export default {
         {
             "text": "开发计划",
             "link": "/3.x/framework/plan"
-        },
-        {
-            "text": "升级说明",
-            "link": "/3.x/upgrade"
         },
         {
             "text": "README",
@@ -337,10 +258,90 @@ export default {
             "link": "/3.x/project/readme"
         }
     ],
-    "wr-1.x": [
+    "/2.x/": [
+        {
+            "text": "2.x",
+            "link": "/2.x/index"
+        },
+        {
+            "text": "入门手册",
+            "link": "/2.x/index"
+        },
+        {
+            "text": "开发者模式/ACL",
+            "link": "/2.x/acl"
+        },
+        {
+            "text": "Action 业务逻辑封装",
+            "link": "/2.x/action"
+        },
+        {
+            "text": "Api文档 1.0",
+            "link": "/2.x/apidoc"
+        },
+        {
+            "text": "compass - LemonCMS",
+            "link": "/2.x/compass"
+        },
+        {
+            "text": "Env 环境配置",
+            "link": "/2.x/env"
+        },
+        {
+            "text": "多语言",
+            "link": "/2.x/i18n"
+        },
+        {
+            "text": "模型 v2.0",
+            "link": "/2.x/model"
+        },
+        {
+            "text": "策略(Policy)",
+            "link": "/2.x/policy"
+        },
+        {
+            "text": "RBAC 角色控制",
+            "link": "/2.x/rbac"
+        },
+        {
+            "text": "rbac 在项目中的实现",
+            "link": "/2.x/rbac-in-project"
+        },
+        {
+            "text": "路由 / 控制器",
+            "link": "/2.x/route-controller"
+        },
+        {
+            "text": "sample - 创建后台访问模块",
+            "link": "/2.x/mgr-page"
+        },
+        {
+            "text": "服务器环境配置",
+            "link": "/2.x/op"
+        },
+        {
+            "text": "图片上传",
+            "link": "/2.x/upload"
+        }
+    ],
+    "/1.x/": [
+        {
+            "text": "1.x",
+            "link": "/1.x/index"
+        },
+        {
+            "text": "使用手册",
+            "link": "/1.x/get-started"
+        }
+    ],
+    "/wr-1.x/": [
+        {
+            "text": "Weiran 1.x",
+            "link": "/wr-1.x/index"
+        },
         {
             "text": "Weiran Framework 1.x",
-            "link": "/wr-1.x/index"
+            "link": "/wr-1.x/get-started"
         },
         {
             "text": "升级说明",

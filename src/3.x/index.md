@@ -1,86 +1,93 @@
 ---
-description: '系统要求项目为了便于管理, 对代码进行模块化分组分为 框架, 核心, 管理, 组件 四部分构成, 使用 composer 进行模块化安装使用本项目可以快速的完成项目业务逻辑的开发, 其中包含项目是在公司内部的业务逻辑的基础之上剥离出来, 并且应用在公司快速开发的项目中, 内涵丰富的功能，可满足日常 80% 的开发需求项目以快速开发作为目标, 以后端快速分离开发来做性能的优化方向Github Issues'
-lastUpdated: '2024-01-29 15:16:00'
+description: '更新日志'
+lastUpdated: '2025-12-15 19:11:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: 'Poppy Framework'
+      content: '3.x'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '系统要求项目为了便于管理, 对代码进行模块化分组分为 框架, 核心, 管理, 组件 四部分构成, 使用 composer 进行模块化安装使用本项目可以快速的完成项目业务逻辑的开发, 其中包含项目是在公司内部的业务逻辑的基础之上剥离出来, 并且应用在公司快速开发的项目中, 内涵丰富的功能，可满足日常 80% 的开发需求项目以快速开发作为目标, 以后端快速分离开发来做性能的优化方向Github Issues'
+      content: '更新日志'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/3.x/index.html'
 ---
-# Poppy Framework
+# 3.x
 
 
 
-> 基于 Laravel 的模块化开发框架
+## 前言
 
-系统要求
+[Poppy Framework](/3.x/index.md)
 
-- 3.x 项目是基于 Laravel 6 拓展
-- composer 2.x
-- php >= 7.4
+[常见问题](/3.x/faq.md)
+
+[开发计划](/3.x/framework/plan.md)
+
+[更新日志](/develop/changelog.md)
+
+## 框架
+
+[README](/3.x/framework/readme.md)
+
+[配置](/3.x/framework/config.md)
+
+[错误码](/3.x/framework/resp.md)
+
+[文件树](/3.x/framework/tree.md)
 
 ## 模块
 
-### 框架
+[说明](/3.x/readme.md)
 
-- 支持模块化开发并预制常用函数
+[业务逻辑](/3.x/module/action.md)
 
-### 核心
+[事件](/3.x/module/event.md)
 
-- Redis 封装
-- 常用文档工具与规范
+[服务和钩子](/3.x/module/hook.md)
 
-### 系统
+[国际化](/3.x/module/i18n.md)
 
-- rbac 用户管理以及权限系统
-- 对接口签名扩展
-- 对用户密码加密扩展
-- 系统配置项目扩展
+[菜单](/3.x/module/menus.md)
 
-### 管理(layui-base)
+[模型](/3.x/module/model.md)
 
-- 基于 jquery/layui 的后台管理框架
-- 基于 apidoc 的接口请求平台
+[权限](/3.x/module/permission.md)
 
-### 扩展
+[策略](/3.x/module/policy.md)
 
-- aliyun-push (阿里云推送)
+[批次更新](/3.x/module/progress.md)
 
-项目为了便于管理, 对代码进行模块化分组分为 框架, 核心, 管理, 组件 四部分构成, 使用 composer 进行模块化安装
 
-## 功能
 
-使用本项目可以快速的完成项目业务逻辑的开发, 其中包含
+## 组件
 
-- RBAC 权限管理
-- 后台登录登出
-- 用户禁用, 启用
-- 接口安全加密
-- 用户密码安全自定义
-- 接口跨域白名单
-- 后台管理框架
-- 快速表单生成
+[CanalEs - 同步导入监听组件](/3.x/component/canal-es.md)
 
-项目是在公司内部的业务逻辑的基础之上剥离出来, 并且应用在公司快速开发的项目中, 内涵丰富的功能，可满足日常 80% 的开发需求
+[核心](/3.x/component/core.md)
 
-## 发展方向
+[管理后台](/3.x/component/mgr-page.md)
 
-项目以快速开发作为目标, 以后端快速分离开发来做性能的优化方向
+[系统](/3.x/component/system.md)
 
-## 反馈
 
-[Github Issues](https://github.com/dadi-cn/poppy-framework/issues)
 
-## Thanks To
+## 项目
 
-- [Layui](https://www.layui.com/)
-- [Notadd](https://xueyuanjun.com/post/7092)
+
+
+[最佳实践](/3.x/project/best-practice.md)
+
+[Code Review](/3.x/project/code-review.md)
+
+[前后端分离项目约定](/3.x/project/mgr-app-spec.md)
+
+[[WIP] Laravel-Mix](/3.x/project/laravel-mix.md)
+
+[安装](/3.x/project/install.md)
+
+[说明](/3.x/project/readme.md)
 

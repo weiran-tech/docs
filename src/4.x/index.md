@@ -1,87 +1,93 @@
 ---
-description: '版本要求模块作为框架的组成部分, 是重要的项目单元官方维护的, 对常用的数据出具解决方案的工具包coresystemmgr-pagealiyun-push扩展为插件提供功能, 并且不包含数据库部分的服务模块, 能够用于多个不同的的项目项目根据不同的业务逻辑来进行开发的支持业务逻辑的模块Github Issues'
-lastUpdated: '2024-01-29 20:17:00'
+description: '升级说明FAQ'
+lastUpdated: '2025-12-15 19:42:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: 'Poppy Framework 4.x'
+      content: '4.x'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '版本要求模块作为框架的组成部分, 是重要的项目单元官方维护的, 对常用的数据出具解决方案的工具包coresystemmgr-pagealiyun-push扩展为插件提供功能, 并且不包含数据库部分的服务模块, 能够用于多个不同的的项目项目根据不同的业务逻辑来进行开发的支持业务逻辑的模块Github Issues'
+      content: '升级说明FAQ'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/4.x/index.html'
 ---
-# Poppy Framework 4.x
+# 4.x
 
 
 
-> 基于 Laravel 的模块化开发框架
+## 前言
 
-**版本要求**
+[Poppy Framework 4.x](/4.x/get-started.md)
 
-```
-Laravel : 6.*
-Php : ^7.4
-```
+[升级说明](/develop/upgrade.md)
+
+[FAQ](/develop/faq.md)
 
 ## 框架
 
-> 支持模块化开发并且预制常用的函数, 方法, 异常处理
+[README](/4.x/framework/readme.md)
+
+[框架配置](/4.x/framework/config.md)
+
+[Resp](/4.x/framework/resp.md)
+
+[验证规则](/4.x/framework/validation.md)
 
 ## 模块
 
-模块作为框架的组成部分, 是重要的项目单元
+[事件](/4.x/module/event.md)
 
-### 插件模块
+[服务和钩子](/4.x/module/hook.md)
 
-官方维护的, 对常用的数据出具解决方案的工具包
+[国际化](/4.x/module/i18n.md)
 
-**core**
+[权限和菜单](/4.x/module/menu-and-permission.md)
 
-- redis
-- 权限管理
-- 文档生成
+[模型](/4.x/module/model.md)
 
-**system**
+[策略](/4.x/module/policy.md)
 
-- rbac 权限系统
-- 对接口签名扩展
-- 系统配置项目扩展
-- 用户管理
-- 快速列表/表单
+[更新](/4.x/module/progress.md)
 
-**mgr-page**
+[说明](/4.x/module/readme.md)
 
-> 基于 layui 的后台管理框架
+## 组件
 
-- 支持后端认证
-- 基于 RBAC 的权限管理系统
+[Aliyun Oss](/4.x/component/aliyun-oss.md)
 
-**aliyun-push**
+[Aliyun 推送](/4.x/component/aliyun-push.md)
 
-- 支持 app 的aliyun 推送插件
+[应用管理](/4.x/component/app.md)
 
-### 扩展模块
+[Category(分类管理)](/4.x/component/category.md)
 
-扩展为插件提供功能, 并且不包含数据库部分的服务模块, 能够用于多个不同的的项目
+[核心](/4.x/component/core.md)
 
-_________________
+[MgrPage - 后台管理](/4.x/component/mgr-page.md)
 
-### 项目模块
+[Sms 扩展包](/4.x/component/sms.md)
 
-项目根据不同的业务逻辑来进行开发的支持业务逻辑的模块
+[系统](/4.x/component/system.md)
 
-## 反馈
+[⚠️ MgrApp](/4.x/component/mgr-app.md)
 
-[Github Issues](https://github.com/imvkmark/poppy-docs/issues)
+## 扩展
 
-## Thanks To
+[支付宝支付](/4.x/extension/alipay.md)
 
-- [Layui](https://layui.gitee.io/v2/)
-- [Laravel](https://laravel.com/)
-- [Bootstrap Icons](https://icons.getbootstrap.com/)
+[Ip Store](/4.x/extension/ip-store.md)
+
+[Phpstan](/4.x/extension/phpstan.md)
+
+[webhook](/4.x/extension/webhook.md)
+
+## 项目
+
+[说明](/4.x/project/readme.md)
+
+[最佳实践](/4.x/project/best-practice.md)
 

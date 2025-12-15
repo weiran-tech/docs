@@ -1,6 +1,6 @@
 ---
 description: '因为此扩展包仅仅为了封装 poppy framework 使用, 并没有附带的 composer 包, 所以需要功能正确执行, 需要自行安装Aliyun更新你的依赖包 composer update 或者全新安装 composer install。'
-lastUpdated: '2023-12-11 19:31:00'
+lastUpdated: '2025-12-15 19:43:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -22,7 +22,7 @@ head:
 ## 安装
 
 ```
-composer require poppy/sms 4.1.x-dev
+composer require poppy/sms
 ```
 
 ## 安装附加扩展

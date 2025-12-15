@@ -1,10 +1,10 @@
 ---
 description: '后端需要添加包 poppy/mgr-app 当前版本是开发版, 版本是 4.0.x-dev, 因为授权返回的地址是有此包支持, 所以需要添加此扩展包mgr-app 文件内置在 mgr-page 包的 resources 目录下, 当前是属于开发过程中, 包放置在 GitHub Releasenginx 进行如下配置mgr-app.confdomain.conf如果需要自定义目录, 从源码编译并自行配置包目录即可数据准备路径是生成前端所用导航的入口文件, 告诉前端如何加载数据, 渲染页面, 文件位于 modules/{module}/configurations/'
-lastUpdated: '2025-11-11 10:39:00'
+lastUpdated: '2025-12-15 19:26:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: '🚷 MgrApp'
+      content: 'MgrApp'
   - - meta
     - name: 'og:type'
       content: 'article'
@@ -18,7 +18,7 @@ head:
     - name: 'og:image'
       content: 'https://file.wulicode.com/notion/e4/e45454d40e6c55821b1f2f08be2b502f.png?x-oss-process=image/resize,m_mfit,w_400'
 ---
-# 🚷 MgrApp
+# MgrApp
 
 
 

@@ -1,90 +1,97 @@
 ---
-description: '版本要求模块作为框架的组成部分, 是重要的项目单元官方维护的, 对常用的数据出具解决方案的工具包coresystemmgr-page扩展为插件提供功能, 并且不包含数据库部分的服务模块, 能够用于多个不同的的项目项目根据不同的业务逻辑来进行开发的支持业务逻辑的模块Github Issues'
-lastUpdated: '2025-11-29 10:32:00'
+description: ''
+lastUpdated: '2025-12-15 18:42:00'
 head: 
   - - meta
     - name: 'og:title'
-      content: 'Weiran Framework 1.x'
+      content: 'Weiran 1.x'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '版本要求模块作为框架的组成部分, 是重要的项目单元官方维护的, 对常用的数据出具解决方案的工具包coresystemmgr-page扩展为插件提供功能, 并且不包含数据库部分的服务模块, 能够用于多个不同的的项目项目根据不同的业务逻辑来进行开发的支持业务逻辑的模块Github Issues'
+      content: ''
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/wr-1.x/index.html'
 ---
-# Weiran Framework 1.x
+# Weiran 1.x
 
 
 
-> 基于 Laravel 的模块化开发框架
+## 前言
 
-**版本要求**
+[Weiran Framework 1.x](/wr-1.x/get-started.md)
 
-```
-Laravel : 10.*
-Php : ^8.2
-```
+[升级说明](/wr-1.x/upgrade.md)
+
+[FAQ](/wr-1.x/faq.md)
+
+## 项目
+
+[说明](/wr-1.x/project/readme.md)
+
+[最佳实践](/wr-1.x/project/best-practice.md)
 
 ## 框架
 
-> 支持模块化开发并且预制常用的函数, 方法, 异常处理
+[框架 README](/wr-1.x/framework/readme.md)
+
+[框架配置](/wr-1.x/framework/config.md)
+
+[Resp](/wr-1.x/framework/resp.md)
+
+[验证规则](/wr-1.x/framework/validation.md)
 
 ## 模块
 
-模块作为框架的组成部分, 是重要的项目单元
+[模块 README](/wr-1.x/module/readme.md)
 
-### 插件模块
+[事件](/wr-1.x/module/event.md)
 
-官方维护的, 对常用的数据出具解决方案的工具包
+[服务和钩子](/wr-1.x/module/hook.md)
 
-**core**
+[国际化](/wr-1.x/module/i18n.md)
 
-- redis
-- 权限管理
-- 文档生成
+[权限和菜单](/wr-1.x/module/menu-and-permission.md)
 
-**system**
+[模型](/wr-1.x/module/model.md)
 
-- rbac 权限系统
-- 对接口签名扩展
-- 系统配置项目扩展
-- 用户管理
-- 快速列表/表单
+[策略](/wr-1.x/module/policy.md)
 
-**mgr-page**
+[更新](/wr-1.x/module/progress.md)
 
-> 基于 layui 的后台管理框架
+[Api 文档规范](/wr-1.x/module/api-spec.md)
 
-- 支持后端认证
-- 基于 RBAC 的权限管理系统
+## 组件
 
-### 扩展模块
+### 公共组件
 
-扩展为插件提供功能, 并且不包含数据库部分的服务模块, 能够用于多个不同的的项目
+[Core / 核心](/wr-1.x/component/core.md)
 
-_________________
+[System / 系统](/wr-1.x/component/system.md)
 
-### 项目模块
+### 内部组件
 
-项目根据不同的业务逻辑来进行开发的支持业务逻辑的模块
+[Aliyun Oss / Aliyun 存储](/wr-1.x/component/aliyun-oss.md)
 
-## 反馈
+[Sms / 短信](/wr-1.x/component/sms.md)
 
-[Github Issues](https://github.com/weiran-tech/weiran/issues)
+[MgrPage / 后台管理](/wr-1.x/component/mgr-page.md)
 
-## Thanks To
+### WIP
 
-- [Layui](https://layui.gitee.io/v2/)
-- [Laravel](https://laravel.com/)
-- [Bootstrap Icons](https://icons.getbootstrap.com/)
-- [EloquentFilter](https://github.com/Tucker-Eric/EloquentFilter)
-- [Doctum](https://github.com/code-lts/doctum)
-- [Carbon](https://github.com/briannesbitt/Carbon)
-- [Laravel Html & Form - Html/Form 封装](https://segmentfault.com/a/1190000011580448)
-- [hashids/hashids - 对 ID 进行 Hash 加密](https://github.com/vinkla/laravel-hashids)
+[[WIP]Aliyun 推送](/wr-1.x/component/aliyun-push.md)
 
+[[WIP] 应用管理](/wr-1.x/component/app.md)
 
+[[WIP] Category(分类管理)](/wr-1.x/component/category.md)
+
+## 扩展
+
+[支付宝支付](/wr-1.x/extension/alipay.md)
+
+[Ip Store](/wr-1.x/extension/ip-store.md)
+
+[webhook](/wr-1.x/extension/webhook.md)
 

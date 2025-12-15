@@ -1,6 +1,6 @@
 ---
 description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示参考 : 模型:友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcoll'
-lastUpdated: '2024-01-29 20:19:00'
+lastUpdated: '2025-12-15 18:39:00'
 head: 
   - - meta
     - name: 'og:title'
@@ -19,9 +19,11 @@ head:
 
 
 
-## 参考阅读
+::: info  <img src="https://file.wulicode.com/notion/b8/b856dd2822721bdc41101c3e23915df8.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  扩展阅读
 
-- [JetBrains 系 IDE 常用插件](https://juejin.cn/post/7220683059866730557/)
+
+[<img src="https://file.wulicode.com/notion/f6/f60f4eb00e7beaca6850a6aca11a8697.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  Jetbrains 系 IDE 常用技巧](https://www.wulicode.com/development/ide/jetbrains-tips.html)
+:::
 
 ## 配置
 
