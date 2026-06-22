@@ -1,7 +1,7 @@
 ---
-description: '模块是开发的基础组成部分, 各个项目都是有多个不同的模块组合而成, 模块是组件模的子单元使用如下命令来创建模块, 创建的模块如下树状结构在模块创建完成后会在模块的根目录下创建一个 manifest.json 文件, 用来对项目中的模块进行加载这里的 order 是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 排序规则 : 递增模块配置文件 :config/module.php模块配置依据模块命名进行设置模块定义文件一般放置在 {module}/src/Classes 目录下, 文'
-lastUpdated: '2024-01-29 15:53:00'
-head: 
+description: '本文档说明如何创建配置文件树、注册服务，并介绍其他约定及模块定义文件的相关规范。'
+lastUpdated: '2026-06-22 15:01:08'
+head:
   - - meta
     - name: 'og:title'
       content: '说明'
@@ -10,14 +10,12 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '模块是开发的基础组成部分, 各个项目都是有多个不同的模块组合而成, 模块是组件模的子单元使用如下命令来创建模块, 创建的模块如下树状结构在模块创建完成后会在模块的根目录下创建一个 manifest.json 文件, 用来对项目中的模块进行加载这里的 order 是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 排序规则 : 递增模块配置文件 :config/module.php模块配置依据模块命名进行设置模块定义文件一般放置在 {module}/src/Classes 目录下, 文'
+      content: '本文档说明如何创建配置文件树、注册服务，并介绍其他约定及模块定义文件的相关规范。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/4.x/module/readme.html'
+      content: 'https://weiran.tech//4.x/module/readme.html'
 ---
 # 说明
-
-
 
 模块是开发的基础组成部分, 各个项目都是有多个不同的模块组合而成, 模块是组件模的子单元
 
@@ -25,13 +23,13 @@ head:
 
 使用如下命令来创建模块, 创建的模块如下树状结构
 
-```
+```Plaintext
 $ php artsian poppy:make {slug} -Q
 ```
 
-在模块创建完成后会在模块的根目录下创建一个  `manifest.json`  文件, 用来对项目中的模块进行加载
+在模块创建完成后会在模块的根目录下创建一个 `manifest.json` 文件, 用来对项目中的模块进行加载
 
-```json
+```JSON
 {
     "name": "系统",
     "slug": "system",
@@ -41,15 +39,15 @@ $ php artsian poppy:make {slug} -Q
 }
 ```
 
-这里的  `order`  是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 排序规则 : 递增
+这里的 `order` 是对于模块进行排序的, 该项目可以控制模块中间菜单的顺序, 模块的加载顺序, 如果要调整各个模块菜单的加载顺序可以通过此参数进行调整, 排序规则 : 递增
 
 ## 配置
 
-模块配置文件 : `config/module.php`
+模块配置文件 :`config/module.php`
 
 模块配置依据模块命名进行设置
 
-```php
+```PHP
 return [
     'module1' => [
         'some-config': true
@@ -64,7 +62,7 @@ return [
 
 ## 文件树
 
-```
+```Plaintext
 ├── configurations       # 配置文件
 │   ├── permissions.yaml # 权限定义
 │   ├── menus.yaml       # 菜单定义
@@ -102,7 +100,7 @@ return [
 
 ## 注册服务
 
-```php
+```PHP
 <?php 
 
 declare(strict_types = 1);
@@ -198,12 +196,12 @@ class ServiceProvider extends PoppyServiceProvider
 
 ### 模块定义文件
 
-模块定义文件一般放置在  `{module}/src/Classes`  目录下, 文件名称为  `{Module}Def.php`  , 用以放置项目中通用的缓存定义等通用型的定义数据的 name 值, 不包含  `slug` , slug 在使用的时候定义
+模块定义文件一般放置在 `{module}/src/Classes` 目录下, 文件名称为 `{Module}Def.php` , 用以放置项目中通用的缓存定义等通用型的定义数据的 name 值, 不包含 `slug`, slug 在使用的时候定义
 
 - 缓存KEY定义
 - 错误码
 
-```php
+```PHP
 <?php
 
 declare(strict_types = 1);
@@ -219,4 +217,3 @@ class DemoDef
     }
 }
 ```
-

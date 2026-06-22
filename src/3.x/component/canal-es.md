@@ -1,7 +1,7 @@
 ---
-description: '此项目读取 poppy.canal-es  配置详细配置以及说明如下执行index:create命令,即可创建指定名称的索引设置Mappings并创建索引执行import命令即可把指定数据表的数据导入到 Es 中参数说明'
-lastUpdated: '2024-01-29 15:28:00'
-head: 
+description: 'CanalEs是一个同步导入监听组件，通过配置环境、数据库和ES索引，创建索引后将MySQL数据实时同步到Elasticsearch中。'
+lastUpdated: '2026-06-22 13:50:45'
+head:
   - - meta
     - name: 'og:title'
       content: 'CanalEs - 同步导入监听组件'
@@ -10,14 +10,12 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '此项目读取 poppy.canal-es  配置详细配置以及说明如下执行index:create命令,即可创建指定名称的索引设置Mappings并创建索引执行import命令即可把指定数据表的数据导入到 Es 中参数说明'
+      content: 'CanalEs是一个同步导入监听组件，通过配置环境、数据库和ES索引，创建索引后将MySQL数据实时同步到Elasticsearch中。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/3.x/component/canal-es.html'
+      content: 'https://weiran.tech//3.x/component/canal-es.html'
 ---
 # CanalEs - 同步导入监听组件
-
-
 
 > 一个把 Mysql 表数据导入到 Es 的工具.
 
@@ -25,9 +23,9 @@ head:
 
 ### Env 配置
 
--  `.env` 文件中配置对应的 `Mysql` 连接信息及 `Es` 配置信息
+- `.env`文件中配置对应的`Mysql`连接信息及`Es`配置信息
 
-```
+```Plaintext
 #  db
 #-------------------------------------------------------
 DB_HOST=localhost
@@ -49,9 +47,9 @@ ELASTICSEARCH_HOSTS=http://127.0.0.1:9200
 
 ### 索引配置
 
-此项目读取  `poppy.canal-es`   配置详细配置以及说明如下
+此项目读取 `poppy.canal-es`  配置详细配置以及说明如下
 
-```
+```Plaintext
 // canal 配置, 监听的主机
 'canal'  => [
     'client_type'     => CanalClient::TYPE_SWOOLE,
@@ -107,17 +105,17 @@ ELASTICSEARCH_HOSTS=http://127.0.0.1:9200
 
 ## 创建索引
 
-执行 `index:create` 命令,即可创建指定名称的索引
+执行`index:create`命令,即可创建指定名称的索引
 
-```
+```Plaintext
 php artisan ce:create-index index-name [-p property class]
 ```
 
-**设置**  **`Mappings`**  **并创建索引**
+**设置`Mappings`并创建索引**
 
-- 创建 `Property` 类并且继承  `\Poppy\CanalEs\Classes\Properties\Property`  类,编写需要指定的字段及类型
+- 创建`Property`类并且继承 `\Poppy\CanalEs\Classes\Properties\Property` 类,编写需要指定的字段及类型
 
-```php
+```PHP
 <?php
 declare(strict_types = 1);
 
@@ -147,28 +145,25 @@ class Example extends Property
 
 - 执行命令
 
-```
+```Plaintext
 php artisan ce:create-index example -p "\App\Properties\Example"
 ```
 
-## 导入 `Mysql` 数据到 Es
+## 导入`Mysql`数据到 Es
 
-执行 `import` 命令即可把指定数据表的数据导入到 Es 中
+执行`import`命令即可把指定数据表的数据导入到 Es 中
 
-```
+```Plaintext
 php artisan ce:import tb_name [--index tb_name] [--size 10000] [--start 1] [--end 100000] [-f format class] [-p
 property class] [-v]
 ```
 
 **参数说明**
 
--  `index`  目标索引名称,不传递默认与数据表同名
--  `size`  每批查询的数据表数量,默认 `10000` 
--  `start`  导入数据起始 id
--  `end`  导入数据截止 id
--  `p`  查询数据表的字段, 默认查询全部
--  `v`  Debug Mode, 支持输出执行时候的 Sql 输出
--  `f`  导入数据格式化文件
-
-
-
+- `index` 目标索引名称,不传递默认与数据表同名
+- `size` 每批查询的数据表数量,默认`10000`
+- `start` 导入数据起始 id
+- `end` 导入数据截止 id
+- `p` 查询数据表的字段, 默认查询全部
+- `v` Debug Mode, 支持输出执行时候的 Sql 输出
+- `f` 导入数据格式化文件

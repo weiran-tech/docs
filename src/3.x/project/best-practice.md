@@ -1,7 +1,7 @@
 ---
-description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如phplint是一个快速检测 php 语法错误的工具, 此工具无需安装在项目中, 全局安装即可.运行 php artisan poppy:optimize 保障依赖组件均已经安装由于这里是继承的 “laravelcollective/html” 组件, 所以必须先禁用掉原生的自动发现在 composer.json 文件中禁用自动发现在 providers 部分加入生成自动加载类清空缓存的数据然后在 app.php 的 aliases 部分加入右键忽略掉即可, 这个是生成的文件, 不需要进'
-lastUpdated: '2024-01-29 19:07:00'
-head: 
+description: '优化phplint配置，调整composer自动加载以排除开发文件，添加Form映射数据及模块配置。隐藏IDE中不必要目录，完善前端组件文档与多图片/视频上传功能。使用PHP-CS-Fixer清理代码，补充并通过测试用例与注释，实现整体代码规范化。'
+lastUpdated: '2026-06-22 14:09:26'
+head:
   - - meta
     - name: 'og:title'
       content: '最佳实践'
@@ -10,20 +10,18 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如phplint是一个快速检测 php 语法错误的工具, 此工具无需安装在项目中, 全局安装即可.运行 php artisan poppy:optimize 保障依赖组件均已经安装由于这里是继承的 “laravelcollective/html” 组件, 所以必须先禁用掉原生的自动发现在 composer.json 文件中禁用自动发现在 providers 部分加入生成自动加载类清空缓存的数据然后在 app.php 的 aliases 部分加入右键忽略掉即可, 这个是生成的文件, 不需要进'
+      content: '优化phplint配置，调整composer自动加载以排除开发文件，添加Form映射数据及模块配置。隐藏IDE中不必要目录，完善前端组件文档与多图片/视频上传功能。使用PHP-CS-Fixer清理代码，补充并通过测试用例与注释，实现整体代码规范化。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/3.x/project/best-practice.html'
+      content: 'https://weiran.tech//3.x/project/best-practice.html'
 ---
 # 最佳实践
 
-
-
 ## 配置
 
-对于文件目录 & 网址, 我们不建议在右侧添加  `/`  作为后缀, 例如
+对于文件目录 & 网址, 我们不建议在右侧添加 `/` 作为后缀, 例如
 
-```
+```Plaintext
 URL_SITE=https://wulicode.com
 ```
 
@@ -31,7 +29,7 @@ URL_SITE=https://wulicode.com
 
 [phplint](https://github.com/overtrue/phplint)是一个快速检测 php 语法错误的工具, 此工具无需安装在项目中, 全局安装即可.
 
-```
+```Plaintext
 $ composer global require overtrue/phplint -vvv
 $ php artisan system:doc lint
 $ phplint /path/of/code -c /framework/path/.phplint.yml
@@ -39,7 +37,7 @@ $ phplint /path/of/code -c /framework/path/.phplint.yml
 
 ## 项目优化 optimize
 
-运行  `php artisan poppy:optimize`  保障依赖组件均已经安装
+运行 `php artisan poppy:optimize` 保障依赖组件均已经安装
 
 ## composer 配置
 
@@ -48,7 +46,7 @@ $ phplint /path/of/code -c /framework/path/.phplint.yml
 - 项目中使用 IDE Helper 生成浏览器提示文件, 此文件在正式项目下不需要进行加载
 - Clockwork 不需要加载
 
-```
+```Plaintext
 "extra" : {
     "laravel" : {
         "dont-discover" : [
@@ -65,7 +63,7 @@ $ phplint /path/of/code -c /framework/path/.phplint.yml
 
 在 composer.json 文件中禁用自动发现
 
-```
+```Plaintext
 "extra" : {
     "laravel" : {
         "dont-discover" : [
@@ -75,9 +73,9 @@ $ phplint /path/of/code -c /framework/path/.phplint.yml
 },
 ```
 
-在  `providers`  部分加入
+在 `providers` 部分加入
 
-```
+```Plaintext
 'providers' => [
     // ...
     Collective\Html\HtmlServiceProvider::class,
@@ -87,19 +85,19 @@ $ phplint /path/of/code -c /framework/path/.phplint.yml
 
 生成自动加载类
 
-```
+```Plaintext
 composer dumpautoload
 ```
 
 清空缓存的数据
 
-```
+```Plaintext
 php artisan poppy:optimize
 ```
 
-然后在  `app.php`  的  `aliases`  部分加入
+然后在 `app.php` 的 `aliases` 部分加入
 
-```
+```Plaintext
 'aliases' => [
     // ...
     'Html' => Collective\Html\HtmlFacade::class,
@@ -116,7 +114,7 @@ php artisan poppy:optimize
 
 右键忽略掉即可, 这个是生成的文件, 不需要进行 php 索引
 
-```
+```Plaintext
 前端文件
 ========
 public/assets/css
@@ -130,7 +128,7 @@ public/assets/easy-web
 
 ### 多图片/视频上传
 
-```
+```Plaintext
 {!! Form::multiThumb('images', [], $options) !!}
 
 options    类型      默认值    备注
@@ -149,15 +147,14 @@ number     int      3        本表单允许上传的最大数量
 
 ### 注释完善并且通过
 
-注释使用  `modules/system`  模块来检测
+注释使用 `modules/system` 模块来检测
 
-```
+```Plaintext
 $ php artisan system:inspect class > fp.txt
 ```
 
 ### 代码清理过
 
-```
+```Plaintext
 ide:clean code
 ```
-

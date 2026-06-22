@@ -1,7 +1,7 @@
 ---
-description: '策略放置在 {module}/src/models/polices 文件夹中策略映射放在 {module}/src/ServiceProvider.php 文件中, 如下定义对特定用户，你可能希望通过指定的策略授权所有动作。 要达到这个目的，可以在策略中定义一个  before  方法。before  方法会在策略中其它所有方法之前执行，这样提供了一种方式来授权动作而不是指定的策略方法来执行判断。如果你想拒绝用户所有的授权，你应该在  before  方法中返回  false。如果返回的是  null，则通过其它的策略方法来决定授权与否。这里定义的 permission 权'
-lastUpdated: '2024-01-29 19:05:00'
-head: 
+description: '策略定义特定位置下的权限规则，控制器根据这些策略进行权限验证与执行，确保访问控制安全有效。'
+lastUpdated: '2026-06-22 14:13:10'
+head:
   - - meta
     - name: 'og:title'
       content: '策略'
@@ -10,22 +10,20 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '策略放置在 {module}/src/models/polices 文件夹中策略映射放在 {module}/src/ServiceProvider.php 文件中, 如下定义对特定用户，你可能希望通过指定的策略授权所有动作。 要达到这个目的，可以在策略中定义一个  before  方法。before  方法会在策略中其它所有方法之前执行，这样提供了一种方式来授权动作而不是指定的策略方法来执行判断。如果你想拒绝用户所有的授权，你应该在  before  方法中返回  false。如果返回的是  null，则通过其它的策略方法来决定授权与否。这里定义的 permission 权'
+      content: '策略定义特定位置下的权限规则，控制器根据这些策略进行权限验证与执行，确保访问控制安全有效。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/3.x/module/policy.html'
+      content: 'https://weiran.tech//3.x/module/policy.html'
 ---
 # 策略
 
-
-
 ## 位置
 
-策略放置在  `{module}/src/models/polices`  文件夹中
+策略放置在 `{module}/src/models/polices` 文件夹中
 
-策略映射放在  `{module}/src/ServiceProvider.php`  文件中, 如下定义
+策略映射放在 `{module}/src/ServiceProvider.php` 文件中, 如下定义
 
-```php
+```PHP
 protected $policies = [
     PamRole::class    => RolePolicy::class,
     PamAccount::class => AccountPolicy::class,
@@ -34,9 +32,9 @@ protected $policies = [
 
 ## 策略权限
 
-对特定用户，你可能希望通过指定的策略授权所有动作。 要达到这个目的，可以在策略中定义一个   `before`   方法。 `before`   方法会在策略中其它所有方法之前执行，这样提供了一种方式来授权动作而不是指定的策略方法来执行判断。
+对特定用户，你可能希望通过指定的策略授权所有动作。 要达到这个目的，可以在策略中定义一个  `before`  方法。`before`  方法会在策略中其它所有方法之前执行，这样提供了一种方式来授权动作而不是指定的策略方法来执行判断。
 
-```php
+```PHP
 use PolicyTrait;
 
 /**
@@ -54,9 +52,9 @@ protected static $permissionMap = [
 ];
 ```
 
-如果你想拒绝用户所有的授权，你应该在   `before`   方法中返回   `false` 。如果返回的是   `null` ，则通过其它的策略方法来决定授权与否。
+如果你想拒绝用户所有的授权，你应该在  `before`  方法中返回  `false`。如果返回的是  `null`，则通过其它的策略方法来决定授权与否。
 
-```php
+```PHP
 /**
  * 策略映射
  */
@@ -88,7 +86,7 @@ trait PolicyTrait
 
 ## 控制器
 
-```php
+```PHP
 /**
  * 广告位管理
  */
@@ -103,4 +101,3 @@ class PlaceController extends InitController
 ```
 
 这里定义的 permission 权限会在 permission 中有拦截, 让用户无法通过控制器来进入这个操作, 看到相关的数据.
-

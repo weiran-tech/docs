@@ -1,7 +1,7 @@
 ---
-description: '菜单采用 yaml 进行定义, 支持三级菜单, 菜单如下定义, 在添加菜单之后需要运行如下命令更新缓存后生效key 包含 backend(后端), web(前台)这几个部分.Url模式路由模式权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限,'
-lastUpdated: '2025-03-15 13:34:00'
-head: 
+description: '文档阐述了权限与菜单模块，涵盖菜单支持的类型及其键值说明；权限的定义、初始化与设定方法；以及在控制器中使用权限的操作和验证流程。'
+lastUpdated: '2026-06-21 16:52:12'
+head:
   - - meta
     - name: 'og:title'
       content: '权限和菜单'
@@ -10,20 +10,18 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '菜单采用 yaml 进行定义, 支持三级菜单, 菜单如下定义, 在添加菜单之后需要运行如下命令更新缓存后生效key 包含 backend(后端), web(前台)这几个部分.Url模式路由模式权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限,'
+      content: '文档阐述了权限与菜单模块，涵盖菜单支持的类型及其键值说明；权限的定义、初始化与设定方法；以及在控制器中使用权限的操作和验证流程。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/wr-1.x/module/menu-and-permission.html'
+      content: 'https://weiran.tech//wr-1.x/module/menu-and-permission.html'
 ---
 # 权限和菜单
-
-
 
 ## 菜单
 
 菜单采用 yaml 进行定义, 支持三级菜单, 菜单如下定义, 在添加菜单之后需要运行如下命令更新缓存后生效
 
-```
+```Plaintext
 $ php artisan weiran:optimize
 ```
 
@@ -31,7 +29,7 @@ $ php artisan weiran:optimize
 
 key 包含 backend(后端), web(前台)这几个部分.
 
-```yaml
+```YAML
 backend :
   title : 广告管理
   groups :
@@ -48,7 +46,7 @@ backend :
 
 ### key 说明
 
-```
+```Plaintext
 title     : 标题
 icon      : 支持的图标
 groups    : 分组(数组)
@@ -61,7 +59,7 @@ param: 地址 Query 参数, 数组模式, 和 route 搭配使用
 
 **Url模式**
 
-```yaml
+```YAML
 - title : Url 模式
   children :
     -
@@ -77,7 +75,7 @@ param: 地址 Query 参数, 数组模式, 和 route 搭配使用
 
 **路由模式**
 
-```yaml
+```YAML
 -
   title : 路由模式
   children :
@@ -99,17 +97,17 @@ param: 地址 Query 参数, 数组模式, 和 route 搭配使用
 
 ### 定义
 
-权限解释 :  `backend:system.global.manage`
+权限解释 : `backend:system.global.manage`
 
-```
+```Plaintext
 backend : 后台
 system  : 模块
 global.manage : 权限操作
 ```
 
-权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值  `static::$permission`  权限来进行限定,操作权限用于在操作步骤中进行限定
+权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 `static::$permission` 权限来进行限定,操作权限用于在操作步骤中进行限定
 
-```yaml
+```YAML
 -
   title : 系统
   description : 系统权限
@@ -134,7 +132,7 @@ global.manage : 权限操作
 
 添加权限之后首先要对权限初始化才能够正确使用权限
 
-```
+```Plaintext
 $ php artisan py-core:permission init
 ```
 
@@ -144,14 +142,14 @@ $ php artisan py-core:permission init
 
 ### 在控制器中使用权限
 
-在控制器中定义变量  `self::$permission` , 并赋值全局权限, 则可以对控制器进行权限控制
+在控制器中定义变量 `self::$permission`, 并赋值全局权限, 则可以对控制器进行权限控制
 
 其中 :
 
--  `global`  用于对没有设定方法的权限进行全部的权限限定
--  `create`  用于对  `create`  方法进行权限设定
+- `global` 用于对没有设定方法的权限进行全部的权限限定
+- `create` 用于对 `create` 方法进行权限设定
 
-```php
+```PHP
 /**
  * 广告位管理
  */
@@ -168,9 +166,9 @@ class PlaceController extends InitController
 
 **策略中权限的定义**
 
-对于在策略中使用的权限, 建议使用  `$permissionMap`  进行权限的统一定义, 这样既可在使用权限的时候便可以进行权限的校验
+对于在策略中使用的权限, 建议使用 `$permissionMap` 进行权限的统一定义, 这样既可在使用权限的时候便可以进行权限的校验
 
-```php
+```PHP
 /**
  * 用户角色策略
  */
@@ -193,9 +191,9 @@ class AdPlacePolicy
 
 **页面中对元素权限的判定**
 
-_创建_
+*创建*
 
-```php
+```PHP
 @can('create', \Ad\Models\AdPlace::class)
     <a href="{{route_url('ad:backend.place.establish')}}"
        class="layui-btn layui-btn-sm J_iframe">
@@ -204,9 +202,9 @@ _创建_
 @endcan
 ```
 
-_编辑_
+*编辑*
 
-```php
+```PHP
 @can('edit', $item)
     <a data-toggle="tooltip" title="编辑"
        href="{{route_url('ad:backend.place.establish', [$item->id])}}">
@@ -219,9 +217,6 @@ _编辑_
 
 使用以下命令验证权限在项目中是否有多余的定义, 这个前提是权限必须定义在策略中或者控制器中
 
-```shell
+```Bash
 $ php artisan py-core:inspect permission
 ```
-
-
-

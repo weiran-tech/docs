@@ -1,7 +1,7 @@
 ---
-description: '模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为 module.{module} 和 weiran.{weiran}框架附带一个 bin 命令 weiran, 可以执行框架的清理函数, 用来清理缓存文件建议在 composer.json 的 scrpits 字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理创建一个模块并启动它.列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed生成的模型如下支持 Xml,Ini,Yaml'
-lastUpdated: '2025-03-15 13:28:00'
-head: 
+description: '这是一个框架的模块化命令行工具，提供模块创建、启用/禁用、优化、数据表管理、文件生成、数据库Seeder与Factory管理、事件、Blade语法、验证、文件树及配置等功能。'
+lastUpdated: '2026-06-21 16:52:23'
+head:
   - - meta
     - name: 'og:title'
       content: '框架 README'
@@ -10,31 +10,29 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为 module.{module} 和 weiran.{weiran}框架附带一个 bin 命令 weiran, 可以执行框架的清理函数, 用来清理缓存文件建议在 composer.json 的 scrpits 字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理创建一个模块并启动它.列出所有的应用模块模块优化, 清空生成的缓存等操作生成器工具创建 seeder 文件注册 Seeder 以及生成 数据执行 seed生成的模型如下支持 Xml,Ini,Yaml'
+      content: '这是一个框架的模块化命令行工具，提供模块创建、启用/禁用、优化、数据表管理、文件生成、数据库Seeder与Factory管理、事件、Blade语法、验证、文件树及配置等功能。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/wr-1.x/framework/readme.html'
+      content: 'https://weiran.tech//wr-1.x/framework/readme.html'
 ---
 # 框架 README
 
-
-
-模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为  `module.{module}`  和  `weiran.{weiran}`
+模块分为模块(自定义)和官方模块, 为了区分, 所以 slug 的命名分为 `module.{module}` 和 `weiran.{weiran}`
 
 ## Bin
 
-框架附带一个 bin 命令  `weiran` , 可以执行框架的清理函数, 用来清理缓存文件
+框架附带一个 bin 命令 `weiran`, 可以执行框架的清理函数, 用来清理缓存文件
 
-- 清理   `storage/framework/*.php`   缓存文件
-- 删除   `storage/app/weiran.json`  模块缓存文件
+- 清理 `storage/framework/*.php` 缓存文件
+- 删除 `storage/app/weiran.json` 模块缓存文件
 
-```shell
+```Bash
 $ ./vendor/bin/weiran clear
 ```
 
-建议在  `composer.json`  的  `scrpits`  字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理
+建议在 `composer.json` 的 `scrpits` 字段中增加如下定义, 方便在框架更新之后可以快速的对框架进行缓存清理
 
-```json
+```JSON
 {
     "scripts": {
         "weiran": [
@@ -46,7 +44,7 @@ $ ./vendor/bin/weiran clear
 }
 ```
 
-```shell
+```Bash
 $ composer run weiran
 ```
 
@@ -56,7 +54,7 @@ $ composer run weiran
 
 创建一个模块并启动它.
 
-```shell
+```Bash
 $ php artisan weiran:make {slug} [-Q|--quick]
 ```
 
@@ -64,7 +62,7 @@ $ php artisan weiran:make {slug} [-Q|--quick]
 
 列出所有的应用模块
 
-```
+```Plaintext
 $ php artisan weiran:list
 
 +------+----------------------+--------------------+--------------------------------------------+---------+
@@ -77,10 +75,9 @@ $ php artisan weiran:list
 
 ### 启用/禁用模块
 
-```
+```Plaintext
 # 启用模块
 $ php artisan weiran:enable {slug}
-
 
 # 禁用模块
 $ php artisan weiran:disable {slug}
@@ -90,13 +87,13 @@ $ php artisan weiran:disable {slug}
 
 模块优化, 清空生成的缓存等操作
 
-```
+```Plaintext
 $ php artisan weiran:optimize
 ```
 
 ### 数据表管理
 
-```
+```Plaintext
 weiran:migrate {slug}          执行模块的数据库迁移文件
 weiran:migrate:refresh {slug}  重新执行模块数据库迁移文件
 weiran:migrate:reset {slug}    回滚所有执行的数据库迁移
@@ -108,7 +105,7 @@ weiran:migration {slug}        创建一个指定模块的数据库迁移文件
 
 生成器工具
 
-```php
+```PHP
 php artisan weiran:command {slug} {name}           # 生成命令文件
 php artisan weiran:controller {slug} {api/web/backend} {name}
                                                   # 生成控制器文件
@@ -125,20 +122,20 @@ php artisan weiran:event {slug} {name}             # 生成事件文件
 
 ### 监听文件
 
-```shell
+```Bash
 $ php artisan weiran:listener {slug} {name}
 --event {event}: 事件名称, 使用 `\` 表明是全局的事件, 否则的话以为这是当前模块的事件
 ```
 
 ### 事件文件
 
-```shell
+```Bash
 $ php artisan weiran:event {slug} {name}
 ```
 
 ### 数据库 Seeder 和 Seed 命令
 
-```shell
+```Bash
 # 生成种子文件
 $ php artisan weiran:seeder {slug} {name}
 
@@ -148,7 +145,7 @@ $ php artisan weiran:seed {slug}
 
 **创建 seeder 文件**
 
-```php
+```PHP
 # 生成模块的主 seeder 文件
 $ php artisan weiran:seeder module.demo DemoDatabaseSeeder
 
@@ -158,7 +155,7 @@ $ php artisan weiran:seeder module.demo DemoDbDatabaseSeeder
 
 注册 Seeder 以及生成 数据
 
-```php
+```PHP
 # DemoDatabaseSeeder
 
 public function run()
@@ -188,7 +185,7 @@ public function run()
 
 执行 seed
 
-```shell
+```Bash
 $ php artisan weiran:seed module.demo
 Seeding: Demo\Database\Seeds\DemoDbDatabaseSeeder
 Database seeding completed successfully.
@@ -196,11 +193,11 @@ Database seeding completed successfully.
 
 ### 数据库 Factory 生成
 
-```
+```Plaintext
 $ php artisan weiran:factory {slug} {name}
 ```
 
-```shell
+```Bash
 # 指定当前模块下的模型
 $ php artisan weiran:factory module.demo DemoDbFactory --model="DemoDb"
 
@@ -213,7 +210,7 @@ $ php artisan weiran:factory module.demo DemoDbFactory
 
 生成的模型如下
 
-```php
+```PHP
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
@@ -230,7 +227,7 @@ $factory->define(DemoDb::class, function (Faker $faker) {
 
 ## 事件
 
-```
+```Plaintext
 // Module Maked
 Events\WeiranMake($slug)
 
@@ -249,7 +246,7 @@ Events\WeiranSchedule
 
 ## Helpers
 
-```
+```Plaintext
 ArrayHelper
 EnvHelper
 FileHelper
@@ -270,7 +267,7 @@ UtilHelper
 
 ## Blade 语法
 
-```
+```Plaintext
 @weiran
 // You Can check if module is exist and enabled.
 @endweiran
@@ -278,7 +275,7 @@ UtilHelper
 
 ## 验证
 
-```
+```Plaintext
 1.语言包
  - resource/lang/zh/validator.php
 2.相应的验证规则
@@ -290,7 +287,7 @@ UtilHelper
 
 框架文件结构树
 
-```
+```Plaintext
 ├── README.md
 ├── composer.json
 ├── config
@@ -366,14 +363,13 @@ UtilHelper
 
 配置定义为框架中对 config 文件的注入, 命名如下:
 
--  `weiran.php` 
--  `module.php` 
+1. `weiran.php`
+2. `module.php`
 
-```
+```Plaintext
 # Weiran
 weiran.framework.page_max
 
 # 模块配置
 module.order.xxx
 ```
-

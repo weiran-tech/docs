@@ -1,7 +1,7 @@
 ---
-description: 'Api 以 Json 格式返回: 其中代表的含义如下:下边是示例代码:有服务器错误服务器无错误默认错误码自定义错误码其中错误的语言描述可以使用 语言包来编写编写附加数据如果是 web 页面进行使用则调用定义的正确/错误的页面进行显示.'
-lastUpdated: '2025-02-05 11:21:00'
-head: 
+description: 'API返回JSON格式，包含status（服务器错误码，如500、404）、message（提示信息）和data（正确时附加数据）。默认错误码：0成功，1失败，2凭据超时，3不存在，4错误，5参数错误，6签名错误，7无权限，99内部错误。建议自定义错误码使用6位数字。'
+lastUpdated: '2026-06-21 16:51:39'
+head:
   - - meta
     - name: 'og:title'
       content: 'Resp'
@@ -10,44 +10,42 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: 'Api 以 Json 格式返回: 其中代表的含义如下:下边是示例代码:有服务器错误服务器无错误默认错误码自定义错误码其中错误的语言描述可以使用 语言包来编写编写附加数据如果是 web 页面进行使用则调用定义的正确/错误的页面进行显示.'
+      content: 'API返回JSON格式，包含status（服务器错误码，如500、404）、message（提示信息）和data（正确时附加数据）。默认错误码：0成功，1失败，2凭据超时，3不存在，4错误，5参数错误，6签名错误，7无权限，99内部错误。建议自定义错误码使用6位数字。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/wr-1.x/framework/resp.html'
+      content: 'https://weiran.tech//wr-1.x/framework/resp.html'
 ---
 # Resp
-
-
 
 ## 说明
 
 Api 以 Json 格式返回: 其中代表的含义如下:
 
--  `status` 服务器错误码, 代表服务器出现错误,  `500`  代表内部查询出现问题,  `404`  代表页面不存在, 等
--  `message` 服务返回的提示信息, 如果存在  `status`  , 则代表服务报错信息, 如果是自定义的 code, 这里返回的是自定义的提示信息
--  `data` 返回正确的时候,  `data`  中会存在附加数据, 附加数据说明放置在 api 文档中, 这里不做任何补充提示.
+- `status`服务器错误码, 代表服务器出现错误, `500` 代表内部查询出现问题, `404` 代表页面不存在, 等
+- `message`服务返回的提示信息, 如果存在 `status` , 则代表服务报错信息, 如果是自定义的 code, 这里返回的是自定义的提示信息
+- `data`返回正确的时候, `data` 中会存在附加数据, 附加数据说明放置在 api 文档中, 这里不做任何补充提示.
 
 下边是示例代码:
 
 **有服务器错误**
 
-```json
+```JSON
 {
-	"status": 500,
-	"message": "Internal Server Error"
+        "status": 500,
+        "message": "Internal Server Error"
 }
 ```
 
 **服务器无错误**
 
-```json
+```JSON
 {
-	"status": 0,
-	"message": "获取用户信息成功!",
-	"data": {
-		"username": "dashou001",
-		"userid": 123354
-	}
+        "status": 0,
+        "message": "获取用户信息成功!",
+        "data": {
+                "username": "dashou001",
+                "userid": 123354
+        }
 }
 ```
 
@@ -55,7 +53,7 @@ Api 以 Json 格式返回: 其中代表的含义如下:
 
 **默认错误码**
 
-```
+```Plaintext
 0   : 操作成功
 1   : 操作失败
 2   : 凭据超时
@@ -71,7 +69,7 @@ Api 以 Json 格式返回: 其中代表的含义如下:
 
 > 建议自定义错误码, 使用 6 位的数字, 代表含义如下
 
-```
+```Plaintext
 100101  : 错误码拆分为 3 部分
 10   : 模块
 01   : Action (业务逻辑)
@@ -84,7 +82,7 @@ Api 以 Json 格式返回: 其中代表的含义如下:
 
 **编写**
 
-```php
+```PHP
 // 错误信息, 可以自定义错误码
 Resp::web(Resp:ERROR, '错误信息');
 Resp::error('错误信息')
@@ -96,7 +94,7 @@ Resp::success('正确信息'))
 
 **附加数据**
 
-```php
+```PHP
 // 数组方式返回
 Resp::error('错误信息', [
     'motion' => 'window:reload'
@@ -107,6 +105,3 @@ Resp::error('错误信息', 'motion|window:reload')
 ```
 
 如果是 web 页面进行使用则调用定义的正确/错误的页面进行显示.
-
-
-

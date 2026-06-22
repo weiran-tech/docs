@@ -1,7 +1,7 @@
 ---
-description: '使用compass 建立并且管理样式文件title: 标题list : 列表左侧点状列表 * list-greyDot: * list-redDot:bdr:边框bdr-rad-s: bdr-rad-m: bdr-rad-l:alpha: 背景透明度不常用, 写在样式里table: 基础的table样式btn : 基础的按钮样式 button input:buttoninput, textarea(text) 滑过 默认 焦点tip-error tip-success tip-warningicon-s icon-m icon-l icon '
-lastUpdated: '2023-12-11 18:57:00'
-head: 
+description: '该内容涉及LemonCMS中如何使用Compass管理样式文件，包括样式文件的命名规范、对SeaJS的调用，以及如何操控元素大小。'
+lastUpdated: '2026-06-22 13:42:29'
+head:
   - - meta
     - name: 'og:title'
       content: 'compass - LemonCMS'
@@ -10,14 +10,12 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '使用compass 建立并且管理样式文件title: 标题list : 列表左侧点状列表 * list-greyDot: * list-redDot:bdr:边框bdr-rad-s: bdr-rad-m: bdr-rad-l:alpha: 背景透明度不常用, 写在样式里table: 基础的table样式btn : 基础的按钮样式 button input:buttoninput, textarea(text) 滑过 默认 焦点tip-error tip-success tip-warningicon-s icon-m icon-l icon '
+      content: '该内容涉及LemonCMS中如何使用Compass管理样式文件，包括样式文件的命名规范、对SeaJS的调用，以及如何操控元素大小。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/2.x/compass.html'
+      content: 'https://weiran.tech//2.x/compass.html'
 ---
 # compass - LemonCMS
-
-
 
 ## 样式文件的管理
 
@@ -25,7 +23,7 @@ head:
 
 使用compass 建立并且管理样式文件
 
-```
+```Plaintext
 compass create myproject
 compass install blueprint
 compass install blueprint/link_icons
@@ -33,23 +31,23 @@ compass install blueprint/link_icons
 
 ### 样式文件命名
 
-**title** : 标题
+**title**: 标题
 
-**list**  : 列表
+**list** : 列表
 
-左侧点状列表 * list-greyDot: * list-redDot:
+左侧点状列表 \* list-greyDot: \* list-redDot:
 
-**bdr** :边框
+**bdr**:边框
 
 bdr-rad-s: bdr-rad-m: bdr-rad-l:
 
-**alpha** : 背景透明度
+**alpha**: 背景透明度
 
 不常用, 写在样式里
 
-**table** : 基础的table样式
+**table**: 基础的table样式
 
-**btn**  : 基础的按钮样式 button input:button
+**btn** : 基础的按钮样式 button input:button
 
 input, textarea(text) 滑过 默认 焦点
 
@@ -59,7 +57,7 @@ icon-s icon-m icon-l icon 元素的使用以及上下居中对齐
 
 ### 对seajs 的调用
 
-```
+```Plaintext
 <script>
 var lemon = lemon || {};
 lemon.seajsBase = 'http://www.www.cc/mark/re/Public/Js/';
@@ -76,4 +74,3 @@ lemon.seajsBase = 'http://www.www.cc/mark/re/Public/Js/';
 .checklist .checklist-line
 
 .date .date-s .date-l
-

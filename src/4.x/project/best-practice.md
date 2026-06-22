@@ -1,7 +1,7 @@
 ---
-description: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示参考 : 模型:友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcoll'
-lastUpdated: '2025-12-15 18:39:00'
-head: 
+description: '该最佳实践涵盖代码审查、查询优化、请求校验、规范编写、测试用例、Composer配置、安全策略、数据映射及IDE项目配置等关键环节，确保代码质量与安全性。'
+lastUpdated: '2026-06-22 17:24:27'
+head:
   - - meta
     - name: 'og:title'
       content: '最佳实践'
@@ -10,26 +10,20 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '对于文件目录 & 网址, 我们不建议在右侧添加 / 作为后缀, 例如Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义使用 firstOrFail 在未查到匹配的数据后会抛出 ModelNotFoundException 异常并且此异常可以进行友好提示参考 : 模型:友好提示使用 Request 校验可以减少逻辑代码对数据的依赖, 从而降低代码的耦合以便实现, 可以使用在控制器和 Action 中参考 :项目根 composer.json 中加入安全建议由于这里是继承的 “laravelcoll'
+      content: '该最佳实践涵盖代码审查、查询优化、请求校验、规范编写、测试用例、Composer配置、安全策略、数据映射及IDE项目配置等关键环节，确保代码质量与安全性。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/4.x/project/best-practice.html'
+      content: 'https://weiran.tech//4.x/project/best-practice.html'
 ---
 # 最佳实践
 
-
-
-::: info  <img src="https://file.wulicode.com/notion/b8/b856dd2822721bdc41101c3e23915df8.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  扩展阅读
-
-
-[<img src="https://file.wulicode.com/notion/f6/f60f4eb00e7beaca6850a6aca11a8697.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  Jetbrains 系 IDE 常用技巧](https://www.wulicode.com/development/ide/jetbrains-tips.html)
-:::
+::: info ℹ️<p>扩展阅读</p><ul><li><cite doc-id="SDd1wqWkYi4AThkPSe2cisWKnGg" file-type="wiki" title="Jetbrains 系 IDE 常用技巧" type="doc"></cite></li></ul>:::
 
 ## 配置
 
-对于文件目录 & 网址, 我们不建议在右侧添加  `/`  作为后缀, 例如
+对于文件目录 & 网址, 我们不建议在右侧添加 `/` 作为后缀, 例如
 
-```
+```Plaintext
 URL_SITE=http://v4.wulicode.com
 ```
 
@@ -37,7 +31,7 @@ URL_SITE=http://v4.wulicode.com
 
 Inspect 是开发过程中的工具, 用来检查项目中的文件注释, 文件命名, seo 命名, 权限等是否都满足项目定义
 
-```
+```Plaintext
 $ php artisan py-core:inspect > inspect.txt
 ```
 
@@ -50,9 +44,9 @@ $ php artisan py-core:inspect > inspect.txt
 
 ### 使用 firstOrFail 替代查询
 
-使用  `firstOrFail`  在未查到匹配的数据后会抛出  `ModelNotFoundException`  异常并且此异常可以进行友好提示
+使用 `firstOrFail` 在未查到匹配的数据后会抛出 `ModelNotFoundException` 异常并且此异常可以进行友好提示
 
-参考 : [模型:友好提示](../module/models.md#友好提示)
+参考 : 模型:友好提示
 
 ### 使用 Request 校验
 
@@ -71,9 +65,9 @@ $ php artisan py-core:inspect > inspect.txt
 
 ### 加入安全策略
 
-项目根  `composer.json`  中加入安全建议
+项目根 `composer.json` 中加入安全建议
 
-```
+```Plaintext
 {
     "require-dev": {
         "roave/security-advisories": "dev-latest"
@@ -87,7 +81,7 @@ $ php artisan py-core:inspect > inspect.txt
 
 在 composer.json 文件中禁用自动发现
 
-```
+```Plaintext
 "extra" : {
     "laravel" : {
         "dont-discover" : [
@@ -97,9 +91,9 @@ $ php artisan py-core:inspect > inspect.txt
 },
 ```
 
-在  `providers`  部分加入
+在 `providers` 部分加入
 
-```
+```Plaintext
 'providers' => [
     // ...
     Collective\Html\HtmlServiceProvider::class,
@@ -109,13 +103,13 @@ $ php artisan py-core:inspect > inspect.txt
 
 更新并清空换粗
 
-```
+```Plaintext
 composer dumpautoload && php artisan poppy:optimize
 ```
 
-然后在  `app.php`  的  `aliases`  部分加入
+然后在 `app.php` 的 `aliases` 部分加入
 
-```
+```Plaintext
 'aliases' => [
     // ...
     'Html' => Collective\Html\HtmlFacade::class,
@@ -130,9 +124,8 @@ composer dumpautoload && php artisan poppy:optimize
 
 右键忽略掉即可, 这个是生成的文件, 不需要进行 php 索引
 
-```
+```Plaintext
 public/assets/
 storage/clockwork/
 storage/phpunit/
 ```
-

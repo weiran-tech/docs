@@ -1,7 +1,7 @@
 ---
-description: 'poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipaypoppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)本次升级 Laravel 框架并支持模块加载对本地框架包进行包发布封装, 支持 composer'
-lastUpdated: '2025-12-15 19:20:00'
-head: 
+description: '该版本修复了alibabacloud/sts版本锁定问题，及1.1.5版本的调用错误；改进aliyun-oss支持STS临时目录授权、变量延迟读取，并统一项目版本定义；移除Apidoc、Clockwork等功能，优化短信服务商动态切换及登录入口隐藏。'
+lastUpdated: '2026-06-22 17:33:45'
+head:
   - - meta
     - name: 'og:title'
       content: '更新日志'
@@ -10,35 +10,33 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: 'poppy/smspoppy/aliyun-osspoppy/aliyun-pushpoppy/mgr-pagepoppy/systempoppy/ext-alipaypoppy/system (4.2.102)poppy/system (4.2.85)poppy/ext-ip_store  (4.2.2)poppy/aliyun-oss (4.2.5)本次升级 Laravel 框架并支持模块加载对本地框架包进行包发布封装, 支持 composer'
+      content: '该版本修复了alibabacloud/sts版本锁定问题，及1.1.5版本的调用错误；改进aliyun-oss支持STS临时目录授权、变量延迟读取，并统一项目版本定义；移除Apidoc、Clockwork等功能，优化短信服务商动态切换及登录入口隐藏。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/develop/changelog.html'
+      content: 'https://weiran.tech//develop/changelog.html'
 ---
 # 更新日志
 
-
-
 ## 4.2
 
-###  **4.2.114** 
+### **4.2.114**
 
--  `alibabacloud/sts-20150401`  存在使用不当问题, 不再锁定版本
--  `aliyun-oss`  支持 sts 授权临时目录
+- `alibabacloud/sts-20150401` 存在使用不当问题, 不再锁定版本
+- `aliyun-oss` 支持 sts 授权临时目录
 
-###  **4.2.112** 
+### **4.2.112**
 
-- 移除  `Apidoc`  , 生成监听以及  `Console`  上报的功能
-- 修复了 Resp 类中  `Session`  **`::`**  `previousUrl()`  的部分方法
-- 移除了  `Clockwork`  和  `Progress`  相关的控制器和视图
-- 框架登录增加变量  `poppy.mgr-page.account_login`  用来隐藏登录入口
+- 移除 `Apidoc` , 生成监听以及 `Console` 上报的功能
+- 修复了 Resp 类中 `Session**::**previousUrl()` 的部分方法
+- 移除了 `Clockwork` 和 `Progress` 相关的控制器和视图
+- 框架登录增加变量 `poppy.mgr-page.account_login` 用来隐藏登录入口
 
-###  **4.2.104** 
+### **4.2.104**
 
--  `alibabacloud/sts-20150401`  1.1.5 版本存在  `Error: Call to undefined method Darabonba\OpenApi\Utils::getEndpointRules()`  错误, 固定版本解决
+- `alibabacloud/sts-20150401` 1.1.5 版本存在 `Error: Call to undefined method Darabonba\OpenApi\Utils::getEndpointRules()` 错误, 固定版本解决
 - 重写 aliyun-oss 中的变量读取方式, 支持单元测试变量覆盖
 
-###  **4.2.103** 
+### **4.2.103**
 
 > 自这个版本起, 所有的项目均采用同样的版本定义
 
@@ -73,7 +71,7 @@ head:
 
 **poppy/system (4.2.102)**
 
-- 修复  `The "" file does not exist or is not readable`   错误, 对上传的图片未进行有效性判定
+- 修复 `The "" file does not exist or is not readable` 错误, 对上传的图片未进行有效性判定
 
 ### 4.2.85
 
@@ -81,13 +79,13 @@ head:
 
 - captcha 发送进行类型验证, 手机号 int 类型无法传值
 
-**poppy/ext-ip_store  (4.2.2)**
+**poppy/ext-ip_store (4.2.2)**
 
 - 更新最新版纯真库, 支持 poppy.php 进行配置, 默认为 mon17
 
 **poppy/aliyun-oss (4.2.5)**
 
-- 支持 env 单元测试, 只保留 putObject STS 授权,移除 put*
+- 支持 env 单元测试, 只保留 putObject STS 授权,移除 put\*
 
 ### 4.2.0
 
@@ -112,10 +110,10 @@ head:
 - (framework) 移除框架的文件加载
 - (framework) 移除 Mocker, 采用 seldom 自动化接口测试框架
 - (framework) sami 文档生成工具替换为 doctum
-- (system) 异常处理推荐  `Framework`  的  `Handler` 
+- (system) 异常处理推荐 `Framework` 的 `Handler`
 - (system) 分离 system 的 mgr-page
-- (system) 移除  `ui.yaml`  文件定义
-- (system) 移除  `JwtAuthGuard`  和  `jwt`  包重复
+- (system) 移除 `ui.yaml` 文件定义
+- (system) 移除 `JwtAuthGuard` 和 `jwt` 包重复
 - (core) 接口使用 js eval 来执行, 来源自 apidoc 升级
 - (module) migration 目录和 seeds 目录变更
 - (ext) 加入 phpstan 进行静态代码分析
@@ -125,8 +123,8 @@ head:
 ### 3.2.0
 
 - php 最低限制 7.4
-- composer 版本  `2.*` 
-- (framework) 放开 laravel 6.0 的限制至  `6.*` 
+- composer 版本 `2.*`
+- (framework) 放开 laravel 6.0 的限制至 `6.*`
 
 ### 3.1.0
 
@@ -144,11 +142,11 @@ head:
 - (framework) Remove web-helper
 - (framework) Remove PoppyServiceProvider@registerConsoleCommand
 - (framework) 更改为强类型(Strong Type)
-- (framework) remove  `Http\\Middlewares\\CrossPreflight`  : 使用  `EnableCrossRequest`  替代
-- (framework) Event  `PoppyOptimized`  move to  `src\\Events`  folder
+- (framework) remove `Http\\Middlewares\\CrossPreflight` : 使用 `EnableCrossRequest` 替代
+- (framework) Event `PoppyOptimized` move to `src\\Events` folder
 - (framework) 模块支持 composer poppy 文件夹加载, [poppy.xxx](http://poppy.xxx/) 为 composer 模块, module.xx 为自定义业务逻辑模块
-- (framework) Resp 内置参数  `_json`  ,  `_location`  ,  `_time`  ,  `_forget`  ,  `_time`  更改为下划线前缀
-- (framework)  `Rule::password()`  和 Laravel 框架的  `password`  规则冲突, 新增  `Rule::simplePwd()`  方法来进行基本的密码校验
+- (framework) Resp 内置参数 `_json` , `_location` , `_time` , `_forget` , `_time` 更改为下划线前缀
+- (framework) `Rule::password()` 和 Laravel 框架的 `password` 规则冲突, 新增 `Rule::simplePwd()` 方法来进行基本的密码校验
 - (core) 支持权限分离
 - (core) 分离 rbac -> core
 - (core) 分离 module -> core
@@ -203,7 +201,7 @@ head:
 对本地框架包进行包发布封装, 支持 composer
 
 - (framework) for laravel 5.5
-- (framework) Remove  `cache_name`  function
+- (framework) Remove `cache_name` function
 - (framework) Remove similar function with laravel
 - (framework) Resp
 - (extension) Move Pinyin Component to Package
@@ -212,6 +210,3 @@ head:
 - (framework) Delete Graphql
 - (framework) Add phplint
 - (framework) Add php-cs-fixer
-
-
-

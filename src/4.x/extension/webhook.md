@@ -1,7 +1,7 @@
 ---
-description: 'dingtalk robot api SDK for PHP用来快速发送群聊机器人消息, 当前支持钉钉通过钉钉客户端(pc)获取机器人的访问令牌。建议对安全设置进行签名文本和 markdown 类型的消息支持自动填充@信息，例如:'
-lastUpdated: '2024-01-29 20:17:00'
-head: 
+description: 'Webhook是一种基于HTTP的回调机制，用于实时通知事件。部署需支持HTTPS的服务器环境，安装过程包括配置接口地址和验证签名。示例展示如何接收并处理JSON格式的消息，支持文本、图片、文件等多种消息类型，实现自动化响应。'
+lastUpdated: '2026-06-22 14:56:13'
+head:
   - - meta
     - name: 'og:title'
       content: 'webhook'
@@ -10,14 +10,15 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: 'dingtalk robot api SDK for PHP用来快速发送群聊机器人消息, 当前支持钉钉通过钉钉客户端(pc)获取机器人的访问令牌。建议对安全设置进行签名文本和 markdown 类型的消息支持自动填充@信息，例如:'
+      content: 'Webhook是一种基于HTTP的回调机制，用于实时通知事件。部署需支持HTTPS的服务器环境，安装过程包括配置接口地址和验证签名。示例展示如何接收并处理JSON格式的消息，支持文本、图片、文件等多种消息类型，实现自动化响应。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/4.x/extension/webhook.html'
+      content: 'https://weiran.tech//4.x/extension/webhook.html'
+  - - meta
+    - name: 'og:image'
+      content: 'https://file.wulicode.com/feishu-images/3cd55bb565f5cfaa09999e619351219c.png'
 ---
 # webhook
-
-
 
 [dingtalk robot api](https://open.dingtalk.com/document/isvapp/custom-bot-access-send-message) SDK for PHP
 
@@ -25,14 +26,14 @@ head:
 
 ## 环境要求
 
-```
+```Plaintext
 php >= 7.4
 ext-json >= *
 ```
 
 ## 安装
 
-```
+```Plaintext
 composer require poppy/ext-webhook
 ```
 
@@ -40,7 +41,7 @@ composer require poppy/ext-webhook
 
 通过钉钉客户端(pc)获取机器人的访问令牌。建议对安全设置进行签名
 
-```php
+```PHP
 use Poppy\Extension\Webhook\DingTalk;
 use Poppy\Extension\Webhook\MsgType\ActionCard;
 use Poppy\Extension\Webhook\MsgType\FeedCard;
@@ -65,14 +66,13 @@ $message = new Link($title, $text, $messageUrl);
 
 //markdownType
 $title = '杭州天气';
-$text = "#### 杭州天气 {a} \n> 9度，西北风1级，空气良89，相对温度73%\n> ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)\n> ###### 10点20分发布 [天气](https://www.dingtalk.com) \n";
+$text = "#### 杭州天气 {a} \n> 9度，西北风1级，空气良89，相对温度73%\n> ![screenshot](https://file.wulicode.com/feishu-images/3cd55bb565f5cfaa09999e619351219c.png)\n> ###### 10点20分发布 [天气](https://www.dingtalk.com) \n";
 $message = new Markdown($title, $text);
 $message->setAtMobiles(['a' => '188xxxx8888']);
 
-
 //整体跳转ActionCard类型
 $title = '乔布斯 20 年前想打造一间苹果咖啡厅，而它正是 Apple Store 的前身';
-$text = "![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)\n ### 乔布斯 20 年前想打造的苹果咖啡厅\n Apple Store 的设计正从原来满满的科技感走向生活化，而其生活化的走向其实可以追溯到 20 年前苹果一个建立咖啡馆的计划";
+$text = "![screenshot](https://file.wulicode.com/feishu-images/b4ba0c2aa92972778810716b3a863795.png)\n ### 乔布斯 20 年前想打造的苹果咖啡厅\n Apple Store 的设计正从原来满满的科技感走向生活化，而其生活化的走向其实可以追溯到 20 年前苹果一个建立咖啡馆的计划";
 $buttons = [
     '阅读全文' => 'https://www.dingtalk.com/',
 ];
@@ -106,7 +106,7 @@ $dd->send($message);
 
 文本和 markdown 类型的消息支持自动填充@信息，例如:
 
-```php
+```PHP
 //如果消息体内需要展示出"{"，请使用"\{"转义。
 use Poppy\Extension\Webhook\MsgType\Text;
 $text = new Text('test content \{a\}');
@@ -121,4 +121,3 @@ $text->setAtMobiles(['a'=>'150xxxxxxxx']);
 - 整体跳转ActionCard类型
 - 独立跳转ActionCard类型
 - FeedCard类型
-

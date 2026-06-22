@@ -1,23 +1,21 @@
 ---
-description: '系统后台集成 layui 作为后台 UI 界面, 元素的使用详见 www.layui.com前台页面依赖于 laravel-mix 来进行页面的开发. 下面会对以下的几个部分进行深入解析, 首先,我们先看下如何进行页面的布局和显示 常用文档 : 资源任务编译器 Laravel Mix'
-lastUpdated: '2023-12-11 19:41:00'
-head: 
+description: 'Laravel-Mix 前台开发中，sass源文件使用web.scss，页面资源放置于指定位置，通过laravel-mix组件监听文件变化。页面命名为{page}.blade.php，支持多层文件夹。运行后监听scss，生成css和图片，访问地址如http://dev.play.com/develop/l/layout.m.homepage。需配置webpack.mix.js。'
+lastUpdated: '2026-06-22 13:46:24'
+head:
   - - meta
     - name: 'og:title'
-      content: '[WIP] Laravel-Mix'
+      content: 'Laravel-Mix'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '系统后台集成 layui 作为后台 UI 界面, 元素的使用详见 www.layui.com前台页面依赖于 laravel-mix 来进行页面的开发. 下面会对以下的几个部分进行深入解析, 首先,我们先看下如何进行页面的布局和显示 常用文档 : 资源任务编译器 Laravel Mix'
+      content: 'Laravel-Mix 前台开发中，sass源文件使用web.scss，页面资源放置于指定位置，通过laravel-mix组件监听文件变化。页面命名为{page}.blade.php，支持多层文件夹。运行后监听scss，生成css和图片，访问地址如http://dev.play.com/develop/l/layout.m.homepage。需配置webpack.mix.js。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/3.x/project/laravel-mix.html'
+      content: 'https://weiran.tech//3.x/project/laravel-mix.html'
 ---
-# [WIP] Laravel-Mix
-
-
+# Laravel-Mix
 
 系统后台集成 layui 作为后台 UI 界面, 元素的使用详见 www.layui.com
 
@@ -27,7 +25,7 @@ head:
 
 ### 文件的位置
 
-```
+```Plaintext
 # sass 源文件的位置, 使用的样式文件是 web.scss
 ~/resources/assets/scss/
 
@@ -53,7 +51,7 @@ http://{domain}/develop/l/{page}
 
 ### 如何运行
 
-```
+```Plaintext
 # 安装
 $ npm install
 
@@ -63,7 +61,7 @@ $ npm run watch
 
 ## webpack.mix.js 的配置
 
-```
+```Plaintext
 
 mix
    .browserSync({
@@ -140,4 +138,3 @@ mix
    .copyDirectory('modules/system/resources/images/system', 'public/assets/images/default')
    .copyDirectory('modules/system/resources/fonts/fontawesome', 'public/assets/font/fontawesome')
 ```
-

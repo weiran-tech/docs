@@ -1,7 +1,7 @@
 ---
-description: '此类更新一般用于批次对数据进行修改, 且在用户可以操作的入口, 一般的开发者需要操作的入口可以放置在命令行, 更方便进行数据管理定义 fixHandle 方法, 需要引入 FixTrait 方法在控制器中使用如下方式定义即可'
-lastUpdated: '2025-02-05 11:22:00'
-head: 
+description: '该内容描述了使用FixTrait的fixHandle方法进行批次数据更新，在命令行入口操作，包括清理缓存、获取总数、ID范围、分段处理及剩余数据计算，便于高效管理。'
+lastUpdated: '2026-06-21 16:52:29'
+head:
   - - meta
     - name: 'og:title'
       content: '更新'
@@ -10,22 +10,20 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '此类更新一般用于批次对数据进行修改, 且在用户可以操作的入口, 一般的开发者需要操作的入口可以放置在命令行, 更方便进行数据管理定义 fixHandle 方法, 需要引入 FixTrait 方法在控制器中使用如下方式定义即可'
+      content: '该内容描述了使用FixTrait的fixHandle方法进行批次数据更新，在命令行入口操作，包括清理缓存、获取总数、ID范围、分段处理及剩余数据计算，便于高效管理。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/wr-1.x/module/progress.html'
+      content: 'https://weiran.tech//wr-1.x/module/progress.html'
 ---
 # 更新
-
-
 
 此类更新一般用于批次对数据进行修改, 且在用户可以操作的入口, 一般的开发者需要操作的入口可以放置在命令行, 更方便进行数据管理
 
 ## 编写
 
-定义 fixHandle 方法, 需要引入  `FixTrait`  方法
+定义 fixHandle 方法, 需要引入 `FixTrait` 方法
 
-```php
+```PHP
 class Area
 {
     use FixTrait;
@@ -79,7 +77,7 @@ class Area
 
 在控制器中使用如下方式定义即可
 
-```php
+```PHP
 /**
  * 地区管理控制器
  */
@@ -94,4 +92,3 @@ class ContentController extends BackendController
     }
 }
 ```
-

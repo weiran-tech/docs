@@ -1,72 +1,41 @@
 ---
-description: '~/app/Http/routes.phproutes.php 是框架加载路由的入口文件目录 ~/app/Http/Routes/路由命名的基本规则是 前缀 + 控制器蛇形写法 + . + 方法名的蛇形写法 例如：'
-lastUpdated: '2024-01-29 15:41:00'
-head: 
+description: '本文档阐述了路由与控制器的加载机制，包括加载流程图、分组模式、路由位置、路由文件名称、子路由位置和路由命名规则，以及控制器的定义方式。'
+lastUpdated: '2026-06-22 17:37:45'
+head:
   - - meta
     - name: 'og:title'
-      content: '路由 / 控制器'
+      content: '路由控制器'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '~/app/Http/routes.phproutes.php 是框架加载路由的入口文件目录 ~/app/Http/Routes/路由命名的基本规则是 前缀 + 控制器蛇形写法 + . + 方法名的蛇形写法 例如：'
+      content: '本文档阐述了路由与控制器的加载机制，包括加载流程图、分组模式、路由位置、路由文件名称、子路由位置和路由命名规则，以及控制器的定义方式。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/2.x/route-controller.html'
+      content: 'https://weiran.tech//2.x/route-controller.html'
   - - meta
     - name: 'og:image'
-      content: 'https://file.wulicode.com/notion/d4/d49fcfdd41adfd0e6450cf0533e939f1.png?x-oss-process=image/resize,m_mfit,w_400'
+      content: 'https://file.wulicode.com/feishu-images/25c007e9fe64302bac1adef86d38ee91.png'
 ---
-# 路由 / 控制器
-
-
+# 路由控制器
 
 ## 加载机制
 
 ### 加载流程图
 
-![](https://file.wulicode.com/notion/d4/d49fcfdd41adfd0e6450cf0533e939f1.png)
+![](https://file.wulicode.com/feishu-images/25c007e9fe64302bac1adef86d38ee91.png)
 
 ### 分组模式
 
-<table><tbody>
-  <tr>
-    <td>文件名</td>
-    <td>前缀</td>
-    <td>备注</td>
-  </tr>
-  <tr>
-    <td>front.php</td>
-    <td>front_</td>
-    <td>网站前台</td>
-  </tr>
-  <tr>
-    <td>desktop.php</td>
-    <td>dsk_</td>
-    <td>网站后台</td>
-  </tr>
-  <tr>
-    <td>api.php</td>
-    <td>api_</td>
-    <td>app /接口部分</td>
-  </tr>
-  <tr>
-    <td>develop.php</td>
-    <td>dev_</td>
-    <td>开发者平台</td>
-  </tr>
-  <tr>
-    <td>wap.php</td>
-    <td>wap_</td>
-    <td>wap 端</td>
-  </tr>
-  <tr>
-    <td>support.php</td>
-    <td>support_</td>
-    <td>公用的支持类函数</td>
-  </tr>
-</tbody></table>
+| 文件名 | 前缀 | 备注 |
+|-|-|-|
+| front.php | front\_ | 网站前台 |
+| desktop.php | dsk\_ | 网站后台 |
+| api.php | api\_ | app /接口部分 |
+| develop.php | dev\_ | 开发者平台 |
+| wap.php | wap\_ | wap 端 |
+| support.php | support\_ | 公用的支持类函数 |
 
 ## 路由
 
@@ -76,17 +45,17 @@ head:
 
 ### 路由文件名称
 
-`routes.php`  是框架加载路由的入口文件
+`routes.php` 是框架加载路由的入口文件
 
 ### 子路由位置
 
-目录 ~/app/Http/Routes/
+目录 \~/app/Http/Routes/
 
 ### 路由命名规则
 
-路由命名的基本规则是  `前缀`  +  `控制器蛇形写法`  +  `.`  +  `方法名的蛇形写法`  例如：
+路由命名的基本规则是 `前缀` + `控制器蛇形写法` + `.` + `方法名的蛇形写法` 例如：
 
-```
+```Plaintext
 Route::group([
     'namespace' => 'Front',
 ], function () {
@@ -102,7 +71,6 @@ Route::group([
 
 ### 控制器定义
 
-- 控制器位置位于  `～/app/Http/Controllers/`  目录下
+- 控制器位置位于 `～/app/Http/Controllers/` 目录下
 - 控制器命名采用分组模式， 首字母大写
 - 路由名称和控制器名称匹配
-

@@ -1,7 +1,7 @@
 ---
-description: '更新日志'
-lastUpdated: '2025-12-15 19:11:00'
-head: 
+description: 'Poppy Framework 3.x 的相关文档集合，包括入门指南、常见问题、项目说明、框架、模块与组件等内容。'
+lastUpdated: '2026-06-22 17:36:18'
+head:
   - - meta
     - name: 'og:title'
       content: '3.x'
@@ -10,84 +10,74 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '更新日志'
+      content: 'Poppy Framework 3.x 的相关文档集合，包括入门指南、常见问题、项目说明、框架、模块与组件等内容。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/3.x/index.html'
+      content: 'https://weiran.tech//3.x/index.html'
 ---
 # 3.x
 
+> 基于 Laravel 的模块化开发框架
 
+系统要求
 
-## 前言
-
-[Poppy Framework](/3.x/get-started.md)
-
-[常见问题](/3.x/faq.md)
-
-[开发计划](/3.x/framework/plan.md)
-
-[更新日志](/develop/changelog.md)
-
-## 框架
-
-[README](/3.x/framework/readme.md)
-
-[配置](/3.x/framework/config.md)
-
-[错误码](/3.x/framework/resp.md)
-
-[文件树](/3.x/framework/tree.md)
+- 3.x 项目是基于 Laravel 6 拓展
+- composer 2.x
+- php >= 7.4
 
 ## 模块
 
-[说明](/3.x/readme.md)
+### 框架
 
-[业务逻辑](/3.x/module/action.md)
+- 支持模块化开发并预制常用函数
 
-[事件](/3.x/module/event.md)
+### 核心
 
-[服务和钩子](/3.x/module/hook.md)
+- Redis 封装
+- 常用文档工具与规范
 
-[国际化](/3.x/module/i18n.md)
+### 系统
 
-[菜单](/3.x/module/menus.md)
+- rbac 用户管理以及权限系统
+- 对接口签名扩展
+- 对用户密码加密扩展
+- 系统配置项目扩展
 
-[模型](/3.x/module/model.md)
+### 管理(layui-base)
 
-[权限](/3.x/module/permission.md)
+- 基于 jquery/layui 的后台管理框架
+- 基于 apidoc 的接口请求平台
 
-[策略](/3.x/module/policy.md)
+### 扩展
 
-[批次更新](/3.x/module/progress.md)
+- aliyun-push (阿里云推送)
 
+项目为了便于管理, 对代码进行模块化分组分为 框架, 核心, 管理, 组件 四部分构成, 使用 composer 进行模块化安装
 
+## 功能
 
-## 组件
+使用本项目可以快速的完成项目业务逻辑的开发, 其中包含
 
-[CanalEs - 同步导入监听组件](/3.x/component/canal-es.md)
+- RBAC 权限管理
+- 后台登录登出
+- 用户禁用, 启用
+- 接口安全加密
+- 用户密码安全自定义
+- 接口跨域白名单
+- 后台管理框架
+- 快速表单生成
 
-[核心](/3.x/component/core.md)
+项目是在公司内部的业务逻辑的基础之上剥离出来, 并且应用在公司快速开发的项目中, 内涵丰富的功能，可满足日常 80% 的开发需求
 
-[管理后台](/3.x/component/mgr-page.md)
+## 发展方向
 
-[系统](/3.x/component/system.md)
+项目以快速开发作为目标, 以后端快速分离开发来做性能的优化方向
 
+## 反馈
 
+[Github Issues](https://github.com/dadi-cn/poppy-framework/issues)
 
-## 项目
+## Thanks To
 
-
-
-[最佳实践](/3.x/project/best-practice.md)
-
-[Code Review](/3.x/project/code-review.md)
-
-[前后端分离项目约定](/3.x/project/mgr-app-spec.md)
-
-[[WIP] Laravel-Mix](/3.x/project/laravel-mix.md)
-
-[安装](/3.x/project/install.md)
-
-[说明](/3.x/project/readme.md)
-
+- [Layui](https://www.layui.com/)
+- [~~Notadd~~](https://xueyuanjun.com/post/7092)

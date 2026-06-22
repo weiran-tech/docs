@@ -265,7 +265,7 @@ export default {
         },
         {
             "text": "入门手册",
-            "link": "/2.x/index"
+            "link": "/2.x/get-started"
         },
         {
             "text": "开发者模式/ACL",

@@ -1,7 +1,7 @@
 ---
-description: '快捷生成使用如下命令便捷创建单元测试文件测试文件加载对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到 composer.json 的 autoload 中, 这里遵循 psr-4 加载规范要求接口文档接口文档写法遵循 apidoc接口要求保证代码格式正确, 对文件夹进行代码格式化 ctrl + alt + l, 在 src 目录下运行 代码中不得存在编辑器提示的错误, 需要开启 Php Inspection在 PHPstorm 中需要 alt + enter 进行 Import Class 或者 Simplify FQN, 这样便可以是'
-lastUpdated: '2025-12-15 19:21:00'
-head: 
+description: '本内容涵盖开发规范，包括单元测试、接口设计、IDE配置、代码风格统一与格式化、优化导入、目录及前端文件设定。强调调试、文档生成及验证trans文档的正确性。提及代码协同工具GIT与Git Flow流程，以及扩展开发和Composer文件生成。'
+lastUpdated: '2026-06-21 16:59:50'
+head:
   - - meta
     - name: 'og:title'
       content: '开发规范'
@@ -10,14 +10,12 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '快捷生成使用如下命令便捷创建单元测试文件测试文件加载对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到 composer.json 的 autoload 中, 这里遵循 psr-4 加载规范要求接口文档接口文档写法遵循 apidoc接口要求保证代码格式正确, 对文件夹进行代码格式化 ctrl + alt + l, 在 src 目录下运行 代码中不得存在编辑器提示的错误, 需要开启 Php Inspection在 PHPstorm 中需要 alt + enter 进行 Import Class 或者 Simplify FQN, 这样便可以是'
+      content: '本内容涵盖开发规范，包括单元测试、接口设计、IDE配置、代码风格统一与格式化、优化导入、目录及前端文件设定。强调调试、文档生成及验证trans文档的正确性。提及代码协同工具GIT与Git Flow流程，以及扩展开发和Composer文件生成。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/develop/spec.html'
+      content: 'https://weiran.tech//develop/spec.html'
 ---
 # 开发规范
-
-
 
 ## 单元测试
 
@@ -25,15 +23,15 @@ head:
 
 使用如下命令便捷创建单元测试文件
 
-```
+```Plaintext
 $ php artisan poppy:test  {slug} {name}
 ```
 
 **测试文件加载**
 
-对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到  `composer.json`  的  `autoload`  中, 这里遵循  `psr-4`  加载规范
+对于开发中的包, 单元测试是无法识别其路径的, 所以需要将包加入到 `composer.json` 的 `autoload` 中, 这里遵循 `psr-4` 加载规范
 
-```json
+```JSON
 {
   "autoload": {
     "classmap": [],
@@ -51,7 +49,7 @@ $ php artisan poppy:test  {slug} {name}
 }
 ```
 
-- 单元测试 : [<img src="https://file.wulicode.com/notion/80/80d36d5cd9b294217e3d56b12f8c5d78.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  PHPUnit 简介以及在 PhpStorm 中使用](https://www.wulicode.com/php/ide/phpstorm-run-phpunit.html) 
+- 单元测试 : ‣
 
 **要求**
 
@@ -66,7 +64,7 @@ $ php artisan poppy:test  {slug} {name}
 
 接口文档写法遵循 [apidoc](https://apidocjs.com/)
 
-- 接口文档说明: [使用 ApiDoc 编写接口文档](https://www.wulicode.com/development/tools/apidoc.html) 
+- 接口文档说明: [使用 ApiDoc 编写接口文档](https://www.notion.so/ApiDoc-1d24233204ec46e398f7b47a81cddea3?pvs=21)
 - 接口文档示例: [http://v4.wulicode.com/docs/web/](http://v4.wulicode.com/docs/web/)
 
 **接口要求**
@@ -78,18 +76,18 @@ $ php artisan poppy:test  {slug} {name}
 ## 代码风格统一
 
 - 下载代码风格文件[Code_Style-Mark](http://oss-test.iliexiang.com/develop/Code_Style-Mark.xml)
-- 打开  `Preferences | Editor | Code Style`  , 在右侧  `设置`  中选择  `Import Scheme` , 导入刚才下载的 xml 文件
-- 在  `Scheme`  选择框中选择刚才导入的风格进行使用
+- 打开 `Preferences | Editor | Code Style` , 在右侧 `设置` 中选择 `Import Scheme`, 导入刚才下载的 xml 文件
+- 在 `Scheme` 选择框中选择刚才导入的风格进行使用
 
 ### 代码格式化
 
-保证代码格式正确, 对文件夹进行代码格式化  `ctrl + alt + l` , 在  `src`  目录下运行 代码中不得存在编辑器提示的错误, 需要开启  `Php Inspection`
+保证代码格式正确, 对文件夹进行代码格式化 `ctrl + alt + l`, 在 `src` 目录下运行 代码中不得存在编辑器提示的错误, 需要开启 `Php Inspection`
 
 ### 优化导入
 
-在 PHPstorm 中需要  `alt + enter`  进行  `Import Class`  或者  `Simplify FQN` , 这样便可以是代码看起来更简洁
+在 PHPstorm 中需要 `alt + enter` 进行 `Import Class` 或者 `Simplify FQN`, 这样便可以是代码看起来更简洁
 
-```php
+```PHP
 // bad
 /**
  * @property \Carbon\Carbon    $created_at
@@ -107,7 +105,7 @@ $ php artisan poppy:test  {slug} {name}
 
 生成的文件, 不需要进行索引
 
-```
+```Plaintext
 # 前端文件
 public/assets
 
@@ -125,10 +123,10 @@ public/docs
 
 ### 如何验证 trans 文档是否正确
 
-- 使用 phpstorm 搜索出所有所有  `trans('`  匹配的文档
-- 使用  `open in window` 打开
-- 邮件根菜单选择  `Export to text file`  选择位置进行保存
-- 运行命令  `php artisan py-core:inspect trans --export=/Users/duoli/Desktop/report.txt` 
+- 使用 phpstorm 搜索出所有所有 `trans('` 匹配的文档
+- 使用 `open in window`打开
+- 邮件根菜单选择 `Export to text file` 选择位置进行保存
+- 运行命令 `php artisan py-core:inspect trans --export=/Users/duoli/Desktop/report.txt`
 
 ## 验证
 
@@ -140,15 +138,15 @@ public/docs
 
 **注释完善并且通过**
 
-注释使用  `poppy/core`  模块来检测[开发必备]
+注释使用 `poppy/core` 模块来检测[开发必备]
 
-```
+```Plaintext
 $ php artisan py-core:inspect class
 ```
 
 **不要出现 package 标签**
 
-```
+```Plaintext
 @package
 ```
 
@@ -158,14 +156,14 @@ $ php artisan py-core:inspect class
 
 代码使用 Git 进行代码协同
 
-- [<img src="https://file.wulicode.com/notion/f4/f40474006bf9e2eb6f8c3dc02b97378f.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  使用 husky 让代码提交优雅规范](https://www.wulicode.com/development/git/commit-grace-use-husky.html) 
+- ‣
 
 ### Git Flow
 
 git-flow 并不是要替代 Git，它仅仅是非常聪明有效地把标准的 Git 命令用脚本组合了起来。 Release 管理是版本控制处理中的另外一个非常重要的话题, 详细见下边的文档. Git Flow 的详细说明文档
 
-- [https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow)
-- [一个成功的 Git 分支模型 - GitFlow](https://www.wulicode.com/development/git/git-flow.html) 
+- https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/git-flow
+- ‣
 
 ## 扩展开发
 
@@ -173,7 +171,7 @@ git-flow 并不是要替代 Git，它仅仅是非常聪明有效地把标准的 
 
 composer.json 文件解释
 
-```
+```Plaintext
 {
     # 包名称, 可以自定义 package 名称, 蛇形写法
     "name": "poppy/ext-{package}",
@@ -209,7 +207,7 @@ composer.json 文件解释
 
 根目录文件生成方式 - 初始化 第一步: 创建 创建: 如果没有 ext-{package}/composer.json 中的时候
 
-```
+```Plaintext
 $ composer init
 ```
 
@@ -217,15 +215,14 @@ composer 文件加载
 
 生成 autoload 文件
 
-```
+```Plaintext
 $ composer update -vvv
 ```
 
 清空进行 poppy 优化,重置缓存, 加载当前包(From notadd)
 
-```
+```Plaintext
 $ php artisan poppy:optimize
 ```
 
 至此命名空间可以自动加载成功
-

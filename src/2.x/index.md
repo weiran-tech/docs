@@ -1,7 +1,7 @@
 ---
-description: '更新日志'
-lastUpdated: '2025-12-15 19:10:00'
-head: 
+description: '该文档集合涵盖服务器环境配置、策略、多语言、开发者模式ACL、路由控制器及模型等核心开发主题，为框架或系统的入门与配置提供全面指导。'
+lastUpdated: '2026-06-22 17:37:31'
+head:
   - - meta
     - name: 'og:title'
       content: '2.x'
@@ -10,46 +10,312 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '更新日志'
+      content: '该文档集合涵盖服务器环境配置、策略、多语言、开发者模式ACL、路由控制器及模型等核心开发主题，为框架或系统的入门与配置提供全面指导。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/2.x/index.html'
+      content: 'https://weiran.tech//2.x/index.html'
 ---
 # 2.x
 
+## 如何渲染显示内容
 
+### 定义路由
 
-[入门手册](/2.x/index.md)
+参考资料: [[ Laravel 5.1 文档 ] 基础 —— HTTP 路由](http://laravelacademy.org/post/53.html)
 
-[开发者模式/ACL](/2.x/acl.md)
+路由文件夹 : `~/app/Http/Routes/` 路由说明
 
-[Action 业务逻辑封装](/2.x/action.md)
+```Plaintext
+front.php    # 前台路由
+desktop.php  # 后台路由
+develop.php  # 开发平台
+```
 
-[Api文档 1.0](/2.x/apidoc.md)
+- 定义前台路由 `~/app/Http/Routes/front.php`
 
-[compass - LemonCMS](/2.x/compass.md)
+```Plaintext
+# 使用组定义路由
+Route::group([
+    'namespace' => 'Front',
+], function () {
+    // ...
+    // 使用 controller 来定义路由
+    Route::controller('test', 'TestController', [
+        # 方法名           # 路由的名称
+        'getShow'         => 'front_test.show',
+    ]);
+    // ...
+});
+```
 
-[Env 环境配置](/2.x/env.md)
+- 访问地址 http://www.domain.com/test/show
 
-[多语言](/2.x/i18n.md)
+### 定义控制器 @ 方法
 
-[模型 v2.0](/2.x/model.md)
+控制器文件位置 : `~/app/Http/Controllers/Front/TestController.php` 控制器方法 `public function getShow(){}`
 
-[策略(Policy)](/2.x/policy.md)
+### 读取模型数据
 
-[RBAC 角色控制](/2.x/rbac.md)
+参考资料: - [[ Laravel 5.1 文档 ] 数据库 —— 查询构建器](http://laravelacademy.org/post/126.html) - [[ Laravel 5.1 文档 ] Eloquent ORM](http://laravelacademy.org/post/138.html)
 
-[rbac 在项目中的实现](/2.x/rbac-in-project.md)
+- 创建模型 模型的位置: `~/app/Models/` 命名规范: 首字母大写的驼峰模式 `GameServer`
 
-[路由 / 控制器](/2.x/route-controller.md)
+```Plaintext
+class GameServer{
+    // 定义 table
+    protect $table = 'game_server'
+}
+```
 
-[sample - 创建后台访问模块](/2.x/mgr-page.md)
+- 读取数据
 
-[服务器环境配置](/2.x/op.md)
+```Plaintext
+# 读取全部
+GameServer::all();
 
-[图片上传](/2.x/upload.md)
+# 读取单条
+# 设定 primary key  : `protected $primaryKey = 'server_id';`, 默认是 `id`
+GameServer::find($id)
 
-[更新日志](/develop/changelog.md)
+# 读取带条件的
+# id
+GameServer::where('server_id', 5)->first();
 
+# 范围查询
+GameServer::where('server_id','>',5)->get();
 
+# 多条件查询
+Game::where('game_id',5)
+    ->where('server_id',8)
+    ->get();
 
+# 分页读取
+$Db = GameOrder::where('order_status', 'ing')->take(5);
+$items = $Db->paginate($this->pageNum);
+    ->appends($request->input());
+```
+
+### 渲染模板
+
+参考资料 [Blade 模板引擎](http://laravelacademy.org/post/79.html)
+
+模板位置 : `~/resources/views`
+
+控制器命名 命名方式采用蛇形方式命名, 和控制器进行匹配, 函数命名遵循类函数命名规范, 文件名称和方法名称有效匹配 PS:, 这个文件完整路径应是 `~`
+
+```Plaintext
+# 命名空间/控制器/方法.blade.php
+front/test/show.blade.php
+
+# 后台 `Desktop/AccountController`这个控制器的文件夹名称 应该是 `desktop`, 里边有登陆的 `getLogin` 方法
+desktop/account/login.blade.php
+```
+
+- 创建模板
+
+```Plaintext
+输出了一个 abc {!! $abc !!} ;
+```
+
+- 调用模板
+
+```Plaintext
+return view('front.test.show', [
+    'abc' => $routeUrl,
+]);
+```
+
+- 输出的内容
+
+```Plaintext
+输出了一个 abc http://www.lartest.com/test/show?id=5 ;
+```
+
+- 命名约定
+- 系统内置变量加 `_` 下划线前缀
+- 命名方式: 小写, 蛇形
+
+## 辅助功能
+
+### 路由地址生成
+
+route 函数, 参数是 路由的名称 `route('front_test.show')` : helper 函数(帮助函数) `route('front_test.show', [1,2])` : helper 函数(帮助函数) `route_url('front_test.show', null, ['id'=> 5])` : 框架函数 - 传参 访问地址 : `http://www.domain.com/test/show/5/234`
+
+```Plaintext
+5   : 文章的ID    ($id)
+234 : 文章的评论   ($comment_id)
+```
+
+- 传参限制 最多 5 个
+
+### 获取参数
+
+- 获取参数
+
+```Plaintext
+public function getShow($id, $comment_id) {
+    var_dump($id);
+    var_dump($comment_id);
+}
+```
+
+- 怎么样获取 querystring 传参 依赖注入
+
+```Plaintext
+public function getShow(Request $request) {
+    var_dump($request->all());
+}
+```
+
+### 服务器绑定目录
+
+- `~/public` 只有一个 `index.php`
+
+### 自定义框架功能
+
+```Plaintext
+~/app/Lemon/
+    Action         带有错误信息的返回 (Nucleus)
+    Contracts      接口
+    Extensions     扩展的框架的一些类
+    Facade         简要操作的入口, 自定义的 Facade
+    Func           系统函数/ 帮助函数
+    Helper         LmArr, LmEnv, LmFile (Lemon)
+    Project        项目的, 比如短信平台, 邮件发送
+    Suit           acl 控制, 流程控制的定义, 菜单定义
+    Vendor         第三方的东西
+```
+
+## 第三方类库的加载
+
+### composer
+
+参考资料: - [Composer 中文站](http://www.phpcomposer.com/) - [Packageist(包)](http://packagist.com/)
+
+### 位置
+
+`~/Vendor`
+
+### 常用扩展
+
+github 项目
+
+```Plaintext
+"intervention/image"           # 图像处理
+"laravel/framework"            # 核心库
+"illuminate/support"           # 二开用的包
+"laravelcollective/html"       # 快速生成表单和html的php 帮助类
+"latrell/alipay"               # 支付宝支付接口
+"mews/purifier"                # 处理 dom
+"nesbot/carbon"                # 处理时间
+"erusev/parsedown-extra"       # 解析 markdown
+"league/html-to-markdown"      # html -> markdown
+"sunra/php-simple-html-dom-parser"        # 解析dom
+"socialiteproviders/qq"        # qq 自动登录
+"predis/predis"                # redis 调用
+"phpoffice/phpexcel"           # excel 处理
+"maatwebsite/excel"            # 封装 phpexcel 的方法
+"socialiteproviders/weibo":    # 微博自动登录
+"doctrine/dbal"                # 生成模型帮助文件的
+"guzzlehttp/guzzle"            # http 请求用
+"dingo/api"                    # api接口
+```
+
+### 常用的变量
+
+- 公用的模板变量以下划线 起头
+
+```Plaintext
+'_site'     => site(),                 # 网站配置
+'_route'    => $this->route,           # 当前路由的名字
+'_ip'       => $this->ip,              # 当前的ip地址
+'_time'     => $this->time,            # 当前的unix 时间戳
+'_datetime' => \Carbon\Carbon::now(),  # 当前时间 datetime 格式
+'_pagesize' => $this->pageNum,         # 分页数
+```
+
+### 保留变量
+
+- 模板保留变量 保留变量采用 下划线起头, 蛇形写法方式命名
+
+```Plaintext
+$_pam          # 当前登陆账户的基本信息
+$_front        # 当前前端用户的基本资料
+$_site         # 当前网站的配置
+$_route        # 当前路由的名称，如果没有，名称为空
+```
+
+- 控制器保留变量 控制器保留变量采用大小写混排模式
+
+```Plaintext
+pageNum      # 当前每页分页数量
+ip           # 当前IP
+time         # 请求的时间戳
+route        # 当前路由名称
+datetime     # 当前请求的 datetime 时间
+```
+
+## 验证机制
+
+### 说明
+
+Laravel提供了多种方法来验证应用输入数据, 这样的简单化前提是, 数据库中有个明确的唯一的字段值来对应唯一的名称(现在正在做的), 对于在控制器中我们需要如下约束即可
+
+### 定义约束
+
+项目约束代码
+
+```Plaintext
+$validator = \Validator::make($request->all(), [
+    'city_id' => 'required|integer',
+]);
+if ($validator->fails()) {
+    return api_end('error', $validator->errors());
+}
+```
+
+这里有详细的验证规则 [验证规则, 点击访问](http://laravelacademy.org/post/240.html#ipt_kb_toc_240_12)
+
+### 在各个模块的使用
+
+```Plaintext
+// 前后台的的使用
+site_end('error', $validator->errors())
+
+// api 中的使用
+api_end('error', $validator->errors())
+
+// support 中的使用
+return support_end('error', $validator->errors());
+```
+
+### 定义通用的属性
+
+位置: 在 `~/resources/lang/zh/validation.php` 语言文件中
+
+```Plaintext
+// 这个部分定义每个字段的显示值
+'attributes' => [
+    'area_id'   => '地区ID',
+    'area_title'   => '地区名称',
+    ...
+],
+```
+
+### 自定义错误提示
+
+有时候你可能只想为特定字段指定自定义错误信息，可以通过”.”来实现，首先指定属性名，然后是规则：
+
+```Plaintext
+// 这样定义
+$messages = [
+    'email.required' => '我们需要知晓您的邮箱地址!',
+];
+
+// 这样使用
+$validator = \Validator::make($request->all(), [
+    'email' => 'required',
+], $messages);
+```
+
+详细内容参见 [L5 验证](http://laravelacademy.org/post/240.html)

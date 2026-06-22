@@ -10,6 +10,7 @@
         "preinstall": "npx only-allow pnpm"
     },
     "devDependencies": {
-        "vitepress": "1.6.4"
+        "vitepress": "1.6.4",
+        "vitepress-sidebar": "^1.33.1"
     }
 }

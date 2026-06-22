@@ -1,7 +1,7 @@
 ---
-description: '事件放置在 modules/{module}/Events 文件夹中, 监听器放在 modules/{module}/Listeners 文件夹中监听器放置位置在 modules/{module}/Listeners/{EventFolder} 这个文件夹下, 文件夹名称和事件的名称相符合. 事件监听器必须为 DoWhatListener, 事件中需要体现监听器的作用,并且必须是 Listener 后缀事件监听放在 {module}/src/ServiceProvider.php 文件中, 如下定义'
-lastUpdated: '2024-01-29 15:02:00'
-head: 
+description: '事件驱动架构中，事件（Event）代表状态变化或用户操作，监听（Listener）是响应事件的处理逻辑，事件监听定义将二者绑定。文件位置及命名通常遵循约定，如将事件类与监听器分别存放于指定目录，便于管理。'
+lastUpdated: '2026-06-22 14:43:45'
+head:
   - - meta
     - name: 'og:title'
       content: '事件'
@@ -10,31 +10,28 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '事件放置在 modules/{module}/Events 文件夹中, 监听器放在 modules/{module}/Listeners 文件夹中监听器放置位置在 modules/{module}/Listeners/{EventFolder} 这个文件夹下, 文件夹名称和事件的名称相符合. 事件监听器必须为 DoWhatListener, 事件中需要体现监听器的作用,并且必须是 Listener 后缀事件监听放在 {module}/src/ServiceProvider.php 文件中, 如下定义'
+      content: '事件驱动架构中，事件（Event）代表状态变化或用户操作，监听（Listener）是响应事件的处理逻辑，事件监听定义将二者绑定。文件位置及命名通常遵循约定，如将事件类与监听器分别存放于指定目录，便于管理。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/4.x/module/event.html'
+      content: 'https://weiran.tech//4.x/module/event.html'
 ---
 # 事件
 
-
-
 ## 文件位置及命名
 
-事件放置在  `modules/{module}/Events`  文件夹中, 监听器放在  `modules/{module}/Listeners`  文件夹中
+事件放置在 `modules/{module}/Events` 文件夹中, 监听器放在 `modules/{module}/Listeners` 文件夹中
 
 ## 事件(Event)
 
-- 事件命名是 DoWhatEvent, 使用 Event 后缀
-- 事件属性数据修饰符为 public ,无需定义 get 方法
+1. 事件命名是 DoWhatEvent, 使用 Event 后缀
+2. 事件属性数据修饰符为 public ,无需定义 get 方法
 
-```php
+```PHP
 <?php
 
 declare(strict_types = 1);
 
 namespace Poppy\Framework\Events;
-
 
 class LocaleChanged
 {
@@ -42,7 +39,6 @@ class LocaleChanged
      * @var string
      */
     public string $locale;
-
 
     public function __construct(string $locale)
     {
@@ -53,9 +49,9 @@ class LocaleChanged
 
 ## 监听(Listener)
 
-监听器放置位置在  `modules/{module}/Listeners/{EventFolder}`  这个文件夹下, 文件夹名称和事件的名称相符合. 事件监听器必须为 DoWhatListener, 事件中需要体现监听器的作用,并且必须是  `Listener`  后缀
+监听器放置位置在 `modules/{module}/Listeners/{EventFolder}` 这个文件夹下, 文件夹名称和事件的名称相符合. 事件监听器必须为 DoWhatListener, 事件中需要体现监听器的作用,并且必须是 `Listener` 后缀
 
-```php
+```PHP
 <?php 
 
 declare(strict_types = 1);
@@ -96,9 +92,9 @@ class BossImListener
 
 ## 事件监听定义
 
-事件监听放在  `{module}/src/ServiceProvider.php`  文件中, 如下定义
+事件监听放在 `{module}/src/ServiceProvider.php` 文件中, 如下定义
 
-```php
+```PHP
 protected $listens = [
     // 这里使用 子命名空间 来引入
     // 这里不使用 字符串 命名
@@ -112,4 +108,3 @@ protected $listens = [
     ]
 ]
 ```
-

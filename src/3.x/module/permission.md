@@ -1,7 +1,7 @@
 ---
-description: '权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限, 则可以对控制器进行权限控制策略中权限的定义页面中对元素权限的判定'
-lastUpdated: '2024-01-29 19:05:00'
-head: 
+description: '权限控制中，首先定义权限类型和范围，初始化权限规则并设定相关配置。通过控制器对用户操作进行验证和拦截，确保只有授权用户可执行特定操作，实现细粒度权限管理。'
+lastUpdated: '2026-06-22 14:13:01'
+head:
   - - meta
     - name: 'og:title'
       content: '权限'
@@ -10,28 +10,26 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '权限解释 : backend:system.global.manage权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 static::$permission 权限来进行限定,操作权限用于在操作步骤中进行限定添加权限之后首先要对权限初始化才能够正确使用权限后台在用户角色中对权限进行赋予在控制器中定义变量 self::$permission, 并赋值全局权限, 则可以对控制器进行权限控制策略中权限的定义页面中对元素权限的判定'
+      content: '权限控制中，首先定义权限类型和范围，初始化权限规则并设定相关配置。通过控制器对用户操作进行验证和拦截，确保只有授权用户可执行特定操作，实现细粒度权限管理。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/3.x/module/permission.html'
+      content: 'https://weiran.tech//3.x/module/permission.html'
 ---
 # 权限
-
-
 
 ## 定义
 
 权限解释 : backend:system.global.manage
 
-```
+```Plaintext
 backend : 后台
 system  : 模块
 global.manage : 权限操作
 ```
 
-权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值  `static::$permission`  权限来进行限定,操作权限用于在操作步骤中进行限定
+权限分为全局权限和操作权限, 全局权限用在 控制器中, 赋值 `static::$permission` 权限来进行限定,操作权限用于在操作步骤中进行限定
 
-```yaml
+```YAML
 - title: 系统
   description: 系统权限
   slug: backend:system
@@ -52,7 +50,7 @@ global.manage : 权限操作
 
 添加权限之后首先要对权限初始化才能够正确使用权限
 
-```shell
+```Bash
 $ php artisan py-core:permission init
 ```
 
@@ -64,9 +62,9 @@ $ php artisan py-core:permission init
 
 ### 控制器
 
-在控制器中定义变量  `self::$permission` , 并赋值全局权限, 则可以对控制器进行权限控制
+在控制器中定义变量 `self::$permission`, 并赋值全局权限, 则可以对控制器进行权限控制
 
-```php
+```PHP
 /**
  * 广告位管理
  */
@@ -89,7 +87,7 @@ class PlaceController extends InitController
 
 **策略中权限的定义**
 
-```php
+```PHP
 /**
  * 用户角色策略
  */
@@ -115,8 +113,7 @@ class AdPlacePolicy
 
 **页面中对元素权限的判定**
 
-```html
-// 创建
+```HTML
 @can('create', \Ad\Models\AdPlace::class)
     <a href="{{route_url('ad:backend.place.establish')}}"
        class="layui-btn layui-btn-sm J_iframe">
@@ -125,8 +122,7 @@ class AdPlacePolicy
 @endcan
 ```
 
-```html
-// 编辑
+```HTML
 @can('edit', $item)
     <a data-toggle="tooltip" title="编辑"
        href="{{route_url('ad:backend.place.establish', [$item->id])}}">
@@ -134,6 +130,3 @@ class AdPlacePolicy
     </a>
 @endcan
 ```
-
-
-

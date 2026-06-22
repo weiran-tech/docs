@@ -1,27 +1,25 @@
 ---
-description: '在 ~/app/Models/ 下创建模型类 - 继承Eloquent类，类名和表明相同并且遵循驼峰命名法，按照表名的格式命名 - 需要写表名$table,主键$primaryKey和填充字段数组$fillable(三者都是protected类型)参见字段映射文件在 ~/app/Http/Controllers/ 相应app模块分组(Desktop,Front等) 下创建控制器类在 ~/app/Http/Routes/ 分组对应文件 增加路由定义文件 desktop.php在 ~/app/Lemon/Suit/Acl 相应app模块分组下创建菜单组文件在 ~/app'
-lastUpdated: '2023-12-11 18:58:00'
-head: 
+description: '根据后台访问模块开发流程，依次创建模型、完成字段映射、生成缓存、创建控制器、定义路由、加入菜单组、创建模板，最终实现数据的显示。'
+lastUpdated: '2026-06-22 13:44:26'
+head:
   - - meta
     - name: 'og:title'
-      content: 'sample - 创建后台访问模块'
+      content: '后台访问模块'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '在 ~/app/Models/ 下创建模型类 - 继承Eloquent类，类名和表明相同并且遵循驼峰命名法，按照表名的格式命名 - 需要写表名$table,主键$primaryKey和填充字段数组$fillable(三者都是protected类型)参见字段映射文件在 ~/app/Http/Controllers/ 相应app模块分组(Desktop,Front等) 下创建控制器类在 ~/app/Http/Routes/ 分组对应文件 增加路由定义文件 desktop.php在 ~/app/Lemon/Suit/Acl 相应app模块分组下创建菜单组文件在 ~/app'
+      content: '根据后台访问模块开发流程，依次创建模型、完成字段映射、生成缓存、创建控制器、定义路由、加入菜单组、创建模板，最终实现数据的显示。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/2.x/mgr-page.html'
+      content: 'https://weiran.tech//2.x/mgr-page.html'
 ---
-# sample - 创建后台访问模块
-
-
+# 后台访问模块
 
 ## 创建模型
 
-在  `~/app/Models/`  下创建模型类 - 继承Eloquent类，类名和表明相同并且遵循驼峰命名法，按照表名的格式命名 - 需要写表名 `$table` ,主键 `$primaryKey` 和填充字段数组 `$fillable` (三者都是 `protected` 类型)
+在 `~/app/Models/` 下创建模型类 - 继承Eloquent类，类名和表明相同并且遵循驼峰命名法，按照表名的格式命名 - 需要写表名`$table`,主键`$primaryKey`和填充字段数组`$fillable`(三者都是`protected`类型)
 
 ## 完成字段映射
 
@@ -31,20 +29,20 @@ head:
 
 ## 创建控制器
 
-在  `~/app/Http/Controllers/`  相应app模块分组( `Desktop` , `Front` 等) 下创建控制器类
+在 `~/app/Http/Controllers/` 相应app模块分组(`Desktop`,`Front`等) 下创建控制器类
 
 - 遵循命名空间规则
 - 类名遵循驼峰命名法,根据表名+Controller命名 如：表名为base_banword ,控制器名BaseBanwordController
 - 方法名遵循驼峰命名法，根据提交方式前面加get或post
-- 分配到模板用  `view()`  函数，返回值用 `return $this->end()` 来返回信息
+- 分配到模板用 `view()` 函数，返回值用`return $this->end()`来返回信息
 
 ## 路由定义
 
-在  `~/app/Http/Routes/`  分组对应文件 增加路由定义
+在 `~/app/Http/Routes/` 分组对应文件 增加路由定义
 
-文件  `desktop.php`
+文件 `desktop.php`
 
-```
+```Plaintext
 Route::controller('dsk_app_version', 'AppVersionController', [
     'getIndex'    => 'dsk_app_version.index',
     'getCreate'   => 'dsk_app_version.create',
@@ -55,11 +53,11 @@ Route::controller('dsk_app_version', 'AppVersionController', [
 
 ## 加入菜单组
 
-在  `~/app/Lemon/Suit/Acl`  相应app模块分组下创建菜单组文件
+在 `~/app/Lemon/Suit/Acl` 相应app模块分组下创建菜单组文件
 
-- 文件名根据路由命名  `dsk_app_version.php`  例如:
+- 文件名根据路由命名 `dsk_app_version.php` 例如:
 
-```
+```Plaintext
 return [
     'title'     => 'App版本管理',
     'route'     => 'dsk_app_version',
@@ -72,9 +70,9 @@ return [
 ];
 ```
 
-在  `~/app/Lemon/Suit/Acl`  下的相应分组文件里加入菜单代码 例如:
+在 `~/app/Lemon/Suit/Acl` 下的相应分组文件里加入菜单代码 例如:
 
-```
+```Plaintext
 'app' => [
     'title'  => 'App 管理',
     'param'  => '',
@@ -86,5 +84,4 @@ return [
 
 ## 创建模板, 显示数据
 
-在  `~/resources/views/app` 相应分组 / 下创建模型文件夹， - 模型文件夹和表名相同 - 模板文件命名 功能名.blade.php - 模板使用 Laravel 的  `blade`  语法
-
+在 `~/resources/views/app`相应分组 / 下创建模型文件夹， - 模型文件夹和表名相同 - 模板文件命名 功能名.blade.php - 模板使用 Laravel 的 `blade` 语法

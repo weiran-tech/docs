@@ -1,7 +1,7 @@
 ---
-description: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理定义 service首先在 services.yaml 中定义如下内容weiran.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 k'
-lastUpdated: '2025-03-15 13:33:00'
-head: 
+description: '服务和钩子用于组织逻辑与复用代码，服务封装数据操作与业务逻辑，钩子（如 useEffect、useState）管理副作用和状态。使用 Array 类型表单时，通过钩子动态添加或删除表单项，结合服务处理数组数据的验证与提交，提升开发效率与可维护性。'
+lastUpdated: '2026-06-21 16:52:31'
+head:
   - - meta
     - name: 'og:title'
       content: '服务和钩子'
@@ -10,32 +10,30 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '服务的位置: modules/{module}/configurations/services.yamlhook 位置: modules/{module}/configurations/hooks.yaml我们来解释一下 service：由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理定义 service首先在 services.yaml 中定义如下内容weiran.system.api_info 分为三个部分定义 hooks然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐编写实现对应的 k'
+      content: '服务和钩子用于组织逻辑与复用代码，服务封装数据操作与业务逻辑，钩子（如 useEffect、useState）管理副作用和状态。使用 Array 类型表单时，通过钩子动态添加或删除表单项，结合服务处理数组数据的验证与提交，提升开发效率与可维护性。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/wr-1.x/module/hook.html'
+      content: 'https://weiran.tech//wr-1.x/module/hook.html'
 ---
 # 服务和钩子
 
+服务的位置: `modules/{module}/configurations/services.yaml`
 
-
-服务的位置:  `modules/{module}/configurations/services.yaml`
-
-hook 位置:  `modules/{module}/configurations/hooks.yaml`
+hook 位置: `modules/{module}/configurations/hooks.yaml`
 
 ## 服务和钩子的概念
 
 我们来解释一下 service：
 
-- service 是多个 module 之间扩展的重要方式。
-- 我们将 service 和 hook 看作是插槽与插头的关系。一个插槽可以插多个插头。
-- 每个模块下都会有一个 service.yaml 的文件，来描述本模块的可以提供的服务插槽。
+1. service 是多个 module 之间扩展的重要方式。
+2. 我们将 service 和 hook 看作是插槽与插头的关系。一个插槽可以插多个插头。
+3. 每个模块下都会有一个 service.yaml 的文件，来描述本模块的可以提供的服务插槽。
 
 ## 使用
 
 由于服务使用缓存机制, 所以在添加服务/钩子之后需要进行相应的缓存清理
 
-```
+```Plaintext
 $ php artisan weiran:optimize
 ```
 
@@ -45,16 +43,16 @@ $ php artisan weiran:optimize
 
 首先在 services.yaml 中定义如下内容
 
-```yaml
+```YAML
 weiran.system.api_info:
     title: 系统接口
     type: array
     description: 系统信息接口调用, 系统信息返回的灵活数据
 ```
 
-`weiran.system.api_info`  分为三个部分
+`weiran.system.api_info` 分为三个部分
 
-```
+```Plaintext
 weiran   : 命名空间
 system   : 模块
 api_info : 自定义名称
@@ -64,12 +62,12 @@ api_info : 自定义名称
 
 然后再 hooks.yaml 文件中,注册调用 hook 方法, Hooks 命名方式推荐
 
-```
+```Plaintext
 {模块名称}/Hooks/{定义模块}/{名称}
 {Module}/Hooks/System/ApiInfo
 ```
 
-```yaml
+```YAML
 - name: "weiran.system.api_info"
   hooks:
       - '\Weiran\System\Hooks\System\ApiInfo'
@@ -77,7 +75,7 @@ api_info : 自定义名称
 
 编写实现对应的 key()/data()方法
 
-```php
+```PHP
 <?php
 class ApiInfo
 {
@@ -95,7 +93,7 @@ class ApiInfo
 
 执行 ServiceFactory 的 parse 方法
 
-```php
+```PHP
 sys_hook('weiran.system.api_info');
 [
     'api' => 'info'
@@ -106,7 +104,7 @@ sys_hook('weiran.system.api_info');
 
 定义 service, 这个 Service 是单选 首先再 services.yaml 中定义如下内容
 
-```yaml
+```YAML
 weiran.ad.place_selection:
     title: 广告位选择
     type: form
@@ -115,14 +113,14 @@ weiran.ad.place_selection:
 
 注册 hook 方法
 
-```yaml
+```YAML
 - name: "weiran.ad.place_selection"
   builder: '\Weiran\Ad\Services\Hooks\AdPlaceSelection'
 ```
 
 实现 builder 方法
 
-```php
+```PHP
 public function builder($params = [])
 {
    $name    = $params['name'];
@@ -140,7 +138,6 @@ public function builder($params = [])
 
 调用执行
 
-```php
+```PHP
 sys_hook('weiran.ad.place_selection', $param)
 ```
-

@@ -1,7 +1,7 @@
 ---
-description: '这个 rbac 角色控制修改自 entrust. 因为 entrust 的 @can 用法和 laravel 中的 Acl 控制 @can冲突, 故而重新对 entrust 进行修改. 改掉了其中$user->can() 同样改定为 $user->capable()角色控制和acl是两个不同的权限控制, 角色控制是用户能否进行某项操作, acl 是这个用户在某个阶段能否进行某个操作, 这两个一起用来是没有冲突的.在config/app.php 的 providers数组中添加服务提供者让其注册 rbac 类和@permission 等语法支持在 aliases 数组中添加'
-lastUpdated: '2024-01-29 15:44:00'
-head: 
+description: '本文介绍了RBAC角色控制系统的安装与配置，包括用户与角色关联模型（Role、Permission、User、软删除），使用说明与核心概念。涵盖角色权限检查、用户能力检测、Blade语法、中间件及路由过滤语法与错误提示。'
+lastUpdated: '2026-06-22 13:43:24'
+head:
   - - meta
     - name: 'og:title'
       content: 'RBAC 角色控制'
@@ -10,90 +10,81 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '这个 rbac 角色控制修改自 entrust. 因为 entrust 的 @can 用法和 laravel 中的 Acl 控制 @can冲突, 故而重新对 entrust 进行修改. 改掉了其中$user->can() 同样改定为 $user->capable()角色控制和acl是两个不同的权限控制, 角色控制是用户能否进行某项操作, acl 是这个用户在某个阶段能否进行某个操作, 这两个一起用来是没有冲突的.在config/app.php 的 providers数组中添加服务提供者让其注册 rbac 类和@permission 等语法支持在 aliases 数组中添加'
+      content: '本文介绍了RBAC角色控制系统的安装与配置，包括用户与角色关联模型（Role、Permission、User、软删除），使用说明与核心概念。涵盖角色权限检查、用户能力检测、Blade语法、中间件及路由过滤语法与错误提示。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/2.x/rbac.html'
+      content: 'https://weiran.tech//2.x/rbac.html'
 ---
 # RBAC 角色控制
 
-
-
-这个 rbac 角色控制修改自 entrust. 因为 entrust 的  `@can`  用法和 laravel 中的 Acl 控制  `@can` 冲突, 故而重新对 entrust 进行修改. 改掉了其中 `$user->can()`  同样改定为  `$user->capable()`
+这个 rbac 角色控制修改自 entrust. 因为 entrust 的 `@can` 用法和 laravel 中的 Acl 控制 `@can`冲突, 故而重新对 entrust 进行修改. 改掉了其中`$user->can()` 同样改定为 `$user->capable()`
 
 角色控制和acl是两个不同的权限控制, 角色控制是用户能否进行某项操作, acl 是这个用户在某个阶段能否进行某个操作, 这两个一起用来是没有冲突的.
 
 ## 安装
 
-在 `config/app.php`  的  `providers` 数组中添加服务提供者
+在`config/app.php` 的 `providers`数组中添加服务提供者
 
-```
+```Plaintext
 App\Lemon\Repositories\Providers\RbacServiceProvider::class,
 ```
 
-让其注册 rbac 类和 `@permission`  等语法支持
+让其注册 rbac 类和`@permission` 等语法支持
 
-在  `aliases`  数组中添加
+在 `aliases` 数组中添加
 
-```
+```Plaintext
 'Rbac'      => App\Lemon\Repositories\Application\Rbac\Facades\RbacFacade::class,
 ```
 
-让其支持  `\Rbac::capable()`  等的快捷用法
+让其支持 `\Rbac::capable()` 等的快捷用法
 
-如果你使用 [Middleware](about:blank#middleware) (Laravel 5.1+) 你需要添加
+如果你使用 Middleware (Laravel 5.1+) 你需要添加
 
-```
+```Plaintext
 'role' => \Imvkmark\L5Rbac\Middleware\L5RbacRole::class,
 'permission' => \Imvkmark\L5Rbac\Middleware\L5RbacPermission::class,
 'ability' => \Imvkmark\L5Rbac\Middleware\L5RbacAbility::class,
 ```
 
-到  `app/Http/Kernel.php`  的  `routeMiddleware`  数组
+到 `app/Http/Kernel.php` 的 `routeMiddleware` 数组
 
 ## 配置
 
-设置  `config/auth.php`  的值来设定正确的用户表和模型, 同样也需要设定  `rbac.php`  来设定自定义表名称和命名空间.
+设置 `config/auth.php` 的值来设定正确的用户表和模型, 同样也需要设定 `rbac.php` 来设定自定义表名称和命名空间.
 
 ### 用户和角色关联
 
 数据表意义:
 
--  `pam_role`  — 存储角色
-
--  `pam_permission`  — 存储权限
-
--  `pam_role_account`  — 存储角色和用户的多对多关系
-
--  `pam_permission_role`  — 存储权限和角色的多对多关系
+- `pam_role` — 存储角色
+- `pam_permission` — 存储权限
+- `pam_role_account` — 存储角色和用户的多对多关系
+- `pam_permission_role` — 存储权限和角色的多对多关系
 
 ### 模型
 
 ### Role
 
-`Role`  模型有以下几个属性
+`Role` 模型有以下几个属性
 
--  `name`  — 角色的唯一名称, 英文标识, 例如 “admin”, “owner”, “employee”.
-
--  `display_name`  — 角色可以被人识别的显示的名称(可选)
-
--  `description`  — 更详细的描述(可选)
+- `name` — 角色的唯一名称, 英文标识, 例如 “admin”, “owner”, “employee”.
+- `display_name` — 角色可以被人识别的显示的名称(可选)
+- `description` — 更详细的描述(可选)
 
 ### Permission
 
-`Permission`  模型和  `Role`  有类似的属性:
+`Permission` 模型和 `Role` 有类似的属性:
 
--  `name`  — 唯一的权限名称, 例如: “create-post”, “edit-user”, “post-payment”, “mailing-list-subscribe”.
-
--  `display_name`  — 权限的描述信息(可选) “Create Posts”, “Edit Users”, “Post Payments”, “Subscribe to mailing list”.
-
--  `description`  — 更详细的权限描述信息
+- `name` — 唯一的权限名称, 例如: “create-post”, “edit-user”, “post-payment”, “mailing-list-subscribe”.
+- `display_name` — 权限的描述信息(可选) “Create Posts”, “Edit Users”, “Post Payments”, “Subscribe to mailing list”.
+- `description` — 更详细的权限描述信息
 
 ### User
 
-使用  `RbacUserTrait`  在系统中的  `User`  模型
+使用 `RbacUserTrait` 在系统中的 `User` 模型
 
-```
+```Plaintext
 <?php
 
 use App\Lemon\Repositories\Application\Rbac\Traits\RbacUserTrait;
@@ -104,19 +95,19 @@ class User extends Eloquent {
 }
 ```
 
-这个会启用用户和 `Role`  关联关系, 并且给 `User` 模型添加以下方法  `roles()` ,  `hasRole($name)` ,  `capble($permission)` ,  `ability($roles, $permissions, $options)`
+这个会启用用户和`Role` 关联关系, 并且给`User`模型添加以下方法 `roles()`, `hasRole($name)`, `capble($permission)`, `ability($roles, $permissions, $options)`
 
 添加完成之后不要忘记更新 composer 的自动加载文件
 
-```
+```Plaintext
 composer dump-autoload
 ```
 
 ### Soft Deleting
 
-The default migration takes advantage of  `onDelete('cascade')`  clauses within the pivot tables to remove relations when a parent record is deleted. If for some reason you cannot use cascading deletes in your database, the EntrustRole and EntrustPermission classes, and the HasRole trait include event listeners to manually delete records in relevant pivot tables. In the interest of not accidentally deleting data, the event listeners will  **not**  delete pivot data if the model uses soft deleting. However, due to limitations in Laravel’s event listeners, there is no way to distinguish between a call to  `delete()`  versus a call to  `forceDelete()` . For this reason,  **before you force delete a model, you must manually delete any of the relationship data**  (unless your pivot tables uses cascading deletes). For example:
+The default migration takes advantage of `onDelete('cascade')` clauses within the pivot tables to remove relations when a parent record is deleted. If for some reason you cannot use cascading deletes in your database, the EntrustRole and EntrustPermission classes, and the HasRole trait include event listeners to manually delete records in relevant pivot tables. In the interest of not accidentally deleting data, the event listeners will **not** delete pivot data if the model uses soft deleting. However, due to limitations in Laravel’s event listeners, there is no way to distinguish between a call to `delete()` versus a call to `forceDelete()`. For this reason, **before you force delete a model, you must manually delete any of the relationship data** (unless your pivot tables uses cascading deletes). For example:
 
-```
+```Plaintext
 $role = Role::findOrFail(1);
 // Pull back a given role
 // Regular Delete
@@ -137,7 +128,7 @@ $role->forceDelete();
 
 下面开始创建角色和权限
 
-```
+```Plaintext
 $owner = new Role();
 $owner->name         = 'owner';
 $owner->display_name = 'Project Owner';
@@ -154,9 +145,9 @@ $admin->description  = 'User is allowed to manage and edit other users';
 $admin->save();
 ```
 
-接下来， 给用户赋予角色， 我们使用  `HasRole`  trait 来非常方便的给用户赋予固定的角色
+接下来， 给用户赋予角色， 我们使用 `HasRole` trait 来非常方便的给用户赋予固定的角色
 
-```
+```Plaintext
 $user = User::where('username', '=', 'michele')->first();
 // role attach alias
 $user->attachRole($admin);
@@ -168,7 +159,7 @@ $user->roles()->attach($admin->id);
 
 下面我们给角色赋予权限
 
-```
+```Plaintext
 $createPost = new Permission();
 $createPost->name         = 'create-post';
 $createPost->display_name = 'Create Posts';
@@ -196,23 +187,23 @@ $owner->perms()->sync(array($createPost->id, $editUser->id));
 
 我们通过以下方式来检测
 
-```
+```Plaintext
 $user->hasRole('owner');   // false
 $user->hasRole('admin');   // true
 $user->capable('edit-user');   // false
 $user->capable('create-post'); // true
 ```
 
-`hasRole()`  和  `capable()`  接收数组形式的角色和权限来进行检测
+`hasRole()` 和 `capable()` 接收数组形式的角色和权限来进行检测
 
-```
+```Plaintext
 $user->hasRole(['owner', 'admin']);       // true
 $user->capable(['edit-user', 'create-post']); // true
 ```
 
-默认, 如果任何一个权限或者角色通过都会返回  `true` , 如果传递第二个参数  `true`  , 则要求 `所有` 的权限都必须检测通过才能返回  `true`
+默认, 如果任何一个权限或者角色通过都会返回 `true`, 如果传递第二个参数 `true` , 则要求`所有`的权限都必须检测通过才能返回 `true`
 
-```
+```Plaintext
 $user->hasRole(['owner', 'admin']);
 // true
 $user->hasRole(['owner', 'admin'], true);
@@ -223,11 +214,11 @@ $user->capable(['edit-user', 'create-post'], true);
 // false, user does not have edit-user permission
 ```
 
-一个 `用户` 能够拥有多个 `角色` , 反之亦然.
+一个`用户`能够拥有多个`角色`, 反之亦然.
 
-`Rbac`  对当前用户存在两个方法  `capable()`  和  `hasRole()` 来检测是否有这个角色或者有相关的权限
+`Rbac` 对当前用户存在两个方法 `capable()` 和 `hasRole()`来检测是否有这个角色或者有相关的权限
 
-```
+```Plaintext
 Rbac::hasRole('role-name');
 Rbac::capable('permission-name');
 // is identical to
@@ -237,7 +228,7 @@ Auth::user()->capable('permission-name');
 
 你同样可以使用占位符来检测匹配的权限.
 
-```
+```Plaintext
 // match any admin permission
 $user->capable("admin.*");
 // true
@@ -248,36 +239,36 @@ $user->capable("*_users");
 
 ### User ability
 
-`ability`  方法是更具有优势的一个请求方法. 他需要传递三个参数
+`ability` 方法是更具有优势的一个请求方法. 他需要传递三个参数
 
--  `roles`  一系列需要检测的角色
--  `permissions`  一系列权限
+- `roles` 一系列需要检测的角色
+- `permissions` 一系列权限
 
-每组角色或权限都可以使用数组或者使用  `,`  分隔
+每组角色或权限都可以使用数组或者使用 `,` 分隔
 
-```
+```Plaintext
 $user->ability(array('admin', 'owner'), array('create-post', 'edit-user'));
 // or
 $user->ability('admin,owner', 'create-post,edit-user');
 ```
 
-这会检测用户是否有相关的权限或者角色. 如上说明: 如果用户是  `admin`  角色并且拥有 `create-post` 则返回  `true` .
+这会检测用户是否有相关的权限或者角色. 如上说明: 如果用户是 `admin` 角色并且拥有`create-post`则返回 `true`.
 
 第三个参数是个可选的数组.
 
-```
+```Plaintext
 $options = array(
     'validate_all' => true | false (Default: false),    
     'return_type'  => boolean | array | both (Default: boolean)
 );
 ```
 
--  `validate_all`  是否检测所有的权限, 或者说只要是存在匹配则返回 `true` .
--  `return_type`  指定返回的类型:  `boolean` ,  `array` , 或者两个都返回
+- `validate_all` 是否检测所有的权限, 或者说只要是存在匹配则返回`true`.
+- `return_type` 指定返回的类型: `boolean`, `array`, 或者两个都返回
 
 下面是示例 :
 
-```
+```Plaintext
 $options = array(
     'validate_all' => true,
     'return_type' => 'both'
@@ -298,18 +289,18 @@ var_dump($allValidations);
 // }
 ```
 
-`Rbac`  有一个  `ability()`  快捷方式来检测当前的用户
+`Rbac` 有一个 `ability()` 快捷方式来检测当前的用户
 
-```
+```Plaintext
 Rbac::ability('admin,owner', 'create-post,edit-user');// is identical toA
 uth::user()->ability('admin,owner', 'create-post,edit-user');
 ```
 
 ### Blade 语法
 
-在 blade 模板中有三个标签可用: 传递的值会直接传递给  `Rbac`  函数
+在 blade 模板中有三个标签可用: 传递的值会直接传递给 `Rbac` 函数
 
-```
+```Plaintext
 @role('admin')    
 <p>This is visible to users with the admin role. Gets translated to    \Rbac::role('admin')</p>
 @endrole
@@ -329,7 +320,7 @@ uth::user()->ability('admin,owner', 'create-post,edit-user');
 
 你可以使用中间件来过滤路由或者是一组路由, 通过权限或者是角色
 
-```
+```Plaintext
 Route::group([
     'prefix' => 'admin',
     'middleware' => ['role:admin']
@@ -342,29 +333,29 @@ Route::group([
 });
 ```
 
-It is possible to use pipe symbol as  _OR_  operator: 也可以使用管道符号  `|`  来替代  `OR`  选项
+It is possible to use pipe symbol as *OR* operator: 也可以使用管道符号 `|` 来替代 `OR` 选项
 
-```
+```Plaintext
 'middleware' => ['role:admin|root']
 ```
 
-使用  `AND`  方法则需要传递多个值给中间件
+使用 `AND` 方法则需要传递多个值给中间件
 
-```
+```Plaintext
 'middleware' => ['permission:owner', 'permission:writer']
 ```
 
-更多的中间件兼容性用法支持  `ability` 方式,他接受三个参数: roles, permissions, validate_all
+更多的中间件兼容性用法支持 `ability`方式,他接受三个参数: roles, permissions, validate_all
 
-```
+```Plaintext
 'middleware' => ['ability:admin|owner,create-post|edit-user,true']
 ```
 
 ### 路由过滤语法
 
-通过 权限/ 角色来过滤路由的方式是在  `app/Http/routes.php`  文件中调用:
+通过 权限/ 角色来过滤路由的方式是在 `app/Http/routes.php` 文件中调用:
 
-```
+```Plaintext
 // only users with roles that have the 'manage_posts' permission will be able to access any route within admin/post
 Rbac::routeNeedsPermission('admin/post*', 'create-post');
 
@@ -376,19 +367,19 @@ Rbac::routeNeedsPermission('admin/post*', array('create-post', 'edit-comment'));
 Rbac::routeNeedsRole('admin/advanced*', array('owner','writer'));
 ```
 
-以上的方法都接受第三个参数, 如果第三个参数传递为空则返回  `App::abort(403)` , 否则返回其他的输入值
+以上的方法都接受第三个参数, 如果第三个参数传递为空则返回 `App::abort(403)`, 否则返回其他的输入值
 
 所以你可以如下使用 :
 
-```
+```Plaintext
 Rbac::routeNeedsRole('admin/advanced*', 'owner', Redirect::to('/home'));
 ```
 
-当然也可以传递第四个参数, 默认是  `true`  他的意思是检查所有给定的 roles/permissions
+当然也可以传递第四个参数, 默认是 `true` 他的意思是检查所有给定的 roles/permissions
 
-如果设置为 false, 函数仅仅在用户角色不符合同时权限也不符合的时候返回  `false` . 这个在管理员允许多组用户的时候会非常有用
+如果设置为 false, 函数仅仅在用户角色不符合同时权限也不符合的时候返回 `false`. 这个在管理员允许多组用户的时候会非常有用
 
-```
+```Plaintext
 // if a user has 'create-post', 'edit-comment', or both they will have access
 Rbac::routeNeedsPermission('admin/post*', array('create-post', 'edit-comment'), null, false);
 
@@ -408,9 +399,9 @@ Rbac::routeNeedsRoleOrPermission(
 
 ### 路由过滤
 
-`Rbac`  roles/permissions 也能够很简单的写在路由的过滤器中通过 Facade 进行权限控制
+`Rbac` roles/permissions 也能够很简单的写在路由的过滤器中通过 Facade 进行权限控制
 
-```
+```Plaintext
 Route::filter('manage_posts', function(){
     // check the current user
     if (!Rbac::capable('create-post')) {
@@ -424,7 +415,7 @@ Route::when('admin/post*', 'manage_posts');
 
 过滤一个角色:
 
-```
+```Plaintext
 Route::filter('owner_role', function(){
     // check the current user
     if (!Rbac::hasRole('Owner')) {
@@ -434,9 +425,8 @@ Route::filter('owner_role', function(){
 // only owners will have access to routes within admin/advancedRoute::when('admin/advanced*', 'owner_role');
 ```
 
-如上所示  `Rbac::hasRole()`  和  `Rbac::capable()`  检查用户是否已经登陆同时这个用户是否有这个权限来操作这个功能. 如果用户未登录则返回的值一定是 false;
+如上所示 `Rbac::hasRole()` 和 `Rbac::capable()` 检查用户是否已经登陆同时这个用户是否有这个权限来操作这个功能. 如果用户未登录则返回的值一定是 false;
 
 ## 错误提示
 
-`$user->capable()`  的权限必须在 acl 中定义, 并且更新到权限表中, 否则返回肯定是错误的
-
+`$user->capable()` 的权限必须在 acl 中定义, 并且更新到权限表中, 否则返回肯定是错误的

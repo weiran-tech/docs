@@ -1,7 +1,7 @@
 ---
-description: '后台管理支持密码登录和验证码登录, 默认情况下开启用户名密码登录, 如果有需要可以在 ENV 设置此参数, 用来开启验证码登录在资源开发过程中, 我们使用如下命令进行资源监听, webpack.mix.js 本不存在, 需要在 weiran/mgr-page/resources/libs/目录下复制 webpack.mix.sample.js 文件并更改名称,将文件放置到你所喜欢的的位置均可, 其中的代理域名以本地开发为主在资源变动之后我们需要将打包后的文件反向复制到 mgr-page 这个包中, 用到以下命令这样进行包提交即可MgrPage 管理后台使用的是 js 加'
-lastUpdated: '2025-11-11 08:49:00'
-head: 
+description: 'MgrPage后台管理支持配置captcha_login、资源打包、开发监听及发布到项目，集成Pjax、Splash及多种页面跳转方式。提供静态表格渲染，可设定渲染ID、列定义及列操作，包含Header、Footer、图片上传等组件。动态表格支持单文件列表、添加列、筛选器、快捷操作与批量操作。'
+lastUpdated: '2026-06-22 17:22:36'
+head:
   - - meta
     - name: 'og:title'
       content: 'MgrPage / 后台管理'
@@ -10,22 +10,21 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '后台管理支持密码登录和验证码登录, 默认情况下开启用户名密码登录, 如果有需要可以在 ENV 设置此参数, 用来开启验证码登录在资源开发过程中, 我们使用如下命令进行资源监听, webpack.mix.js 本不存在, 需要在 weiran/mgr-page/resources/libs/目录下复制 webpack.mix.sample.js 文件并更改名称,将文件放置到你所喜欢的的位置均可, 其中的代理域名以本地开发为主在资源变动之后我们需要将打包后的文件反向复制到 mgr-page 这个包中, 用到以下命令这样进行包提交即可MgrPage 管理后台使用的是 js 加'
+      content: 'MgrPage后台管理支持配置captcha_login、资源打包、开发监听及发布到项目，集成Pjax、Splash及多种页面跳转方式。提供静态表格渲染，可设定渲染ID、列定义及列操作，包含Header、Footer、图片上传等组件。动态表格支持单文件列表、添加列、筛选器、快捷操作与批量操作。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/wr-1.x/component/mgr-page.html'
+      content: 'https://weiran.tech//wr-1.x/component/mgr-page.html'
   - - meta
     - name: 'og:image'
-      content: 'https://file.wulicode.com/notion/4c/4c16ed8fb727a00b146e9849a2a3ba86.png?x-oss-process=image/resize,m_mfit,w_400'
+      content: 'https://file.wulicode.com/feishu-images/f553d253ba824c8a3091c14d69864b94.png'
 ---
 # MgrPage / 后台管理
 
+::: info ℹ️
+配置说明 : 需要 packeton 的私有包权限, 并且在 composer 中配置如下代码
+:::
 
-
-::: info  <img src="https://file.wulicode.com/notion/4c/4c35ed434c46e240a3970ff8eadebe76.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  配置说明 : 需要 packeton 的私有包权限, 并且在 composer 中配置如下代码
-
-
-```json
+```JSON
 {
   "repositories": [
     {
@@ -35,18 +34,17 @@ head:
   ]
 }
 ```
-:::
 
 ## 配置
 
 ### captcha_login
 
-- Type :  `bool` 
-- Default :  `false` 
+- Type : `bool`
+- Default : `false`
 
 后台管理支持密码登录和验证码登录, 默认情况下开启用户名密码登录, 如果有需要可以在 ENV 设置此参数, 用来开启验证码登录
 
-```
+```Plaintext
 'captcha_login' => (bool) env('WEIRAN_CAPTCHA_LOGIN', false),
 ```
 
@@ -54,17 +52,17 @@ head:
 
 ### 开发监听
 
-在资源开发过程中, 我们使用如下命令进行资源监听,  `webpack.mix.js`  本不存在, 需要在  `weiran/mgr-page/resources/libs/` <br />
-目录下复制  `webpack.mix.sample.js`  文件并更改名称,<br />
+在资源开发过程中, 我们使用如下命令进行资源监听, `webpack.mix.js` 本不存在, 需要在 `weiran/mgr-page/resources/libs/`  
+目录下复制 `webpack.mix.sample.js` 文件并更改名称,  
 将文件放置到你所喜欢的的位置均可, 其中的代理域名以本地开发为主
 
-```
+```Plaintext
 $ mix watch --mix-config=weiran/mgr-page/resources/libs/webpack.mix.js
 ```
 
-在资源变动之后我们需要将打包后的文件反向复制到  `mgr-page`  这个包中, 用到以下命令
+在资源变动之后我们需要将打包后的文件反向复制到 `mgr-page` 这个包中, 用到以下命令
 
-```
+```Plaintext
 $ php artisan mgr-page:mix
 ```
 
@@ -74,13 +72,13 @@ $ php artisan mgr-page:mix
 
 MgrPage 管理后台使用的是 js 加载方式, 如果使用 MgrPage, 则需要在更新 composer 组件之后运行以下命令进行强制更新
 
-```
+```Plaintext
 $ php artisan vendor:publish --force --tag=weiran-asset
 ```
 
-建议将此命令加入  `composer.json`  文件中, 每次更新完成 composer 的时候都会自动进行一次发布
+建议将此命令加入 `composer.json` 文件中, 每次更新完成 composer 的时候都会自动进行一次发布
 
-```json
+```JSON
 {
     "scripts" : {
         "post-update-cmd" : [
@@ -94,11 +92,11 @@ $ php artisan vendor:publish --force --tag=weiran-asset
 
 Pjax 用于在页面中请求时候参数异常进行的友好提示
 
-![](https://file.wulicode.com/notion/4c/4c16ed8fb727a00b146e9849a2a3ba86.png)
+![](https://file.wulicode.com/feishu-images/f553d253ba824c8a3091c14d69864b94.png)
 
 使用方式
 
-```php
+```PHP
 use Weiran\System\Classes\Traits\PjaxTrait;
 
 /**
@@ -121,7 +119,6 @@ class JsController extends WebController
         return view('demo::js.fe');
     }
 }
-
 ```
 
 ## Splash
@@ -130,7 +127,7 @@ class JsController extends WebController
 
 例如: 服务端返回
 
-```php
+```PHP
 class JsController extends WebController
 {
     /**
@@ -148,12 +145,11 @@ class JsController extends WebController
         }
     }
 }
-
 ```
 
 服务器返回的数据格式为
 
-```json
+```JSON
 {
     "status": 1,
     "message": "[local]错误信息",
@@ -163,38 +159,37 @@ class JsController extends WebController
         }
     }
 }
-
 ```
 
-### _top
+### \_top
 
-定义为调用  `top.window._app(resp)`  这个函数, 数据为完整的状态数据, 此数据使用在同源策略下的前后端数据约定调用情况
+定义为调用 `top.window._app(resp)` 这个函数, 数据为完整的状态数据, 此数据使用在同源策略下的前后端数据约定调用情况
 
-### _captcha_reload
+### \_captcha_reload
 
-触发前端  `.J_captcha`  的点击事件
+触发前端 `.J_captcha` 的点击事件
 
-### _top_location
+### \_top_location
 
 top 页面的 window 对象进行 location 跳转
 
-### _parent_location
+### \_parent_location
 
 打开当前页面的父页面的 window 对象进行 location 跳转
 
-### _location
+### \_location
 
 当前页面的 window 对象进行 location 跳转
 
-### _top_reload
+### \_top_reload
 
 top 页面的 window 对象进行 reload 刷新
 
-### _parent_reload
+### \_parent_reload
 
 打开当前页面的父页面的 window 对象进行 reload 刷新
 
-### _reload
+### \_reload
 
 当前页面的 window 对象进行 reload 刷新
 
@@ -204,9 +199,9 @@ top 页面的 window 对象进行 reload 刷新
 
 ### 设定渲染 ID
 
-我们首先需要在表格  `table`  中加入  `lay-filter="default"`  来标示这是一个layui 可以渲染的表格
+我们首先需要在表格 `table` 中加入 `lay-filter="default"` 来标示这是一个layui 可以渲染的表格
 
-```
+```Plaintext
 <table class="layui-table" {!! mgr_table_open() !!}>
     ...
 </table>
@@ -214,17 +209,17 @@ top 页面的 window 对象进行 reload 刷新
 
 在页面底部, 我们需要调用 layui 的 table 初始化方法, 为了方便, 封装了一个函数来达到快速输出的效果
 
-```
+```Plaintext
 {!! mgr_table_close() !!}
 ```
 
-如果列表中有多个表格, 可以传入  `mgr_table_open(string $filter)`  参数来进行多个列表的初始化
+如果列表中有多个表格, 可以传入 `mgr_table_open(string $filter)` 参数来进行多个列表的初始化
 
 ### 列定义
 
 为了方便列的渲染, layui 需要在每个列上都定义唯一的字段标识, 我们提供了一个方法来快速生成字段, 宽度以及其他属性
 
-```
+```Plaintext
 function mgr_col(int $width = 0, string $fixed = '', string $append = '')
 {
     //...
@@ -233,7 +228,7 @@ function mgr_col(int $width = 0, string $fixed = '', string $append = '')
 
 在列中可以跨苏插入定义
 
-```
+```Plaintext
 <th {!! mgr_col() !!}>
     标题
     {!! Form::order('title') !!}
@@ -246,7 +241,7 @@ function mgr_col(int $width = 0, string $fixed = '', string $append = '')
 
 这里我们封装了操作方法方便快捷的生成标签, 这里的操作和以上列表中标书的列操作方法一致, 只是在快捷操作中做了封装方法使用.
 
-```php
+```PHP
 // 调用复制按钮
 {!! mgr_op()->copy('复制', $item->title)->primary()->bare()->only()->render(); !!}
 
@@ -267,7 +262,7 @@ function mgr_col(int $width = 0, string $fixed = '', string $append = '')
 
 以下是完整的示例
 
-```php
+```PHP
 <table class="layui-table" {!! mgr_table_open() !!}>
     <thead>
     <tr>
@@ -314,17 +309,15 @@ function mgr_col(int $width = 0, string $fixed = '', string $append = '')
 <div class="clearfix layui-card-pager" align="right">
     {!! $items->render('weiran-mgr-page::vendor.pagination-layui') !!}
 </div>
-
 ```
 
 ## 组件
 
-::: info  <img src="https://file.wulicode.com/notion/4c/4c35ed434c46e240a3970ff8eadebe76.svg" style="width:17px;position:relative;top:4px;border:none;display:inline;">  
+::: info ℹ️
 1.0 版本调整了组件的加载方式, 来避免Js 文件混淆在 html 中, 在文档底部调用
-
 :::
 
-```php
+```PHP
 # Header
 {!! \Weiran\MgrPage\Classes\Widgets\FormWidget::assetsAppendHead('builder') !!}
 
@@ -347,9 +340,9 @@ function mgr_col(int $width = 0, string $fixed = '', string $append = '')
 - 快捷操作
 - 批量操作
 
-单文件列表的创建, 单文件列表继承自  `Weiran\MgrPage\Classes\Grid\ListBase` , 如下
+单文件列表的创建, 单文件列表继承自 `Weiran\MgrPage\Classes\Grid\ListBase`, 如下
 
-```php
+```PHP
 <?php
 
 use Weiran\MgrPage\Classes\Grid\ListBase;
@@ -362,7 +355,7 @@ class ListSysSensitiveWord extends ListBase
 
 在控制器中使用 :
 
-```php
+```PHP
 <?php
 
 declare(strict_types = 1);
@@ -395,7 +388,7 @@ class WordController extends BackendController
 
 列是数据展示的定义, 对于列支持项目我们对于列支持多种快捷方式
 
-```php
+```PHP
 class ListSysSensitiveWord extends ListBase
 {
 
@@ -413,24 +406,22 @@ class ListSysSensitiveWord extends ListBase
         ])->width(70)->fixed();
     }
 }
-
 ```
 
 以下对于列进行简要的说明
 
-```php
+```PHP
 $this->column('id', 'ID')    // 设定字段和标题
     ->sortable()             // 设定列支持排序
     ->width(80)              // 设置列宽
     ->fixed()                // 是否固定列
-
 ```
 
 ### 列操作
 
 添加列操作
 
-```php
+```PHP
 $this->addColumn(Column::NAME_ACTION, '操作')->displayUsing(Actions::class, [function (Actions $actions) {
     // 添加 actions 的动作
 }
@@ -438,7 +429,7 @@ $this->addColumn(Column::NAME_ACTION, '操作')->displayUsing(Actions::class, [f
 
 **列操作的类型**
 
-```php
+```PHP
 request()      // 请求
 iframe()       // 页面弹窗
 page()         // 另外一个页面打开
@@ -448,7 +439,7 @@ copy()         // 复制
 
 对于列操作都有一些通用的设定项
 
-```php
+```PHP
 $action
     ->bare()          // 素颜, 不进行样式修饰
     ->primary()       // 主要
@@ -477,7 +468,7 @@ $action
 
 用于在页面内生成下拉列表, 并设置当前显示数据的颜色
 
-```php
+```PHP
 $actions
     // 可设定下拉菜单
     ->dropdown('下拉框 Danger', function (Operations $operations) {
@@ -490,7 +481,7 @@ $actions
 
 **Iframe**
 
-```php
+```PHP
 $actions->iframe('弹窗打开', DemoDef::IFRAME_INBOX_NONE)
     ->width(428)      // 可设定宽度
     ->height(428);    // 可设定高度
@@ -500,7 +491,7 @@ $actions->iframe('弹窗打开', DemoDef::IFRAME_INBOX_NONE)
 
 对于模型的快速搜索条件
 
-```php
+```PHP
 <?php
 
 declare(strict_types = 1);
@@ -523,7 +514,7 @@ class ListSysSensitiveWord extends ListBase
 
 快捷操作用于列表右上角, 在列表的右上角, 例如新增, 设置等使用场景
 
-```php
+```PHP
 <?php
 
 declare(strict_types = 1);
@@ -544,7 +535,7 @@ class ListSysSensitiveWord extends ListBase
 
 批量操作在列表左上方, 便于批量操作数据
 
-```php
+```PHP
 <?php
 
 declare(strict_types = 1);
@@ -559,4 +550,3 @@ class ListSysSensitiveWord extends ListBase
     }
 }
 ```
-

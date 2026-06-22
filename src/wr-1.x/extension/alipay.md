@@ -1,7 +1,7 @@
 ---
-description: '更新你的依赖包 composer update 或者全新安装 composer install3.23.0'
-lastUpdated: '2025-03-15 13:41:00'
-head: 
+description: '通过Composer安装weiran/ext-alipay扩展，执行composer update或install。使用AopCertClient类，设置RSA2签名、应用ID、私钥、环境，通过getPublicKey从支付宝公钥证书提取公钥，通过getCertSN获取证书序列号，通过getRootCertSN获取根证书序列号，并启用公钥证书检查。'
+lastUpdated: '2026-06-21 16:51:58'
+head:
   - - meta
     - name: 'og:title'
       content: '支付宝支付'
@@ -10,26 +10,24 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '更新你的依赖包 composer update 或者全新安装 composer install3.23.0'
+      content: '通过Composer安装weiran/ext-alipay扩展，执行composer update或install。使用AopCertClient类，设置RSA2签名、应用ID、私钥、环境，通过getPublicKey从支付宝公钥证书提取公钥，通过getCertSN获取证书序列号，通过getRootCertSN获取根证书序列号，并启用公钥证书检查。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/wr-1.x/extension/alipay.html'
+      content: 'https://weiran.tech//wr-1.x/extension/alipay.html'
 ---
 # 支付宝支付
 
-
-
 ## 安装
 
-```
+```Plaintext
 composer require weiran/ext-alipay
 ```
 
-更新你的依赖包  `composer update`  或者全新安装  `composer install`
+更新你的依赖包 `composer update` 或者全新安装 `composer install`
 
 ## 使用
 
-```php
+```PHP
 $Aop = new AopCertClient();
 $Aop->setSignType('RSA2');
 $Aop->setAppId('app-id');
@@ -55,4 +53,3 @@ return $Aop;
 - 加入支付宝沙箱证书
 - 加入两个基本使用方法
 - 去除 app(‘files’) 使用
-

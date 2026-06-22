@@ -1,10 +1,11 @@
 import { defineConfig } from 'vitepress'
 import sidebar from './nav';
+import { withSidebar } from "vitepress-sidebar";
 
 const nav = [
     {
         text: 'wr-1.x-dev',
-        activeMatch: `^/(10\.x)/`,
+        activeMatch: `^/wr-(1\.x)/`,
         link: '/wr-1.x/'
     },
     {
@@ -18,14 +19,15 @@ const nav = [
         items: [
             { text: '规约', link: '/develop/spec' },
             { text: 'Change Log', link: '/develop/changelog' },
-            { text: '扩展', link: '/develop/extension' },
+            { text: '升级说明', link: '/develop/upgrade' },
+            { text: 'FAQ', link: '/develop/faq' },
         ]
     },
     {
         text: '其他',
         activeMatch: `^/(1\.x)|(2\.x)|(3.x)/`,
         items: [
-            { text: '1.x', link: '/1.x/tree' },
+            { text: '1.x', link: '/1.x/' },
             { text: '2.x', link: '/2.x/' },
             { text: '3.x', link: '/3.x/' },
             { text: '4.x', link: '/4.x/' },
@@ -39,7 +41,7 @@ const i18n = {
     toc: '页内导航'
 }
 
-export default defineConfig({
+const vitePressConfig = {
     lang: 'zh-CN',
     title: 'Weiran Framework',
     description: '基于 Laravel 的模块化加载框架',
@@ -96,4 +98,56 @@ export default defineConfig({
             stringify: true
         }
     }
-})
+};
+
+// https://vitepress.dev/reference/site-config
+export default defineConfig(withSidebar(vitePressConfig, [
+    {
+        documentRootPath: 'src/',
+        collapsed: false,
+        scanStartPath: 'wr-1.x',
+        basePath: '/wr-1.x/',
+        resolvePath: '/wr-1.x/',
+        useTitleFromFileHeading: true
+    },
+    {
+        documentRootPath: 'src/',
+        collapsed: false,
+        scanStartPath: '1.x',
+        basePath: '/1.x/',
+        resolvePath: '/1.x/',
+        useTitleFromFileHeading: true
+    },
+    {
+        documentRootPath: 'src/',
+        collapsed: false,
+        scanStartPath: '2.x',
+        basePath: '/2.x/',
+        resolvePath: '/2.x/',
+        useTitleFromFileHeading: true
+    },
+    {
+        documentRootPath: 'src/',
+        collapsed: false,
+        scanStartPath: '3.x',
+        basePath: '/3.x/',
+        resolvePath: '/3.x/',
+        useTitleFromFileHeading: true
+    },
+    {
+        documentRootPath: 'src/',
+        collapsed: false,
+        scanStartPath: '4.x',
+        basePath: '/4.x/',
+        resolvePath: '/4.x/',
+        useTitleFromFileHeading: true
+    },
+    {
+        documentRootPath: 'src/',
+        collapsed: false,
+        scanStartPath: 'develop',
+        basePath: '/develop/',
+        resolvePath: '/develop/',
+        useTitleFromFileHeading: true
+    },
+]));

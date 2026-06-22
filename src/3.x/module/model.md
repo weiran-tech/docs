@@ -1,7 +1,7 @@
 ---
-description: '使用 php artisan poppy:model {module} {DbModel} 来生成模型模型文件统一放置在 ~/modules/{module}/src/models/ 文件夹下,这个文件夹中包含 4 中类型的数据配置项目模型:模型文件放置在上述文件夹中的根目录( ~  )下,命名与数据表名称相对应筛选过滤器放置位置 : ~/filters文件命名 : 模型名称+Filter 例如 :(PamAccountFilter)策略放置位置 :~/policies文件命名 :模型名称+Policy 例如 : (PamAccountPolic'
-lastUpdated: '2024-01-29 18:39:00'
-head: 
+description: '模型命名及放置需遵循规范，创建时指定表名、主键（id可省略），设置插入数据库字段，时间自动维护（默认true），时间类型如logined_at需在注释中说明。完整注释包括命名空间、表/主键设计原则，使用kv定义模型，应用Enum，关联关系命名规范。注释可调用与更新，数据表字段及索引命名（index/unique），建表支持like搜索、普通搜索、排序等。'
+lastUpdated: '2026-06-22 14:11:27'
+head:
   - - meta
     - name: 'og:title'
       content: '模型'
@@ -10,22 +10,20 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '使用 php artisan poppy:model {module} {DbModel} 来生成模型模型文件统一放置在 ~/modules/{module}/src/models/ 文件夹下,这个文件夹中包含 4 中类型的数据配置项目模型:模型文件放置在上述文件夹中的根目录( ~  )下,命名与数据表名称相对应筛选过滤器放置位置 : ~/filters文件命名 : 模型名称+Filter 例如 :(PamAccountFilter)策略放置位置 :~/policies文件命名 :模型名称+Policy 例如 : (PamAccountPolic'
+      content: '模型命名及放置需遵循规范，创建时指定表名、主键（id可省略），设置插入数据库字段，时间自动维护（默认true），时间类型如logined_at需在注释中说明。完整注释包括命名空间、表/主键设计原则，使用kv定义模型，应用Enum，关联关系命名规范。注释可调用与更新，数据表字段及索引命名（index/unique），建表支持like搜索、普通搜索、排序等。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/3.x/module/model.html'
+      content: 'https://weiran.tech//3.x/module/model.html'
 ---
 # 模型
-
-
 
 ## 命名及放置位置
 
 ### 创建
 
-使用  `php artisan poppy:model {module} {DbModel}`  来生成模型
+使用 `php artisan poppy:model {module} {DbModel}` 来生成模型
 
-模型文件统一放置在  `~/modules/{module}/src/models/`  文件夹下,<br />
+模型文件统一放置在 `~/modules/{module}/src/models/` 文件夹下,  
 这个文件夹中包含 4 中类型的数据
 
 - 模型
@@ -35,7 +33,7 @@ head:
 
 配置项目
 
-```
+```Plaintext
 # 指定表名
 protected $table = '';
 
@@ -55,42 +53,42 @@ protected $dates = [
 ];
 ```
 
-**模型** :
+**模型**:
 
-模型文件放置在上述文件夹中的根目录(  `~`   )下,命名与数据表名称相对应
+模型文件放置在上述文件夹中的根目录( `~`  )下,命名与数据表名称相对应
 
 **筛选过滤器**
 
-放置位置 :  `~/filters` <br />
-文件命名 : 模型名称+Filter 例如 :<br />
-( `PamAccountFilter` )
+放置位置 : `~/filters`  
+文件命名 : 模型名称+Filter 例如 :  
+(`PamAccountFilter`)
 
 **策略**
 
-放置位置 :<br />
- `~/policies` <br />
-文件命名 :<br />
-模型名称+Policy 例如 : ( `PamAccountPolicy` )
+放置位置 :  
+`~/policies`  
+文件命名 :  
+模型名称+Policy 例如 : (`PamAccountPolicy`)
 
-**资源文件(接口资源)** :
+**资源文件(接口资源)**:
 
-放置位置 :  `~/resources` <br />
-文件命名 : 模型名称+Resource 例如 :( `PamAccountResource` )
+放置位置 : `~/resources`  
+文件命名 : 模型名称+Resource 例如 :(`PamAccountResource`)
 
 ### 模型注释
 
 模型需要有完备的文档注释, 日期格式和文字说明, 并且需要参数和注释对齐
 
-使用  `ide-helper`  生成模型文档语法
+使用 `ide-helper` 生成模型文档语法
 
-```
+```Plaintext
 $ php artisan ide-helper:model "System\Models\PamAccount"
 ```
 
-模型注释需要导入提示, 在 PHPstorm 中需要  `alt+enter`  进行  `Import Class` <br />
-或者  `Simplify FQN`
+模型注释需要导入提示, 在 PHPstorm 中需要 `alt+enter` 进行 `Import Class`  
+或者 `Simplify FQN`
 
-```php
+```PHP
 /**
  * bad
  * @property \Carbon\Carbon    $created_at
@@ -104,11 +102,11 @@ $ php artisan ide-helper:model "System\Models\PamAccount"
 
 ### 完整注释
 
-这里的注释必须放置在类文件中进行定义,<br />
-里边的字段值出现的仅仅是新模块使用的, 包含兼容,<br />
+这里的注释必须放置在类文件中进行定义,  
+里边的字段值出现的仅仅是新模块使用的, 包含兼容,  
 但是不包含调用的字段命名.
 
-```php
+```PHP
 /**
  * System\BaseBanword
  * @property integer        $item_id      id
@@ -124,36 +122,34 @@ $ php artisan ide-helper:model "System\Models\PamAccount"
  }
 ```
 
-存储为 datetime 类型的数字放到 $dates 数组中
+存储为 datetime 类型的数字放到 \$dates 数组中
 
 ### 命名
 
 **模型文件使用 首字母大写的驼峰方式**
 
-例如 约定的数据表的名称是  `base_config` , 命名的数据库模型是  `BaseConfig`
+例如 约定的数据表的名称是 `base_config`, 命名的数据库模型是 `BaseConfig`
 
 **模型采用分组**
 
-```
+```Plaintext
 base    # 后台
 pam     # 用户身份认证
 order   # 订单
 message # 消息
 user    # 用户
-
 ```
 
 ### 命名空间
 
-```
+```Plaintext
 <?php namespace {Module}\Models;
-
 ```
 
 ### 表/主键
 
--  `$table`  定义的是原始表的名称
--  `$primaryKey`  定义的是主键
+- `$table` 定义的是原始表的名称
+- `$primaryKey` 定义的是主键
 
 ### 设计原则
 
@@ -164,7 +160,7 @@ user    # 用户
 - 使用最简略命名 username
 - 数据库相关属性的字段放置在一起
 
-```
+```Plaintext
 disable_reason
 disabled_from_at
 disabled_to_at
@@ -174,10 +170,10 @@ disabled_to_at
 
 ### kv 定义
 
-开发中不允许出现状态是 1, 2, 3, 所有的对应项目必须在模型中给予定义,<br />
+开发中不允许出现状态是 1, 2, 3, 所有的对应项目必须在模型中给予定义,  
 采用常量的方式进行定义
 
-```
+```Plaintext
 const LOCK_LOCK    = 1;
 const LOCK_UNLOCK  = 0;
 
@@ -197,10 +193,10 @@ public static function kvLock($key = null) {
 
 ### Enum 的使用
 
-开发中使用 `常量` 来替代  `enum` , 不得使用  `enum`  来对数据库进行枚举,<br />
-公共的定义放置在 `BaseConfig`  中
+开发中使用`常量`来替代 `enum`, 不得使用 `enum` 来对数据库进行枚举,  
+公共的定义放置在`BaseConfig` 中
 
-```
+```Plaintext
 class BaseConfig{
     const YES = 1;
     const NO  = 0;
@@ -217,10 +213,10 @@ class BaseConfig{
 
 ### 关联关系的命名
 
-对于关联关系的命名, 采用简写格式. 例如我们需要关联用户表,<br />
+对于关联关系的命名, 采用简写格式. 例如我们需要关联用户表,  
 模型中需要如下定义
 
-```
+```Plaintext
 class FinanceCash{
     // ...
     public function pam() {
@@ -236,7 +232,7 @@ class FinanceCash{
 
 例如以下这个模型
 
-```
+```Plaintext
 ...
 * @property int    $login_times  登录次数[成功请求接口便认定为1次]
 ...
@@ -246,12 +242,12 @@ class PamAccount extends \Eloquent
 }
 ```
 
-我们使用  `sys_db('pam_account.login_times')`  便可以获取
+我们使用 `sys_db('pam_account.login_times')` 便可以获取
 
--  `pam_account`  是模型的蛇形写法
--  `login_times`  是字段名称
+- `pam_account` 是模型的蛇形写法
+- `login_times` 是字段名称
 
-这里注意的是, 注释中  `[]`  内的内容认定为模型注释, 不必进行返回
+这里注意的是, 注释中 `[]` 内的内容认定为模型注释, 不必进行返回
 
 ### 注释更新
 
@@ -261,7 +257,7 @@ class PamAccount extends \Eloquent
 
 ### 数据表常用字段
 
-```
+```Plaintext
 id               : 条目ID
 name             : 标示符, 只能是 英文
 title            : 标题
@@ -276,7 +272,7 @@ updated_at       : l5 更新
 
 ### 索引命名
 
-```
+```Plaintext
 # 索引(index)
 item            k_base_config_item
 
@@ -288,7 +284,7 @@ account_name    u_account_name
 
 ## 表创建
 
-```
+```Plaintext
 $tb_pam   = (new PamAccount())->getTable();
 $tb_ft    = (new AccountFront())->getTable();
 $Db = \DB::table($tb_pam)->where('account_type', 'front');
@@ -302,7 +298,7 @@ $accounts->appends($request->input());
 
 **多字段 like**
 
-```php
+```PHP
 $kw = $request->input('kw');
 if ($kw) {
     $Db->where(function($query) use ($kw, $tb_weixin){
@@ -314,7 +310,7 @@ if ($kw) {
 
 **单字段 like**
 
-```php
+```PHP
 $account_name = $request->input('account_name');
 if ($account_name) {
     $Db->where($tb_pam . '.account_name', 'like', '%' . $account_name . '%');
@@ -323,7 +319,7 @@ if ($account_name) {
 
 ### 普通搜索
 
-```php
+```PHP
 $wx_status = $request->input('wx_status');
 if ($wx_status) {
     $Db->where('wx_status', $wx_status);
@@ -332,7 +328,7 @@ if ($wx_status) {
 
 ### 排序
 
-```php
+```PHP
 $orderKey = in_array(SysSearch::key(), [
     'wx_fans',
 ]) ? SysSearch::key() : 'created_at';
@@ -341,7 +337,8 @@ $Db->orderBy($tb_weixin . '.' . $orderKey, SysSearch::order());
 
 ## 建表规范
 
-- 数据类型尽量用数字类型，数字类型的比字符类型的要快很多，比如使用 INTUNSIGNED 存储 IP
+- 数据类型尽量用数字类型，数字类型的比字符类型的要快很多，比如使用 INT  
+UNSIGNED 存储 IP
 - 大数据字段最好剥离出单独的表，以便影响性能
 - 使用 varchar，代替 char，这是因为 varchar 会动态分配长度
 - 数据类型尽量小，这里的尽量小是指在满足可以预见的未来需求的前提下的,但是有不能太小，所以在建表的时候一定要预估这个字段最大的长度到底是多少
@@ -349,11 +346,14 @@ $Db->orderBy($tb_weixin . '.' . $orderKey, SysSearch::order());
 - 少用 TEXT 和 IMAGE，二进制字段的读写是比较慢的，而且，读取的方法也不多，大部分情况下最好不用
 - 表名 字段名字统一用小写
 - 字段名字不要用驼峰命名法 比如 add_time 不要写成 AddTime
-- 字段命名关键字统一用下划线 "_" 分割，一般采用简写，关键字要准确，不能有歧义
-- 所有的表必须包含 id（自增主键），add_time（新增时间），update_time（更新时间），mark（删除标记）这 3 个字段
+- 字段命名关键字统一用下划线 "\_" 分割，一般采用简写，关键字要准确，不能有歧义
+- 所有的表必须包含 id（自增主键），add_time（新增时间），update_time（更新时间），mark（删除标记  
+）这 3 个字段
 - 每个字段的 COMMENT 必须写清楚，枚举类型必须写清楚每个值到底是什么意思，枚举的写法统一成"删除标记（0：未删除，1：已经删除）"，符号为中文符号
-- update_time（更新时间）字段自动修改。 `update_time`  timestamp NOTNULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT'更新时间 '
-- 时间类型尽量用 timestamp 4 个字节,而不用 datetime8 个字节。只用表示日期的字段用 date 类型
+- update_time（更新时间）字段自动修改。`update_time` timestamp NOT  
+NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT  
+'更新时间 '
+- 时间类型尽量用 timestamp 4 个字节,而不用 datetime  
+8 个字节。只用表示日期的字段用 date 类型
 - 建表语句不允许包含外键
 - 库、表、字段字符集统一使用 UTF8。
-

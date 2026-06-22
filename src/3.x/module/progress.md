@@ -1,7 +1,7 @@
 ---
-description: '在每个模块下 progress 文件夹下(没有新建)编写'
-lastUpdated: '2023-12-11 19:40:00'
-head: 
+description: '批次更新涉及访问地址、类编写及命名规范，类名需遵循“数据表名+改动(自定义)+progress”的格式。'
+lastUpdated: '2026-06-22 14:12:29'
+head:
   - - meta
     - name: 'og:title'
       content: '批次更新'
@@ -10,18 +10,16 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '在每个模块下 progress 文件夹下(没有新建)编写'
+      content: '批次更新涉及访问地址、类编写及命名规范，类名需遵循“数据表名+改动(自定义)+progress”的格式。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech/3.x/module/progress.html'
+      content: 'https://weiran.tech//3.x/module/progress.html'
 ---
 # 批次更新
 
-
-
 ## 访问地址
 
-```
+```Plaintext
 http://xxx.com/mgr-page/develop
 点击 数据表更新
 参数
@@ -34,12 +32,11 @@ http://xxx.com/mgr-page/develop
 
 在每个模块下 progress 文件夹下(没有新建)编写
 
-```
+```Plaintext
 # 类命名规范 数据表名+改动(自定义)+progress
 class OrderHunterResultProgress implements Progress
 {
   use FixTrait;
-
 
   /**
    * @return array fix
@@ -92,4 +89,3 @@ class OrderHunterResultProgress implements Progress
   }
 }
 ```
-
