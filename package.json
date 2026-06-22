@@ -1,7 +1,7 @@
 {
     "type": "module",
     "engines": {
-        "node": ">=18.0.0"
+        "node": ">=24.0.0"
     },
     "scripts": {
         "dev": "vitepress",
@@ -12,5 +12,8 @@
     "devDependencies": {
         "vitepress": "1.6.4",
         "vitepress-sidebar": "^1.33.1"
+    },
+    "workspaces": {
+        "packages": []
     }
 }
