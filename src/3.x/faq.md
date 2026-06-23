@@ -34,6 +34,7 @@ composer require sentry/sentry-laravel
 
 namespace Misc\Http\Foundation;
 
+use Exception;
 
 /**
  * poppy handler
