@@ -17,7 +17,7 @@ head:
 ---
 # 最佳实践
 
-::: info ℹ️<p>扩展阅读</p><ul><li><cite doc-id="SDd1wqWkYi4AThkPSe2cisWKnGg" file-type="wiki" title="Jetbrains 系 IDE 常用技巧" type="doc"></cite></li></ul>:::
+::: info ℹ️<p>扩展阅读</p><ul><li>[Jetbrains 系 IDE 常用技巧](/development/tools/ide-jetbrain-tips.md)</li></ul>:::
 
 ## 配置
 

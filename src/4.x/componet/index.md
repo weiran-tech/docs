@@ -17,12 +17,3 @@ head:
 ---
 # 组件
 
-- [⚠️ MgrApp](/4.x/componet/mgr-app.md)
-- <sub-page doc-id="XPLcduQvQoG6NGxGPRgcPnYFnec" file-type="docx" title="MgrPage - 后台管理"/>
-- <sub-page doc-id="PNgodXdLkoflj2xOO3tcGQUDnVh" file-type="docx" title="Category(分类管理)"/>
-- <sub-page doc-id="HF7ndmSZTomZnExzfTectUG3nwc" file-type="docx" title="Aliyun Oss"/>
-- [Aliyun 推送](/4.x/componet/aliyun-push.md)
-- <sub-page doc-id="Po6LdmwtOoopPrx9dxHckp5enAg" file-type="docx" title="Sms 扩展包"/>
-- <sub-page doc-id="WfWWddYwOoAZ3OxWu2TcqGxxnPh" file-type="docx" title="应用管理"/>
-- <sub-page doc-id="Ykv3djkSPo2TQMxqFM2cdygXn9c" file-type="docx" title="系统"/>
-- [核心](/4.x/componet/core.md)

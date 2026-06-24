@@ -17,11 +17,3 @@ head:
 ---
 # 模块
 
-- <sub-page doc-id="R6HAdxwrToFJN2xraNVcmq2onkf" file-type="docx" title="事件"/>
-- <sub-page doc-id="FZ4DdoqMuoroFUxsT1ZcFaf4nse" file-type="docx" title="说明"/>
-- <sub-page doc-id="Zu7sdb1kDo1dXFxhCOmcCD3rnLb" file-type="docx" title="权限和菜单"/>
-- <sub-page doc-id="RHGqdezVRoJkcixWRVJcLU6tnJg" file-type="docx" title="模型"/>
-- <sub-page doc-id="LL47dFCrBoDoFqxf9vdcEk0Bnac" file-type="docx" title="国际化"/>
-- <sub-page doc-id="EhMsdRgJxoG022x1WkCcWtpTnlc" file-type="docx" title="更新"/>
-- <sub-page doc-id="Pt8xdMLAto34g9x48bGccMBJnlm" file-type="docx" title="策略"/>
-- [服务和钩子](/4.x/module/hooks.md)

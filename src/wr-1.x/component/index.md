@@ -21,3 +21,4 @@ head:
 - [System / 系统](/wr-1.x/component/system.md)
 - [Sms / 短信](/wr-1.x/component/sms.md)
 - [MgrPage / 后台管理](/wr-1.x/component/mgr-page.md)
+- [Aliyun Oss / Aliyun 存储](/wr-1.x/component/aliyun-oss.md)

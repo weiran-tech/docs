@@ -19,3 +19,6 @@ head:
 
 - [Resp](/wr-1.x/framework/resp.md)
 - [框架配置](/wr-1.x/framework/config.md)
+- [框架 README](/wr-1.x/framework/readme.md)
+- [验证规则](/wr-1.x/framework/validation.md)
+- [说明](/wr-1.x/project/readme.md)

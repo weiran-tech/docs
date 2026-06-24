@@ -17,7 +17,3 @@ head:
 ---
 # 扩展
 
-- <sub-page doc-id="PS3YdaKnkoudeExSCNDcbTqSnpd" file-type="docx" title="webhook"/>
-- <sub-page doc-id="RgL8dOaVJojMD6xIADLcYlxknZg" file-type="docx" title="Ip Store"/>
-- [Phpstan](/4.x/extension/phpstan.md)
-- <sub-page doc-id="LDMhdm8ChoT1ypxopZNcNPRQnYg" file-type="docx" title="支付宝支付"/>

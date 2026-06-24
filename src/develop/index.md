@@ -17,7 +17,3 @@ head:
 ---
 # 开发
 
-- [更新日志](/develop/changelog.md)
-- [开发规范](/develop/spec.md)
-- [升级说明](/develop/upgrade.md)
-- [FAQ](/develop/faq.md)

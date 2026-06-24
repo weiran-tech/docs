@@ -19,3 +19,4 @@ head:
 
 - [webhook](/wr-1.x/extension/webhook.md)
 - [Ip Store](/wr-1.x/extension/ip-store.md)
+- [支付宝支付](/wr-1.x/extension/alipay.md)
