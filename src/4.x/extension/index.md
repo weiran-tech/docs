@@ -17,3 +17,7 @@ head:
 ---
 # 扩展
 
+- [webhook](/4.x/extension/webhook.md)
+- [Ip Store](/4.x/extension/ip-store.md)
+- [Phpstan](/4.x/extension/phpstan.md)
+- [支付宝支付](/4.x/extension/alipay.md)

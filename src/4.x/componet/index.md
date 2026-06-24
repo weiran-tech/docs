@@ -17,3 +17,12 @@ head:
 ---
 # 组件
 
+- [⚠️ MgrApp](/4.x/componet/mgr-app.md)
+- [MgrPage - 后台管理](/4.x/componet/mgr-page.md)
+- [Category(分类管理)](/4.x/componet/category.md)
+- [Aliyun Oss](/4.x/componet/aliyun-oss.md)
+- [Aliyun 推送](/4.x/componet/aliyun-push.md)
+- [Sms 扩展包](/4.x/componet/sms.md)
+- [应用管理](/4.x/componet/app.md)
+- [系统](/4.x/componet/system.md)
+- [核心](/4.x/componet/core.md)

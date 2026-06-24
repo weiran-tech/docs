@@ -17,3 +17,11 @@ head:
 ---
 # 模块
 
+- [事件](/4.x/module/event.md)
+- [说明](/4.x/module/readme.md)
+- [权限和菜单](/4.x/module/menu-permission.md)
+- [模型](/4.x/module/model.md)
+- [国际化](/4.x/module/i18n.md)
+- [更新](/4.x/module/progress.md)
+- [策略](/4.x/module/policy.md)
+- [服务和钩子](/4.x/module/hooks.md)
