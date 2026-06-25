@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-import sidebar from './nav';
 import { withSidebar } from "vitepress-sidebar";
 
 const nav = [
@@ -71,7 +70,6 @@ const vitePressConfig = {
     themeConfig: {
         logo: 'https://file.wulicode.com/static/images/logo.png',
         nav,
-        sidebar,
         outline: 'deep',
         search: {
             provider: 'algolia',
