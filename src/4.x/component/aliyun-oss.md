@@ -1,7 +1,7 @@
 ---
-description: '更新你的依赖包 composer update 或者全新安装 composer install。'
-lastUpdated: '2023-12-11 19:26:00'
-head: 
+description: '使用Composer安装poppy/aliyun-oss包，执行`composer require poppy/aliyun-oss`命令，然后通过`composer update`更新依赖或`composer install`全新安装。'
+lastUpdated: '2026-06-25 19:26:21'
+head:
   - - meta
     - name: 'og:title'
       content: 'Aliyun Oss'
@@ -10,20 +10,17 @@ head:
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '更新你的依赖包 composer update 或者全新安装 composer install。'
+      content: '使用Composer安装poppy/aliyun-oss包，执行`composer require poppy/aliyun-oss`命令，然后通过`composer update`更新依赖或`composer install`全新安装。'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech/4.x/component/aliyun-oss.html'
 ---
 # Aliyun Oss
 
-
-
 ## 安装
 
-```
+```Plaintext
 composer require poppy/aliyun-oss
 ```
 
-更新你的依赖包  `composer update`  或者全新安装  `composer install` 。
-
+更新你的依赖包 `composer update` 或者全新安装 `composer install`。

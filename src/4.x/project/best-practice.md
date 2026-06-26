@@ -1,6 +1,6 @@
 ---
 description: '该最佳实践涵盖代码审查、查询优化、请求校验、规范编写、测试用例、Composer配置、安全策略、数据映射及IDE项目配置等关键环节，确保代码质量与安全性。'
-lastUpdated: '2026-06-22 17:24:27'
+lastUpdated: '2026-06-26 14:47:15'
 head:
   - - meta
     - name: 'og:title'
@@ -13,11 +13,13 @@ head:
       content: '该最佳实践涵盖代码审查、查询优化、请求校验、规范编写、测试用例、Composer配置、安全策略、数据映射及IDE项目配置等关键环节，确保代码质量与安全性。'
   - - meta
     - name: 'og:url'
-      content: 'https://weiran.tech//4.x/project/best-practice.html'
+      content: 'https://weiran.tech/4.x/project/best-practice.html'
 ---
 # 最佳实践
 
-::: info ℹ️<p>扩展阅读</p><ul><li>[Jetbrains 系 IDE 常用技巧](/development/tools/ide-jetbrain-tips.md)</li></ul>:::
+::: info ℹ️
+<p>扩展阅读</p><ul><li>[Jetbrains 系 IDE 常用技巧]([object Object].md)</li></ul>
+:::
 
 ## 配置
 
@@ -38,7 +40,7 @@ $ php artisan py-core:inspect > inspect.txt
 - [必须] 完成 seo 校验
 - [必须] 完成 validation 校验
 - [必须] 完成 class 加载校验
-- [建议] 完成代码注释 :::
+- [建议] 完成代码注释
 
 ## 代码
 
@@ -55,7 +57,7 @@ $ php artisan py-core:inspect > inspect.txt
 参考 :
 
 - [Laravel 表单验证](https://learnku.com/docs/laravel/6.x/validation/5144)
-- [(内部)PamRoleRequest](https://codeup.aliyun.com/qyd/poppy/wulicode/blob/4.2/poppy/system/src/Http/Validation/PamRoleRequest.php)
+- [(内部)PamRoleRequest](https://codeup.aliyun.com/qyd/central/poppy/wulicode/blob/4.2/poppy/system/src/Http/Validation/PamRoleRequest.php)
 
 ### 代码编写符合规范
 
@@ -67,7 +69,7 @@ $ php artisan py-core:inspect > inspect.txt
 
 项目根 `composer.json` 中加入安全建议
 
-```Plaintext
+```JSON
 {
     "require-dev": {
         "roave/security-advisories": "dev-latest"
