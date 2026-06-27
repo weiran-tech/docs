@@ -81,7 +81,7 @@ const vitePressConfig = {
         },
         // Placeholder of the i18n config for @vuejs-translations.
         i18n,
-
+        socialLinks: [{ icon: "github", link: "https://github.com/weiran/docs" }],
         footer: {
             copyright: `Copyright © 2015-${new Date().getFullYear()} duoli <a href="https://beian.miit.gov.cn/" target="_blank">鲁ICP备13016276号-9</a>`
         }
