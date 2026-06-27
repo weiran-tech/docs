@@ -18,7 +18,7 @@ head:
     - name: 'og:image'
       content: 'https://file.wulicode.com/feishu-images/ebb911467b89f0668906b6e0e5f7ac0b.png'
 ---
-<title>⚠️ MgrApp</title>
+# ⚠️ MgrApp
 
 ::: warning ⚠️
 
