@@ -1,6 +1,6 @@
 ---
 description: '该文档介绍了前端框架的安装、开发与集成流程，涵盖数据管理、路径配置及多种组件（如Action、Dashboard、Form、Table、Cascader等）的使用。详细说明了表单创建方式、表格列编辑与自定义展示、模型操作（如get、edit、getPrimaryKey），以及Scope、PanelForm、Motion等高级功能，旨在帮助开发者快速搭建功能完善的前端应用。'
-lastUpdated: '2026-06-25 19:26:10'
+lastUpdated: '2026-06-27 12:38:02'
 head:
   - - meta
     - name: 'og:title'
@@ -28,11 +28,11 @@ head:
 
 :::
 
-## 安装
+# 安装
 
 后端需要添加包 `poppy/mgr-app` 当前版本是开发版, 版本是 `4.0.x-dev`, 因为授权返回的地址是有此包支持, 所以需要添加此扩展包
 
-### 前端访问
+## 前端访问
 
 mgr-app 文件内置在 mgr-page 包的 resources 目录下, 当前是属于开发过程中, 包放置在 [GitHub Release](https://github.com/imvkmark/poppy-dev-mgr-app/releases)
 
@@ -72,7 +72,7 @@ server {
 
 如果需要自定义目录, 从源码编译并自行配置包目录即可
 
-### 开发
+## 开发
 
 数据准备
 
@@ -88,7 +88,7 @@ $ php artisan poppy:seed module.demo --class='\Demo\Database\Seeds\DemoUserDatab
 $ php artisan poppy:migrate:rollback
 ```
 
-### 路径配置
+## 路径配置
 
 路径是生成前端所用导航的入口文件, 告诉前端如何加载数据, 渲染页面, 文件位于 `modules/{module}/configurations/path.yaml`
 
