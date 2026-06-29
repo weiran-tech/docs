@@ -1,304 +1,185 @@
 ---
-description: '该文档介绍了一个模块化开发框架的命令行工具，包括模块的创建、启用/禁用、优化，以及代码生成器（控制器、模型、中间件、策略等），还涵盖数据库管理、Seeder、Factory、事件监听与Helps解析器等核心功能。'
-lastUpdated: '2026-06-22 13:48:42'
+description: '本文档说明模块开发流程，包括文件树结构、服务注册、验证、设置、模块约定及缓存处理，旨在规范功能实现与代码组织。'
+lastUpdated: '2026-06-22 14:08:42'
 head:
   - - meta
     - name: 'og:title'
-      content: 'README'
+      content: '说明'
   - - meta
     - name: 'og:type'
       content: 'article'
   - - meta
     - name: 'og:description'
-      content: '该文档介绍了一个模块化开发框架的命令行工具，包括模块的创建、启用/禁用、优化，以及代码生成器（控制器、模型、中间件、策略等），还涵盖数据库管理、Seeder、Factory、事件监听与Helps解析器等核心功能。'
+      content: '本文档说明模块开发流程，包括文件树结构、服务注册、验证、设置、模块约定及缓存处理，旨在规范功能实现与代码组织。'
   - - meta
     - name: 'og:url'
       content: 'https://weiran.tech//3.x/readme.html'
 ---
-# README
+# 说明
 
-项目分为两个部分, 一部分为模块, 另一部分是 Poppy 模块, 为了区分, 所以 slug 的命名分为 `module.{module}` `poppy.{poppy}`
-
-## Bin
-
-[v3.1] Poppy Framework 附带一个 bin 命令 poppy, 可以执行 poppy 框架的清理函数, 运行方法
+## 功能开发流程
 
 ```Plaintext
-# 清理 packages.json , 删除 poppy.json
-$ ./vendor/bin/poppy clear
+明白需求 --> 拆分功能点 (整理逻辑) --> 写代码 --> 完成功能
 ```
 
-## 命令行/Console
-
-### 创建模块
-
-创建一个 Poppy 模块并启动它.
+## 模块文件树
 
 ```Plaintext
-$ php artisan poppy:make {slug} [-Q|--quick]
+├── configurations       # 配置文件
+│   ├── permissions.yaml
+├── docs                 # 技术文档
+├── resources            # 资源文件
+│   ├── config           # 发布的配置文件
+│   ├── lang             # 多语言支持包的位置
+│   │   └── zh
+│   ├── mixes            # mixs : 混杂的文件
+│   │   └── poppy        # poppy 核心包 (普通页面布局)
+│   │       └── backend
+│   ├── scss             # sass 预处理文件 (普通页面布局需要)
+│   │   ├── backend
+│   │   ├── basic
+│   │   └── develop
+│   └── views            # 视图文件
+│       ├── backend      # 视图 - 后台
+│       ├── develop      # 视图 - 开发者平台
+│       ├── email        # 视图 - email
+│       └── tpl          # 视图 - 核心模板
+├── src
+│   ├── action           # action
+│   ├── backend          # 后端模块管理
+│   ├── classes          # 基础类
+│   │   ├── auth         # 权限
+│   │   │   ├── guard    # 权限 - guard
+│   │   │   └── provider # 权限 - provider
+│   │   ├── payment      # 支付
+│   │   └── traits       # traits
+│   ├── commands         # 命令
+│   ├── database         # 数据库
+│   │   ├── factories    # 数据库 - 工厂
+│   │   ├── migrations   # 数据库 - migrations
+│   │   └── seeds        # 数据库 - 种子
+│   ├── events           # 事件, 事件使用 Event 后缀
+│   ├── extension        # 扩展包管理(开发用, 以后可能会废弃掉)
+│   ├── http             # 路由和中间件
+│   │   ├── middleware
+│   │   └── routes
+│   ├── listeners        # 事件 - 监听器
+│   ├── mail             # 邮件
+│   ├── models           # 模型
+│   │   ├── filters      # 模型 - 过滤器
+│   │   ├── policies     # 模型 - 策略
+│   │   └── resources    # 模型 - 资源
+│   ├── module           # 模块
+│   │   ├── listeners
+│   │   └── repositories
+│   ├── notifications    # 通知
+│   ├── permission       # 权限
+│   │   ├── commands
+│   │   ├── exceptions
+│   │   ├── middlewares
+│   │   └── repositories
+│   ├── rbac             # rbac 角色包
+│   │   ├── contracts
+│   │   ├── facades
+│   │   ├── helper
+│   │   ├── middleware
+│   │   └── traits
+│   ├── request          # 控制器
+│   │   ├── api_v1       # 控制器 - Api
+│   │   │   ├── backend
+│   │   │   ├── pam
+│   │   │   └── util
+│   │   ├── backend      # 后端页面
+│   │   ├── develop      # 开发平台
+│   │   └── system       # 后台系统入口
+│   └── setting          # 系统设置
+└── tests                # 单元测试
 ```
 
-模块文件树:
+## 注册服务
 
 ```Plaintext
-├── configurations        # 配置文件
-├── docs                  # 文档
-├── resources
-│   ├── lang              # 语言文件
-│   │   └── zh            # 语言文件夹
-│   └── views             # blade 模板
-└── src
-    ├── action
-    ├── classes
-    ├── database
-    │   ├── factories
-    │   ├── migrations
-    │   └── seeds
-    ├── events
-    ├── http
-    │   ├── request
-    │   │   ├── api
-    │   │   ├── api_mgr_app    # 4.0 MgrApp 接口文件放置位置
-    │   │   ├── backend
-    │   │   └── web
-    │   └── routes
-    ├── jobs
-    ├── listeners
-    ├── models
-    └── testing
-```
+<?php namespace Poppy\System;
 
-### 列出 Modules
+/**
+ * 定义模块名称
+ * 模块可以使用 module.{module} , 也可以直接是 {module}
+ */
+protected $name = 'poppy.system';
 
-列出所有的应用模块
+// 注册事件监听器
+protected $listens = [
+    \Illuminate\Auth\Events\Failed::class               => [
+        Listeners\AuthFailed\LogListener::class,
+    ],
+];
 
-```Plaintext
-$ php artisan poppy:list
+// 注册策略
+protected $policies = [
+    PamRole::class    => PamRolePolicy::class,
+    PamAccount::class => PamAccountPolicy::class,
+];
 
-+------+------------+-------------------+----------------------------------------------------+---------+
-| #    | Name       | Slug              | Description                                        | Status  |
-+------+------------+-------------------+----------------------------------------------------+---------+
-| 1000 | 核心       | poppy.core        | Poppy Core.                                        | Enabled |
-| 9001 | site       | module.site       | This is the description for the poppy site module. | Enabled |
-+------+------------+-------------------+----------------------------------------------------+---------+
-```
-
-### 启用/禁用模块
-
-```Plaintext
-# 启用模块
-$ php artisan poppy:enable {slug}
-
-# 禁用模块
-$ php artisan poppy:disable {slug}
-```
-
-### 优化模块
-
-模块优化, 清空生成的缓存等操作
-
-```Plaintext
-$ php artisan poppy:optimize
-```
-
-### Poppy 数据库管理
-
-```Plaintext
-poppy:migrate {slug}          执行模块的数据库迁移文件
-poppy:migrate:refresh {slug}  重新执行模块数据库迁移文件
-poppy:migrate:reset {slug}    回滚所有执行的数据库迁移
-poppy:migrate:rollback {slug} 回滚执行完的上一个数据库迁移
-poppy:migration {slug}        创建一个指定模块的数据库迁移文件
-```
-
-## Poppy 生成器
-
-生成器工具
-
-```Bash
-# 生成命令文件
-$ php artisan poppy:command {slug} {name}        
-
-# 生成控制器文件   
-php artisan poppy:controller {slug} {api/web/backend} {name}
-
-# 生成中间件文件
-php artisan poppy:middleware {slug} {name} 
-
-# 生成数据库模型文件       
-php artisan poppy:model {slug} {name}
-
-# 生成 policy 策略文件            
-php artisan poppy:policy {slug} {name}     
-
-# 生成服务提供者       
-php artisan poppy:provider {slug} {name}  
-
-# 生成 request 文件        
-php artisan poppy:request {slug} {name} 
-
-# 生成测试文件         
-php artisan poppy:test {slug} {name}
-
-# 生成模块              
-php artisan poppy:make {slug}    
-
-# 事件监听器(详细见下方)                 
-php artisan poppy:listener {slug} {name}   
-  
-# 生成事件文件     
-php artisan poppy:event {slug} {name}             
-```
-
-### 生成模块监听类文件
-
-```Plaintext
-php artisan poppy:listener {slug} {name}
---event {event}: 事件名称, 使用 `\` 表明是全局的事件, 否则的话以为这是当前模块的事件
-```
-
-### 生成模块事件类文件
-
-```Plaintext
-php artisan poppy:event {slug} {name}
-```
-
-### 数据库 Seeder 和 Seed 命令
-
-```Plaintext
-# 生成种子文件
-$ php artisan poppy:seeder {slug} {name}
-
-# 执行模块下种子主文件或者传递参数执行指定种子文件
-$ php artisan poppy:seed {slug}
-```
-
-**创建 seeder 文件**
-
-```Bash
-# 生成模块的主 seeder 文件
-$ php artisan poppy:seeder module.demo DemoDatabaseSeeder
-
-# 生成模块的子 seeder 文件
-$ php artisan poppy:seeder module.demo DemoDbDatabaseSeeder
-```
-
-注册 Seeder 以及生成 数据
-
-```PHP
-# DemoDatabaseSeeder
-
-public function run()
+/**
+ * 启动
+ */
+public function boot()
 {
-    $this->call([
-        DemoDbDatabaseSeeder::class,
+    parent::boot($this->name);
+
+    // 注册 api 文档配置
+    $this->publishes([
+        __DIR__ . '/../resources/config/sami.php'   => storage_path('sami/config.php'),
+        __DIR__ . '/../resources/config/module.php' => base_path('config/module.php'),
+    ], 'poppy-module');
+
+    $path = poppy_path($this->name);
+
+    // 配置文件
+    $this->mergeConfigFrom($path . '/resources/config/module.php', 'module');
+
+    $this->bootConfigMail();
+}
+
+// 注册服务
+public function register()
+{
+    $this->app->register(Http\MiddlewareServiceProvider::class);
+    // ...
+    $this->app->register(Permission\PermissionServiceProvider::class);
+
+    $this->registerConsole();
+
+    $this->registerSchedule();
+}
+
+// 计划任务
+private function registerSchedule()
+{
+    app('events')->listen('console.schedule', function (Schedule $schedule) {
+        $schedule->command('py-system:user', ['auto_enable'])
+            ->everyFiveMinutes()->appendOutputTo($this->consoleLog());
+    });
+}
+
+// 注册命令
+private function registerConsole()
+{
+    $this->commands([
+        Commands\UserCommand::class,
+        ...
+        Permission\Commands\PermissionCommand::class,
     ]);
 }
 
-# DemoDbDatabaseSeeder
-
-public function run()
+// config 覆盖
+private function bootConfigMail()
 {
-    $faker = py_faker();
-    for ($start = 0; $start < 50; $start++) {
-        $item = [
-            'tiny_integer' => $faker->numberBetween(0, 100),
-            'u_integer'    => $faker->numberBetween(100, 500),
-            'var_char_20'  => $faker->words(8, true),
-            'char_20'      => $faker->words(10, true),
-            'text'         => $faker->sentence(30),
-            'decimal'      => $faker->numberBetween(100, 6),
-        ];
-        DemoDb::create($item);
-    }
+    config([
+        'mail.driver'       => sys_setting('system::mail.driver') ?: config('mail.driver'),
+    ]);
 }
-```
-
-执行 seed
-
-```Plaintext
-$ php artisan poppy:seed module.demo
-Seeding: Demo\Database\Seeds\DemoDbDatabaseSeeder
-Database seeding completed successfully.
-```
-
-### 数据库 Factory 生成
-
-```Plaintext
-$ php artisan poppy:factory {slug} {name}
-```
-
-```Plaintext
-# 指定当前模块下的模型
-$ php artisan poppy:factory module.demo DemoDbFactory --model="DemoDb"
-
-# 指定已存在的模型
-$ php artisan poppy:factory module.demo DemoDbFactory --model="\Demo\Models\DemoDb"
-
-# 未指定模型
-$ php artisan poppy:factory module.demo DemoDbFactory
-```
-
-生成的模型如下
-
-```PHP
-<?php
-
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
-
-use Demo\Models\DemoDb;
-use Faker\Generator as Faker;
-
-$factory->define(DemoDb::class, function (Faker $faker) {
-    return [
-        //
-    ];
-});
-```
-
-## 事件
-
-```Plaintext
-// Module Maked
-Events\PoppyMake($slug)
-
-// 模块启用
-Events\PoppyEnabled
-
-// 模块禁用
-Events\PoppyDisabled
-
-// 模块优化
-Events\PoppyOptimized
-```
-
-## Helpers
-
-```Plaintext
-ArrayHelper
-EnvHelper
-FileHelper
-HtmlHelper
-ImgHelper
-CookieHelper
-RouterHelper
-SearchHelper
-StrHelper
-TimeHelper
-TreeHelper
-UtilHelper
-```
-
-## 解析器
-
-支持 Xml,Ini,Yaml
-
-## Blade 语法
-
-```Plaintext
-@poppy
-// You Can check if module is exist and enabled.
-@endpoppy
 ```
 
 ## 验证
@@ -311,34 +192,26 @@ UtilHelper
 3.FrameworkServiceProvider.php 验证正则规则
 ```
 
-## 代码约定
+## 设置
 
-开发进行提交前按照这个清单进行下检测
+设置使用 Form Setting 来进行设置, 详细见 Form 部分
 
-**PHP-CS-Fixer**
+## 模块约定
 
-[PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) is a tool to automatically fix PHP Coding Standards issues, We use it for Code Specification.
+## 缓存
 
-**测试用例完善并且通过**
+**缓存 Key 命名**
 
-**注释完善并且通过**
+缓存 Key 放置在模型/Action 的常量中, 命名规范是
 
-注释使用 `poppy/core` 模块来检测[开发必备]
+`CK_{Key}`
 
-```Plaintext
-$ php artisan py-core:inspect class
-```
+Key : 命名的标识
 
-**代码清理过**
+**缓存命中命名**
 
-这个指的是 IDE 进行优化导入, 选中文件夹, 然后批量进行格式化 + 优化导入
+缓存命中包含 Atomic / Funnel 这种, 缓存命中放置在 `Redis(0)` 仓库中, 命名规范为
 
-## 参考 & Docs
+`prefix:redis:{function tag}:{key}`
 
-- [Yaml](http://nodeca.github.io/js-yaml/)
-- [EloquentFilter](https://github.com/Tucker-Eric/EloquentFilter)
-- [Sami](https://github.com/FriendsOfPHP/Sami)
-- [Carbon - 时间组件](https://segmentfault.com/a/1190000014239090)
-- [Laravel Html & Form - Html/Form 封装](https://segmentfault.com/a/1190000011580448)
-- [hieu-le/active-Url 状态组件](https://laravel-china.org/topics/2858/extended-recommendation-hieu-leactive-according-to-the-url-generated-corresponding-navigation-active-state)
-- [hashids/hashids - 对 ID 进行 Hash 加密](https://github.com/vinkla/laravel-hashids)
+function tag : 功能标签, 用来进行文件夹区分 key : 唯一标识符
