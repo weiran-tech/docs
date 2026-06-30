@@ -1,6 +1,6 @@
 ---
 description: '该最佳实践涵盖代码审查、查询优化、请求校验、规范编写、测试用例、Composer配置、安全策略、数据映射及IDE项目配置等关键环节，确保代码质量与安全性。'
-lastUpdated: '2026-06-26 14:47:15'
+lastUpdated: '2026-06-30 11:04:26'
 head:
   - - meta
     - name: 'og:title'
@@ -18,7 +18,7 @@ head:
 # 最佳实践
 
 ::: info ℹ️
-<p>扩展阅读</p><ul><li>[Jetbrains 系 IDE 常用技巧]([object Object].md)</li></ul>
+<p>扩展阅读</p><ul><li>[Jetbrains 系 IDE 常用技巧](https://www.wulicode.com/development/tools/ide-jetbrain-tips.html)</li></ul>
 :::
 
 ## 配置
@@ -103,9 +103,9 @@ $ php artisan py-core:inspect > inspect.txt
 ];
 ```
 
-更新并清空换粗
+更新并清空缓存
 
-```Plaintext
+```Shell
 composer dumpautoload && php artisan poppy:optimize
 ```
 
